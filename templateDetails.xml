@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" client="site" method="upgrade">
+	<name>wbc_blanco_j4</name>
+	<version>1.0</version>
+	<creationDate>November 2021</creationDate>
+	<author>Viviana Menzel / Claudia Oerter</author>
+	<authorEmail>info@das-webconcept.de</authorEmail>
+	<copyright>(C) 2021 das webconcept GbR</copyright>
+  
+	<description><![CDATA[ 
+		<h1>Blanco Template Joomla 4</h1>
+		<p><img src="../templates/wbc_blanco_j4/template_preview.png" /></p>
+		<p>Stand: November / 2021 </p>
+		<h2>Module Positionen:</h2>
+		<ol>
+		<li>logo                 -- Logo</li>
+		<li>logo-mobil           -- Logo Mobil </li>
+		<li>header-top-01-1      -- Header 1. Position oberer Rand</li>
+		<li>header-top-01-2      -- Header 2. Position oberer Rand</li>
+		<li>top-01               -- 1. Position oben</li>
+		<li>top-02               -- 2. Position oben</li>
+		<li>breadcrumb           -- Navigationspfad</li>
+		<li>bg-01                -- Hintergrundbild</li>
+		<li>NavLeft              -- linke Spalte Unternavigation </li>
+		<li>left-01              -- linke Spalte 1.Position </li>
+		<li>right-01             -- rechte Spalte 2.Position</li>
+		<li>left-01              -- linke Spalte 1.Position </li>
+		<li>right-02             -- rechte Spalte 2.Position</li>
+		<li>footer-top           -- Fusszeile 1.Zeile 100% breite</li>
+		<li>footer-01            -- Fusszeile 1.Spalte</li>
+		<li>footer-02            -- Fusszeile 2. Spalte</li>
+		<li>footer-03            -- Fusszeile 3. Spalte</li>
+		<li>footer-bottom        -- Fusszeile unterer Rand 100% breite</li>	
+		<li>navMain              -- Hauptnavigation</li>
+		<li>headerimg            -- Headerbild</li>
+		<li>headerimg-overlay    -- Box absolut positioniert über dem Headerbild</li>
+		<li>vorInhalt-01-col     -- Vor Joomla Content</li>
+		<li>nachInhalt-01        -- nach Joomla Content</li>
+		<li>nachInhalt-02        -- nach Joomla Content ubterhalb Sidebars</li>
+		<li>onepagetop           -- Onepage Position vor Joomla Content</li>
+		<li>onepagebottom        -- Onepage Position nach Joomla Content</li>
+		<li>onepagetoggle        -- Onepage Position am Ende der Seite  zum ein und ausklappen</li>
+		<li>vorInhalt-01-col     -- Module mehrspaltig vor Contentbereich</li>
+		<li>nachInhalt-01-col    -- Module mehrspaltig nach Contentbereich</li>
+		<li>offcanvas            -- Offcanvas Mobil Menü</li>
+		<li>offcanvas-navbar.    -- rechts in der Offcanvas Navbar</li>
+		<li>sidebar-left-fix     -- Module links fixiert </li>
+		<li>sidebar-right-fix    -- Module rechts fixiert </li>
+		<li>debug</li>
+		<li>fixed-footer-mobil   -- unten fixiert phone</li>
+		</ol>
+		<p>Basis Template Joomla 3 created by:  <a href="http://www.das-webconcept.de" target="_blank">Claudia Oerter| www.das-webconcept.de </a></p>
+		<p> Stand Januar 2021</p>
+	]]></description><!-- change the description as you like -->
+	<updateservers>
+		<server type="extension" name="webconcept Template Joomla4"></server>
+	</updateservers>
+	<files>
+		<filename>component.php</filename>
+		<filename>favicon.ico</filename>
+		<filename>error.php</filename>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<filename>browserconfig.xml</filename>
+		<filename>templatepositionen.png</filename>
+		<folder>css</folder>
+		<folder>fonts</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<folder>includes</folder>
+		<folder>js</folder>
+		<folder>libraries</folder>
+		<folder>scss</folder>
+	</files>
+	
+	<languages folder="language">                                
+		<language tag="de-DE">de-DE/de-DE.tpl_wbc_blanco_j4.ini</language>
+		<language tag="de-DE">de-DE/de-DE.tpl_wbc_blanco_j4.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_wbc_blanco_j4.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_wbc_blanco_j4.sys.ini</language>
+	</languages>
+
+	
+	<positions>
+        <position>header-top-01-1</position>
+        <position>header-top-01-2</position>
+        <position>header-top-02</position>
+        <position>top-01</position>
+        <position>top-02</position>
+        <position>logo</position>
+        <position>logo-mobil</position>
+        <position>left-01</position>
+        <position>right-01</position>
+		<position>left-02</position>
+        <position>right-02</position>
+        <position>footer-top</position>
+		<position>footer</position>
+		<position>footer-bottom</position>
+        <position>navMain</position>
+        <position>breadcrumb</position>
+        <position>headerimg</position>
+		<position>headerimg-overlay</position>
+	    <position>bg-01</position>
+        <position>vorInhalt-01</position>
+        <position>nachInhalt-02</position>
+	    <position>vorInhalt-01-col</position>
+	    <position>nachInhalt-01-col</position>
+		<position>onepagetop</position>
+		<position>onepagebottom</position>
+		<position>onepagetoggle</position>
+		<position>nav-sidebar-right</position>
+		<position>offcanvas</position>
+		<position>offcanvas-navbar</position>
+		<position>sidebar-left-fix</position>
+		<position>sidebar-right-fix</position>
+		<position>sidebar-left-toggle</position>
+		<position>sidebar-right-toggle</position>
+		<position>suche</position>
+		<position>debug</position>
+		<position>fixed-footer-mobil</position>
+	</positions>
+	
+ <config> 
+ 	<fields name="params">	
+   	    <fieldset name="advanced">
+
+			<!-- Bootstrap Version -->
+			<field name="bootstrapselect"
+			    type="radio"
+				class="btn-group"
+				default="4"
+				label="TPL_WBC_BLANCO_J4_BOOTSTRAP_SELECT_LABEL"
+				description="TPL_WBC_BLANCO_J4_BOOTSTRAP_SELECT_DESC">
+				<option value="0">Joomla Default</option>
+				<option value="4">Bootstrap 4</option>
+			</field>
+			
+			<!-- Bootstrap JS einbinden -->
+			<field name="bootstrapjs"
+			    type="radio"
+				class="btn-group"
+				default="1"
+				label="TPL_WBC_BLANCO_J4_BOOTSTRAPJS_SELECT_LABEL"
+				description="TPL_WBC_BLANCO_J4_BOOTSTRAPJS_SELECT_DESC">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+
+			<!-- Flexicontent eingebunden -->
+	        <field name="flexicontent"
+				 type="radio"
+				 class="btn-group"
+				 default="0" 
+				 label="TPL_WBC_BLANCO_J4_FIELD_FLEXICONTENT_LABEL" 
+				 description="TPL_WBC_BLANCO_J4_FIELD_FLEXICONTENT_DESC">
+				 
+				 <option value="1">JYES</option>
+				 <option value="0">JNO</option>
+	        </field>
+			
+			<!-- Hochkontrast Style umschalter -->
+	        <field name="styleswitch"
+				 type="radio"
+				 class="btn-group"
+				 default="0" 
+				 label="TPL_WBC_BLANCO_J4_FIELD_STYLESWITCH_LABEL" 
+				 description="">
+				 
+				 <option value="1">JYES</option>
+				 <option value="0">JNO</option>
+	        </field>
+
+			<field  name="styleswitch-position"
+					type="list"
+					default="1"
+					label="TPL_WBC_BLANCO_J4_PARAMETER_POSITION_STYLESWITCH_LABEL"
+					description="TPL_WBC_BLANCO_J4_PARAMETER_POSITION_STYLESWITCH_DESC"
+					>
+				<option value="1">TPL_WBC_BLANCO_J4_POS_ONE</option>
+				<option value="2">TPL_WBC_BLANCO_J4_POS_TWO</option>
+				<option value="3">TPL_WBC_BLANCO_J4_POS_TREE</option>
+				<option value="4">TPL_WBC_BLANCO_J4_POS_FOUR</option>
+				
+			</field>
+
+			<field name="iconfixedleft" type="text" default="fa fa-bars" tooltip="Add fontawesome icon classes or image urls." />
+
+			<field  name="toggleleft"
+                    type="radio"
+                    class="btn-group"
+                    default="0"
+                    label="TPL_WBC_BLANCO_J4_PARAMETER_TOGGLELEFT_LABEL"
+                    description="TPL_WBC_BLANCO_J4_PARAMETER_TOGGLELEFT_DESC"
+                    >
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+			<field name="iconfixedright" type="text" default="fa fa-bars" tooltip="Add fontawesome icon classes or image urls." />
+			<field  name="toggleright"
+                    type="radio"
+                    class="btn-group"
+                    default="0"
+                    label="TPL_WBC_BLANCO_J4_PARAMETER_TOGGLERIGHT_LABEL"
+                    description="TPL_WBC_BLANCO_J4_PARAMETER_TOGGLERIGHT_DESC"
+                    >
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+
+			<!--  Fehlerseite 404  -->
+			<field name="errorsite" type="menuitem" default="45" label="TPL_WBC_BLANCO_J4_FIELD_ERROR_SITE_LABEL" description="TPL_WBC_BLANCO_J4_ERROR_SITE_DESC" />
+
+			<!--  suchen Seite  -->
+			<field name="searchsite" 
+				type="menuitem" 
+				default="" 
+				label="TPL_WBC_BLANCO_J4_FIELD_SEARCH_SITE_LABEL" 
+				description="TPL_WBC_BLANCO_J4_SEARCH_SITE_DESC" />
+
+						
+			<!-- FONT-AWESOME -->
+			<field  name="fontawesome"
+					type="radio"
+					class="btn-group"
+					default="5"
+					label="TPL_WBC_BLANCO_J4_PARAMETER_FONTAWESOME_LABEL"
+					description="TPL_WBC_BLANCO_J4_PARAMETER_FONTAWESOME_DESC"
+					>
+				<option value="0">JNO</option>
+				<option value="5">TPL_WBC_BLANCO_J4_FONTAWESOME5</option>
+			</field>
+
+		  
+
+			<!-- Holder.js-->
+            <field  name="holder"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="TPL_WBC_BLANCO_J4_FIELD_HOLDER_LABEL"
+                        description="TPL_WBC_BLANCO_J4_FIELD_HOLDER_DESC"
+                        >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+             </field>
+			
+			
+			<!-- funktionen.js-->
+            <field  name="funktionen"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="TPL_WBC_BLANCO_J4_FIELD_FUNKTIONEN_LABEL"
+                        description="TPL_WBC_BLANCO_J4_FIELD_FUNKTIONEN_DESC"
+                        >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+             </field>
+
+		   <!-- custom css -->
+		    <field name="customcss"
+			     type="text" 
+				 default="" 
+				 label="TPL_WBC_BLANCO_J4_FIELD_CUSTOMCSS_LABEL" 
+				 description="TPL_WBC_BLANCO_J4_FIELD_CUSTOMCSS_DESC" 
+				 size="30" />	
+
+			
+		</fieldset>
+		
+		<fieldset name="colors">
+			 <field name="notedefault" type="note" label="TPL_WBC_BLANCO_J4_DEFAULT_COLORS"  />
+			 <field name="defaultfontsize" type="text" default="1.2rem"
+						label="TPL_WBC_BLANCO_J4_DEFAULT_FONTSIZE_LABEL"
+						description="TPL_WBC_BLANCO_J4_DEFAULT_FONTSIZE_DESC" />
+						
+			 <field name="backgroundcolor" type="color" default=""
+						label="TPL_WBC_BLANCO_J4_BACKGROUND_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_BACKGROUND_COLOR_DESC" />		
+
+ 			 <field name="backgroundcolormain" type="color" default=""
+						label="TPL_WBC_BLANCO_J4_BACKGROUND_MAIN_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_BACKGROUND_MAIN_COLOR_DESC" />		
+				
+			 <field name="defaultcolor" type="color" default=""
+						label="TPL_WBC_BLANCO_J4_DEFAULT_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_DEFAULT_COLOR_DESC" />		
+		
+			 <field name="linkcolor" type="color" default=""
+						label="TPL_WBC_BLANCO_J4_LINKS_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_LINKS_COLOR_DESC" />		
+
+			 <field name="linkHovercolor" type="color" default=""
+						label="TPL_WBC_BLANCO_J4_LINKSHOVER_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_LINKSHOVER_COLOR_DESC" />		
+
+			 <field name="h1_color" type="color" default="#336600"
+						label="TPL_WBC_BLANCO_J4_H1_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_H1_COLOR_DESC" />		
+
+			 <field name="h2_color" type="color" default="#333"
+						label="TPL_WBC_BLANCO_J4_H2_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_H2_COLOR_DESC" />		
+
+			 <field name="h3_color" type="color" default="#333"
+						label="TPL_WBC_BLANCO_J4_H3_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_H3_COLOR_DESC" />
+
+			 <field name="h4_color" type="color" default="#333"
+						label="TPL_WBC_BLANCO_J4_H4_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_H4_COLOR_DESC" />
+
+			 <field name="h1_size" type="text" default="1.8rem"
+						label="TPL_WBC_BLANCO_J4_H1_SIZE_LABEL"
+						description="TPL_WBC_BLANCO_J4_H1_SIZE_DESC" />		
+
+			 <field name="h2_size" type="text" default="1.6rem"
+						label="TPL_WBC_BLANCO_J4_H2_SIZE_LABEL"
+						description="TPL_WBC_BLANCO_J4_H2_SIZE_DESC" />		
+
+			 <field name="h3_size" type="text" default="1.4rem"
+						label="TPL_WBC_BLANCO_J4_H3_SIZE_LABEL"
+						description="TPL_WBC_BLANCO_J4_H3_SIZE_DESC" />
+
+			 <field name="h4_size" type="text" default="1rem"
+						label="TPL_WBC_BLANCO_J4_H4_SIZE_LABEL"
+						description="TPL_WBC_BLANCO_J4_H4_SIZE_DESC" />	
+
+			 <field name="notebuttons" type="note" label="TPL_WBC_BLANCO_J4_BUTTON_COLORS"  />
+			
+			 <field name="Linkcolorbtn" type="color" default="#FFF"
+				label="TPL_WBC_BLANCO_J4_LINK_BTN_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_LINK_BTN_COLOR_DESC" />	
+			 
+			 <field name="Linkbgcolorbtn" type="color" default="#777E8E"
+				label="TPL_WBC_BLANCO_J4_LINK_BTN_BGCOLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_LINK_BTN_BGCOLOR_DESC" />	
+			 		
+			 
+			 <field name="Hovercolorbtn" type="color" default="#FFF"
+				label="TPL_WBC_BLANCO_J4_HOVER_BTN_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_HOVER_BTN_COLOR_DESC" />
+
+			 <field name="Hoverbgcolorbtn" type="color" default="#393E4B"
+				label="TPL_WBC_BLANCO_J4_HOVER_BTN_BGCOLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_HOVER_BTN_BGCOLOR_DESC" />	
+			 
+			 <field name="Activecolorbtn" type="color" default="#FFF"
+				label="TPL_WBC_BLANCO_J4_ACTIVE_BTN_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_ACTIVE_BTN_COLOR_DESC" />
+
+			 <field name="Activebgcolorbtn" type="color" default="#777E8E"
+				label="TPL_WBC_BLANCO_J4_ACTIVE_BTN_BGCOLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_ACTIVE_BTN_BGCOLOR_DESC" />
+
+
+			 <field name="notefooter" type="note" label="TPL_WBC_BLANCO_J4_FOOTER_COLORS"  />
+			 
+			 <field  name="bgfooter"
+						  type="radio"
+						  class="btn-group"
+						  default="1"
+						  label="TPL_WBC_BLANCO_J4_FIELD_BGFOOTER_LABEL"
+						  description="TPL_WBC_BLANCO_J4_FIELD_BGFOOTER_DESC"
+						  >
+					  <option value="0">JNO</option>
+					  <option value="1">JYES</option>
+			 </field>
+		 
+			 <field name="bgfootercolor" type="color" default="#D7DAE2"
+				label="TPL_WBC_BLANCO_J4_FOOTER_BG_LABEL"
+				description="TPL_WBC_BLANCO_J4_FOOTER_BG_DESC" />
+
+		
+			 <field name="Colorfooter" type="color" default="#333"
+				label="TPL_WBC_BLANCO_J4_FOOTER_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_FOOTER_COLOR_DESC" />	
+
+			<field name="Linkcolorfooter" type="color" default="#333"
+				label="TPL_WBC_BLANCO_J4_LINK_FOOTER_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_LINK_FOOTER_COLOR_DESC" />	
+			 	
+			 
+			 <field name="Hovercolorfooter" type="color" default="#333"
+				label="TPL_WBC_BLANCO_J4_HOVER_FOOTER_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_HOVER_FOOTER_COLOR_DESC" />
+
+			 <field name="Activecolorfooter" type="color" default="#333"
+				label="TPL_WBC_BLANCO_J4_ACTIVE_FOOTER_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_ACTIVE_FOOTER_COLOR_DESC" />
+
+			 <field name="notefooterbottom" type="note" label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_COLORS"  />	
+			  <field name="bgfootercolorB" type="color" default="#333333"
+				label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_BG_LABEL"
+				description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_BG_DESC" />
+
+
+			 <field name="ColorfooterB" type="color" default="#FFFFFF"
+				label="TPL_WBC_BLANCO_J4_FOOTER_COLORBOTTOM_LABEL"
+				description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_COLOR_DESC" />	
+
+			<field name="LinkcolorfooterB" type="color" default="#FFFFFF"
+				label="TPL_WBC_BLANCO_J4_LINK_FOOTERBOTTOM_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_LINK_FOOTERBOTTOM_COLOR_DESC" />	
+			 	
+			 
+			 <field name="HovercolorfooterB" type="color" default="#FFFFFF"
+				label="TPL_WBC_BLANCO_J4_HOVER_FOOTERBOTTOM_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_HOVERBOTTOM_FOOTER_COLOR_DESC" />
+
+			 <field name="ActivecolorfooterB" type="color" default="#FFFFFF"
+				label="TPL_WBC_BLANCO_J4_ACTIVE_FOOTERBOTTOM_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_ACTIVEBOTTOM_FOOTER_COLOR_DESC" />
+			 
+			 <field name="notefooterphone" type="note" label="TPL_WBC_BLANCO_J4_FOOTERPHONE_COLORS"  />
+
+			 <field name="bgfootercolorfix" type="color" default="#D7DAE2"
+				label="TPL_WBC_BLANCO_J4_FOOTERFIX_BG_LABEL"
+				description="TPL_WBC_BLANCO_J4_FOOTERFIX_BG_DESC" />
+			 <field name="ColorfooterB" type="color" default="#FFFFFF"
+				label="TPL_WBC_BLANCO_J4_FOOTER_COLORBOTTOM_LABEL"
+				description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_COLOR_DESC" />	
+
+			<field name="Linkcolorfooterfix" type="color" default="#FFFFFF"
+				label="TPL_WBC_BLANCO_J4_LINK_FOOTERBOTTOM_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_LINK_FOOTERBOTTOM_COLOR_DESC" />	
+			 	
+			 
+			 <field name="Hovercolorfooterfix" type="color" default="#FFFFFF"
+				label="TPL_WBC_BLANCO_J4_HOVER_FOOTERBOTTOM_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_HOVERBOTTOM_FOOTER_COLOR_DESC" />
+
+			 <field name="Activecolorfooterfix" type="color" default="#FFFFFF"
+				label="TPL_WBC_BLANCO_J4_ACTIVE_FOOTERBOTTOM_COLOR_LABEL"
+				description="TPL_WBC_BLANCO_J4_ACTIVEBOTTOM_FOOTER_COLOR_DESC" />	
+
+			 <field name="notenavbar" type="note" label="TPL_WBC_BLANCO_J4_NAVBAR_COLORS" description="TPL_WBC_BLANCO_J4_NAVBAR_COLORS_DESCRIPTION" />
+			
+			 <field  name="bgnavbar"
+						  type="radio"
+						  class="btn-group"
+						  default="0"
+						  label="TPL_WBC_BLANCO_J4_FIELD_BGNAVBAR_LABEL"
+						  description="TPL_WBC_BLANCO_J4_FIELD_BGNAVBAR_DESC"
+						  >
+					  <option value="0">JNO</option>
+					  <option value="1">JYES</option>
+			</field>
+		 
+			 <field name="bgnavbarcolor" type="color" default="#DDD"
+						label="TPL_WBC_BLANCO_J4_NAVBAR_BG_LABEL"
+						description="TPL_WBC_BLANCO_J4_NAVBAR_BG_DESC" />
+			 
+			 <field  name="transnavbar"
+							type="list"
+							default="0.8"
+							label="TPL_WBC_BLANCO_J4_FIELD_TRANSNAVBAR_LABEL"
+							description="TPL_WBC_BLANCO_J4_FIELD_TRANSNAVBAR_DESC"
+							>
+						<option value="0.1">10%</option>
+						<option value="0.2">20%</option>	
+						<option value="0.3">30%</option>
+						<option value="0.4">40%</option>
+						<option value="0.5">50%</option>
+						<option value="0.6">60%</option>	
+						<option value="0.7">70%</option>
+						<option value="0.8">80%</option>
+						<option value="0.9">90%</option>
+						<option value="1">100%</option>	
+			</field>
+		     
+			 <field name="colornavbar" type="color" default="#333"
+						label="TPL_WBC_BLANCO_J4_NAVBAR_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_NAVBAR_COLOR_DESC" />
+		      
+			 <field name="Linkcolornavbar" type="color" default="#333"
+						label="TPL_WBC_BLANCO_J4_LINK_NAVBAR_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_LINK_NAVBAR_COLOR_DESC" />
+							
+			 <field name="Hovercolornavbar" type="color" default="#333"
+						label="TPL_WBC_BLANCO_J4_HOVER_NAVBAR_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_HOVER_NAVBAR_COLOR_DESC" />
+			 <field name="Activecolornavbar" type="color" default="#333"
+						label="TPL_WBC_BLANCO_J4_ACTIVE_NAVBAR_COLOR_LABEL"
+						description="TPL_WBC_BLANCO_J4_ACTIVE_NAVBAR_COLOR_DESC" />
+											
+
+		</fieldset>
+		
+		<fieldset name="layout">
+			 <field  name="bodyclass"
+                        class=""
+                        type="text"
+                        default="default"
+                        label="TPL_WBC_BLANCO_J4_FIELD_BODYCLASS_LABEL"
+                        description="TPL_WBC_BLANCO_J4_FIELD_BODYCLASS_DESC"
+                        />
+
+			
+			<!-- Hintergrundbild austauschbar -->
+			<field name="image-body-select"
+			    type="radio"
+				class="btn-group"
+				default="0"
+				label="TPL_WBC_BLANCO_J4_IMAGE_BODY_SELECT_LABEL"
+				description="TPL_WBC_BLANCO_J4_IMAGE_BODY_SELECT_DESC">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="image-body"
+			        type="imagelist"
+					default="default_body.jpg"
+					label="TPL_WBC_BLANCO_J4_FIELD_IMAGE_BODY_LABEL"
+					description="TPL_WBC_BLANCO_J4_FIELD_IMAGE_BODY_DESC"
+					directory="/images/headers" exclude="" stripext=""  />
+
+			
+			<!-- Headerbild austauschbar -->
+			<field name="headerimg-select"
+			    type="radio"
+				default="1"
+                class="btn-group"
+				label="TPL_WBC_BLANCO_J4_HEADERIMG_SELECT_LABEL" 
+				description="TPL_WBC_BLANCO_J4_HEADERIMG_SELECT_DESC">
+				
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<!-- Headerbild austauschbar -->
+			<field name="headerimg-width"
+			    type="radio"
+				default="1"
+                class="btn-group"
+				label="TPL_WBC_BLANCO_J4_HEADERIMG_WIDTH_LABEL" 
+				description="TPL_WBC_BLANCO_J4_HEADERIMG_WITDH_DESC">
+				<option value="1">TPL_WBC_BLANCO_J4_FIELD_HEADERIMG_WIDTH_STRETCH</option>
+				<option value="2">TPL_WBC_BLANCO_J4_FIELD_HEADERIMG_WIDTH_CENTER</option>
+			</field>
+
+
+			<field name="headerimg"
+			     type="imagelist"
+				 default=""
+				 label="TPL_WBC_BLANCO_J4_FIELD_HEADERIMAGE_LABEL"
+				 description="TPL_WBC_BLANCO_J4_FIELD_HEADERIMAGE_DESC"
+				 directory="/images/headers/" exclude="" stripext=""  />
+			
+			<field name="bg-headerimg"
+			     type="imagelist"
+				 default="0"
+				 label="TPL_WBC_BLANCO_J4_FIELD_BG_HEADERIMAGE_LABEL"
+				 description="TPL_WBC_BLANCO_J4_FIELD_BG_HEADERIMAGE_DESC"
+				 directory="/images/headers/" exclude="" stripext=""  />
+
+			
+			<field name="logo" type="imagelist" default=""
+				  label="TPL_WBC_BLANCO_J4_FIELD_LOGO_LABEL"
+				  description="TPL_WBC_BLANCO_J4_FIELD_LOGO_DESC"
+				  directory="/images/" exclude="" stripext=""  />
+			
+			<field name="logo_mobil" type="imagelist" default=""
+				  label="TPL_WBC_BLANCO_J4_FIELD_LOGO_MOBIL_LABEL"
+				  description="TPL_WBC_BLANCO_J4_FIELD_LOGO_MOBIL_DESC"
+				  directory="/images/" exclude="" stripext=""  />
+			
+			
+			<field name="sitetitle"  type="text" default=""
+					label="TPL_WBC_BLANCO_J4_SITETITLE_LABEL"
+					description="TPL_WBC_BLANCO_J4_SITETITLE_DESC"
+					filter="string" />
+			
+			
+		    <!-- SHOWONFRONTPAGE -->
+            <field  name="hidecontentwrapper"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="TPL_WBC_BLANCO_J4_PARAMETER_HIDECONTENTWRAPPER_LABEL"
+                        description="TPL_WBC_BLANCO_J4_PARAMETER_HIDECONTENTWRAPPER_DESC"
+                        >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+            </field>
+			
+			<!-- Module vor inhalt  -->
+			<field name="vorcontent-cols"
+			       type="radio"
+				   class="btn-group"
+				   default="1"
+				   label="TPL_WBC_BLANCO_J4_FIELD_VORCONTENT_LABEL"
+				   description="TPL_WBC_BLANCO_J4_FIELD_VORCONTENT_DESC">
+				   <option value="1">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL1</option>
+				   <option value="2">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL2</option>
+			       <option value="3">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL3</option>
+	        </field>	
+			
+			<!-- Module nach inhalt  -->
+			<field name="aftercontent-cols"
+			       type="radio"
+				   class="btn-group"
+				   default="1"
+				   label="TPL_WBC_BLANCO_J4_FIELD_AFTERCONTENT_LABEL"
+				   description="TPL_WBC_BLANCO_J4_FIELD_AFTERCONTENT_DESC">
+				   <option value="1">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL1</option>
+				   <option value="2">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL2</option>
+			       <option value="3">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL3</option>
+	        </field>	
+			
+			
+			<field type="spacer" name="myspacer" class="text" label="TPL_WBC_BLANCO_J4_FIELD_SPACER_SIDEBARS_LABEL"	/>	
+					
+			<field name="colsidebarleft" type="list" default="3" label="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARLEFT_LABEL" description="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARLEFT_DESC">
+			  <option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
+			  <option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
+			  <option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+			  <option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
+			  <option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
+			</field>
+			
+			<field name="colsidebarleft_sm" type="list" default="4" label="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARLEFT_TABLET_LABEL" description="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARLEFT_DESC">
+			  <option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
+			  <option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
+			  <option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+			  <option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
+			  <option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
+			  <option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL12</option>
+			</field>
+			
+			<field name="colsidebarright" type="list" default="3" label="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARRIGHT_LABEL" description="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARRIGHT_DESC">
+			  <option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
+			  <option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
+			  <option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+			  <option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
+			  <option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
+            </field>
+			
+			<field name="colsidebarright_sm" type="list" default="4" label="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARRIGHT_TABLET_LABEL" description="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARRIGHT_DESC">
+			  <option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
+			  <option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
+			  <option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+			  <option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
+			  <option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
+			  <option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL12</option>
+			</field>
+			
+		
+		   
+		    <field name="footercols" 
+			       type="radio"
+				   class="btn-group"
+				   default="4"
+				   label="TPL_WBC_BLANCO_J4_FIELD_FOOTERCOLS_LABEL" 
+				   description="TPL_WBC_BLANCO_J4_FIELD_FOOTERCOLS_DESC">
+				   		<option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL1</option>
+				   		<option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
+						<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
+				    	<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+			</field>
+			
+		</fieldset>
+	    <fieldset name="formulare">
+	    		<field  name="floatingLabels"
+                    type="radio"
+                    class="btn-group"
+                    default="0"
+                    label="TPL_WBC_BLANCO_J4_PARAMETER_FLOATINGLABELS_LABEL"
+                    description="TPL_WBC_BLANCO_J4_PARAMETER_FLOATINGLABELS_DESC"
+                    >
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>	
+
+	    </fieldset>
+		<fieldset name="Menue">
+					
+
+
+			<!-- Position der Hautpnavigation -->			
+			<field name="navmain"
+			       type="radio"
+				   class="btn-group"
+				   default="1"
+				   label="TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_LABEL" 
+				   description="TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_DESC">
+						<option value="1">TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_TOP</option>
+						<option value="2">TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_DEFAULT</option>
+						<option value="3">TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_BOTTOM</option>		
+	        </field>
+		  
+		   <!-- Responsive Bootstrap Menue -->
+		   <field  name="bootstrap-menu"
+                   type="radio"
+                   class="btn-group"
+                   default="1"
+                   label="TPL_WBC_BLANCO_J4_BOOTSTRAP_MENU_LABEL"
+                   description="TPL_WBC_BLANCO_J4_BOOTSTRAP_MENU_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+           </field>
+		
+			<field name="logoposition" 
+			       type="radio"
+				   class="btn-group"
+				   default="1"
+				   label="TPL_WBC_BLANCO_J4_FIELD_LOGOPOS_LABEL" 
+				   description="TPL_WBC_BLANCO_J4_FIELD_LOGOPOS_DESC">
+						<option value="1">TPL_WBC_BLANCO_J4_FIELD_LOGOPOS_DEFAULT</option>
+						<option value="2">TPL_WBC_BLANCO_J4_FIELD_LOGOPOS_TOP</option>
+				    	<option value="3">TPL_WBC_BLANCO_J4_FIELD_LOGOPOS_AFTER</option>
+			</field>
+		    <field name="logowidthmd" 
+			       type="radio"
+				   class="btn-group"
+				   default="12"
+				   label="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_LABEL" 
+				   description="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_DESC">
+						<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+						<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
+				    	<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
+						<option value="8">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL8</option>
+						
+			</field>
+			
+		    <field name="logowidthsm" 
+			       type="radio"
+				   class="btn-group"
+				   default="10"
+				   label="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_TABLET_LABEL" 
+				   description="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_DESC">
+						<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+						<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
+				    	<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
+						<option value="8">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL8</option>
+						
+			</field>
+			
+		    <field name="logowidthxs" 
+			       type="radio"
+				   class="btn-group"
+				   default="10"
+				   label="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_PHONE_LABEL" 
+				   description="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_DESC">
+						<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+						<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
+				    	<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
+						<option value="8">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL8</option>
+						<option value="9">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL9</option>
+				    	<option value="10">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL10</option>
+					   	<option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL12</option>
+			</field>
+		   
+		    <field  name="navbarheader-width"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="TPL_WBC_BLANCO_J4_PARAMETER_NAVBARHEADERWIDTH_LABEL"
+                        description="TPL_WBC_BLANCO_J4_PARAMETER_NAVBARHEADERWIDTH_DESC"
+                        >
+                    <option value="0">CENTER</option>
+                    <option value="1">FLUID</option>
+            </field>
+		   
+		    <field  name="fixedheader"
+					   type="radio"
+					   class="btn-group"
+					   default="1"
+					   label="TPL_WBC_BLANCO_J4_BOOTSTRAP_AFFIX_LABEL"
+					   description="TPL_WBC_BLANCO_J4_BOOTSTRAP_AFFIX_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+		    </field>
+		
+
+			<field name="offcanvas"
+					   type="radio"
+					   class="btn-group"
+					   default="1"
+					   label="TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_LABEL"
+					   description="TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+		    </field>
+
+		    <field name="offcanvas_pos"
+					   type="radio"
+					   class="btn-group"
+					   default="left"
+					   label="TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_POS_LABEL"
+					   description="TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_POS_DESC">
+						<option value="left">TPL_WBC_BLANCO_J4_LEFT</option>
+						<option value="right">TPL_WBC_BLANCO_J4_RIGHT</option>
+		    </field>
+
+		    <field name="toggle_offcanvas_pos"
+					   type="radio"
+					   class="btn-group"
+					   default="left"
+					   label="TPL_WBC_BLANCO_J4_BOOTSTRAP_TOGGLE_OFFCANVAS_POS_LABEL"
+					   description="TPL_WBC_BLANCO_J4_TOGGLE_BOOTSTRAP_OFFCANVAS_POS_DESC">
+						<option value="left">TPL_WBC_BLANCO_J4_LEFT</option>
+						<option value="right">TPL_WBC_BLANCO_J4_RIGHT</option>
+		    </field>
+
+		    <field name="offcanvas_width"  type="text" default="300"
+					label="TPL_WBC_BLANCO_J4_OFFCANVASWIDTH_LABEL"
+					description="TPL_WBC_BLANCO_J4_OFFCANVASWIDTH_DESC"
+					filter="string" />
+			
+			<field name="offcanvas_navbar_height"  type="text" default="60"
+					label="TPL_WBC_BLANCO_J4_OFFCANVAS_NAVBARHEIGHT_LABEL"
+					description="TPL_WBC_BLANCO_J4_OFFCANVAS_NAVBARHEIGHT_DESC"
+					filter="string" />
+			
+
+			<field name="offcanvas_breakpoint"  type="text" default="1200"
+					label="TPL_WBC_BLANCO_J4_OFFCANVASBREAKPOINT_LABEL"
+					description="TPL_WBC_BLANCO_J4_OFFCANVASBREAKPOINT_DESC"
+					filter="string" />
+			
+		    
+		</fieldset>
+	</fields>
+ </config>	
+</extension>

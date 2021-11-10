@@ -1,0 +1,237 @@
+/* CSS Styles für override mod_menu */
+/* Author: c.Oerter                 */
+/* Stand:  01 / 2021                */
+/* Overlay Kachelmenü               */
+/* website: www.das-webconcept.de   */
+
+
+.nav-overlay {}
+
+.spalten3  .nav-overlay li,
+.spalten4  .nav-overlay li,
+.spalten2  .nav-overlay li,
+.spalten5  .nav-overlay li,
+.spalten6  .nav-overlay li,
+.spalten7  .nav-overlay li,
+.spalten8  .nav-overlay li
+
+{ 
+	max-width: 100%;
+	flex: 0 0 100%;
+	margin-bottom: 2%; 
+	align-items: center;
+
+}
+ 
+.nav-overlay { 
+	text-align: center; 
+	align-items: center;
+	.wbc-flex;
+	flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+.nav-overlay li { 
+	position: relative; 
+	padding: 0px;
+}
+
+.nav-overlay a {
+    display: block; 	
+	text-align: center;
+	position: relative;
+	color: var(--color-font,#333333)!important;
+	background: rgba(154, 153, 153, 0.2);
+	min-height: 150px;
+	display: -webkit-box;
+  	display: -webkit-flex;
+  	display: -ms-flexbox;
+  	display: flex;
+  	justify-content: center;
+  	align-content: center;
+  	flex-wrap: nowrap;
+  	flex-direction: column;
+  	transition: all .9s ease;
+}
+
+.nav-overlay a:hover,
+.nav-overlay a:focus {
+	background: rgba(154, 153, 153, 0.7);
+	color: var(--color-font,#FFF)!important;
+	text-decoration: none;
+}
+
+.nav-overlay a:before {
+	display: block;
+	font-size: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	color: #5e626a;
+}
+
+.nav-overlay li .img-overlay {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	min-height: 250px;
+	width: 100%;
+}
+
+.nav-overlay li  a .overlay { 
+	position: absolute; 
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	top: 0;
+	z-index: 2;	
+	background: rgba(0, 0, 0, 0);
+	transition: all .9s ease;
+	text-align: center;
+}
+
+.nav-overlay li a:hover .overlay,
+.nav-overlay li a:focus .overlay
+ {
+	background: rgba(0, 0, 0, 0.4);
+
+}
+.nav-overlay a:hover:before,
+.nav-overlay a:focus:before,
+.nav-overlay a:hover span,
+.nav-overlay a:focus span {
+
+	color: var(--color-font,#5e626a);
+}
+
+.nav-overlay li .image-title { 
+	color: var(--color-font,#5e626a);
+	text-align: center;	
+	font-size: 1.2rem;
+	line-height: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    min-height: 80px;
+	background: rgba(255, 255, 255, .8);
+	padding: .5rem;
+}
+
+.wbc-img-p5 img { padding: 5rem; }
+
+@media (min-width: 768px) {
+
+	.nav-overlay a:before {
+		
+		font-size: 3rem;
+		
+	}
+
+	.spalten4 .nav-overlay li .img-overlay {		
+		min-height: 250px;		
+	}
+
+	.spalten3 .nav-overlay li .img-overlay {		
+		min-height: 300px;		
+	}
+
+	.spalten2 .nav-overlay li .img-overlay {		
+		min-height: 400px;		
+	}
+
+	.spalten2  .nav-overlay li,
+	.spalten3  .nav-overlay li,
+	.spalten4  .nav-overlay li,
+	.spalten5  .nav-overlay li,
+	.spalten6  .nav-overlay li,
+	.spalten7  .nav-overlay li,
+	.spalten8  .nav-overlay li
+	 { 
+		max-width: 50%; 
+		flex: 0 0 50%;
+		padding-right: 1.5%; 
+		margin-bottom: 1.5%; 
+	}
+	 
+
+}
+
+
+
+@media (min-width: 992px) {
+
+	.spalten4 .nav-overlay  li { 
+		max-width: 33.3333333%; 
+		flex: 0 0 33.333333%;
+		
+		padding-right: 1.5%; 
+		margin-bottom: 1.5%;
+	}
+
+	.spalten4 .nav-overlay  li .img-overlay {		
+		min-height: 300px;		
+	}
+
+
+}
+	
+
+
+@media (min-width: 1200px) {
+
+	.nav-overlay  li {
+		padding-right: 1.5%; 
+		margin-bottom: 1.5%; 
+	}
+
+	.spalten2 .nav-overlay  li { 
+		max-width: 50%;
+		flex: 0 0 50%;
+	}
+
+	.spalten3 .nav-overlay  li { 
+		max-width: 33.333333%; 
+		flex: 0 0 33.333333%;
+	}
+	.spalten4 .nav-overlay  li { 
+		max-width: 25%; 
+		flex: 0 0 25%;
+	}
+	
+	.spalten5 .nav-overlay  li { 
+		max-width: 20%; 
+		flex: 0 0 20%;
+	}
+	.spalten6 .nav-overlay  li { 
+		max-width: 16.6666667%; 
+		flex: 0 0 16.6666667%;
+	}
+	.spalten7 .nav-overlay  li { 
+		max-width: 14.2857143%;
+		flex: 0 0 14.285714%;
+	}
+	.spalten8 .nav-overlay  li { 
+		max-width: 12.5%;
+		flex: 0 0 12.5%;
+	}
+
+
+}
+
+@media (min-width: 1700px) {
+
+	.nav-overlay li .image-title { 
+		
+		font-size: 1.8rem;
+		line-height: 2rem;
+		
+	}
+
+}

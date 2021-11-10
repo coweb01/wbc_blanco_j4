@@ -1,0 +1,299 @@
+/* CSS Styles für override mod_menu */
+/* Author: c.Oerter                 */
+/* Stand:  01/2021                  */
+/* Flexbox eingebunden              */
+/* website: www.das-webconcept.de   */
+
+.akdropdown {}
+.akdropdown > li { position: static; }
+
+.akdropdown > li.dropdown.level1 { 
+	position: relative;
+	margin: 0;
+	 }
+
+/* wenn untermenue mehrspaltig */
+.akdropdown > li.dropdown.multicolumn { 
+	position: static;
+}
+
+
+
+/* Spalte mit der Überschrift des Menübereichs */
+.akdropdown ul.dropdown-level1 >li:first-child { 
+	flex: 0 0 100%; 
+}
+
+
+.akdropdown ul.dropdown-level1,
+.akdropdown li.level1:hover ul.dropdown-level1, 
+.akdropdown li.level1:focus ul.dropdown-level1
+
+ {  
+ 	display: flex;
+	flex-wrap: wrap;
+ 	flex-direction: column;
+ 	border-radius: 0px; 	 	
+ 	width: 100%;
+ 	padding:  1rem 0 1rem 0;
+ 	left: auto;		
+ }
+
+/* Links allgemein */
+
+
+
+#akdropdown .nav-item .nav-link:link,
+#akdropdown .nav-item .nav-link:visited {}
+
+#akdropdown .nav-item .navlink:hover,
+#akdropdown .nav-item .nav-link:focus {}
+
+#akdropdown .nav-item .nav-link:active {}
+
+
+/* Links level 2 */
+
+ 
+
+#akdropdown .level2 .nav-item .nav-link:link,
+#akdropdown .level2 .nav-item .nav-link:visited {
+	text-transform: none;
+	font-size: 1rem;
+	line-height: 1.7rem;
+
+}
+
+#akdropdown .level2 .navlink:hover,
+#akdropdown .level2 .nav-link:focus {}
+
+#akdropdown .level2 .nav-link:active {}
+
+
+
+
+/* dropdown mehrspaltig */
+
+.akdropdown ul.dropdown-level1,
+.akdropdown li.level1:hover ul.dropdown-level1, 
+.akdropdown li.level1:focus ul.dropdown-level1 {  
+ 	border-radius: 0px;  
+ 	min-width: 90%; 
+ 	width: auto;
+ 	padding:  3rem 0 2rem 0;
+ 	
+ 	
+ 	margin-left: 5%; 
+	margin-right: 5%; 
+
+	left: 0;
+	overflow: auto;
+	max-height: 80vh;
+}
+
+.akdropdown ul.dropdown-level1.multicolumn-dropdown,
+.akdropdown li.level1:hover ul.dropdown-level1.multicolumn-dropdown, 
+.akdropdown li.level1:focus ul.dropdown-level1.multicolumn-dropdown
+ { 
+	flex-direction: row;
+	/*flex-wrap: nowrap;*/
+	flex-wrap: wrap;
+
+	border-radius: 0px;  
+ 	min-width: 90%; 
+ 	width: auto;
+ 	padding:  3rem 0 2rem 0;
+ 	
+ 	
+ 	margin-left: 5%; 
+	margin-right: 5%; 
+
+	left: 0;
+	overflow: auto;
+	max-height: 80vh;
+
+} 
+
+.akdropdown li.multi-column {}
+.akdropdown li.multi-column .wrap-nav-col {}
+.akdropdown li.multi-column .nav-col {}
+
+.akdropdown .nav-col > ul { 
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.akdropdown .nav-col a  {
+	text-align: left; 
+	padding: 0.3rem 0.5rem;
+} 
+.akdropdown .menutitle  { 
+	text-align: center; 
+	text-transform: uppercase;
+	padding: 1rem 0 1rem 0;
+	font-size: 2rem;
+	line-height: 2.4rem
+}
+
+.akdropdown .nav-header { 
+	
+	padding: 0rem 0.5rem 0.3rem 0.5rem;
+	margin-top: 2rem;
+	text-align: left; 
+	font-size: 1.5rem;
+    line-height: 1.7rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    
+}
+
+.akdropdown .subtitle { 
+	display: block;
+	font-size: 0.9rem; 
+	line-height: 1.2rem;
+	font-style:  italic;
+	padding: 0 0.5rem 0 0.5rem;
+}
+
+
+
+#akdropdown .dropdown-toggle { position: relative; }
+
+#akdropdown .dropdown-toggle::after {
+
+    display: inline-block;
+    margin-left: .6em;
+    vertical-align: middle;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f078";
+    border: none!important;
+    font-size: 1rem;
+}
+
+#akdropdown ul.multicolumn-dropdown > .nav-item {
+		border-right: solid 1px #DDDDDD;	  
+	}
+
+#akdropdown ul.multicolumn-dropdown > .nav-item:last-child {
+		border-right: none;
+	}  
+
+@media (min-width: 1200px) {
+
+	.akdropdown .menutitle  { 
+		
+	}
+		
+	/* dropdown mehrspaltig */
+	.akdropdown li.multi-column {  }
+	.akdropdown li.multi-column .nav-col {
+		
+	}
+		
+	.akdropdown .dropdown-level1 {
+		position: static;
+	}
+
+	.akdropdown li.dropdown:hover ul.dropdown-level1, 
+	.akdropdown li.dropdown:focus ul.dropdown-level1  { /*  bootstrap dropdown bei hover 1st-level */
+	  
+	}
+
+    /*** Bootstrap menue 3. level ********************************************/
+	
+	#akdropdown .dropdown-submenu {
+		position: relative;
+	}
+	
+	#akdropdown .dropdown-submenu > .dropdown-menu {
+			top: 6px;
+			left: 100%;
+			margin-top: -6px;
+			margin-left: -1px;
+			-webkit-border-radius: 0 6px 6px 6px;
+			-moz-border-radius: 0 6px 6px;
+			border-radius: 0 6px 6px 6px;
+			display:none !important;
+			position: absolute;
+	}
+	
+	#akdropdown .dropdown-submenu:hover > .dropdown-menu {
+		display: block;
+	}
+	
+	#akdropdown .dropdown-submenu > a:after {
+		display: block;
+		content: '';
+		float: right;
+		width: 0;
+		height: 0;
+		border-color: transparent;
+		border-style: solid;
+		border-width: 5px 0 5px 5px;
+		border-left-color: #ccc;
+		margin-top: 5px;
+		margin-right: -10px;
+	}
+	
+	.akdropdown .dropdown-submenu:hover > a:after {
+		
+	}
+	
+	.akdropdown .dropdown-submenu.float-left {
+		float: none;
+	}
+	
+	.akdropdown .dropdown-submenu.float-left>.dropdown-menu {
+		left: -100%;
+		margin-left: 10px;
+		-webkit-border-radius: 6px 0 6px 6px;
+		-moz-border-radius: 6px 0 6px 6px;
+		border-radius: 6px 0 6px 6px;
+	}
+	
+
+	#akdropdown .dropdown-level1 {
+		border: 0px;
+		-webkit-box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.75);
+		 box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.75);
+		padding: .5rem .5rem 2rem .5rem;
+		max-height: 700px;
+		overflow-y: auto;
+	} 
+
+
+}
+
+
+
+@media (min-width: 1700px) {
+
+	.akdropdown {
+		justify-content: center;
+	    max-width: 100%;
+	    width: 100%;
+	    flex-direction: row;
+	}
+    
+    .akdropdown ul.dropdown-level1.multicolumn-dropdown,
+	.akdropdown li.level1:hover ul.dropdown-level1.multicolumn-dropdown, 
+	.akdropdown li.level1:focus ul.dropdown-level1.multicolumn-dropdown { 
+ 		margin-left: 17%; 
+ 		margin-right: 15%;
+ 		min-width: 70%;
+ 		left: 0;
+	} 
+
+	.akdropdown  li.level1 > a.nav-link {	    
+	    font-size: 1.2rem;
+	    padding-left:  1rem;
+	    padding-right: 3rem;
+	}
+
+	
+	
+
+	
+}
