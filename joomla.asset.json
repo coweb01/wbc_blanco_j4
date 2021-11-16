@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "wbc",
+  "version": "4.0.0",
+  "description": "This file contains details of the assets used by wbc_blanco_j4.",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "template.wbc",
+      "description": "The template css file.",
+      "type": "style",
+      "uri": "template.min.css",
+      "dependencies": [
+        "fontawesome"
+      ]
+    },
+    {
+      "name": "template.offline",
+      "description": "The css file to be used when the site is offline and offline.php is being used.",
+      "type": "style",
+      "uri": "offline.css"
+    },
+    {
+      "name": "template.user",
+      "description": "A file where a user can add their own css.",
+      "type": "style",
+      "uri": "user.css",
+      "dependencies": [
+        "template.wbc"
+      ]
+    },
+    {
+      "name": "template.wbc",
+      "description": "The file containing the javascript for this template.",
+      "type": "script",
+      "uri": "template.js",
+      "attributes" : {
+        "defer": true
+      },
+      "dependencies": [
+        "core"
+      ]
+    },
+    {
+      "name": "template.user",
+      "description": "The name of a file where a user can add their own javascript",
+      "type": "script",
+      "uri":  "user.js",
+      "dependencies": [
+        "template.wbc"
+      ]
+    },
+    {
+      "name": "template.wbc",
+      "type": "preset",
+      "dependencies": [
+        "template.wbc#style",
+        "template.wbc#script"
+      ]
+    },
+    {
+      "name": "searchtools",
+      "type": "style",
+      "uri": "system/searchtools/searchtools.min.css"
+    },
+    {
+      "name": "fontawesome",
+      "type": "style",
+      "uri": "system/joomla-fontawesome.min.css"
+    }
+  ]
+}
