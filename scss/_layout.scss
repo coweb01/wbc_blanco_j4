@@ -1,0 +1,583 @@
+/* ===========================
+  LAYOUT STYLES Positionierung
+
+  Template: wbc_blanco_j4
+  ========================== */
+
+/* style für flexicontent behebt bug seite wackelt */
+html {
+  width: auto !important;
+  height: auto !important;
+  overflow: auto !important;
+}
+body {
+  height: 100%;
+}
+
+/* Header *****************************************************/
+
+.header-top {
+  background: rgb(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb)) !important;
+  background: rgba(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb), var(--transnavbar)) !important;
+}
+.header-top-01 {
+  padding-top: 15px;
+}
+.header-top.sps {
+  z-index: 999;
+  width: 100%;
+  padding: 0 .5em;
+  margin-top: 0;
+  transition: all .25s ease;
+}
+.header-top.sps--abv > .bg-light {
+  background-color: transparent !important;
+  background: rgb(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb)) !important;
+  background: rgba(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb), var(--transnavbar)) !important;
+}
+.header-top.sps--blw {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgb(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb)) !important;
+  background: rgba(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb), var(--transnavbar)) !important;
+  box-shadow: var(--schatten);
+}
+.header-top.sps--blw #logo {
+  width: 90%;
+  transition: width 1s ease-in-out;
+}
+.header-top.sps--blw .bg-light {
+  background: rgb(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb)) !important;
+  background: rgba(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb), var(--transnavbar)) !important;
+}
+
+/* Position Logo *******************************************************************/
+
+#logo {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  img {
+    max-width: 100%;
+    height: auto;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+/* Layout Module Headerimng **********************************************************/
+
+#headerimg {
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  font-size: 1.5rem;
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    @include media-breakpoint-up(xl) {
+      width: 100%;
+      max-width: auto;
+      height: auto;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .container-fluid .wrap-headerimg {
+    padding: 0;
+  }
+  p,
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    text-shadow: 7px 7px 10px #777, -7px -7px 10px #333;
+  }
+  h1,
+  h2,
+  h3 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+  }
+}
+.wrap-headerimg > p {
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+.lg-slider {
+  padding: 0;
+  margin: 0;
+}
+.no-headerimg {
+  height: 150px;
+  clear: both;
+}
+#overlay_headerimg {
+  z-index: 20;
+  width: 100%;
+  @include vertikal-zentriert-pos-abs;
+  @include media-breakpoint-up(xl) {
+    position: absolute;
+    z-index: 20;
+  }
+  > div {
+    width: 80%;
+    padding: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+/*---------------- onepage    layout --------------------*/
+
+.onepage {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+.onepage-fullsize {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Contenbereich ********************************************************************/
+
+.main {
+  background-color: var(--color-bg, var(--bgcolormain));
+}
+#wrap-content {
+  position: static;
+  min-height: 400px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  @include media-breakpoint-down(lg) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+.wrap-outer {
+  height: auto !important;
+  padding: 0;
+  margin: 0;
+}
+.wrap-main {
+  margin-top: 20px;
+}
+
+/*------------   Module vor_content_col --------------------------------------*/
+
+.wbc-flexible-cards.card-columns.cardcols_2 {
+  column-count: 1;
+}
+.wbc-flexible-cards.card-columns.cardcols_3 {
+  column-count: 1;
+}
+.wbc-flexible-cards.card-columns.cardcols_4 {
+  column-count: 1;
+}
+.wbc-flexible-cards.card-columns.cardcols_1 {
+  column-count: 1;
+}
+
+@include media-breakpoint-up(md) {
+  .wbc-flexible-cards.card-columns.cardcols_2 {
+    column-count: 2;
+  }
+  .wbc-flexible-cards.card-columns.cardcols_3 {
+    column-count: 2;
+  }
+  .wbc-flexible-cards.card-columns.cardcols_4 {
+    column-count: 2;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .wbc-flexible-cards.card-columns.cardcols_2 {
+    column-count: 2;
+  }
+  .wbc-flexible-cards.card-columns.cardcols_3 {
+    column-count: 3;
+  }
+  .wbc-flexible-cards.card-columns.cardcols_4 {
+    column-count: 4;
+  }
+}
+
+/*-----    Sidebars  --------------------------------------------------------------------*/
+
+/* Button blendet sidebar-left ein-aus bei phone + tablet */
+#toggle-sidebar-btn {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  @include media-breakpoint-up(md) {
+    position: relative;
+    display: none;
+  }
+}
+#sidebar-left,
+#sidebar-right {
+  margin-bottom: 20px;
+}
+#left-fixed {
+  top: 20%;
+  left: 0;
+}
+#right-fixed {
+  top: 20%;
+  right: 0;
+}
+
+/** fixed sidebar fest für Icon Menüs  --------------------------*/
+
+.wbc-fixed-sidebar-right {
+  text-align: right;
+}
+.wbc-fixed-sidebar-left {
+  text-align: left;
+}
+
+/** fixed sidebar zum ausklappen --------------------------------*/
+
+.wbc-fixed-sidebar-toggle {
+  position: relative;
+  .container-fix {
+    display: none;
+    float: left;
+    width: 400px;
+    height: auto;
+    padding: 15px 10px 15px 5px;
+    margin-top: 0;
+    color: var(--default);
+    background-color: var(--color-bg, #fff);
+    transition: padding .3s;
+  }
+  &.slide-open {
+    a.nav-link {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .container-fix {
+      padding-left: 3rem;
+    }
+  }
+}
+.wbc-fixed-sidebar-toggle .btn-icon,
+.wbc-fixed-sidebar ul > li a,
+.wbc-fixed-sidebar a.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .2rem .5rem;
+  width: 3rem;
+  height: 3rem;
+  i.fa-accessible-icon {
+  }
+}
+.wbc-fixed-sidebar-toggle:not(.slide-open) .btn-icon {
+  color: #fff;
+  background-color: var(--color1) !important;
+}
+#fixed-sidebar-right-toggle.slide-open a.nav-link {
+  right: auto; left: 0;
+}
+#fixed-sidebar-right-toggle.slide-open .btn-icon > i:before,
+#fixed-sidebar-left-toggle.slide-open .btn-icon > i:before {
+  font-family: "FontAwesome 5 Free";
+  content: "\f00d";
+}
+#fixed-sidebar-right-toggle.slide-open .btn-icon:hover > i,
+#fixed-sidebar-left-toggle.slide-open .btn-icon:hover > i {
+  animation: rotation 1s ease-in-out;
+}
+.wbc-fixed-sidebar a.nav-link .fa {
+  font-size: 1rem;
+}
+.wbc-fixed-sidebar a.nav-link.fa,
+.wbc-fixed-sidebar a.nav-link.fas,
+.wbc-fixed-sidebar a.nav-link.far {
+  transition: transform .5s ease-in-out;
+  transform: rotate(1deg);
+}
+.wbc-fixed-sidebar a.nav-link:link.fa,
+.wbc-fixed-sidebar a.nav-link:visited.fa,
+.wbc-fixed-sidebar a.nav-link:active.fa,
+.wbc-fixed-sidebar a.nav-link:link.fas,
+.wbc-fixed-sidebar a.nav-link:visited.fas,
+.wbc-fixed-sidebar a.nav-link:active.fas,
+.wbc-fixed-sidebar a.nav-link:link.far,
+.wbc-fixed-sidebar a.nav-link:visited.far,
+.wbc-fixed-sidebar a.nav-link:active.far {
+  transform: rotate(1deg);
+}
+.wbc-fixed-sidebar a.nav-link:hover .fa,
+.wbc-fixed-sidebar a.nav-link:focus .fa,
+.wbc-fixed-sidebar a.nav-link:hover .fas,
+.wbc-fixed-sidebar a.nav-link:focus .fas,
+.wbc-fixed-sidebar a.nav-link:hover .far,
+.wbc-fixed-sidebar a.nav-link:focus .far {
+  transform: rotate(-20deg);
+}
+
+/*------ Fixed sidebar mit buttons -----------------------*/
+
+#right-fixed.wbc-fixed-sidebar {
+  top: 20%;
+  right: 0;
+}
+#left-fixed.wbc-fixed-sidebar {
+  top: 20%;
+  left: 0;
+}
+
+/***** Footer **********************************************/
+
+#wrap-footer {
+  width: 100%;
+  height: auto;
+  padding: 2rem 0 0 ;
+  margin: 0;
+  font-size: .9rem;
+  color: var(--colorfooter);
+  background-color: var(--bgfooter);
+  @include media-breakpoint-down(sm) {
+    .nav.menu.flex-column {
+      flex-direction: row !important;
+    }
+  }
+}
+.wbc-footer {
+  border-top: medium none;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, .5);
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--colorfooter);
+  }
+  p {
+    margin-bottom: 0;
+  }
+  a:link,
+  a:visited {
+    font-weight: 400;
+    color: var(--Linkcolorfooter);
+    text-decoration: none;
+  }
+  a:hover,
+  a:focus {
+    color: var(--Hovercolorfooter);
+    text-decoration: none;
+  }
+  a:active {
+    color: var(--Linkcolorfooter);
+  }
+}
+
+/** Footer Top -------------------------------------------------*/
+
+#footer-top {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/** Footer Bottom -----------------------------------------------*/
+
+.wbc-footer-middle {
+  padding: 1rem 0 40px;
+}
+
+/** footer bottom ganz unten -----------------------------------*/
+
+.wbc-footer-bottom {
+  padding: 1rem 0;
+  font-size: .9rem;
+  font-weight: 300;
+  color: var(--colorfooterB);
+  background-color: var(--bgfooterB);
+  @include media-breakpoint-up(md) {
+    padding: 1rem 0;
+  }
+}
+#footer-bottom {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    color: var(--colorfooterB);
+  }
+  a:link,
+  a:visited {
+    font-weight: inherit;
+    color: var(--LinkcolorfooterB);
+    text-decoration: none;
+  }
+  a:hover,
+  a:focus {
+    font-weight: inherit;
+    color: var(--HovercolorfooterB);
+    text-decoration: none;
+  }
+  a:active {
+    color: var(--LinkcolorfooterB);
+  }
+}
+
+/*------------------ Nach oben Button --------------------------------------------------------------*/
+#gototop {
+  > a {
+    position: fixed;
+    right: .5%;
+    bottom: 0;
+    z-index: 90;
+    width: 3rem;
+    height: 3rem;
+    padding: 1rem;
+    margin-right: 0;
+    border-radius: 0;
+  }
+  .gototop {
+    color: var(--linkcolorbtn);
+    text-align: center;
+    background-color: var(--linkbgcolorbtn);
+    &:hover {
+      color: var(--hovercolorbtn);
+      text-decoration: none;
+      background-color: var(--hoverbgcolorbtn);
+    }
+    > i {
+      font-size: calc(var(--fontsize) * 1.2);
+      display: inline-block;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    display: none !important;
+  }
+}
+#gototop-mobil {
+  width: 100%;
+  max-height: 40px;
+  overflow: hidden;
+  background-color: var(--bgfooterfix);
+  p {
+    color: var(--bgfooterfix);
+  }
+  a,
+  .nav-link {
+    padding: .2rem .8rem;
+    font-size: .9rem;
+  }
+  > a.gototop {
+    padding: 4px 8px 4px 18px;
+    font-size: .9rem;
+    font-weight: 300;
+    background-color: transparent;
+  }
+  @include media-breakpoint-down(sm) {
+    > a {
+      color: #fff;
+    }
+  }
+}
+
+/* ===================================================================================
+   BOOTSTRAP MEDIA QUERIES OVERRIDES
+   NOTE: The order of the media queries is important when styles overwrite each other
+   ================================================================================== */
+
+@include media-breakpoint-up(md) {
+  .affix {
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+  }
+  #headerimg {
+    display: block;
+    h1,
+    h2,
+    h3 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+  }
+  .wbc-background-image-stretch {
+    min-height: 400px;
+  }
+}
+@media (min-width: 980px) {
+  .header-top {
+    top: 0;
+    z-index: 999;
+  }
+  #headerimg {
+    position: relative;
+    top: 0;
+    z-index: 10;
+    padding: 0;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  /** fixed Sidebar -----------------------------*/
+  .wbc-fixed-sidebar-toggle .btn-icon,
+  .wbc-fixed-sidebar ul > li a,
+  .wbc-fixed-sidebar a.nav-link {
+    padding: .5rem 1rem;
+  }
+  .nofront #headerimg .wbc-background-image-stretch {
+    min-height: 300px;
+  }
+  .wbc-background-image-stretch {
+    min-height: 400px;
+    background-attachment: fixed;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .wbc-h-xlarge { display: none !important; }
+  .wbc-d-xlarge { display: block !important; }
+}
+
+@media (min-width: 1500px) {
+  body:not(.no-front) #headerimg .wbc-background-image-stretch {
+    min-height: 500px;
+  }
+  .wbc-fixed-sidebar  a.nav-link {
+    width: 80px;
+    height: 80px;
+  }
+  .wbc-fixed-sidebar a.nav-link > .fa,
+  .wbc-fixed-sidebar a.nav-link > .fas,
+  .wbc-fixed-sidebar a.nav-link > .far {
+    font-size: 2rem;
+  }
+  .wbc-fixed-sidebar-toggle.slide-open {
+    .container-fix {
+      margin-top: 0;
+      a.nav-link {
+        top: 0;
+      }
+    }
+  }
+}
+
+/* error seite --------------------------------------------*/
+
+.info-message {
+  min-height: 300px;
+}

@@ -128,26 +128,28 @@
 				<field
 					name="flexicontent"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="0"
 					label="TPL_WBC_BLANCO_J4_FIELD_FLEXICONTENT_LABEL"
 					description="TPL_WBC_BLANCO_J4_FIELD_FLEXICONTENT_DESC"
 					>
-					<option value="1">JYES</option>
 					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 
 				<!-- Hochkontrast Style umschalter -->
 				<field
 					name="styleswitch"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="0"
 					label="TPL_WBC_BLANCO_J4_FIELD_STYLESWITCH_LABEL"
 					description=""
 					>
-					<option value="1">JYES</option>
 					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 
 				<field
@@ -173,7 +175,8 @@
 				<field
 					name="toggleleft"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="0"
 					label="TPL_WBC_BLANCO_J4_PARAMETER_TOGGLELEFT_LABEL"
 					description="TPL_WBC_BLANCO_J4_PARAMETER_TOGGLELEFT_DESC"
@@ -192,7 +195,8 @@
 				<field
 					name="toggleright"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="0"
 					label="TPL_WBC_BLANCO_J4_PARAMETER_TOGGLERIGHT_LABEL"
 					description="TPL_WBC_BLANCO_J4_PARAMETER_TOGGLERIGHT_DESC"
@@ -223,20 +227,22 @@
 				<field
 					name="fontawesome"
 					type="radio"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					default="5"
 					label="TPL_WBC_BLANCO_J4_PARAMETER_FONTAWESOME_LABEL"
 					description="TPL_WBC_BLANCO_J4_PARAMETER_FONTAWESOME_DESC"
 					>
 					<option value="0">JNO</option>
-					<option value="5">TPL_WBC_BLANCO_J4_FONTAWESOME5</option>
+					<option value="1">TPL_WBC_BLANCO_J4_FONTAWESOME5</option>
 				</field>
 
 				<!-- Holder.js-->
 				<field
 					name="holder"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="0"
 					label="TPL_WBC_BLANCO_J4_FIELD_HOLDER_LABEL"
 					description="TPL_WBC_BLANCO_J4_FIELD_HOLDER_DESC"
@@ -249,7 +255,8 @@
 				<field
 					name="funktionen"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="0"
 					label="TPL_WBC_BLANCO_J4_FIELD_FUNKTIONEN_LABEL"
 					description="TPL_WBC_BLANCO_J4_FIELD_FUNKTIONEN_DESC"
@@ -279,7 +286,7 @@
 				<field
 					name="defaultfontsize"
 					type="number"
-					default="1.2"
+					default="1.1"
 					label="TPL_WBC_BLANCO_J4_DEFAULT_FONTSIZE_LABEL"
 					description="TPL_WBC_BLANCO_J4_DEFAULT_FONTSIZE_DESC"
 				/>
@@ -287,7 +294,7 @@
 				<field
 					name="backgroundcolor"
 					type="color"
-					default="#fff"
+					default="#ffffff"
 					label="TPL_WBC_BLANCO_J4_BACKGROUND_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_BACKGROUND_COLOR_DESC"
 				/>
@@ -295,7 +302,7 @@
 				<field
 					name="backgroundcolormain"
 					type="color"
-					default="#fff"
+					default="#ffffff"
 					label="TPL_WBC_BLANCO_J4_BACKGROUND_MAIN_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_BACKGROUND_MAIN_COLOR_DESC"
 				/>
@@ -303,7 +310,7 @@
 				<field
 					name="defaultcolor"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_DEFAULT_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_DEFAULT_COLOR_DESC"
 				/>
@@ -311,7 +318,7 @@
 				<field
 					name="linkcolor"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_LINKS_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_LINKS_COLOR_DESC"
 				/>
@@ -319,7 +326,7 @@
 				<field
 					name="linkHovercolor"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_LINKSHOVER_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_LINKSHOVER_COLOR_DESC"
 				/>
@@ -335,7 +342,7 @@
 				<field
 					name="h2_color"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_H2_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_H2_COLOR_DESC"
 				/>
@@ -343,7 +350,7 @@
 				<field
 					name="h3_color"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_H3_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_H3_COLOR_DESC"
 				/>
@@ -351,7 +358,7 @@
 				<field
 					name="h4_color"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_H4_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_H4_COLOR_DESC"
 				/>
@@ -359,7 +366,7 @@
 				<field
 					name="h1_size"
 					type="number"
-					default="1.8"
+					default="2.8"
 					label="TPL_WBC_BLANCO_J4_H1_SIZE_LABEL"
 					description="TPL_WBC_BLANCO_J4_H1_SIZE_DESC"
 				/>
@@ -367,7 +374,7 @@
 				<field
 					name="h2_size"
 					type="number"
-					default="1.6"
+					default="2.6"
 					label="TPL_WBC_BLANCO_J4_H2_SIZE_LABEL"
 					description="TPL_WBC_BLANCO_J4_H2_SIZE_DESC"
 				/>
@@ -375,7 +382,7 @@
 				<field
 					name="h3_size"
 					type="number"
-					default="1.4"
+					default="1.7"
 					label="TPL_WBC_BLANCO_J4_H3_SIZE_LABEL"
 					description="TPL_WBC_BLANCO_J4_H3_SIZE_DESC"
 				/>
@@ -383,7 +390,7 @@
 				<field
 					name="h4_size"
 					type="number"
-					default="1"
+					default="1.3"
 					label="TPL_WBC_BLANCO_J4_H4_SIZE_LABEL"
 					description="TPL_WBC_BLANCO_J4_H4_SIZE_DESC"
 				/>
@@ -397,7 +404,7 @@
 				<field
 					name="Linkcolorbtn"
 					type="color"
-					default="#FFF"
+					default="#ffffff"
 					label="TPL_WBC_BLANCO_J4_LINK_BTN_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_LINK_BTN_COLOR_DESC"
 				/>
@@ -405,7 +412,7 @@
 				<field
 					name="Linkbgcolorbtn"
 					type="color"
-					default="#777E8E"
+					default="#777e8e"
 					label="TPL_WBC_BLANCO_J4_LINK_BTN_BGCOLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_LINK_BTN_BGCOLOR_DESC"
 				/>
@@ -413,7 +420,7 @@
 				<field
 					name="Hovercolorbtn"
 					type="color"
-					default="#FFF"
+					default="#ffffff"
 					label="TPL_WBC_BLANCO_J4_HOVER_BTN_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_HOVER_BTN_COLOR_DESC"
 				/>
@@ -421,7 +428,7 @@
 				<field
 					name="Hoverbgcolorbtn"
 					type="color"
-					default="#393E4B"
+					default="#393e4b"
 					label="TPL_WBC_BLANCO_J4_HOVER_BTN_BGCOLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_HOVER_BTN_BGCOLOR_DESC"
 				/>
@@ -429,7 +436,7 @@
 				<field
 					name="Activecolorbtn"
 					type="color"
-					default="#FFF"
+					default="#fff"
 					label="TPL_WBC_BLANCO_J4_ACTIVE_BTN_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_ACTIVE_BTN_COLOR_DESC"
 				/>
@@ -437,7 +444,7 @@
 				<field
 					name="Activebgcolorbtn"
 					type="color"
-					default="#777E8E"
+					default="#777e8e"
 					label="TPL_WBC_BLANCO_J4_ACTIVE_BTN_BGCOLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_ACTIVE_BTN_BGCOLOR_DESC"
 				/>
@@ -451,7 +458,8 @@
 				<field
 					name="bgfooter"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="1"
 					label="TPL_WBC_BLANCO_J4_FIELD_BGFOOTER_LABEL"
 					description="TPL_WBC_BLANCO_J4_FIELD_BGFOOTER_DESC"
@@ -463,7 +471,7 @@
 				<field
 					name="bgfootercolor"
 					type="color"
-					default="#D7DAE2"
+					default="#d7dae2"
 					label="TPL_WBC_BLANCO_J4_FOOTER_BG_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTER_BG_DESC"
 				/>
@@ -471,7 +479,7 @@
 				<field
 					name="Colorfooter"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_FOOTER_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTER_COLOR_DESC"
 				/>
@@ -479,7 +487,7 @@
 				<field
 					name="Linkcolorfooter"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_LINK_FOOTER_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_LINK_FOOTER_COLOR_DESC"
 				/>
@@ -487,7 +495,7 @@
 				<field
 					name="Hovercolorfooter"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_HOVER_FOOTER_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_HOVER_FOOTER_COLOR_DESC"
 				/>
@@ -495,7 +503,7 @@
 				<field
 					name="Activecolorfooter"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_ACTIVE_FOOTER_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_ACTIVE_FOOTER_COLOR_DESC"
 				/>
@@ -517,7 +525,7 @@
 				<field
 					name="ColorfooterB"
 					type="color"
-					default="#FFFFFF"
+					default=" #ffffff"
 					label="TPL_WBC_BLANCO_J4_FOOTER_COLORBOTTOM_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_COLOR_DESC"
 				/>
@@ -525,7 +533,7 @@
 				<field
 					name="LinkcolorfooterB"
 					type="color"
-					default="#FFFFFF"
+					default=" #ffffff"
 					label="TPL_WBC_BLANCO_J4_LINK_FOOTERBOTTOM_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_LINK_FOOTERBOTTOM_COLOR_DESC"
 				/>
@@ -533,7 +541,7 @@
 				<field
 					name="HovercolorfooterB"
 					type="color"
-					default="#FFFFFF"
+					default=" #ffffff"
 					label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_HOVER_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_HOVER_COLOR_DESC"
 				/>
@@ -541,7 +549,7 @@
 				<field
 					name="ActivecolorfooterB"
 					type="color"
-					default="#FFFFFF"
+					default=" #ffffff"
 					label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_ACTIVE_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_ACTIVE_COLOR_DESC"
 				/>
@@ -555,7 +563,7 @@
 				<field
 					name="bgfootercolorfix"
 					type="color"
-					default="#D7DAE2"
+					default="#d7dae2"
 					label="TPL_WBC_BLANCO_J4_FOOTERFIX_BG_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTERFIX_BG_DESC"
 				/>
@@ -563,7 +571,7 @@
 				<field
 					name="ColorfooterB"
 					type="color"
-					default="#FFFFFF"
+					default=" #ffffff"
 					label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_COLOR_DESC"
 				/>
@@ -571,7 +579,7 @@
 				<field
 					name="Linkcolorfooterfix"
 					type="color"
-					default="#FFFFFF"
+					default=" #ffffff"
 					label="TPL_WBC_BLANCO_J4_LINK_FOOTERBOTTOM_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_LINK_FOOTERBOTTOM_COLOR_DESC"
 				/>
@@ -579,7 +587,7 @@
 				<field
 					name="Hovercolorfooterfix"
 					type="color"
-					default="#FFFFFF"
+					default=" #ffffff"
 					label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_HOVER_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_HOVER_COLOR_DESC"
 				/>
@@ -587,7 +595,7 @@
 				<field
 					name="Activecolorfooterfix"
 					type="color"
-					default="#FFFFFF"
+					default="#ffffff"
 					label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_ACTIVE_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_ACTIVE_COLOR_DESC"
 				/>
@@ -602,7 +610,8 @@
 				<field
 					name="bgnavbar"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="0"
 					label="TPL_WBC_BLANCO_J4_FIELD_BGNAVBAR_LABEL"
 					description="TPL_WBC_BLANCO_J4_FIELD_BGNAVBAR_DESC"
@@ -614,7 +623,7 @@
 				<field
 					name="bgnavbarcolor"
 					type="color"
-					default="#DDD"
+					default="#dddddd"
 					label="TPL_WBC_BLANCO_J4_NAVBAR_BG_LABEL"
 					description="TPL_WBC_BLANCO_J4_NAVBAR_BG_DESC"
 				/>
@@ -641,7 +650,7 @@
 				<field
 					name="colornavbar"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_NAVBAR_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_NAVBAR_COLOR_DESC"
 				/>
@@ -649,7 +658,7 @@
 				<field
 					name="Linkcolornavbar"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_LINK_NAVBAR_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_LINK_NAVBAR_COLOR_DESC"
 				/>
@@ -657,7 +666,7 @@
 				<field
 					name="Hovercolornavbar"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_HOVER_NAVBAR_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_HOVER_NAVBAR_COLOR_DESC"
 				/>
@@ -665,7 +674,7 @@
 				<field
 					name="Activecolornavbar"
 					type="color"
-					default="#333"
+					default="#333333"
 					label="TPL_WBC_BLANCO_J4_ACTIVE_NAVBAR_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_ACTIVE_NAVBAR_COLOR_DESC"
 				/>
@@ -685,13 +694,14 @@
 				<field
 					name="image-body-select"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="0"
 					label="TPL_WBC_BLANCO_J4_IMAGE_BODY_SELECT_LABEL"
 					description="TPL_WBC_BLANCO_J4_IMAGE_BODY_SELECT_DESC"
 					>
-					<option value="1">JYES</option>
 					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 
 				<field
@@ -708,12 +718,12 @@
 					name="headerimg-select"
 					type="radio"
 					default="1"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
 					label="TPL_WBC_BLANCO_J4_HEADERIMG_SELECT_LABEL"
 					description="TPL_WBC_BLANCO_J4_HEADERIMG_SELECT_DESC"
 					>
-					<option value="1">JYES</option>
 					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 
 				<!-- Headerbild austauschbar -->
@@ -721,6 +731,7 @@
 					name="headerimg-width"
 					type="radio"
 					default="1"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					label="TPL_WBC_BLANCO_J4_HEADERIMG_WIDTH_LABEL"
 					description="TPL_WBC_BLANCO_J4_HEADERIMG_WIDTH_DESC"
@@ -778,7 +789,8 @@
 				<field
 					name="hidecontentwrapper"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="0"
 					label="TPL_WBC_BLANCO_J4_PARAMETER_HIDECONTENTWRAPPER_LABEL"
 					description="TPL_WBC_BLANCO_J4_PARAMETER_HIDECONTENTWRAPPER_DESC"
@@ -791,6 +803,7 @@
 				<field
 					name="vorcontent-cols"
 					type="radio"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					default="1"
 					label="TPL_WBC_BLANCO_J4_FIELD_VORCONTENT_LABEL"
@@ -805,6 +818,7 @@
 				<field
 					name="aftercontent-cols"
 					type="radio"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					default="1"
 					label="TPL_WBC_BLANCO_J4_FIELD_AFTERCONTENT_LABEL"
@@ -879,6 +893,7 @@
 				<field
 					name="footercols"
 					type="radio"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					default="4"
 					label="TPL_WBC_BLANCO_J4_FIELD_FOOTERCOLS_LABEL"
@@ -895,7 +910,8 @@
 				<field
 					name="floatingLabels"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="0"
 					label="TPL_WBC_BLANCO_J4_PARAMETER_FLOATINGLABELS_LABEL"
 					description="TPL_WBC_BLANCO_J4_PARAMETER_FLOATINGLABELS_DESC"
@@ -910,6 +926,7 @@
 				<field
 					name="navmain"
 					type="radio"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					default="1"
 					label="TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_LABEL"
@@ -924,7 +941,8 @@
 				<field
 					name="bootstrap-menu"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="1"
 					label="TPL_WBC_BLANCO_J4_BOOTSTRAP_MENU_LABEL"
 					description="TPL_WBC_BLANCO_J4_BOOTSTRAP_MENU_DESC"
@@ -936,6 +954,7 @@
 				<field
 					name="logoposition"
 					type="radio"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					default="1"
 					label="TPL_WBC_BLANCO_J4_FIELD_LOGOPOS_LABEL"
@@ -949,6 +968,7 @@
 				<field
 					name="logowidthmd"
 					type="radio"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					default="12"
 					label="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_LABEL"
@@ -963,6 +983,7 @@
 				<field
 					name="logowidthsm"
 					type="radio"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					default="10"
 					label="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_TABLET_LABEL"
@@ -977,6 +998,7 @@
 				<field
 					name="logowidthxs"
 					type="radio"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					default="10"
 					label="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_PHONE_LABEL"
@@ -994,6 +1016,7 @@
 				<field
 					name="navbarheader-width"
 					type="radio"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					default="1"
 					label="TPL_WBC_BLANCO_J4_PARAMETER_NAVBARHEADERWIDTH_LABEL"
@@ -1006,7 +1029,8 @@
 				<field
 					name="fixedheader"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="1"
 					label="TPL_WBC_BLANCO_J4_BOOTSTRAP_AFFIX_LABEL"
 					description="TPL_WBC_BLANCO_J4_BOOTSTRAP_AFFIX_DESC"
@@ -1018,7 +1042,8 @@
 				<field
 					name="offcanvas"
 					type="radio"
-					class="btn-group"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					default="1"
 					label="TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_LABEL"
 					description="TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_DESC"
@@ -1030,6 +1055,7 @@
 				<field
 					name="offcanvas_pos"
 					type="radio"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					default="left"
 					label="TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_POS_LABEL"
@@ -1042,6 +1068,7 @@
 				<field
 					name="toggle_offcanvas_pos"
 					type="radio"
+					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
 					default="left"
 					label="TPL_WBC_BLANCO_J4_BOOTSTRAP_TOGGLE_OFFCANVAS_POS_LABEL"

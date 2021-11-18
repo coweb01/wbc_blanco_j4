@@ -1,0 +1,212 @@
+.wbc-flex {
+  display: flex;
+}
+@mixin white-trans($trans: 50%) {
+  color: fade(white, $trans);
+}
+@mixin color1-trans($trans: 20%) {
+  background: rgb($color1);
+  background: fade($color1, $trans);
+}
+@mixin color2-trans($trans: 20%) {
+  background: rgb($color2);
+  background: fade($color2, $trans);
+}
+@mixin color3-trans($trans: 20%) {
+  background: rgb($color3);
+  background: fade($color3, $trans);
+}
+@mixin color4-trans($trans: 20%) {
+  background: rgb($color4);
+  background: fade($color4, $trans);
+}
+@mixin color5-trans($trans: 20%) {
+  background: rgb($color5);
+  background: fade($color5, $trans);
+}
+@mixin rounded-corners($radius: 40) {
+  border-radius: $radius;
+}
+@mixin background_grau($trans: 10%) {
+  background: rgb($dunkelgrau);
+  background: fade($dunkelgrau, $trans);
+}
+@mixin background_secondary($secondary_color: #FFFFFF) {
+  color: $secondary_color;
+  background: rgb($secondary_background);
+  background: fade($secondary_background, $trans);
+}
+@mixin background_primary($primary_color: #FFFFFF) {
+  color: $primary_color;
+  background: rgb($primary_background);
+  background: fade($primary_background, $trans);
+}
+@mixin background_white( $trans: 50%) {
+  background: rgb(white);
+  background: fade(white, $trans);
+}
+@mixin contrast($v: 2) {
+  filter: contrast($v);
+}
+@mixin graustufe ($grey: 5%) {
+  filter: grayscale($grey);
+}
+@mixin boxshadow {
+  box-shadow: var(--schatten);
+}
+@mixin vertikal-zentriert-pos-abs {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+.grayscale {
+  filter: grayscale(1);
+}
+
+
+.navbar-top-float {
+  float: right;
+  margin-left: 10;
+}
+.fontsize {
+  margin-right: 15px;
+}
+.wbc-margin {
+  margin: 15px;
+}
+.wbc-margin-top {
+  margin: 15px 0 0;
+}
+.wbc-margin-bottom {
+  margin: 0 0 15px;
+}
+.wbc-margin-left {
+  margin: 0 0 0 15px;
+}
+.wbc-margin-right {
+  margin: 0 15px 0 0;
+}
+.wbc-margin-large {
+  margin: 30;
+}
+.wbc-margin-large-top {
+  margin: 30px 0 0;
+}
+.wbc-margin-large-bottom {
+  margin: 0 0 30px;
+}
+.wbc-margin-large-left {
+  margin: 0 0 0 30;
+}
+.wbc-margin-large-right {
+  margin: 0 30 0 0;
+}
+.wbc-layer-trans-04 {
+  background: rgba(255, 255, 255, .4);
+}
+.wbc-layer-trans-05 {
+  background: rgba(255, 255, 255, .5);
+}
+.wbc-layer-trans-06 {
+  background: rgba(255, 255, 255, .6);
+}
+.wbc-layer-trans-07 {
+  background: rgba(255, 255, 255, .7);
+}
+.wbc-layer-trans-08 {
+  background: rgba(255, 255, 255, .8);
+}
+.wbc-layer-trans-09 {
+  background: rgba(255, 255, 255, .9);
+}
+.wbc-nobackground {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+.wbc-fixed-sidebar {
+  z-index: 999;
+}
+.wbc-h-xlarge {
+  display: block;
+}
+.wbc-d-xlarge {
+  display: none;
+}
+.wbc-overlay-container {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+}
+.wbc-overlay-text{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  padding: 2rem;
+}
+.wbc-overlay {
+  position: absolute;
+  top: 0;
+  left: auto;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.wbc-line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #808080;
+}
+.wbc-background-image-stretch {
+  min-height: 200px;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center 100;
+  background-size: contain;
+}
+
+/***** Hintergrundbild *******************************************/
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: auto;
+  z-index: -1;
+  overflow: hidden;
+  background-position: center center;
+  background-size: contain;
+}
+
+/* Iframe responsive ----------------------------------------*/
+
+iframe, object {
+  max-width: 100%;
+  height: auto;
+  border: none;
+}
+#sbox-window iframe,
+#sbox-window object {
+  height: 100%;
+}
+.embed-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding-bottom: 56.25%; /* ratio 16x9 */
+  overflow: hidden;
+}
+.embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

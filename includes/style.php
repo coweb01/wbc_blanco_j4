@@ -2,6 +2,16 @@
 
 defined('_JEXEC') or die;
 
+$r = '255';
+$g = '255';
+$b = '255';
+
+if ($templateparams->get('bgnavbarcolor')) {
+	$r = hexdec(substr($templateparams->get('bgnavbarcolor'),1,2));
+	$g = hexdec(substr($templateparams->get('bgnavbarcolor'),3,2));
+	$b = hexdec(substr($templateparams->get('bgnavbarcolor'),5,2));
+}
+
 $wa->addInlineStyle('
 :root {
 	--fontsize: ' . $templateparams->get('defaultfontsize') . 'rem;
@@ -10,6 +20,9 @@ $wa->addInlineStyle('
 	--bgfooterB: ' . $templateparams->get('bgfootercolorB') . ';
 
 	--bgnavbar: ' . $templateparams->get('bgnavbarcolor') . ';
+	--bgnavbarr: ' . $r .';
+	--bgnavbarg: ' . $g .';
+	--bgnavbarb: ' . $b .';
 	--bgcolor: ' . $templateparams->get('backgroundcolor') . ';
 	--bgcolormain: ' . $templateparams->get('backgroundcolormain') . ';
 	--defaultcolor: ' . $templateparams->get('defaultcolor') . ';

@@ -11,15 +11,11 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Filesystem\File;
 use Joomla\CMS\Helper\ModuleHelper;
 
-use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Language\Text;
-use Joomla\CMS\Uri\Uri;
-
 /** @var Joomla\CMS\Document\HtmlDocument $this */
 
 $app                = Factory::getApplication();
 $doc                = $app->getDocument();
-$doc->setHtml5(true);
+
 $wa                 = $this->getWebAssetManager();
 
 $lang               = $app->getLanguage(); //sprachstring bei mehrsprachigen seiten
@@ -28,9 +24,9 @@ $sitename           = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8
 $params             = $app->getParams(); //Parameter Menue
 $pageclass          = $params->get('pageclass_sfx'); // parameter (menu entry)
 $tpath              = $this->baseurl.'/templates/'.$this->template;
-$vorcontent_cols    = $this->params->get('vorcontent-cols',1);
-$aftercontent_cols  = $this->params->get('aftercontent-cols',1);
-$NavMainPos         = $this->params->get('navmain',1);
+$vorcontent_cols    = $templateparams->get('vorcontent-cols',1);
+$aftercontent_cols  = $templateparams->get('aftercontent-cols',1);
+$NavMainPos         = $templateparams->get('navmain',1);
 $this->language     = $doc->language;
 $this->direction    = $doc->direction;
 $showrightColumn    = 0;
@@ -41,12 +37,14 @@ $counter            = 0;
 $customcss          = array();
 $customcss          = explode (',',$templateparams->get('customcss'));
 
-if ($NavMainPos == 5 ) {  // Hauptnavigation rechts
-    $showrightColumn    = $this->countModules('navMain');
- }
-if ($NavMainPos == 4 ) { // Hauptnavigation links
-    $showleftColumn     = $this->countModules('navMain');
- }
+if ($NavMainPos == 5 ) {
+	// Hauptnavigation rechts
+	$showrightColumn    = $this->countModules('navMain');
+}
+if ($NavMainPos == 4 ) {
+	// Hauptnavigation links
+	$showleftColumn     = $this->countModules('navMain');
+}
 
 $pos_search = '';
 if ($module = ModuleHelper::getModule( 'search' )) {;
@@ -54,8 +52,8 @@ if ($module = ModuleHelper::getModule( 'search' )) {;
 	$anker_search = 'id="suche-'. $pos_search. '"';
 }
 
-$showrightColumn            = $showrightColumn + ( $this->countModules('right-01 or right-02 or nav-sidebar-right'  ) );
-$showleftColumn             = $showleftColumn + ( $this->countModules('left-01 or left-02 or nav-sidebar-left') ) ; // erforderliche Spalten ermitteln
+$showrightColumn            = $showrightColumn + (($this->countModules('right-01')) || ($this->countModules('right-02')) || ($this->countModules('nav-sidebar-right')));
+$showleftColumn             = $showleftColumn + (($this->countModules('left-01')) || ($this->countModules('left-02')) || ($this->countModules('nav-sidebar-left'))); // erforderliche Spalten ermitteln
 $colSidebarLeft             = $templateparams->get('colsidebarleft',3);
 $colSidebarRight            = $templateparams->get('colsidebarright',3);
 $colSidebarLeft_sm          = $templateparams->get('colsidebarleft_sm',4);
@@ -115,7 +113,6 @@ if ($logoposition == 2) {
 
 if ($NavMainPos == 4) { $showleftColumn++; }
 if ($NavMainPos == 5) { $showrightColumn++; }
-
 /** Startseite und aktiven Menuepunkt  ermitteln *****/
 $menu                     = $app->getMenu();
 $activeMenu               = $menu->getActive(); // aktive Menue
@@ -131,7 +128,7 @@ if ($menu->getActive() == $menu->getDefault($lang->getTag())) {
 	$classbody  .= ' nofront';
 }
 
-$classbody  .= $pageclass;
+$classbody .= $pageclass;
 if ($bgimage == 1 && $templateparams->get('image-body')) {
 	$classbody .= ' bgimage-01';
 }
@@ -185,13 +182,16 @@ if (isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], '
 $doc->setMetadata('viewport', '');
 $doc->setMetadata('content-language',substr($this->language, 0, 2));
 
+// Load Icons
+if ($fontawesome == 1)
+{
+	$wa->useStyle('fontawesome');
+}
+
 // Enable assets
 $wa->usePreset('template.wbc')
 	->useStyle('template.user')
 	->useScript('template.user');
-
-// Defer font awesome
-$wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
 
 foreach ($customcss as $value) {
 

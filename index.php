@@ -18,14 +18,18 @@ include_once JPATH_THEMES . '/' . $this->template . '/includes/magic.php'; // lo
 if (!isset($bootstrap_colclass_mobil_sm)) { $bootstrap_colclass_mobil_sm = ''; };
 if (!isset($bootstrap_colclass_mobil_xs)) { $bootstrap_colclass_mobil_xs = ''; };
 
+// Template path
+$tpath = 'templates/' . $this->template;
+
+
 // Favicons
-$this->addHeadLink($tpath . 'images/favicons/apple-touch-icon.png', 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
-$this->addHeadLink($tpath . 'images/favicons/favicon-32x32.png', 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
-$this->addHeadLink($tpath . 'images/favicons/favicon-16x16.png', 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
-$this->addHeadLink($tpath . 'images/favicons/safari-pinned-tab.svg', 'mask-icon', 'rel', ['color' => '#41599a']);
-$this->addHeadLink($tpath . 'images/favicons/site.webmanifest', 'manifest', 'rel', []);
-$this->addHeadLink($tpath . 'images/favicons/favicon.ico', 'shortcut icon', 'rel', []);
-$this->setMetaData('msapplication-config', $tpath . 'images/favicons/browserconfig.xml');
+$this->addHeadLink($tpath . '/images/favicons/apple-touch-icon.png', 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
+$this->addHeadLink($tpath . '/images/favicons/favicon-32x32.png', 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
+$this->addHeadLink($tpath . '/images/favicons/favicon-16x16.png', 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
+$this->addHeadLink($tpath . '/images/favicons/safari-pinned-tab.svg', 'mask-icon', 'rel', ['color' => '#41599a']);
+$this->addHeadLink($tpath . '/images/favicons/site.webmanifest', 'manifest', 'rel', []);
+$this->addHeadLink($tpath . '/images/favicons/favicon.ico', 'shortcut icon', 'rel', []);
+$this->setMetaData('msapplication-config', $tpath . '/images/favicons/browserconfig.xml');
 $this->setMetaData('theme-color', '#ffffff');
 
 ?>
@@ -39,7 +43,7 @@ $this->setMetaData('theme-color', '#ffffff');
 	<jdoc:include type="scripts" />
 
 <!-- ***************************************************************************************************** -->
-<!-- *****     copyright Template www.das-webconcept.de       2020                                    **** -->
+<!-- *****     copyright Template www.das-webconcept.de       2021                                    **** -->
 <!-- ***************************************************************************************************** -->
 </head>
 <body id="top" class="body-01 <?php echo $classbody; ?>">
@@ -331,7 +335,7 @@ $this->setMetaData('theme-color', '#ffffff');
 								<div class="append-sidebar-nav" data-set="appendsectionone">
 									<nav id="wrap-nav-sidebar-right">
 										<a href="#" id="toggle-btn-right" class="wbc-toggle-btn">
-											<p class="headline-submenue d-inline sr-only"><?php echo JText::_('TPL_WBC_BLANCO_J4_HEADLINE_SUBMENUSIDEBAR'); ?> </p>
+											<p class="headline-submenue d-inline sr-only"><?php echo Text::_('TPL_WBC_BLANCO_J4_HEADLINE_SUBMENUSIDEBAR'); ?> </p>
 											<p class="d-inline wbc-hamburger">
 												<span class="line"></span>
 												<span class="line"></span>
@@ -446,14 +450,14 @@ $this->setMetaData('theme-color', '#ffffff');
 
 		<div id="gototop">
 			<a class="mb-2 gototop shadow-sm d-inline-flex justify-content-center align-items-center" href="#top" >
-				<i class="<?php echo $faclass; ?> fa-chevron-up"></i>
+				<i class="fa fa-chevron-up"></i>
 				<span class="sr-only"><?php echo Text::_('TPL_WBC_BLANCO_J4_TOP'); ?></span>
 			</a>
 		</div>
 
 		<div id="gototop-mobil" class="d-flex d-sm-none shadow-sm p-1 fixed-bottom">
 			<a class="gototop" href="#top">
-				<i class="<?php echo $faclass; ?> fa-chevron-up"></i>
+				<i class="fa fa-chevron-up"></i>
 				<span class="sr-only"> <?php echo Text::_('TPL_WBC_BLANCO_J4_TOP'); ?></span>
 			</a>
 			<jdoc:include type="modules" name="fixed-footer-mobil" style="none" />

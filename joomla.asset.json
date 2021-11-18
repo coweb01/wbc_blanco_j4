@@ -9,10 +9,7 @@
       "name": "template.wbc",
       "description": "The template css file.",
       "type": "style",
-      "uri": "template.min.css",
-      "dependencies": [
-        "fontawesome"
-      ]
+      "uri": "template.css"
     },
     {
       "name": "template.offline",
