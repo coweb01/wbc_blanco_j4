@@ -5,7 +5,7 @@
   font-weight: 300;
   src: local(""),
        url("../fonts/open-sans-v18-latin-300.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url("../fonts/open-sans-v18-latin-300.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url("../fonts/open-sans-v18-latin-300.woff") format("woff");/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* open-sans-regular - latin */
@@ -15,7 +15,7 @@
   font-weight: 400;
   src: local(""),
        url("../fonts/open-sans-v18-latin-regular.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url("../fonts/open-sans-v18-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url("../fonts/open-sans-v18-latin-regular.woff") format("woff");/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* open-sans-300italic - latin */
@@ -25,7 +25,7 @@
   font-weight: 300;
   src: local(""),
        url("../fonts/open-sans-v18-latin-300italic.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url("../fonts/open-sans-v18-latin-300italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url("../fonts/open-sans-v18-latin-300italic.woff") format("woff");/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* open-sans-italic - latin */
@@ -35,7 +35,7 @@
   font-weight: 400;
   src: local(""),
        url("../fonts/open-sans-v18-latin-italic.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url("../fonts/open-sans-v18-latin-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url("../fonts/open-sans-v18-latin-italic.woff") format("woff");/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* open-sans-600 - latin */
@@ -45,7 +45,7 @@
   font-weight: 600;
   src: local(""),
        url("../fonts/open-sans-v18-latin-600.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url("../fonts/open-sans-v18-latin-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url("../fonts/open-sans-v18-latin-600.woff") format("woff");/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* open-sans-600italic - latin */
@@ -55,7 +55,7 @@
   font-weight: 600;
   src: local(""),
        url("../fonts/open-sans-v18-latin-600italic.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url("../fonts/open-sans-v18-latin-600italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url("../fonts/open-sans-v18-latin-600italic.woff") format("woff");/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 
@@ -145,13 +145,163 @@ a:not([class]) {
   border-color: var(--hoverbgcolorbtn);
 }
 
+/* Buttons */
+
+a.btn-primary:link,
+a.btn-primary:visited,
+a.btn-primary:hover,
+a.btn-primary:active,
+a.btn-primary:focus {}
+
+.btn-success {
+  color: #fff;
+  background-color: $success_color;
+  border-color: $success_color;
+  &:hover,
+  &:focus {
+    color: #fff;
+    background-color: $success_color_hover;
+    border-color: $success_color_hover;
+  }
+  &.focus,
+  &:focus {
+    box-shadow: 0 0 0 .2rem rgba(126, 157, 6,.5);
+  }
+}
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-info,
+.btn-light,
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-success,
+.btn-outline-danger,
+.btn-outline-warning,
+.btn-outline-info,
+.btn-outline-light {
+  border-radius: var(--borderradius);
+}
+.input-append .btn-primary,
+.input-append .btn-secondary,
+.input-append .btn-success,
+.input-append .btn-danger,
+.input-append .btn-warning,
+.input-append .btn-info,
+.input-append .btn-outline-primary,
+.input-append .btn-outline-secondary,
+.input-append .btn-outline-success,
+.input-append .btn-outline-danger,
+.input-append .btn-outline-warning,
+.input-append .btn-outline-info,
+.input-append .btn-outline-light {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+button,
+.btn {
+  color: var(--linkcolorbtn);
+  background-color: var(--linkbgcolorbtn);
+  border-color: var(--linkbgcolorbtn);
+  border-radius: var(--borderradius);
+  &:hover {
+    color: var(--hovercolorbtn);
+    background-color: var(--hoverbgcolorbtn);
+    border-color: var(--hoverbgcolorbtn);
+  }
+  &:active,
+  &:not(:disabled):not(.disabled).active,
+  &:not(:disabled):not(.disabled):active,
+  .show > .btn.dropdown-toggle {
+    color: var(--activecolorbtn);
+    background-color: var(--activebgcolorbtn);
+    border-color: var(--activebgcolorbtn);
+  }
+}
+.btn-outline-primary {
+  color: var(--linkcolor);
+  background-color: transparent;
+  border-color: var(--linkbgcolorbtn);
+  &:hover {
+    color: #FFF !important;
+    background-color: var(--linkbgcolorbtn);
+    border-color: var(--linkbgcolorbtn);
+  }
+}
+
+/*----------------- weiterlesen -------------------------------------*/
+
+.readmore {
+  margin: 20 0;
+}
+.readmore a.btn,
+.readmore a,
+.fcitem_readon a:link,
+.fcitem_readon a:visited {
+  color: var(--color-font, var(--linkbgcolorbtn));
+  background-color: transparent;
+  border: solid 1px var(--color-font, var(--linkbgcolorbtn));
+  border-radius: var(--borderradius);
+}
+.readmore a.btn:hover,
+.readmore a:hover,
+.readmore a.btn:focus,
+.readmore a:focus,
+.fcitem_readon a:hover,
+.fcitem_readon a:focus {
+  color: var(--linkcolorbtn) !important;
+  background-color: var(--linkbgcolorbtn);
+  border: solid 1px var(--linkbgcolorbtn);
+}
+.readmore a.btn:active,
+.readmore a:active,
+.fcitem_readon a:active {
+  color: var(--activecolorbtn);
+  background-color: var(--activebgcolorbtn);
+  border: solid 1px var(--activebgcolorbtn);
+}
+
+/*-------------------- Button Fixed Sidebar ---------------------*/
+
+.wbc-fixed-sidebar a.nav-link {
+  color: var(--linkcolorbtn);
+  background-color: var(--linkbgcolorbtn);
+  border-color: var(--linkbgcolorbtn);
+  border-radius: var(--borderradius);
+  &:hover,
+  &:focus {
+    color: var(--hovercolorbtn);
+    background-color: var(--hoverbgcolorbtn);
+    border-color: var(--hoverbgcolorbtn);
+    border-radius: var(--borderradius);
+  }
+}
+.wbc-fixed-sidebar-toggle.slide-open > a.toggle-btn {
+  color: var(--linkcolor);
+  background-color: transparent;
+  box-shadow: none !important;
+}
+
+/*-------------------  Buttons ----------------------------------*/
+
+#toggle-sidebar-btn {
+  padding: 9px 10px;
+  border: 1px solid #eee;
+  border-radius: 0;
+  &:hover {
+    color: #999;
+    background-color: #ddd;
+  }
+}
 
 /* ---------------------  Zitate --------------------------*/
 
 blockquote {
   position: relative;
-  max-width: 500px;
-  padding: .25em 40px;
+  max-width: 500;
+  padding: .25em 40;
   margin: .5em 0;
   font-family: Georgia, serif;
   font-size: 18px;
@@ -161,10 +311,10 @@ blockquote {
 }
 blockquote:before {
   position: absolute;
-  top: -20px;
+  top: -20;
   left: 0;
   display: block;
-  font-size: 90px;
+  font-size: 90;
   color: #ccc;
   content: "\201C";
 }

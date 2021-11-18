@@ -169,6 +169,14 @@ body {
 .wrap-main {
   margin-top: 20px;
 }
+/*------------------  Article zusatzinfos ---------------------------*/
+
+.article-info {
+  font-size: .8rem;
+}
+.article-info-term {
+  font-weight: 600;
+}
 
 /*------------   Module vor_content_col --------------------------------------*/
 
@@ -578,6 +586,19 @@ body {
 
 /* error seite --------------------------------------------*/
 
+.error {
+  padding: 0;
+  margin: 0;
+}
+.bottom-right {
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+}
+.error-message {
+  min-height: 400px;
+  margin-top: 20px;
+}
 .info-message {
   min-height: 300px;
 }

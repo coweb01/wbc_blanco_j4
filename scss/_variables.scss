@@ -1,18 +1,3 @@
-:root {
-  --default: #484546;
-  --fluid: clamp(var(--fluid-type-min, 1rem), calc(1rem + var(--fluid-type-target, 5vw)), var(--fluid-type-max, 1.1rem));
-  --bordercolor: var(--grau_2);
-  --borderradius: 0;
-
-  --schatten: 0 3px 5px 0 rgba(38,36,38,.6);
-  --fontfamily: "Open Sans", Arial, sans-serif;
-  --fontfamily2: "Open Sans", Arial, sans-serif;
-
-  --symbolfont: "Font Awesome 5 Free";
-
-  --printcolor: #000;
-}
-
 $color1: #fecd23;
 $color2: #a2a29a;
 $color3: #e7e7e5;
@@ -50,3 +35,18 @@ $animation_pl: padding-left .2s ease-in-out;
 $animation_ml: margin-left .5s ease-in-out;
 $animation_pr: padding-right .5s ease-in-out;
 $trans: 80%;
+
+:root {
+  --default: #484546;
+  --fluid: clamp(var(--fluid-type-min, 1rem), calc(1rem + var(--fluid-type-target, 5vw)), var(--fluid-type-max, 1.1rem));
+  --bordercolor: #{$grau_2};
+  --borderradius: 0;
+
+  --schatten: 0 3px 5px 0 rgba(38,36,38,.6);
+  --fontfamily: "Open Sans", Arial, sans-serif;
+  --fontfamily2: "Open Sans", Arial, sans-serif;
+
+  --symbolfont: "Font Awesome 5 Free";
+
+  --printcolor: #000;
+}
