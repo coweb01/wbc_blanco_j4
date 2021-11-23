@@ -25,7 +25,7 @@
 	?>
 		<?php // dieser Button aktiviert das normale Bootstrap offcanvas ?>
 		<button type="button" class="<?php echo $cssbutton;?>" data-toggle="<?php echo $data_attr; ?>" data-target=".navbar-collapse" aria-controls="wbc-navbar-main">
-			<span class="sr-only"><?php echo Text::_('TPL_CO_BLANCO_J3_MENU'); ?></span>
+			<span class="visually-hidden"><?php echo Text::_('TPL_CO_BLANCO_J3_MENU'); ?></span>
 			<span class="navbar-toggler-icon"></span>
 		</button>
 	<?php

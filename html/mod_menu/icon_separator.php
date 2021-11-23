@@ -14,14 +14,14 @@ $title = $item->anchor_title ? ' title="' . $item->anchor_title . '" ' : '';
 if ($item->menu_image)
 	{
 		$item->params->get('menu_text', 1) ?
-		$linktype = '<img src="' . $item->menu_image . '" alt="' . $item->title . '" /><span class="image-title sr-only sr-only-focusable">' . $item->title . '</span> ' :
+		$linktype = '<img src="' . $item->menu_image . '" alt="' . $item->title . '" /><span class="image-title visually-hidden visually-hidden-focusable">' . $item->title . '</span> ' :
 		$linktype = '<img src="' . $item->menu_image . '" alt="' . $item->title . '" />';
 }
 else
 {
 	$item->params->get('menu_text', 1) ?
 	$linktype =  $item->title :
-	$linktype = '<span class="sr-only sr-only-focusable">'.$item->title.'</span>'; 
+	$linktype = '<span class="visually-hidden visually-hidden-focusable">'.$item->title.'</span>';
 }
 
 ?>

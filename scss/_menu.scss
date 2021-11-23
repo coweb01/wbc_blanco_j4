@@ -129,9 +129,8 @@ li.fa a span {
   padding: 0;
   margin: 0;
 }
-#navigation-main ul {}
 #navigation-main .navbar-default {
-  background-color:transparent;
+  background-color: transparent;
   border: none;
 }
 #navigation-main ul.nav li {
@@ -140,17 +139,27 @@ li.fa a span {
   background-color: transparent;
   background-image: none;
 }
-#navigation-main ul.nav > li {
-}
-#navigation-main ul li .separator {}
-#navigation-main ul li a {
+#navigation-main ul li .separator,
+#navigation-main ul li a,
+#navigation-main ul li .nav-header {
   font-size: 1.2rem;
   text-align: left;
   background-color: transparent;
   background-image: none;
 }
-#navigation-main ul li a,  #navigation-main ul li span {}
-#navigation-main ul li a:link, #navigation-main ul li a:visited {
+#navigation-main ul li > a,
+#navigation-main ul li > button,
+#navigation-main ul li > span {
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#navigation-main ul li a {
+  text-decoration: none;
+}
+#navigation-main ul li a:link,
+#navigation-main ul li a:visited {
   color: var(--Linkcolornavbar);
 }
 #navigation-main ul li a:hover,
@@ -166,10 +175,27 @@ li.fa a span {
 #navigation-main ul li.active a:visited {
   color: var(--Activecolornavbar);
 }
-#navigation-main ul li.active {}
-#navigation-main ul li.parent {}
-#navigation-main ul li.current {}
-#navigation-main ul li a {}
+#navigation-main ul li.parent {
+  position: relative;
+  .mod-menu__sub {
+    position: absolute;
+    top: 100%;
+    z-index: 1001;
+    display: block;
+    min-width: 12rem;
+    padding: 1rem;
+    background: rgb(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb)) !important;
+    background: rgba(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb), var(--transnavbar)) !important;
+    @include boxshadow;
+
+    li {
+      display: block;
+    }
+    a {
+      display: inline-flex;
+    }
+  }
+}
 
 /******  2. Ebene                                   **********************/
 
@@ -447,7 +473,6 @@ li.fa a span {
 }
 @media (min-width: 1200px) {
   #navigation-main ul.nav > li {
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding: 1rem;
   }
 }

@@ -49,15 +49,15 @@ $this->setMetaData('theme-color', '#ffffff');
 <body id="top" class="body-01 <?php echo $classbody; ?>">
 	<div class="prevent-scrolling">
 		<!-- start Accesibility -->
-		<h1 class="sr-only sr-only-focusable">Navigation</h1>
-		<ul class="sr-only sr-only-focusable">
+		<h1 class="visually-hidden visually-hidden-focusable">Navigation</h1>
+		<ul class="visually-hidden visually-hidden-focusable">
 			<li>
-				<a href="#wrap-content" class="sr-only sr-only-focusable">
+				<a href="#wrap-content" class="visually-hidden visually-hidden-focusable">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_SKIP_TO_CONTENT'); ?>
 				</a>
 			</li>
 			<li>
-				<a href="#navigation-main" class="sr-only sr-only-focusable">
+				<a href="#navigation-main" class="visually-hidden visually-hidden-focusable">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_SKIP_TO_MAIN_NAVIGATION'); ?>
 				</a>
 			</li>
@@ -65,7 +65,7 @@ $this->setMetaData('theme-color', '#ffffff');
 			if ($this->countModules('header-top-01')) :
 			?>
 			<li>
-				<a href="#header-top-01" class="sr-only sr-only-focusable">
+				<a href="#header-top-01" class="visually-hidden visually-hidden-focusable">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_SKIP_TO_TOP_NAVIGATION'); ?>
 				</a>
 			</li>
@@ -76,7 +76,7 @@ $this->setMetaData('theme-color', '#ffffff');
 			if ($showleftColumn) :
 			?>
 			<li>
-				<a href="#sidebar-left" class="sr-only sr-only-focusable">
+				<a href="#sidebar-left" class="visually-hidden visually-hidden-focusable">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_JUMP_TO_LEFT_INFORMATION'); ?>
 				</a>
 			</li>
@@ -87,7 +87,7 @@ $this->setMetaData('theme-color', '#ffffff');
 			if ($showrightColumn) :
 			?>
 			<li>
-				<a href="#sidebar-right" class="sr-only sr-only-focusable">
+				<a href="#sidebar-right" class="visually-hidden visually-hidden-focusable">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_JUMP_TO_RIGHT_INFORMATION'); ?>
 				</a>
 			</li>
@@ -95,7 +95,7 @@ $this->setMetaData('theme-color', '#ffffff');
 			endif;
 			?>
 			<li>
-				<a href="#suche" class="sr-only sr-only-focusable">
+				<a href="#suche" class="visually-hidden visually-hidden-focusable">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_JUMP_TO_SEARCH'); ?>
 				</a>
 			</li>
@@ -338,7 +338,7 @@ $this->setMetaData('theme-color', '#ffffff');
 								<div class="append-sidebar-nav" data-set="appendsectionone">
 									<nav id="wrap-nav-sidebar-right">
 										<a href="#" id="toggle-btn-right" class="wbc-toggle-btn">
-											<p class="headline-submenue d-inline sr-only"><?php echo Text::_('TPL_WBC_BLANCO_J4_HEADLINE_SUBMENUSIDEBAR'); ?> </p>
+											<p class="headline-submenue d-inline visually-hidden"><?php echo Text::_('TPL_WBC_BLANCO_J4_HEADLINE_SUBMENUSIDEBAR'); ?> </p>
 											<p class="d-inline wbc-hamburger">
 												<span class="line"></span>
 												<span class="line"></span>
@@ -454,14 +454,14 @@ $this->setMetaData('theme-color', '#ffffff');
 		<div id="gototop">
 			<a class="mb-2 gototop shadow-sm d-inline-flex justify-content-center align-items-center" href="#top" >
 				<i class="fa fa-chevron-up"></i>
-				<span class="sr-only"><?php echo Text::_('TPL_WBC_BLANCO_J4_TOP'); ?></span>
+				<span class="visually-hidden"><?php echo Text::_('TPL_WBC_BLANCO_J4_TOP'); ?></span>
 			</a>
 		</div>
 
 		<div id="gototop-mobil" class="d-flex d-sm-none shadow-sm p-1 fixed-bottom">
 			<a class="gototop" href="#top">
 				<i class="fa fa-chevron-up"></i>
-				<span class="sr-only"> <?php echo Text::_('TPL_WBC_BLANCO_J4_TOP'); ?></span>
+				<span class="visually-hidden"> <?php echo Text::_('TPL_WBC_BLANCO_J4_TOP'); ?></span>
 			</a>
 			<jdoc:include type="modules" name="fixed-footer-mobil" style="none" />
 		</div>
