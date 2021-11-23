@@ -186,7 +186,10 @@ $this->setMetaData('theme-color', '#ffffff');
 					</div><!-- End header-02 -->
 					<?php endif; ?>
 
-					<?php if ((($this->params->get('headerimg-select') == 1) && ($this->params->get('headerimg') != NULL)) || ($this->countModules('headerimg'))) : /* wenn headerbild */?>
+					<?php
+					if (($this->params->get('headerimg-select') == 1) && (($this->params->get('headerimg') != -1) || ($this->countModules('headerimg')))) :
+					/* wenn headerbild */
+					?>
 						<?php
 							$Layoutheaderimg = new FileLayout('wbc_blanco_template.headerimg', $tpath.'/html/layouts');
 							echo $Layoutheaderimg->render($displayData);
@@ -194,7 +197,7 @@ $this->setMetaData('theme-color', '#ffffff');
 					<?php endif; ?>
 
 					<?php if ($this->countModules('navMain') && $NavMainPos == 3): ?>
-					<nav id="navigation-main" <?php echo ($fixedheader == 1) ? 'class="sps"' :'';?> >
+					<nav id="navigation-main" <?php echo ($fixedheader == 1 ) ? 'class="sps"' :'';?> >
 
 						<?php if ($fixedheader && $this->countModules('logo-mobil')): ?>
 						<div id="logo-mobil" class="navbar-brand hidden">

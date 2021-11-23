@@ -11363,7 +11363,7 @@ select {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center 100;
-  background-size: contain;
+  background-size: cover;
 }
 
 /***** Hintergrundbild *******************************************/

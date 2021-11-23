@@ -39,7 +39,8 @@ extract($displayData);
 			<?php
 			if($jhtml->countModules('headerimg-overlay')) :
 			?>
-				<div id="overlay_headerimg" class="d-none d-sm-block"><jdoc:include type="modules" name="headerimg-overlay" style="none"/>
+				<div id="overlay_headerimg" class="d-none d-sm-block">
+					<jdoc:include type="modules" name="headerimg-overlay" style="none"/>
 				</div>
 			<?php
 			endif;
