@@ -230,7 +230,7 @@
 					type="radio"
 					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
-					default="5"
+					default="1"
 					label="TPL_WBC_BLANCO_J4_PARAMETER_FONTAWESOME_LABEL"
 					description="TPL_WBC_BLANCO_J4_PARAMETER_FONTAWESOME_DESC"
 					>
