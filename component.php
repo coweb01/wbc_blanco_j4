@@ -1,17 +1,21 @@
 <?php
-/**
- * Base template Joomla 3
- */
 
 defined('_JEXEC') or die;
 
-$app                = JFactory::getApplication();
-$doc                = JFactory::getDocument();
-$this->language     = $doc->language;
-$this->direction    = $doc->direction;
-$tpath              = $this->baseurl.'/templates/'.$this->template;
-JHtml::_('bootstrap.framework');
-JHtmlBootstrap::loadCss();
+use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
+
+/** @var Joomla\CMS\Document\HtmlDocument $this */
+
+$app = Factory::getApplication();
+$wa  = $this->getWebAssetManager();
+
+// Template path
+$templatePath = 'templates/' . $this->template;
+
+$doc = $app->getDocument();
+$templateparams = $app->getTemplate(true)->params; // Templateparameter
+$fontawesome = $templateparams->get('fontawesome');
 
 // generator tag
 $this->setGenerator(null);
@@ -24,34 +28,32 @@ if (isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], '
 $doc->setMetadata('viewport', '');
 $doc->setMetadata('content-language',substr($this->language, 0, 2));
 
+// Load Icons
+if ($fontawesome == 1)
+{
+	$wa->useStyle('fontawesome');
+}
 
-
-$doc->addStyleSheet($tpath . '/css/system/template.css', array('version' => 'auto'));
-
-if ( (JFile::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/custom.css' ) ) ) {
-	  $doc->addStyleSheet($tpath .  '/css/custom.css', array('version' => 'auto'));
-}  
-
-
+// Enable assets
+$wa->usePreset('template.wbc')
+	->useStyle('template.user')
+	->useScript('template.user');
 
 ?>
 
 <!DOCTYPE html>
-<!--[if IEMobile]><html class="iemobile" lang="<?php echo $this->language; ?>"> <![endif]-->
-<!--[if gt IE 8]><!-->  <html class="no-js" lang="<?php echo $this->language; ?>"> <!--<![endif]-->
+<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
-
-<?php if ($this->params->get('meta-viewport') == 0):?>
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<?php endif; ?>	
-<jdoc:include type="head" />
-
+<jdoc:include type="metas" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<jdoc:include type="styles" />
+	<?php include "includes/style.php";?>
+	<jdoc:include type="scripts" />
 </head>
 <body >
-<div class="contenpane container <?php echo $this->direction === 'rtl' ? ' rtl' : ''; ?>" >
-	<jdoc:include type="message" />
-	<jdoc:include type="component" />
-</div>
-	
+	<div class="contenpane container <?php echo $this->direction === 'rtl' ? ' rtl' : ''; ?>" >
+		<jdoc:include type="message" />
+		<jdoc:include type="component" />
+	</div>
 </body>
 </html>

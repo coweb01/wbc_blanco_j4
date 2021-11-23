@@ -4,11 +4,11 @@
  * Template Joomla 4
  * Kunde:
  * Author: Claudia Oerter / Viviana Menzel
- * Stand:  11 / 2021
+ * Stand: 11 / 2021
  * Version: 1.0
  * copyright Template das webconcept
  **********************************************************/
-defined( '_JEXEC' ) or die;
+defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\FileLayout;
@@ -48,7 +48,7 @@ $this->setMetaData('theme-color', '#ffffff');
 </head>
 <body id="top" class="body-01 <?php echo $classbody; ?>">
 	<div class="prevent-scrolling">
-		<!-- start Accesibility  -->
+		<!-- start Accesibility -->
 		<h1 class="sr-only sr-only-focusable">Navigation</h1>
 		<ul class="sr-only sr-only-focusable">
 			<li>
@@ -62,7 +62,7 @@ $this->setMetaData('theme-color', '#ffffff');
 				</a>
 			</li>
 			<?php
-			if ($this->countModules('header-top-01') ) :
+			if ($this->countModules('header-top-01')) :
 			?>
 			<li>
 				<a href="#header-top-01" class="sr-only sr-only-focusable">
@@ -102,7 +102,7 @@ $this->setMetaData('theme-color', '#ffffff');
 		</ul>
 		<!-- end Accesibility -->
 
-		<?php   /*  wenn Modul grossflaechiges hintergrundbild */?>
+		<?php /* wenn Modul grossflaechiges hintergrundbild */?>
 		<?php if ($this->countModules('bg-01')) : ?>
 			<div id="bg">
 				<jdoc:include type="modules" name="bg-01" style="none" />
@@ -116,10 +116,10 @@ $this->setMetaData('theme-color', '#ffffff');
 			<!-- *     Header                                                                                         * -->
 			<!-- ****************************************************************************************************** -->
 			<header class="header" >
-				<div class="header-top <?php echo ( $fixedheader == 1 ) ? 'sps' :'';?>" >
-					<div class="container<?php  echo ( $navbarHeaderWidth == 1 ) ? '-fluid' : '';?>">
+				<div class="header-top <?php echo ( $fixedheader == 1) ? 'sps' :'';?>" >
+					<div class="container<?php echo ( $navbarHeaderWidth == 1) ? '-fluid' : '';?>">
 
-						<?php if ($logoposition == 2 ) : ?>
+						<?php if ($logoposition == 2) : ?>
 							<?php
 								$LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $tpath.'/html/layouts');
 								echo $LayoutLogo ->render($displayData);
@@ -155,7 +155,7 @@ $this->setMetaData('theme-color', '#ffffff');
 					<?php endif; ?>
 
 					<?php if ($this->countModules('navMain') && $NavMainPos == 2): ?>
-					<nav id="navigation-main" role="navigation" <?php echo ( $fixedheader == 1 ) ? 'class="sps"' :'';?> >
+					<nav id="navigation-main" role="navigation" <?php echo ( $fixedheader == 1) ? 'class="sps"' :'';?> >
 						<?php
 							$LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'/html/layouts');
 							echo $LayoutMain ->render($displayData);
@@ -164,7 +164,7 @@ $this->setMetaData('theme-color', '#ffffff');
 					<?php endif; ?>
 
 					<?php if ($this->countModules('header-top-02')): ?>
-					<div <?php echo ($pos_search  == 'header-top-02' ) ?  $anker_search : ''; ?> class="header-02 container<?php  echo ( $navbarHeaderWidth == 1 ) ? '-fluid' : '';?>">
+					<div <?php echo ($pos_search == 'header-top-02') ? $anker_search : ''; ?> class="header-02 container<?php echo ( $navbarHeaderWidth == 1) ? '-fluid' : '';?>">
 						<div id="header-top-02" class="base-row <?php echo $bootstrap_rowclass; ?>">
 							<?php if ($this->countModules('header-top-02')) : ?>
 							<div class="base-col col">
@@ -186,15 +186,15 @@ $this->setMetaData('theme-color', '#ffffff');
 					</div><!-- End header-02 -->
 					<?php endif; ?>
 
-					<?php if (($this->params->get('headerimg-select') == 1) && ( $this->params->get('headerimg') != NULL || $this->countModules('headerimg')) ) : /*  wenn headerbild */?>
+					<?php if (($this->params->get('headerimg-select') == 1) && ( $this->params->get('headerimg') != NULL || $this->countModules('headerimg'))) : /* wenn headerbild */?>
 						<?php
 							$Layoutheaderimg = new FileLayout('wbc_blanco_template.headerimg', $tpath.'/html/layouts');
-							echo  $Layoutheaderimg->render($displayData);
+							echo $Layoutheaderimg->render($displayData);
 						?>
 					<?php endif; ?>
 
 					<?php if ($this->countModules('navMain') && $NavMainPos == 3): ?>
-					<nav id="navigation-main" <?php echo ($fixedheader == 1 ) ? 'class="sps"' :'';?> >
+					<nav id="navigation-main" <?php echo ($fixedheader == 1) ? 'class="sps"' :'';?> >
 
 						<?php if ($fixedheader && $this->countModules('logo-mobil')): ?>
 						<div id="logo-mobil" class="navbar-brand hidden">
@@ -211,12 +211,12 @@ $this->setMetaData('theme-color', '#ffffff');
 					<?php endif; ?>
 				</div>
 			</header>
-			<!-- ********************   End Header ******************************************************************** -->
+			<!-- ********************  End Header ******************************************************************** -->
 
 			<!-- ****************************************************************************************************** -->
-			<!-- *     Main Content                                                                                   * -->
+			<!-- *    Main Content                                                                                   * -->
 			<!-- ****************************************************************************************************** -->
-			<?php if  ( $headerimg  == 0 ) :?>
+			<?php if ($headerimg == 0) :?>
 			<div class="no-headerimg separator"></div>
 			<?php endif;?>
 
@@ -254,12 +254,12 @@ $this->setMetaData('theme-color', '#ffffff');
 							<div id="sidebar-left" role="complementary" class="append-sidebar-left base-col col-12 <?php echo $bootstrap_colclass_mobil_sm . $colSidebarLeft_sm . ' ' . $bootstrap_colclass . $colSidebarLeft; ?>" data-set="appendsection">
 
 
-								<?php if ($this->countModules('nav-sidebar-left') ) : ?>
+								<?php if ($this->countModules('nav-sidebar-left')) : ?>
 								<div id="toggle-menu-left"><jdoc:include type="modules" name="nav-sidebar-left" style="default" /></div>
 								<?php endif; ?>
-								<?php echo  ($pos_search  == 'left-01' ) ?  'div '. $anker_search .'></div>' : ''; ?>
+								<?php echo ($pos_search == 'left-01') ? 'div '. $anker_search .'></div>' : ''; ?>
 								<jdoc:include type="modules" name="left-01" style="default" /><!--End left-01-->
-								<?php echo  ( $pos_search  == 'left-02' ) ?  'div'. $anker_search .'></div>' : ''; ?>
+								<?php echo ( $pos_search == 'left-02') ? 'div'. $anker_search .'></div>' : ''; ?>
 								<jdoc:include type="modules" name="left-02" style="none" /><!--End left-02-->
 							</div>
 							<!-- ***************************** End Sidebar Left ****************************************************** -->
@@ -268,16 +268,16 @@ $this->setMetaData('theme-color', '#ffffff');
 							<div id="wrap-content" class="base-row col-12 <?php echo $bootstrap_colclass_mobil_sm . $cols_sm . ' ' . $bootstrap_colclass . $cols;?>">
 								<div class="contentarea <?php echo $classinside;?>">
 									<noscript>
-									<!--   Anzeige wenn kein JavaScript -->
+									<!-- Anzeige wenn kein JavaScript -->
 									<div class="alert alert-danger" role="alert"><?php echo Text::_('TPL_WBC_BLANCO_J4_INFOTXTJS'); ?></div>
-									<!--   Ende  -->
+									<!-- Ende -->
 									</noscript>
 
 									<jdoc:include type="message" />
 
 									<div id="wrap-nav-sidebar-append" class="append-sidebar-before" data-set="appendsectionone"></div>
 									<?php
-									if ( $this->countModules('vorInhalt-01') > 0 ) : ?>
+									if ($this->countModules('vorInhalt-01') > 0) : ?>
 									<div id="vorInhalt-01">
 										<jdoc:include type="modules" name="vorInhalt-01" style="default" />
 									</div>
@@ -286,7 +286,7 @@ $this->setMetaData('theme-color', '#ffffff');
 									?>
 
 									<?php
-									if ( $this->countModules('vorInhalt-01-col') > 0 ) : /* wenn Modul mehrspaltig */
+									if ($this->countModules('vorInhalt-01-col') > 0) : /* wenn Modul mehrspaltig */
 										$LayoutModules = new FileLayout('wbc_blanco_template.cardmodules', $tpath.'/html/layouts');
 
 										$ReplacedisplayData = array('Modules' => 'vorInhalt-01-col',
@@ -299,7 +299,7 @@ $this->setMetaData('theme-color', '#ffffff');
 									?>
 
 									<?php
-									if (!$hidecontentwrapper) :  // contentbereich + module  anzeigen
+									if (!$hidecontentwrapper) : // contentbereich + module anzeigen
 									?>
 									<jdoc:include type="component" />
 									<?php
@@ -307,14 +307,14 @@ $this->setMetaData('theme-color', '#ffffff');
 									?>
 
 									<?php
-									if ( $this->countModules('nachInhalt-01-col') > 0 ) : /* wenn Module  mehrspaltig */
+									if ($this->countModules('nachInhalt-01-col') > 0) : /* wenn Module mehrspaltig */
 										$LayoutModules = new FileLayout('wbc_blanco_template.cardmodules', $tpath.'/html/layouts');
 
 										$ReplacedisplayData = array('Modules' => 'nachInhalt-01-col',
 																'Modules_cols' => $aftercontent_cols
 																);
 
-										$displayData = array_replace($displayData, $ReplacedisplayData );
+										$displayData = array_replace($displayData, $ReplacedisplayData);
 										echo $LayoutModules->render($displayData);
 									endif;
 									?>
@@ -351,12 +351,12 @@ $this->setMetaData('theme-color', '#ffffff');
 								endif;
 								?>
 
-								<?php echo  ( $pos_search  == 'right-01' ) ?  'div'. $anker_search .'></div' : ''; ?>
+								<?php echo ( $pos_search == 'right-01') ? 'div'. $anker_search .'></div' : ''; ?>
 									<jdoc:include type="modules" name="right-01" style="icon" /><!--End right-01-->
-								<?php echo  ( $pos_search  == 'right-02' ) ?  'div'. $anker_search .'></div' : ''; ?>
+								<?php echo ( $pos_search == 'right-02') ? 'div'. $anker_search .'></div' : ''; ?>
 									<jdoc:include type="modules" name="right-02" style="none" /><!--End right-02-->
 							</div>
-							<!-- ******************************** End Sidebar Right  ************************************************** -->
+							<!-- ******************************** End Sidebar Right ************************************************** -->
 							<?php
 							endif;
 							?>
@@ -376,11 +376,11 @@ $this->setMetaData('theme-color', '#ffffff');
 					endif;
 					?>
 				</div> <!-- end main -->
-			</div>  <!-- end container -->
+			</div> <!-- end container -->
 			<!-- </div> end wrap-main -->
 
 			<div class="clearfix"></div>
-			<!-- ****************************    End Main Content ***************************************************** -->
+			<!-- ****************************  End Main Content ***************************************************** -->
 
 			<?php
 			if ($this->countModules('onepagebottom')):
@@ -404,7 +404,7 @@ $this->setMetaData('theme-color', '#ffffff');
 
 		</div> <!-- wrap outer -->
 		<!-- ****************************************************************************************************** -->
-		<!-- *     Footer                                                                                         * -->
+		<!-- *    Footer                                                                                         * -->
 		<!-- ****************************************************************************************************** -->
 
 		<footer id="wrap-footer" class="wbc-footer">
@@ -462,11 +462,11 @@ $this->setMetaData('theme-color', '#ffffff');
 			</a>
 			<jdoc:include type="modules" name="fixed-footer-mobil" style="none" />
 		</div>
-	</div> <!-- end prevent-scrolling  / used offcanvas -->
+	</div> <!-- end prevent-scrolling / used offcanvas -->
 
 	<!-- offcanvas menü -->
 	<?php
-	if ($offcanvas == 1 &&  $this->countModules('offcanvas')) :
+	if ($offcanvas == 1 && $this->countModules('offcanvas')) :
 		$LayoutOffcanvas = new FileLayout('wbc_blanco_template.hcoffcanvas', $tpath.'/html/layouts');
 		echo $LayoutOffcanvas ->render($displayData);
 	endif; ?>
@@ -475,16 +475,16 @@ $this->setMetaData('theme-color', '#ffffff');
 	<!-- fixed sidebars -->
 	<?php
 	if( $this->countModules('sidebar-left-fix') ||
-		$this->countModules('sidebar-left-toggle')  ||
+		$this->countModules('sidebar-left-toggle') ||
 		$toggleleft) :
 	?>
 		<?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'/html/layouts');
 
 		$ReplacedisplayData = array( 'side' => 'left',
 									 'toggle' => $toggleleft,
-									 'pos'    => '3'
+									 'pos' => '3'
 									);
-		$displayData = array_replace( $displayData, $ReplacedisplayData );
+		$displayData = array_replace( $displayData, $ReplacedisplayData);
 		echo $LayoutSidebar ->render($displayData); ?>
 
 	<?php
@@ -493,14 +493,14 @@ $this->setMetaData('theme-color', '#ffffff');
 
 	<?php
 	if( $this->countModules('sidebar-right-fix') ||
-		$this->countModules('sidebar-right-toggle')  ||
+		$this->countModules('sidebar-right-toggle') ||
 		$toggleright) :
 	?>
 		<?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'/html/layouts');
 
 		$ReplacedisplayData = array( 'side' => 'right',
 									 'toggle' => $toggleright,
-									 'pos'    => '4'
+									 'pos' => '4'
 									);
 		$displayData = array_replace( $displayData, $ReplacedisplayData);
 		echo $LayoutSidebar ->render($displayData); ?>

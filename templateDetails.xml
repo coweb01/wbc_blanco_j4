@@ -719,6 +719,7 @@
 					type="radio"
 					default="1"
 					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
 					label="TPL_WBC_BLANCO_J4_HEADERIMG_SELECT_LABEL"
 					description="TPL_WBC_BLANCO_J4_HEADERIMG_SELECT_DESC"
 					>

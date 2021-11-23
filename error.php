@@ -10,33 +10,31 @@
  **********************************************************/
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\Filesystem\File;
-use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
 
-/** @var Joomla\CMS\Document\HtmlDocument $this */
+/** @var Joomla\CMS\Document\ErrorDocument $this */
 
-$app                = Factory::getApplication();
-$doc                = $app->getDocument();
+$app = Factory::getApplication();
+$doc = $app->getDocument();
 
-$params          = $app->getTemplate(true)->params; // Templateparameter
-$item            = $params->get('errorsite', 0 ); // get menuitem der Fehlerseite aus dem Template
-$logo            = $params->get('logo','logo.png');
-$customcss       = $params->get('customcss','custom.css');
+$templateparams = $app->getTemplate(true)->params; // Templateparameter
+$item = $templateparams->get('errorsite', 0 ); // get menuitem der Fehlerseite aus dem Template
+$logo = $templateparams->get('logo','logo.png');
+$customcss = $templateparams->get('customcss','custom.css');
 
-$config         = $app->getConfig();
-$sefUrl         = $config->get('sef');
+$config = $app->getConfig();
+$sefUrl = $config->get('sef');
 
 // Get language and direction
 $this->language  = $doc->language;
 $this->direction = $doc->direction;
 
-$uri             = URI::getInstance();
-$base    	     = $uri->toString( array('scheme', 'host', 'port'));
+$uri = URI::getInstance();
+$base = $uri->toString( array('scheme', 'host', 'port'));
 
-$wa                 = $this->getWebAssetManager();
+$wa = $this->getWebAssetManager();
 $wa->useStyle('template.wbc');
 $doc->setMetadata('viewport', '');
 $doc->setMetadata('content-language',substr($this->language, 0, 2));
@@ -97,7 +95,7 @@ else {
 		<header class="header-02 container">
 			<div class="logo row justify-content-center">
 				<div id="logo" class="<?php echo $bootstrap_colclass_mobil_ph . '6 ' . $bootstrap_colclass_mobil_tb . '4 ' .$bootstrap_colclass. '3 ' .$bootstrap_colclass_lg; ?>3">
-					<a href="index.php"><img src="<?php echo $this->baseurl ?>/images/<?php echo $logo?>" alt="<?php echo htmlspecialchars($params->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($params->get('sitetitle')); ?>" /></a>
+					<a href="index.php"><img src="<?php echo $this->baseurl ?>/images/<?php echo $logo?>" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
 				</div><!--End Logo-->
 			</div>
 		</header>
