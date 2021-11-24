@@ -100,27 +100,6 @@ li.fa a span {
   }
 }
 
-/* fixierter Footer Phone -------*/
-
-#gototop-mobil {
-  a.nav-link,
-  a {
-    color: var(--Linkcolorfooterfix);
-  }
-  a:link,
-  a:visited {
-    color: var(--Linkcolorfooterfix);
-  }
-  a:hover,
-  a:focus {
-    color: var(--Hovercolorfooterfix);
-    text-decoration: none;
-  }
-  a:active {
-    color: var(--Activecolorfooterfix);
-  }
-}
-
 /* Ende menues Footer           */
 
 /** Hauptmenue                  */

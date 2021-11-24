@@ -688,7 +688,9 @@ figcaption {
     display: none !important;
   }
 }
+
 #gototop-mobil {
+  justify-content: space-between;
   width: 100%;
   max-height: 40px;
   overflow: hidden;
@@ -700,12 +702,31 @@ figcaption {
   .nav-link {
     padding: .2rem .8rem;
     font-size: .9rem;
+    color: var(--Linkcolorfooterfix);
+  }
+  a:link,
+  a:visited {
+    color: var(--Linkcolorfooterfix);
+  }
+  a:hover,
+  a:focus {
+    color: var(--Hovercolorfooterfix);
+    text-decoration: none;
+  }
+  a:active {
+    color: var(--Activecolorfooterfix);
   }
   > a.gototop {
     padding: 4px 8px 4px 18px;
     font-size: .9rem;
     font-weight: 300;
     background-color: transparent;
+  }
+  .nav {
+    margin-right: 18px;
+    li a {
+      color: #fff;
+    }
   }
   @include media-breakpoint-down(sm) {
     > a {
