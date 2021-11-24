@@ -235,7 +235,7 @@
 					description="TPL_WBC_BLANCO_J4_PARAMETER_FONTAWESOME_DESC"
 					>
 					<option value="0">JNO</option>
-					<option value="1">TPL_WBC_BLANCO_J4_FONTAWESOME5</option>
+					<option value="1">JYES</option>
 				</field>
 
 				<!-- Holder.js-->
@@ -282,14 +282,6 @@
 					name="notedefault"
 					type="note"
 					label="TPL_WBC_BLANCO_J4_DEFAULT_COLORS"
-				/>
-
-				<field
-					name="defaultfontsize"
-					type="number"
-					default="1.1"
-					label="TPL_WBC_BLANCO_J4_DEFAULT_FONTSIZE_LABEL"
-					description="TPL_WBC_BLANCO_J4_DEFAULT_FONTSIZE_DESC"
 				/>
 
 				<field
@@ -362,6 +354,20 @@
 					default="#333333"
 					label="TPL_WBC_BLANCO_J4_H4_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_H4_COLOR_DESC"
+				/>
+
+				<field
+					name="notedefaultsize"
+					type="note"
+					label="TPL_WBC_BLANCO_J4_DEFAULT_SIZES"
+				/>
+
+				<field
+					name="defaultfontsize"
+					type="number"
+					default="1.1"
+					label="TPL_WBC_BLANCO_J4_DEFAULT_FONTSIZE_LABEL"
+					description="TPL_WBC_BLANCO_J4_DEFAULT_FONTSIZE_DESC"
 				/>
 
 				<field
@@ -714,52 +720,6 @@
 					directory="/images/headers" exclude="" stripext=""
 				/>
 
-				<!-- Headerbild austauschbar -->
-				<field
-					name="headerimg-select"
-					type="radio"
-					default="1"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group btn-group-yesno"
-					label="TPL_WBC_BLANCO_J4_HEADERIMG_SELECT_LABEL"
-					description="TPL_WBC_BLANCO_J4_HEADERIMG_SELECT_DESC"
-					>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-
-				<!-- Headerbild austauschbar -->
-				<field
-					name="headerimg-width"
-					type="radio"
-					default="1"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group"
-					label="TPL_WBC_BLANCO_J4_HEADERIMG_WIDTH_LABEL"
-					description="TPL_WBC_BLANCO_J4_HEADERIMG_WIDTH_DESC"
-					>
-					<option value="1">TPL_WBC_BLANCO_J4_FIELD_HEADERIMG_WIDTH_STRETCH</option>
-					<option value="2">TPL_WBC_BLANCO_J4_FIELD_HEADERIMG_WIDTH_CENTER</option>
-				</field>
-
-				<field
-					name="headerimg"
-					type="imagelist"
-					default=""
-					label="TPL_WBC_BLANCO_J4_FIELD_HEADERIMAGE_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_HEADERIMAGE_DESC"
-					directory="/images/headers/" exclude="" stripext=""
-				/>
-
-				<field
-					name="bg-headerimg"
-					type="imagelist"
-					default=""
-					label="TPL_WBC_BLANCO_J4_FIELD_BG_HEADERIMAGE_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_BG_HEADERIMAGE_DESC"
-					directory="/images/headers/" exclude="" stripext=""
-				/>
-
 				<field
 					name="logo"
 					type="imagelist"
@@ -786,172 +746,6 @@
 					description="TPL_WBC_BLANCO_J4_SITETITLE_DESC"
 					filter="string"
 				/>
-
-				<!-- SHOWONFRONTPAGE -->
-				<field
-					name="hidecontentwrapper"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="TPL_WBC_BLANCO_J4_PARAMETER_HIDECONTENTWRAPPER_LABEL"
-					description="TPL_WBC_BLANCO_J4_PARAMETER_HIDECONTENTWRAPPER_DESC"
-					>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-
-				<!-- Module vor inhalt  -->
-				<field
-					name="vorcontent-cols"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group"
-					default="1"
-					label="TPL_WBC_BLANCO_J4_FIELD_VORCONTENT_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_VORCONTENT_DESC"
-					>
-					<option value="1">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL1</option>
-					<option value="2">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL2</option>
-					<option value="3">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL3</option>
-				</field>
-
-				<!-- Module nach inhalt  -->
-				<field
-					name="aftercontent-cols"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group"
-					default="1"
-					label="TPL_WBC_BLANCO_J4_FIELD_AFTERCONTENT_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_AFTERCONTENT_DESC"
-					>
-					<option value="1">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL1</option>
-					<option value="2">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL2</option>
-					<option value="3">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL3</option>
-				</field>
-
-				<field
-					name="myspacer"
-					type="spacer"
-					class="text"
-					label="TPL_WBC_BLANCO_J4_FIELD_SPACER_SIDEBARS_LABEL"
-				/>
-
-				<field
-					name="colsidebarleft"
-					type="list" default="3"
-					label="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARLEFT_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARLEFT_DESC"
-					>
-					<option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
-					<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
-					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
-					<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
-					<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
-				</field>
-
-				<field
-					name="colsidebarleft_sm"
-					type="list" default="4"
-					label="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARLEFT_TABLET_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARLEFT_DESC"
-					>
-					<option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
-					<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
-					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
-					<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
-					<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
-					<option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL12</option>
-				</field>
-
-				<field
-					name="colsidebarright"
-					type="list" default="3"
-					label="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARRIGHT_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARRIGHT_DESC"
-					>
-					<option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
-					<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
-					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
-					<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
-					<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
-				</field>
-
-				<field
-					name="colsidebarright_sm"
-					type="list" default="4"
-					label="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARRIGHT_TABLET_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARRIGHT_DESC"
-					>
-					<option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
-					<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
-					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
-					<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
-					<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
-					<option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL12</option>
-				</field>
-
-				<field
-					name="footercols"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group"
-					default="4"
-					label="TPL_WBC_BLANCO_J4_FIELD_FOOTERCOLS_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_FOOTERCOLS_DESC"
-					>
-					<option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL1</option>
-					<option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
-					<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
-					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
-				</field>
-			</fieldset>
-
-			<fieldset name="formulare">
-				<field
-					name="floatingLabels"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="TPL_WBC_BLANCO_J4_PARAMETER_FLOATINGLABELS_LABEL"
-					description="TPL_WBC_BLANCO_J4_PARAMETER_FLOATINGLABELS_DESC"
-					>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-			</fieldset>
-
-			<fieldset name="Menue">
-				<!-- Position der Hautpnavigation -->
-				<field
-					name="navmain"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group"
-					default="1"
-					label="TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_DESC"
-					>
-					<option value="1">TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_TOP</option>
-					<option value="2">TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_DEFAULT</option>
-					<option value="3">TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_BOTTOM</option>
-				</field>
-
-				<!-- Responsive Bootstrap Menue -->
-				<field
-					name="bootstrap-menu"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group btn-group-yesno"
-					default="1"
-					label="TPL_WBC_BLANCO_J4_BOOTSTRAP_MENU_LABEL"
-					description="TPL_WBC_BLANCO_J4_BOOTSTRAP_MENU_DESC"
-				>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
 
 				<field
 					name="logoposition"
@@ -1014,6 +808,215 @@
 					<option value="10">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL10</option>
 					<option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL12</option>
 				</field>
+
+				<!-- Headerbild austauschbar -->
+				<field
+					name="headerimg-select"
+					type="radio"
+					default="1"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
+					label="TPL_WBC_BLANCO_J4_HEADERIMG_SELECT_LABEL"
+					description="TPL_WBC_BLANCO_J4_HEADERIMG_SELECT_DESC"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<!-- Headerbild austauschbar -->
+				<field
+					name="headerimg-width"
+					type="radio"
+					default="1"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
+					label="TPL_WBC_BLANCO_J4_HEADERIMG_WIDTH_LABEL"
+					description="TPL_WBC_BLANCO_J4_HEADERIMG_WIDTH_DESC"
+					>
+					<option value="1">TPL_WBC_BLANCO_J4_FIELD_HEADERIMG_WIDTH_STRETCH</option>
+					<option value="2">TPL_WBC_BLANCO_J4_FIELD_HEADERIMG_WIDTH_CENTER</option>
+				</field>
+
+				<field
+					name="headerimg"
+					type="imagelist"
+					default=""
+					label="TPL_WBC_BLANCO_J4_FIELD_HEADERIMAGE_LABEL"
+					description="TPL_WBC_BLANCO_J4_FIELD_HEADERIMAGE_DESC"
+					directory="/images/headers/" exclude="" stripext=""
+				/>
+
+				<field
+					name="bg-headerimg"
+					type="imagelist"
+					default=""
+					label="TPL_WBC_BLANCO_J4_FIELD_BG_HEADERIMAGE_LABEL"
+					description="TPL_WBC_BLANCO_J4_FIELD_BG_HEADERIMAGE_DESC"
+					directory="/images/headers/" exclude="" stripext=""
+				/>
+
+				<!-- SHOWONFRONTPAGE -->
+				<field
+					name="hidecontentwrapper"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="TPL_WBC_BLANCO_J4_PARAMETER_HIDECONTENTWRAPPER_LABEL"
+					description="TPL_WBC_BLANCO_J4_PARAMETER_HIDECONTENTWRAPPER_DESC"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<!-- Module vor inhalt  -->
+				<field
+					name="vorcontent-cols"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
+					default="1"
+					label="TPL_WBC_BLANCO_J4_FIELD_VORCONTENT_LABEL"
+					description="TPL_WBC_BLANCO_J4_FIELD_VORCONTENT_DESC"
+					>
+					<option value="1">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL1</option>
+					<option value="2">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL2</option>
+					<option value="3">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL3</option>
+				</field>
+
+				<!-- Module nach inhalt  -->
+				<field
+					name="aftercontent-cols"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
+					default="1"
+					label="TPL_WBC_BLANCO_J4_FIELD_AFTERCONTENT_LABEL"
+					description="TPL_WBC_BLANCO_J4_FIELD_AFTERCONTENT_DESC"
+					>
+					<option value="1">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL1</option>
+					<option value="2">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL2</option>
+					<option value="3">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL3</option>
+				</field>
+
+				<field
+					name="myspacer"
+					type="note"
+					label="TPL_WBC_BLANCO_J4_FIELD_SPACER_SIDEBARS_LABEL"
+				/>
+
+				<field
+					name="colsidebarleft"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
+					default="3"
+					label="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARLEFT_LABEL"
+					description="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARLEFT_DESC"
+					>
+					<option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
+					<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
+					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+					<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
+					<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
+				</field>
+
+				<field
+					name="colsidebarleft_sm"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
+					default="4"
+					label="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARLEFT_TABLET_LABEL"
+					description="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARLEFT_DESC"
+					>
+					<option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
+					<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
+					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+					<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
+					<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
+					<option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL12</option>
+				</field>
+
+				<field
+					name="colsidebarright"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
+					default="3"
+					label="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARRIGHT_LABEL"
+					description="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARRIGHT_DESC"
+					>
+					<option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
+					<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
+					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+					<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
+					<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
+				</field>
+
+				<field
+					name="colsidebarright_sm"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
+					default="4"
+					label="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARRIGHT_TABLET_LABEL"
+					description="TPL_WBC_BLANCO_J4_FIELD_COLSIDEBARRIGHT_DESC"
+					>
+					<option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
+					<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
+					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+					<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
+					<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
+					<option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL12</option>
+				</field>
+
+				<field
+					name="footercols"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
+					default="4"
+					label="TPL_WBC_BLANCO_J4_FIELD_FOOTERCOLS_LABEL"
+					description="TPL_WBC_BLANCO_J4_FIELD_FOOTERCOLS_DESC"
+					>
+					<option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL1</option>
+					<option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
+					<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
+					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
+				</field>
+			</fieldset>
+
+			<fieldset name="Menue">
+				<!-- Position der Hautpnavigation -->
+				<field
+					name="navmain"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
+					default="1"
+					label="TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_LABEL"
+					description="TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_DESC"
+					>
+					<option value="1">TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_TOP</option>
+					<option value="2">TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_DEFAULT</option>
+					<option value="3">TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_BOTTOM</option>
+				</field>
+
+				<!-- Responsive Bootstrap Menue -->
+				<field
+					name="bootstrap-menu"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="TPL_WBC_BLANCO_J4_BOOTSTRAP_MENU_LABEL"
+					description="TPL_WBC_BLANCO_J4_BOOTSTRAP_MENU_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
 
 				<field
 					name="navbarheader-width"
@@ -1106,6 +1109,21 @@
 					description="TPL_WBC_BLANCO_J4_OFFCANVASBREAKPOINT_DESC"
 					filter="string"
 				/>
+			</fieldset>
+
+			<fieldset name="formulare">
+				<field
+					name="floatingLabels"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="TPL_WBC_BLANCO_J4_PARAMETER_FLOATINGLABELS_LABEL"
+					description="TPL_WBC_BLANCO_J4_PARAMETER_FLOATINGLABELS_DESC"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
 			</fieldset>
 		</fields>
 	</config>

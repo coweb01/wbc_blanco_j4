@@ -120,7 +120,7 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 			<!-- *     Header                                                                                         * -->
 			<!-- ****************************************************************************************************** -->
 			<header class="header" >
-				<div class="header-top <?php echo ( $fixedheader == 1) ? 'sps' :'';?>" >
+				<div class="header-top <?php echo ($fixedheader == 1) ? 'sps' :'';?>" >
 					<div class="container<?php echo ( $navbarHeaderWidth == 1) ? '-fluid' : '';?>">
 
 						<?php if ($logoposition == 2) : ?>
@@ -159,7 +159,7 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 					<?php endif; ?>
 
 					<?php if ($this->countModules('navMain') && $NavMainPos == 2): ?>
-					<nav id="navigation-main" role="navigation" <?php echo ( $fixedheader == 1) ? 'class="sps"' :'';?> >
+					<nav id="navigation-main" role="navigation" <?php echo ($fixedheader == 1) ? 'class="sps"' :'';?> >
 						<?php
 							$LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'/html/layouts');
 							echo $LayoutMain ->render($displayData);
