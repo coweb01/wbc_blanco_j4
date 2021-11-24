@@ -246,8 +246,8 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 			<!-- end breadcrumbs -->
 			<?php endif; ?>
 
-			<div class="container ">
-				<div class="main">
+			<main>
+				<div class="container main">
 					<!-- Begin Container content-->
 					<div class="main-content" role="main">
 						<div class="base-col <?php echo $bootstrap_rowclass; ?>">
@@ -264,9 +264,9 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 								<?php if ($this->countModules('nav-sidebar-left')) : ?>
 								<div id="toggle-menu-left"><jdoc:include type="modules" name="nav-sidebar-left" style="default" /></div>
 								<?php endif; ?>
-								<?php echo ($pos_search == 'left-01') ? 'div '. $anker_search .'></div>' : ''; ?>
+								<?php echo ($pos_search == 'left-01') ? '<div '. $anker_search .'></div>' : ''; ?>
 								<jdoc:include type="modules" name="left-01" style="default" /><!--End left-01-->
-								<?php echo ( $pos_search == 'left-02') ? 'div'. $anker_search .'></div>' : ''; ?>
+								<?php echo ( $pos_search == 'left-02') ? '<div'. $anker_search .'></div>' : ''; ?>
 								<jdoc:include type="modules" name="left-02" style="none" /><!--End left-02-->
 							</div>
 							<!-- ***************************** End Sidebar Left ****************************************************** -->
@@ -358,10 +358,10 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 								endif;
 								?>
 
-								<?php echo ( $pos_search == 'right-01') ? 'div'. $anker_search .'></div' : ''; ?>
-									<jdoc:include type="modules" name="right-01" style="icon" /><!--End right-01-->
-								<?php echo ( $pos_search == 'right-02') ? 'div'. $anker_search .'></div' : ''; ?>
-									<jdoc:include type="modules" name="right-02" style="none" /><!--End right-02-->
+								<?php echo ($pos_search == 'right-01') ? '<div '. $anker_search .'></div>' : ''; ?>
+								<jdoc:include type="modules" name="right-01" style="icon" /><!--End right-01-->
+								<?php echo ($pos_search == 'right-02') ? '<div '. $anker_search .'></div>' : ''; ?>
+								<jdoc:include type="modules" name="right-02" style="none" /><!--End right-02-->
 							</div>
 							<!-- ******************************** End Sidebar Right ************************************************** -->
 							<?php
@@ -382,8 +382,8 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 					<?php
 					endif;
 					?>
-				</div> <!-- end main -->
-			</div> <!-- end container -->
+				</div> <!-- end container -->
+				</main> <!-- end main -->
 			<!-- </div> end wrap-main -->
 
 			<div class="clearfix"></div>

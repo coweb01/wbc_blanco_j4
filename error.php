@@ -95,19 +95,19 @@ else {
 		<header class="header-02 container">
 			<div class="logo row justify-content-center">
 				<div id="logo" class="<?php echo $bootstrap_colclass_mobil_ph . '6 ' . $bootstrap_colclass_mobil_tb . '4 ' .$bootstrap_colclass. '3 ' .$bootstrap_colclass_lg; ?>3">
-					<a href="index.php"><img src="<?php echo $this->baseurl ?>/images/<?php echo $logo?>" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
+					<a href="index.php"><img src="<?php echo $this->baseurl ?>/images/<?php echo $logo ?>" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
 				</div><!--End Logo-->
 			</div>
 		</header>
-		<div  class="wrap-main container">
-			<div class="main row">
-				<div class="info-message col-12 border position-relative">
-					<p class="h2 p-5"><?php echo Text::_('TPL_WBC_BLANCO_J4_JERROR_TEXT_ERROR'); ?></p>
-					<div class="col-4 position-absolute" style="bottom:0px; right: 0px">
-						<img  class="img-fluid" src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/images/fehler.jpg" alt="sorry" >
+		<div class="wrap-main container">
+			<div class="main">
+				<div class="info-message row border position-relative">
+					<p class="h2 p-5 col-8"><?php echo Text::_('TPL_WBC_BLANCO_J4_JERROR_TEXT_ERROR'); ?></p>
+					<div class="col-4">
+						<img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/images/fehler.jpg" alt="sorry" >
 					</div>
 				</div>
-				<div class="alert alert-secondary col-12 justify-content-center">
+				<div class="alert alert-secondary row justify-content-center">
 					<p class="text-center">
 						<strong><?php echo Text::_('TPL_WBC_BLANCO_J4_JERROR_TEXT_ERRORCODE'); ?>
 						<span class="error-code"> Code: <?php echo $this->error->getCode(); ?></span>

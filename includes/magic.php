@@ -45,7 +45,7 @@ if ($NavMainPos == 4 ) {
 }
 
 $pos_search = '';
-if ($module = ModuleHelper::getModule( 'search' )) {;
+if ($module = ModuleHelper::getModule('finder')) {;
 	$pos_search = $module->position;
 	$anker_search = 'id="suche-'. $pos_search. '"';
 }
