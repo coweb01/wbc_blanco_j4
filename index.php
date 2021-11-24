@@ -32,6 +32,10 @@ $this->addHeadLink($tpath . '/images/favicons/favicon.ico', 'shortcut icon', 're
 $this->setMetaData('msapplication-config', $tpath . '/images/favicons/browserconfig.xml');
 $this->setMetaData('theme-color', '#ffffff');
 
+$himg = false;
+if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg') != "-1")) {
+	$himg = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -187,7 +191,7 @@ $this->setMetaData('theme-color', '#ffffff');
 					<?php endif; ?>
 
 					<?php
-					if (($this->params->get('headerimg-select') == 1) && (($this->params->get('headerimg') != -1) || ($this->countModules('headerimg')))) :
+					if (($this->params->get('headerimg-select') == 1) && (($himg == true) || ($this->countModules('headerimg')))) :
 					/* wenn headerbild */
 					?>
 						<?php

@@ -754,7 +754,7 @@
 				<field
 					name="bg-headerimg"
 					type="imagelist"
-					default="0"
+					default=""
 					label="TPL_WBC_BLANCO_J4_FIELD_BG_HEADERIMAGE_LABEL"
 					description="TPL_WBC_BLANCO_J4_FIELD_BG_HEADERIMAGE_DESC"
 					directory="/images/headers/" exclude="" stripext=""
