@@ -22,7 +22,7 @@ if (!isset($bootstrap_colclass_mobil_xs)) { $bootstrap_colclass_mobil_xs = ''; }
 $tpath = 'templates/' . $this->template;
 
 
-// Favicons
+// Favicons https://realfavicongenerator.net/
 $this->addHeadLink($tpath . '/images/favicons/apple-touch-icon.png', 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
 $this->addHeadLink($tpath . '/images/favicons/favicon-32x32.png', 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
 $this->addHeadLink($tpath . '/images/favicons/favicon-16x16.png', 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
@@ -65,52 +65,42 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_SKIP_TO_MAIN_NAVIGATION'); ?>
 				</a>
 			</li>
-			<?php
-			if ($this->countModules('header-top-01')) :
-			?>
+			<?php if ($this->countModules('header-top-01')) : ?>
 			<li>
 				<a href="#header-top-01" class="visually-hidden visually-hidden-focusable">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_SKIP_TO_TOP_NAVIGATION'); ?>
 				</a>
 			</li>
-			<?php
-			endif;
-			?>
-			<?php
-			if ($showleftColumn) :
-			?>
+			<?php endif; ?>
+			<?php if ($showleftColumn) : ?>
 			<li>
 				<a href="#sidebar-left" class="visually-hidden visually-hidden-focusable">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_JUMP_TO_LEFT_INFORMATION'); ?>
 				</a>
 			</li>
-			<?php
-			endif
-			?>
-			<?php
-			if ($showrightColumn) :
-			?>
+			<?php endif ?>
+			<?php if ($showrightColumn) : ?>
 			<li>
 				<a href="#sidebar-right" class="visually-hidden visually-hidden-focusable">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_JUMP_TO_RIGHT_INFORMATION'); ?>
 				</a>
 			</li>
-			<?php
-			endif;
-			?>
+			<?php endif; ?>
+			<?php if ($pos_search) : ?>
 			<li>
 				<a href="#suche" class="visually-hidden visually-hidden-focusable">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_JUMP_TO_SEARCH'); ?>
 				</a>
 			</li>
+			<?php endif; ?>
 		</ul>
 		<!-- end Accesibility -->
 
 		<?php /* wenn Modul grossflaechiges hintergrundbild */?>
 		<?php if ($this->countModules('bg-01')) : ?>
-			<div id="bg">
-				<jdoc:include type="modules" name="bg-01" style="none" />
-			</div>
+		<div id="bg">
+			<jdoc:include type="modules" name="bg-01" style="none" />
+		</div>
 		<?php endif; ?>
 
 		<div id="navbar-phone" class="d-block d-sm-none"></div>
