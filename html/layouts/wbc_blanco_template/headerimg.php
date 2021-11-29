@@ -27,7 +27,7 @@ extract($displayData);
 			<?php
 			if ($jhtml->countModules('headerimg')):
 			?>
-				<jdoc:include type="modules" name="headerimg" style="headerimg"/>
+				<jdoc:include type="modules" name="headerimg" style="headerimg" />
 			<?php
 			else :
 			?>
