@@ -53,42 +53,45 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 <body id="top" class="body-01 <?php echo $classbody; ?>">
 	<div class="prevent-scrolling">
 		<!-- start Accesibility -->
-		<h1 class="visually-hidden visually-hidden-focusable">Navigation</h1>
-		<ul class="visually-hidden visually-hidden-focusable">
-			<li>
-				<a href="#wrap-content" class="visually-hidden visually-hidden-focusable">
+		<ul class="visually-hidden-focusable list-inline">
+			<li class="list-inline-item">
+				<a href="#wrap-content" class="d-inline-flex p-2 m-1">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_SKIP_TO_CONTENT'); ?>
 				</a>
 			</li>
-			<li>
-				<a href="#navigation-main" class="visually-hidden visually-hidden-focusable">
+			<li class="list-inline-item">
+				<a href="#navigation-main" class="d-inline-flex p-2 m-1">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_SKIP_TO_MAIN_NAVIGATION'); ?>
 				</a>
 			</li>
+
 			<?php if ($this->countModules('header-top-01')) : ?>
-			<li>
-				<a href="#header-top-01" class="visually-hidden visually-hidden-focusable">
+			<li class="list-inline-item">
+				<a href="#header-top-01" class="d-inline-flex p-2 m-1">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_SKIP_TO_TOP_NAVIGATION'); ?>
 				</a>
 			</li>
 			<?php endif; ?>
+
 			<?php if ($showleftColumn) : ?>
-			<li>
-				<a href="#sidebar-left" class="visually-hidden visually-hidden-focusable">
+			<li class="list-inline-item">
+				<a href="#sidebar-left" class="d-inline-flex p-2 m-1">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_JUMP_TO_LEFT_INFORMATION'); ?>
 				</a>
 			</li>
 			<?php endif ?>
+
 			<?php if ($showrightColumn) : ?>
-			<li>
-				<a href="#sidebar-right" class="visually-hidden visually-hidden-focusable">
+			<li class="list-inline-item">
+				<a href="#sidebar-right" class="d-inline-flex p-2 m-1">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_JUMP_TO_RIGHT_INFORMATION'); ?>
 				</a>
 			</li>
 			<?php endif; ?>
+
 			<?php if ($pos_search) : ?>
-			<li>
-				<a href="#suche" class="visually-hidden visually-hidden-focusable">
+			<li class="list-inline-item">
+				<a href="#suche" class="d-inline-flex p-2 m-1">
 					<?php echo Text::_('TPL_WBC_BLANCO_J4_JUMP_TO_SEARCH'); ?>
 				</a>
 			</li>
