@@ -1003,21 +1003,6 @@
 					<option value="3">TPL_WBC_BLANCO_J4_FIELD_NAVMAIN_BOTTOM</option>
 				</field>
 
-				<!-- Responsive Bootstrap Menue -->
-				<field
-					name="bootstrap-menu"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group btn-group-yesno"
-					default="1"
-					label="TPL_WBC_BLANCO_J4_BOOTSTRAP_MENU_LABEL"
-					description="TPL_WBC_BLANCO_J4_BOOTSTRAP_MENU_DESC"
-				>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-
-
 				<field
 					name="navbarheader-width"
 					type="radio"

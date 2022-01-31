@@ -3,42 +3,71 @@
  * @package     Joomla.Site
  * @subpackage  mod_menu
  *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2009 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
 
-// Note. It is important to remove spaces between elements.
-$class = $item->anchor_css ? 'class="' . $item->anchor_css . '" ' : '';
-$title = $item->anchor_title ? 'title="' . $item->anchor_title . '" ' : '';
-$accesskey     = $menuparams->get('accesskey'); 
-$htmlaccesskey = (  $accesskey != '' ) ? ' accesskey="'. $accesskey. '" ' : '';
+use Joomla\CMS\Filter\OutputFilter;
+use Joomla\CMS\HTML\HTMLHelper;
+
+$accesskey = $itemParams->get('accesskey');
+
+$attributes = array();
+
+if ($item->anchor_title)
+{
+	$attributes['title'] = $item->anchor_title;
+}
+
+if ($item->anchor_css)
+{
+	$attributes['class'] = $item->anchor_css;
+}
+
+if ($item->anchor_rel)
+{
+	$attributes['rel'] = $item->anchor_rel;
+}
+
+if ($item->id == $active_id)
+{
+	$attributes['aria-current'] = 'location';
+
+	if ($item->current)
+	{
+		$attributes['aria-current'] = 'page';
+	}
+}
+if ($accesskey)
+{
+	$attributes['accesskey'] = $accesskey;
+}
+
+$linktype = $item->title;
 
 if ($item->menu_image)
 {
-	$item->params->get('menu_text', 1) ?
-	$linktype = '<img src="' . $item->menu_image . '" class="img-fluid" alt="' . $item->title . '" /><div class="overlay"><span class="image-title">' . $item->title . '</span></div> ' :
-	$linktype = '<img src="' . $item->menu_image . '" class="img-fluid" alt="' . $item->title . '" />';
+	$linktype = HTMLHelper::_('image', $item->menu_image, $item->title);
+	if ($itemParams->get('menu_text', 1)){
+		$linktype .= '<div class="overlay"><span class="image-title">' . $item->title . '</span></div>';
+	}
 }
 else
 {
 	$linktype = $item->title;
 }
 
-switch ($item->browserNav)
+if ($item->browserNav == 1)
 {
-	default:
-	case 0:
-?><a <?php echo $class; ?><?php echo $htmlaccesskey; ?>href="<?php echo $item->flink; ?>" <?php echo $title; ?>><span class="chrome-fix"><?php echo $linktype; ?></span></a><?php
-		break;
-	case 1:
-		// _blank
-?><a <?php echo $class; ?><?php echo $htmlaccesskey; ?>href="<?php echo $item->flink; ?>" target="_blank" <?php echo $title; ?>><span class="chrome-fix"><?php echo $linktype; ?></span></a><?php
-		break;
-	case 2:
-	// Use JavaScript "window.open"
-?><a <?php echo $class; ?><?php echo $htmlaccesskey; ?>href="<?php echo $item->flink; ?>" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes');return false;" <?php echo $title; ?>><span class="chrome-fix"><?php echo $linktype; ?></span></a>
-<?php
-		break;
+	$attributes['target'] = '_blank';
 }
+elseif ($item->browserNav == 2)
+{
+	$options = 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes';
+
+	$attributes['onclick'] = "window.open(this.href, 'targetWindow', '" . $options . "'); return false;";
+}
+
+echo HTMLHelper::_('link', OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), $linktype, $attributes);

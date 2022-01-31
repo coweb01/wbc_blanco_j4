@@ -207,6 +207,7 @@ button,
   background-color: var(--linkbgcolorbtn);
   border-color: var(--linkbgcolorbtn);
   border-radius: var(--borderradius);
+  margin: 1rem 0;
   &:hover {
     color: var(--hovercolorbtn);
     background-color: var(--hoverbgcolorbtn);
@@ -226,12 +227,14 @@ button,
   background-color: transparent;
   border-color: var(--linkbgcolorbtn);
   &:hover {
-    color: #FFF !important;
+    color: #fff !important;
     background-color: var(--linkbgcolorbtn);
     border-color: var(--linkbgcolorbtn);
   }
 }
-
+.input-password-toggle{
+  margin: 0;
+}
 /*----------------- weiterlesen -------------------------------------*/
 
 .readmore {
@@ -266,7 +269,7 @@ button,
 
 /*-------------------- Button Fixed Sidebar ---------------------*/
 
-.wbc-fixed-sidebar a.nav-link {
+.wbc-fixed-sidebar a {
   color: var(--linkcolorbtn);
   background-color: var(--linkbgcolorbtn);
   border-color: var(--linkbgcolorbtn);

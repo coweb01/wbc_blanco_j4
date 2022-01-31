@@ -12,7 +12,7 @@
 }
 
 /*!
- * Bootstrap v5.1.2 (https://getbootstrap.com/)
+ * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -2906,7 +2906,6 @@ textarea.form-control-lg {
 
 .btn {
   display: inline-block;
-  align-self: center;
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
@@ -11780,6 +11779,10 @@ figcaption {
   font-weight: 600;
 }
 
+.page-item.active .page-link {
+  background-color: #1269b0;
+}
+
 /*------------   Module vor_content_col --------------------------------------*/
 .wbc-flexible-cards.card-columns.cardcols_1,
 .wbc-flexible-cards.card-columns.cardcols_2,
@@ -11869,7 +11872,7 @@ figcaption {
   background-color: var(--color-bg, #fff);
   transition: padding 0.3s;
 }
-.wbc-fixed-sidebar-toggle.slide-open a.nav-link {
+.wbc-fixed-sidebar-toggle.slide-open a {
   position: absolute;
   top: 0;
   right: 0;
@@ -11880,7 +11883,7 @@ figcaption {
 
 .wbc-fixed-sidebar-toggle .btn-icon,
 .wbc-fixed-sidebar ul > li a,
-.wbc-fixed-sidebar a.nav-link {
+.wbc-fixed-sidebar a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11893,7 +11896,7 @@ figcaption {
   background-color: var(--color1) !important;
 }
 
-#fixed-sidebar-right-toggle.slide-open a.nav-link {
+#fixed-sidebar-right-toggle.slide-open a {
   right: auto;
   left: 0;
 }
@@ -11909,35 +11912,35 @@ figcaption {
   animation: rotation 1s ease-in-out;
 }
 
-.wbc-fixed-sidebar a.nav-link .fa {
+.wbc-fixed-sidebar a .fa {
   font-size: 1rem;
 }
 
-.wbc-fixed-sidebar a.nav-link.fa,
-.wbc-fixed-sidebar a.nav-link.fas,
-.wbc-fixed-sidebar a.nav-link.far {
+.wbc-fixed-sidebar a.fa,
+.wbc-fixed-sidebar a.fas,
+.wbc-fixed-sidebar a.far {
   transition: transform 0.5s ease-in-out;
   transform: rotate(1deg);
 }
 
-.wbc-fixed-sidebar a.nav-link:link.fa,
-.wbc-fixed-sidebar a.nav-link:visited.fa,
-.wbc-fixed-sidebar a.nav-link:active.fa,
-.wbc-fixed-sidebar a.nav-link:link.fas,
-.wbc-fixed-sidebar a.nav-link:visited.fas,
-.wbc-fixed-sidebar a.nav-link:active.fas,
-.wbc-fixed-sidebar a.nav-link:link.far,
-.wbc-fixed-sidebar a.nav-link:visited.far,
-.wbc-fixed-sidebar a.nav-link:active.far {
+.wbc-fixed-sidebar a:link.fa,
+.wbc-fixed-sidebar a:visited.fa,
+.wbc-fixed-sidebar a:active.fa,
+.wbc-fixed-sidebar a:link.fas,
+.wbc-fixed-sidebar a:visited.fas,
+.wbc-fixed-sidebar a:active.fas,
+.wbc-fixed-sidebar a:link.far,
+.wbc-fixed-sidebar a:visited.far,
+.wbc-fixed-sidebar a:active.far {
   transform: rotate(1deg);
 }
 
-.wbc-fixed-sidebar a.nav-link:hover .fa,
-.wbc-fixed-sidebar a.nav-link:focus .fa,
-.wbc-fixed-sidebar a.nav-link:hover .fas,
-.wbc-fixed-sidebar a.nav-link:focus .fas,
-.wbc-fixed-sidebar a.nav-link:hover .far,
-.wbc-fixed-sidebar a.nav-link:focus .far {
+.wbc-fixed-sidebar a:hover .fa,
+.wbc-fixed-sidebar a:focus .fa,
+.wbc-fixed-sidebar a:hover .fas,
+.wbc-fixed-sidebar a:focus .fas,
+.wbc-fixed-sidebar a:hover .far,
+.wbc-fixed-sidebar a:focus .far {
   transform: rotate(-20deg);
 }
 
@@ -12186,7 +12189,7 @@ figcaption {
   /** fixed Sidebar -----------------------------*/
   .wbc-fixed-sidebar-toggle .btn-icon,
 .wbc-fixed-sidebar ul > li a,
-.wbc-fixed-sidebar a.nav-link {
+.wbc-fixed-sidebar a {
     padding: 0.5rem 1rem;
   }
 
@@ -12213,21 +12216,21 @@ figcaption {
     min-height: 500px;
   }
 
-  .wbc-fixed-sidebar a.nav-link {
+  .wbc-fixed-sidebar a {
     width: 80px;
     height: 80px;
   }
 
-  .wbc-fixed-sidebar a.nav-link > .fa,
-.wbc-fixed-sidebar a.nav-link > .fas,
-.wbc-fixed-sidebar a.nav-link > .far {
+  .wbc-fixed-sidebar a > .fa,
+.wbc-fixed-sidebar a > .fas,
+.wbc-fixed-sidebar a > .far {
     font-size: 2rem;
   }
 
   .wbc-fixed-sidebar-toggle.slide-open .container-fix {
     margin-top: 0;
   }
-  .wbc-fixed-sidebar-toggle.slide-open .container-fix a.nav-link {
+  .wbc-fixed-sidebar-toggle.slide-open .container-fix a {
     top: 0;
   }
 }
@@ -12437,6 +12440,7 @@ button,
   background-color: var(--linkbgcolorbtn);
   border-color: var(--linkbgcolorbtn);
   border-radius: var(--borderradius);
+  margin: 1rem 0;
 }
 button:hover,
 .btn:hover {
@@ -12464,6 +12468,10 @@ button .show > .btn.dropdown-toggle,
   color: #FFF !important;
   background-color: var(--linkbgcolorbtn);
   border-color: var(--linkbgcolorbtn);
+}
+
+.input-password-toggle {
+  margin: 0;
 }
 
 /*----------------- weiterlesen -------------------------------------*/
@@ -12501,13 +12509,13 @@ button .show > .btn.dropdown-toggle,
 }
 
 /*-------------------- Button Fixed Sidebar ---------------------*/
-.wbc-fixed-sidebar a.nav-link {
+.wbc-fixed-sidebar a {
   color: var(--linkcolorbtn);
   background-color: var(--linkbgcolorbtn);
   border-color: var(--linkbgcolorbtn);
   border-radius: var(--borderradius);
 }
-.wbc-fixed-sidebar a.nav-link:hover, .wbc-fixed-sidebar a.nav-link:focus {
+.wbc-fixed-sidebar a:hover, .wbc-fixed-sidebar a:focus {
   color: var(--hovercolorbtn);
   background-color: var(--hoverbgcolorbtn);
   border-color: var(--hoverbgcolorbtn);
@@ -12663,6 +12671,10 @@ li.fa a span {
 
 /* Ende menues Footer           */
 /** Hauptmenue                  */
+.navbar-toggler {
+  margin: 0.5rem 0;
+}
+
 #navigation-main {
   padding: 0;
   margin: 0;
@@ -12818,6 +12830,8 @@ li.fa a span {
 
 #sidebar-right ul.nav li a {
   display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
 }
 
 /* Left */
@@ -12838,6 +12852,8 @@ li.fa a span {
 
 #sidebar-left ul.nav li a {
   display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
 }
 
 /**  Menue Zusatzlinks mit symbolen  ****/
@@ -13161,7 +13177,7 @@ li.fa a span {
   display: none;
 }
 
-.onepage .nav .nav-link {
+.onepage .nav a {
   padding-left: 0;
 }
 

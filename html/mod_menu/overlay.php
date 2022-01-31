@@ -3,45 +3,44 @@
  * @package     Joomla.Site
  * @subpackage  mod_menu
  *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2009 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
- // get the custom params
-$document  = JFactory::getDocument();
-$app       = JFactory::getApplication();
 
-$tpath    = JURI::base( true ) .'/templates/'.$app->getTemplate();
-$document->addStyleSheet($tpath . '/html/mod_menu/assets/overlay.css'); 
+use Joomla\CMS\Helper\ModuleHelper;
 
+/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+$wa = $app->getDocument()->getWebAssetManager();
+$wa->registerAndUseScript('mod_menu', 'mod_menu/menu.min.js', [], ['type' => 'module']);
+$wa->registerAndUseScript('mod_menu', 'mod_menu/menu-es5.min.js', [], ['nomodule' => true, 'defer' => true]);
 
-// Note. It is important to remove spaces between elements.
-?>
-<?php // The menu class is deprecated. Use nav instead. ?>
-<ul class="nav nav-overlay menu<?php echo $class_sfx;?>"<?php
-	$tag = '';
+$tpath    = 'templates/'.$app->getTemplate();
+$wa->registerAndUseStyle('overlaymenu', $tpath . '/html/mod_menu/assets/overlay.css');
 
-	if ($params->get('tag_id') != null)
-	{
-		$tag = $params->get('tag_id') . '';
-		echo ' id="' . $tag . '"';
-	}
-?>>
-<?php
-foreach ($list as $i => &$item)
+$id = '';
+
+if ($tagId = $params->get('tag_id', ''))
 {
-	
-	if ($item->type == 'heading') { next($list); }
+	$id = ' id="' . $tagId . '"';
+}
+?>
 
-	$menuitem      = $app->getMenu()->getItem($item->id); 
-	$menuparams    = $menuitem->params;
-	$accesskey     = $menuparams->get('accesskey'); 
-	
-	
+<ul <?php echo $id; ?> class="nav nav-overlay menu<?php echo $class_sfx;?>">
+<?php foreach ($list as $i => &$item)
+{
+
+	if ($item->type == 'heading') {
+		next($list);
+	}
+
+	$itemParams = $item->getParams();
+	$accesskey  = $itemParams->get('accesskey');
+
 	$class = 'item-' . $item->id;
 
-	if (($item->id == $active_id) OR ($item->type == 'alias' AND $item->params->get('aliasoptions') == $active_id))
+	if ($item->id == $active_id || ($item->type === 'alias' && $itemParams->get('aliasoptions') == $active_id))
 	{
 		$class .= ' current';
 	}
@@ -50,9 +49,9 @@ foreach ($list as $i => &$item)
 	{
 		$class .= ' active';
 	}
-	elseif ($item->type == 'alias')
+	elseif ($item->type === 'alias')
 	{
-		$aliasToId = $item->params->get('aliasoptions');
+		$aliasToId = $itemParams->get('aliasoptions');
 
 		if (count($path) > 0 && $aliasToId == $path[count($path) - 1])
 		{
@@ -79,12 +78,7 @@ foreach ($list as $i => &$item)
 		$class .= ' parent';
 	}
 
-	if (!empty($class))
-	{
-		$class = ' class="' . trim($class) . '"';
-	}
-
-	echo '<li' . $class . '>';
+	echo '<li class="' . $class . '">';
 
 	// Render the menu item.
 	switch ($item->type) :
@@ -92,18 +86,18 @@ foreach ($list as $i => &$item)
 		case 'url':
 		case 'component':
 		//case 'heading':
-			require JModuleHelper::getLayoutPath('mod_menu', 'overlay_' . $item->type);
+			require ModuleHelper::getLayoutPath('mod_menu', 'overlay_' . $item->type);
 			break;
 
 		default:
-			require JModuleHelper::getLayoutPath('mod_menu', 'overlay_url');
+			require ModuleHelper::getLayoutPath('mod_menu', 'overlay_url');
 			break;
 	endswitch;
 
 	// The next item is deeper.
 	if ($item->deeper)
 	{
-		echo '<ul class="nav-child unstyled small">';
+		echo '<ul class="mod-menu__sub list unstyled small">';
 	}
 	elseif ($item->shallower)
 	{
@@ -117,4 +111,5 @@ foreach ($list as $i => &$item)
 		echo '</li>';
 	}
 }
-?></ul>
+?>
+</ul>

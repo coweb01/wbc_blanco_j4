@@ -389,6 +389,9 @@ figcaption {
 .article-info-term {
   font-weight: 600;
 }
+.page-item.active .page-link{
+  background-color: $primary_color;
+}
 
 /*------------   Module vor_content_col --------------------------------------*/
 
@@ -475,7 +478,7 @@ figcaption {
     transition: padding .3s;
   }
   &.slide-open {
-    a.nav-link {
+    a {
       position: absolute;
       top: 0;
       right: 0;
@@ -487,7 +490,7 @@ figcaption {
 }
 .wbc-fixed-sidebar-toggle .btn-icon,
 .wbc-fixed-sidebar ul > li a,
-.wbc-fixed-sidebar a.nav-link {
+.wbc-fixed-sidebar a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -501,7 +504,7 @@ figcaption {
   color: #fff;
   background-color: var(--color1) !important;
 }
-#fixed-sidebar-right-toggle.slide-open a.nav-link {
+#fixed-sidebar-right-toggle.slide-open a {
   right: auto; left: 0;
 }
 #fixed-sidebar-right-toggle.slide-open .btn-icon > i:before,
@@ -513,32 +516,32 @@ figcaption {
 #fixed-sidebar-left-toggle.slide-open .btn-icon:hover > i {
   animation: rotation 1s ease-in-out;
 }
-.wbc-fixed-sidebar a.nav-link .fa {
+.wbc-fixed-sidebar a .fa {
   font-size: 1rem;
 }
-.wbc-fixed-sidebar a.nav-link.fa,
-.wbc-fixed-sidebar a.nav-link.fas,
-.wbc-fixed-sidebar a.nav-link.far {
+.wbc-fixed-sidebar a.fa,
+.wbc-fixed-sidebar a.fas,
+.wbc-fixed-sidebar a.far {
   transition: transform .5s ease-in-out;
   transform: rotate(1deg);
 }
-.wbc-fixed-sidebar a.nav-link:link.fa,
-.wbc-fixed-sidebar a.nav-link:visited.fa,
-.wbc-fixed-sidebar a.nav-link:active.fa,
-.wbc-fixed-sidebar a.nav-link:link.fas,
-.wbc-fixed-sidebar a.nav-link:visited.fas,
-.wbc-fixed-sidebar a.nav-link:active.fas,
-.wbc-fixed-sidebar a.nav-link:link.far,
-.wbc-fixed-sidebar a.nav-link:visited.far,
-.wbc-fixed-sidebar a.nav-link:active.far {
+.wbc-fixed-sidebar a:link.fa,
+.wbc-fixed-sidebar a:visited.fa,
+.wbc-fixed-sidebar a:active.fa,
+.wbc-fixed-sidebar a:link.fas,
+.wbc-fixed-sidebar a:visited.fas,
+.wbc-fixed-sidebar a:active.fas,
+.wbc-fixed-sidebar a:link.far,
+.wbc-fixed-sidebar a:visited.far,
+.wbc-fixed-sidebar a:active.far {
   transform: rotate(1deg);
 }
-.wbc-fixed-sidebar a.nav-link:hover .fa,
-.wbc-fixed-sidebar a.nav-link:focus .fa,
-.wbc-fixed-sidebar a.nav-link:hover .fas,
-.wbc-fixed-sidebar a.nav-link:focus .fas,
-.wbc-fixed-sidebar a.nav-link:hover .far,
-.wbc-fixed-sidebar a.nav-link:focus .far {
+.wbc-fixed-sidebar a:hover .fa,
+.wbc-fixed-sidebar a:focus .fa,
+.wbc-fixed-sidebar a:hover .fas,
+.wbc-fixed-sidebar a:focus .fas,
+.wbc-fixed-sidebar a:hover .far,
+.wbc-fixed-sidebar a:focus .far {
   transform: rotate(-20deg);
 }
 
@@ -774,7 +777,7 @@ figcaption {
   /** fixed Sidebar -----------------------------*/
   .wbc-fixed-sidebar-toggle .btn-icon,
   .wbc-fixed-sidebar ul > li a,
-  .wbc-fixed-sidebar a.nav-link {
+  .wbc-fixed-sidebar a {
     padding: .5rem 1rem;
   }
   .nofront #headerimg .wbc-background-image-stretch {
@@ -795,19 +798,19 @@ figcaption {
   body:not(.no-front) #headerimg .wbc-background-image-stretch {
     min-height: 500px;
   }
-  .wbc-fixed-sidebar  a.nav-link {
+  .wbc-fixed-sidebar a {
     width: 80px;
     height: 80px;
   }
-  .wbc-fixed-sidebar a.nav-link > .fa,
-  .wbc-fixed-sidebar a.nav-link > .fas,
-  .wbc-fixed-sidebar a.nav-link > .far {
+  .wbc-fixed-sidebar a > .fa,
+  .wbc-fixed-sidebar a > .fas,
+  .wbc-fixed-sidebar a > .far {
     font-size: 2rem;
   }
   .wbc-fixed-sidebar-toggle.slide-open {
     .container-fix {
       margin-top: 0;
-      a.nav-link {
+      a {
         top: 0;
       }
     }

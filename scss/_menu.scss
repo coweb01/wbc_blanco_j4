@@ -103,7 +103,9 @@ li.fa a span {
 /* Ende menues Footer           */
 
 /** Hauptmenue                  */
-
+.navbar-toggler{
+  margin: .5rem 0;
+}
 #navigation-main {
   padding: 0;
   margin: 0;
@@ -248,6 +250,8 @@ li.fa a span {
 }
 #sidebar-right ul.nav li a {
   display: block;
+  padding: .5rem 1rem;
+  text-decoration: none;
 }
 #sidebar-right ul.nav li a:link,
 #sidebar-right ul.nav li a:visited {
@@ -277,6 +281,8 @@ li.fa a span {
 }
 #sidebar-left ul.nav li a {
   display: block;
+  padding: .5rem 1rem;
+  text-decoration: none;
 }
 #sidebar-left ul.nav li a:link,
 #sidebar-left ul.nav li a:visited {

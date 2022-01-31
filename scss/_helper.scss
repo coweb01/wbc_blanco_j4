@@ -1,4 +1,4 @@
-.wbc-flex {
+@mixin wbc-flex {
   display: flex;
 }
 @mixin white-trans($trans: 50%) {
@@ -140,7 +140,7 @@
   margin: 0;
   overflow: hidden;
   vertical-align: middle;
-  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 .wbc-overlay-text{
   position: absolute;

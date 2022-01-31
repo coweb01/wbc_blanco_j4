@@ -124,7 +124,7 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 						<?php endif; ?>
 
 						<?php if ($this->countModules('navMain') && $NavMainPos == 1): ?>
-						<nav id="navigation-main">
+						<nav id="navigation-main" class="navbar navbar-expand-lg navbar-light <?php echo ($bgnavbar == 1 ) ? 'wbc-bg-navbar' : '';?> <?php echo ($fixedheader == 1) ? 'sps"' :'';?>">
 							<?php
 								$LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'/html/layouts');
 								echo $LayoutMain ->render($displayData);
@@ -152,7 +152,7 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 					<?php endif; ?>
 
 					<?php if ($this->countModules('navMain') && $NavMainPos == 2): ?>
-					<nav id="navigation-main" role="navigation" <?php echo ($fixedheader == 1) ? 'class="sps"' :'';?> >
+					<nav id="navigation-main" class="navbar navbar-expand-lg navbar-light <?php echo ($bgnavbar == 1 ) ? 'wbc-bg-navbar' : '';?> <?php echo ($fixedheader == 1) ? 'sps"' :'';?>">
 						<?php
 							$LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'/html/layouts');
 							echo $LayoutMain ->render($displayData);
@@ -194,7 +194,7 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 					<?php endif; ?>
 
 					<?php if ($this->countModules('navMain') && $NavMainPos == 3): ?>
-					<nav id="navigation-main" <?php echo ($fixedheader == 1 ) ? 'class="sps"' :'';?> >
+						<nav id="navigation-main" class="navbar navbar-expand-lg navbar-light <?php echo ($bgnavbar == 1 ) ? 'wbc-bg-navbar' : '';?> <?php echo ($fixedheader == 1) ? 'sps"' :'';?>">
 
 						<?php if ($fixedheader && $this->countModules('logo-mobil')): ?>
 						<div id="logo-mobil" class="navbar-brand hidden">

@@ -73,7 +73,7 @@ $headerimg                  = $templateparams->get('headerimg-select', 1);
 $navbarHeaderWidth          = $templateparams->get('navbarheader-width', 1);
 $sourcebgimage              = $templateparams->get('image-body');
 $bgimage                    = $templateparams->get('image-body-select', 0);
-$headerimgSizeClass         = ( $templateparams->get('headerimg-width') == 2 ) ? 'sm-slider' : 'lg-slider';
+$headerimgSizeClass         = ($templateparams->get('headerimg-width') == 2 ) ? 'sm-slider' : 'lg-slider';
 $fontsize                   = $templateparams->get('fontsize', 0);
 $fontsize_pos               = $templateparams->get('fontsize-position', 1);
 $compress_css               = $templateparams->get('compress_css', 1) == 1  ? '.min' : '';
