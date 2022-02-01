@@ -12813,35 +12813,14 @@ li.fa a span {
 }
 
 /********************  menues Sidebar   **********************************/
-#sidebar-right ul.nav {
-  flex-direction: column;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-#sidebar-right ul.nav li {
-  display: block;
-  float: none;
-  margin-right: 0;
-  margin-left: 0;
-  border-bottom: 1px solid #ccc;
-}
-
-#sidebar-right ul.nav li a {
-  display: block;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-}
-
-/* Left */
+#sidebar-right ul.nav,
 #sidebar-left ul.nav {
   flex-direction: column;
   width: 100%;
   padding: 0;
   margin: 0;
 }
-
+#sidebar-right ul.nav li,
 #sidebar-left ul.nav li {
   display: block;
   float: none;
@@ -12849,18 +12828,30 @@ li.fa a span {
   margin-left: 0;
   border-bottom: 1px solid #ccc;
 }
-
+#sidebar-right ul.nav li a,
 #sidebar-left ul.nav li a {
   display: block;
   padding: 0.5rem 1rem;
   text-decoration: none;
+}
+#sidebar-right ul.nav li > .mod-menu__sub li,
+#sidebar-left ul.nav li > .mod-menu__sub li {
+  padding-left: 1rem;
+}
+#sidebar-right ul.nav li > .mod-menu__sub li:last-child,
+#sidebar-left ul.nav li > .mod-menu__sub li:last-child {
+  border-bottom: none;
+}
+#sidebar-right ul.nav .mod-menu__heading,
+#sidebar-left ul.nav .mod-menu__heading {
+  display: block;
+  padding: 0.5rem 1rem;
 }
 
 /**  Menue Zusatzlinks mit symbolen  ****/
 .menu-icons li {
   padding: 15px;
 }
-
 .menu-icons .icon {
   display: inline-block;
   font-family: var(--symbolfont);
@@ -12870,57 +12861,44 @@ li.fa a span {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.menu-icons .icon:before {
+.menu-icons .icon::before {
   height: 35px;
   padding: 5px 15px 5px 10px;
   font-size: 28px;
   line-height: 35px;
 }
-
-.menu-icons .i-compass:before {
+.menu-icons .i-compass::before {
   content: "\f14e";
 }
-
-.menu-icons .i-graduation-cap:before {
+.menu-icons .i-graduation-cap::before {
   content: "\f19d";
 }
-
-.menu-icons .i-check-square:before {
+.menu-icons .i-check-square::before {
   content: "\f14a";
 }
-
-.menu-icons .i-bullseye:before {
+.menu-icons .i-bullseye::before {
   content: "\f140";
 }
-
-.menu-icons .i-university:before {
+.menu-icons .i-university::before {
   content: "\f19c";
 }
-
-.menu-icons .i-star:before {
+.menu-icons .i-star::before {
   content: "\f005";
 }
-
-.menu-icons .i-users:before {
+.menu-icons .i-users::before {
   content: "\f0c0";
 }
-
-.menu-icons .i-bob:before {
+.menu-icons .i-bob::before {
   content: "\f1b9";
 }
-
 .menu-icons .i-cutlery:before {
   content: "\f0f5";
 }
-
 .menu-icons a {
   padding-left: 0;
   font-size: 18px;
   line-height: 35px;
 }
-
-.menu-icons a:link,
 .menu-icons a:link {
   font-weight: 600;
 }

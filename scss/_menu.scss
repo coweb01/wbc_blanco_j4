@@ -224,136 +224,101 @@ li.fa a span {
 }
 
 /****** Menue Top ***********************************************/
-#top-01 .nav {}
-#top-01 .nav li {}
-#top-01 .nav a:link,
-#top-01 .nav a:visited {}
-#top-01 .nav li:last-child a {}
 #top-01 .nav a:hover {
   background-color: transparent;
 }
 
 /********************  menues Sidebar   **********************************/
-
-#sidebar-right ul.nav {
-  flex-direction: column;
-  width: 100%;
-  padding: 0;
-  margin: 0;
+#sidebar-right,
+#sidebar-left{
+  ul.nav {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    li {
+      display: block;
+      float: none;
+      margin-right: 0;
+      margin-left: 0;
+      border-bottom: 1px solid #ccc;
+      a {
+        display: block;
+        padding: .5rem 1rem;
+        text-decoration: none;
+      }
+      > .mod-menu__sub {
+        li {
+          padding-left: 1rem;
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+    .mod-menu__heading {
+      display: block;
+      padding: .5rem 1rem;
+    }
+  }
 }
-#sidebar-right ul.nav li {
-  display: block;
-  float: none;
-  margin-right: 0;
-  margin-left: 0;
-  border-bottom: 1px solid #ccc;
-}
-#sidebar-right ul.nav li a {
-  display: block;
-  padding: .5rem 1rem;
-  text-decoration: none;
-}
-#sidebar-right ul.nav li a:link,
-#sidebar-right ul.nav li a:visited {
-}
-#sidebar-right ul.nav li a:hover {
-}
-#sidebar-right ul.nav li a:active,
-#sidebar-right ul.nav li.active a:link,
-#sidebar-right ul.nav li.active a:visited {
-}
-#sidebar-right ul.nav li.parent a:link {}
-
-/* Left */
-
-#sidebar-left ul.nav {
-  flex-direction: column;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-#sidebar-left ul.nav li {
-  display: block;
-  float: none;
-  margin-right: 0;
-  margin-left: 0;
-  border-bottom: 1px solid #ccc;
-}
-#sidebar-left ul.nav li a {
-  display: block;
-  padding: .5rem 1rem;
-  text-decoration: none;
-}
-#sidebar-left ul.nav li a:link,
-#sidebar-left ul.nav li a:visited {
-}
-#sidebar-left ul.nav li a:hover {
-}
-#sidebar-left ul.nav li a:active,
-#sidebar-left ul.nav li.active a:link,
-#sidebar-left ul.nav li.active a:visited {
-}
-#sidebar-left ul.nav li.parent a:link {}
 
 /**  Menue Zusatzlinks mit symbolen  ****/
 
-.menu-icons {}
-.menu-icons li {
-  padding: 15px;
+.menu-icons{
+  li {
+    padding: 15px;
+  }
+ .icon {
+    display: inline-block;
+    @include iconfont;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &::before{
+      height: 35px;
+      padding: 5px 15px 5px 10px;
+      font-size: 28px;
+      line-height: 35px;
+    }
+  }
+  .i-compass::before {
+    content: "\f14e";
+  }
+  .i-graduation-cap::before {
+    content: "\f19d";
+  }
+  .i-check-square::before {
+    content: "\f14a";
+  }
+  .i-bullseye::before {
+    content: "\f140";
+  }
+  .i-university::before {
+    content: "\f19c";
+  }
+  .i-star::before {
+    content: "\f005";
+  }
+  .i-users::before {
+    content: "\f0c0";
+  }
+  .i-bob::before {
+    content: "\f1b9";
+  }
+  .i-cutlery:before {
+    content: "\f0f5";
+  }
+  a {
+    padding-left: 0;
+    font-size: 18px;
+    line-height: 35px;
+    &:link {
+      font-weight: 600;
+    }
+  }
 }
-.menu-icons .icon {
-  display: inline-block;
-  @include iconfont;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.menu-icons .icon:before {
-  height: 35px;
-  padding: 5px 15px 5px 10px;
-  font-size: 28px;
-  line-height: 35px;
-}
-.menu-icons .i-compass:before {
-  content: "\f14e";
-}
-.menu-icons .i-graduation-cap:before {
-  content: "\f19d";
-}
-.menu-icons .i-check-square:before {
-  content: "\f14a";
-}
-.menu-icons .i-bullseye:before {
-  content: "\f140";
-}
-.menu-icons .i-university:before {
-  content: "\f19c";
-}
-.menu-icons .i-star:before {
-  content: "\f005";
-}
-.menu-icons .i-users:before {
-  content: "\f0c0";
-}
-.menu-icons .i-bob:before {
-  content: "\f1b9";
-}
-.menu-icons .i-cutlery:before {
-  content: "\f0f5";
-}
-.menu-icons a {
-  padding-left: 0;
-  font-size: 18px;
-  line-height: 35px;
-}
-.menu-icons a:link,
-.menu-icons a:link {
-  font-weight: 600;
-}
-.menu-icons a:hover,
-.menu-icons a:focus {}
-.menu-icons a:active {}
 
 /***  fixed Navbar mit Buttons und Symbolen **/
 
