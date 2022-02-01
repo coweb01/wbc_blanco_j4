@@ -11228,10 +11228,6 @@ select {
   }
 }
 /* End Resets */
-.wbc-flex {
-  display: flex;
-}
-
 .grayscale {
   filter: grayscale(1);
 }
@@ -11333,7 +11329,7 @@ select {
   margin: 0;
   overflow: hidden;
   vertical-align: middle;
-  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .wbc-overlay-text {
@@ -11633,10 +11629,11 @@ body {
 .blog-item {
   display: flex;
   flex-direction: column;
-  padding: 0 0.5rem 1rem;
+  padding-bottom: 1rem;
   overflow: hidden;
 }
 .boxed .blog-item {
+  padding: 0;
   background-color: #fff;
   box-shadow: var(--schatten);
 }
@@ -11656,6 +11653,7 @@ body {
 }
 .boxed .blog-item .item-image {
   margin-bottom: 0;
+  margin-top: 0;
 }
 .image-right .blog-item .item-image {
   order: 1;
@@ -11685,10 +11683,7 @@ body {
     margin: 0 0 1rem;
     grid-auto-flow: row;
     grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  .blog-items .blog-item {
-    padding: 0;
+    gap: 2rem;
   }
   .blog-items[class^=columns-] > div, .blog-items[class*=" columns-"] > div {
     flex: 0 1 auto;
@@ -11709,11 +11704,11 @@ body {
 }
 .blog-items[class^=masonry-], .blog-items[class*=" masonry-"] {
   display: block;
-  column-gap: 1rem;
+  column-gap: 2rem;
 }
 .blog-items[class^=masonry-] .blog-item, .blog-items[class*=" masonry-"] .blog-item {
   display: inline-flex;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   page-break-inside: avoid;
   break-inside: avoid;
 }
@@ -11836,6 +11831,10 @@ figcaption {
 #sidebar-left,
 #sidebar-right {
   margin-bottom: 20px;
+}
+#sidebar-left > *,
+#sidebar-right > * {
+  margin-bottom: 3rem;
 }
 
 #left-fixed {
@@ -12465,12 +12464,13 @@ button .show > .btn.dropdown-toggle,
   border-color: var(--linkbgcolorbtn);
 }
 .btn-outline-primary:hover {
-  color: #FFF !important;
+  color: #fff !important;
   background-color: var(--linkbgcolorbtn);
   border-color: var(--linkbgcolorbtn);
 }
 
-.input-password-toggle {
+.input-password-toggle,
+.suche .btn {
   margin: 0;
 }
 
@@ -13069,7 +13069,7 @@ li.fa a span {
 
 .ext-header {
   display: flex;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .ext-header h2, .ext-header .h2,
