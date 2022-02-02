@@ -3,38 +3,37 @@
  * @package     Joomla.Site
  * @subpackage  mod_menu
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2009 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
 
-// Note. It is important to remove spaces between elements.
-$app           = JFactory::getApplication();
+use Joomla\CMS\Helper\ModuleHelper;
 
-    
-?>
-<?php // The menu class is deprecated. Use nav instead. ?>
-<ul class="nav menu<?php echo $class_sfx;?>"<?php
-	$tag = '';
+$id = '';
 
-	if ($params->get('tag_id') != null)
-	{
-		$tag = $params->get('tag_id') . '';
-		echo ' id="' . $tag . '"';
-	}
-?>>
-<?php
-foreach ($list as $i => &$item)
+if ($tagId = $params->get('tag_id', ''))
 {
+	$id = ' id="' . $tagId . '"';
+}
 
-    $menuitem      = $app->getMenu()->getItem($item->id);
-	$menuparams    = $menuitem->params;
-    $accesskey     = $menuparams->get('accesskey'); 
-    $subtitle      = $menuparams->get('description','');
-	$class = ' nav-item d-inline-block mb-1 item-' . $item->id;
+// The menu class is deprecated. Use mod-menu instead
+?>
+<ul<?php echo $id; ?> class="mod-menu mod-list nav menu-icons <?php echo $class_sfx; ?>">
+<?php foreach ($list as $i => &$item)
+{
+	$itemParams = $item->getParams();
+    $accesskey  = $itemParams->get('accesskey');
+    $subtitle   = $itemParams->get('description','');
+	$class      = ' nav-item d-inline-block mb-1 item-' . $item->id;
 
-	if (($item->id == $active_id) OR ($item->type == 'alias' AND $item->params->get('aliasoptions') == $active_id))
+	if ($item->id == $default_id)
+	{
+		$class .= ' default';
+	}
+
+	if ($item->id == $active_id || ($item->type === 'alias' && $itemParams->get('aliasoptions') == $active_id))
 	{
 		$class .= ' current';
 	}
@@ -57,7 +56,7 @@ foreach ($list as $i => &$item)
 		}
 	}
 
-	if ($item->type == 'separator')
+	if ($item->type === 'separator')
 	{
 		$class .= ' divider';
 	}
@@ -72,12 +71,7 @@ foreach ($list as $i => &$item)
 		$class .= ' parent';
 	}
 
-	if (!empty($class))
-	{
-		$class = ' class="' . trim($class) . '"';
-	}
-
-	echo '<li' . $class . '>';
+	echo '<li class="' . $class . '">';
 
 	// Render the menu item.
 	switch ($item->type) :
@@ -85,18 +79,18 @@ foreach ($list as $i => &$item)
 		case 'url':
 		case 'component':
 		case 'heading':
-			require JModuleHelper::getLayoutPath('mod_menu', 'icon_' . $item->type);
+			require ModuleHelper::getLayoutPath('mod_menu', 'icon_' . $item->type);
 			break;
 
 		default:
-			require JModuleHelper::getLayoutPath('mod_menu', 'icon_url');
+			require ModuleHelper::getLayoutPath('mod_menu', 'icon_url');
 			break;
 	endswitch;
 
 	// The next item is deeper.
 	if ($item->deeper)
 	{
-		echo '<ul class="nav-child unstyled small">';
+		echo '<ul class="mod-menu__sub list-unstyled small">';
 	}
 	elseif ($item->shallower)
 	{

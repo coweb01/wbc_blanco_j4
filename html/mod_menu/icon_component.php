@@ -3,42 +3,72 @@
  * @package     Joomla.Site
  * @subpackage  mod_menu
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   (C) 2009 Open Source Matters, Inc. <https://www.joomla.org>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
 
-// Note. It is important to remove spaces between elements.
-$icon_class  	= $item->anchor_css ? 'class="'.$item->anchor_css.'" ' : '';
-$title 			= $item->anchor_title ? 'title="' . $item->anchor_title . '" ' : '';
+use Joomla\CMS\Filter\OutputFilter;
+use Joomla\CMS\HTML\HTMLHelper;
+
+$attributes = array();
+
+if ($item->anchor_title)
+{
+	$attributes['title'] = $item->anchor_title;
+}
+
+if ($item->anchor_rel)
+{
+	$attributes['rel'] = $item->anchor_rel;
+}
+
+if ($item->id == $active_id)
+{
+	$attributes['aria-current'] = 'location';
+
+	if ($item->current)
+	{
+		$attributes['aria-current'] = 'page';
+	}
+}
+
+$linktype = $item->title;
+
+if ($item->anchor_css)
+{
+	$icon_class = $item->anchor_css;
+}
 
 if ($item->menu_image)
 {
-	$item->params->get('menu_text', 1) ?
-	$linktype = '<img src="' . $item->menu_image . '" alt="' . $item->title . '" /><span class="image-title visually-hidden visually-hidden-focusable" >' . $item->title . '</span> ' :
-	$linktype = '<img src="' . $item->menu_image . '" alt="' . $item->title . '" />';
+	$linktype = HTMLHelper::_('image', $item->menu_image, $item->title);
+	$linktype .= '<span class="image-title visually-hidden visually-hidden-focusable" >' . $item->title . '</span>';
+	if ($itemParams->get('menu_text', 1)) {
+		$linktype .= '<span class="' . $icon_class . '" </span>';
+	}
 }
 else
 {
-	$item->params->get('menu_text', 1) ?
-	$linktype = $item->title :
-	$linktype = '<span class="visually-hidden visually-hidden-focusable">'.$item->title.'</span>';
+	$linktype = '<span class="visually-hidden visually-hidden-focusable hier">'.$item->title.'</span>';
+	if ($itemParams->get('menu_text', 1)) {
+		$linktype = '<span class="icon ' . $icon_class . '" ></span>' . $item->title;
+	}
 }
 
-switch ($item->browserNav)
+if ($item->browserNav == 1)
 {
-	default:
-	case 0:
-?><div class="bg-secondary shadow-sm d-inline-block"><a class="nav-link" href="<?php echo $item->flink; ?>" <?php echo $title; ?>><span  <?php echo $icon_class; ?>></span> <?php echo $linktype; ?><?php echo ( $subtitle ) ? '<span class="subtitle">'. $subtitle.  '</span>' : ''; ?></a></div><?php
-		break;
-	case 1:
-		// _blank
-?><div class="bg-secondary shadow-sm d-inline-block" ><a class="nav-link" href="<?php echo $item->flink; ?>" target="_blank" <?php echo $title; ?>><span <?php echo $icon_class; ?>></span><?php echo $linktype; ?><?php echo ( $subtitle ) ? '<span class="subtitle">'. $subtitle.  '</span>' : ''; ?></a></div><?php
-		break;
-	case 2:
-	// Use JavaScript "window.open"
-?><div class="bg-secondary shadow-sm d-inline-block" ><a class="nav-link" href="<?php echo $item->flink; ?>" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes');return false;" <?php echo $title; ?>><span <?php echo $icon_class; ?>></span> <?php echo $linktype; ?></a></div>
-<?php
-		break;
+	$attributes['target'] = '_blank';
 }
+elseif ($item->browserNav == 2)
+{
+	$options = 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes';
+
+	$attributes['onclick'] = "window.open(this.href, 'targetWindow', '" . $options . "'); return false;";
+}
+?>
+<div class="bg-secondary shadow-sm d-inline-block">
+<?php echo HTMLHelper::_('link', OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), $linktype, $attributes);
+?>
+</div>

@@ -55,10 +55,10 @@ li.fa:before {
   left: 12px;
   display: block;
   font-size: 25px;
-  color: #999999;
+  color: #999;
 }
 li.fa a span {
-  padding-left:20px;
+  padding-left: 20px;
 }
 li.fa a span.chrome-fix {
   margin-top: 10px;
@@ -103,7 +103,7 @@ li.fa a span {
 /* Ende menues Footer           */
 
 /** Hauptmenue                  */
-.navbar-toggler{
+.navbar-toggler {
   margin: .5rem 0;
 }
 #navigation-main {
@@ -180,19 +180,19 @@ li.fa a span {
 
 /******  2. Ebene                                   **********************/
 
-#navigation-main ul.nav-child {
+#navigation-main ul.mod-menu__sub {
   position: relative;
 }
-#navigation-main ul.nav-child li {
+#navigation-main ul.mod-menu__sub li {
   display: block;
 }
-#navigation-main ul.nav-child li,
-#navigation-main ul.nav-child li a {
+#navigation-main ul.mod-menu__sub li,
+#navigation-main ul.mod-menu__sub li a {
   margin-left: 0;
 }
 #navigation-main ul.dropdown-level1 > li a:link,
 #navigation-main ul.dropdown-level1 > li a:visited {
-  background-color:transparent;
+  background-color: transparent;
   border-top: none;
 }
 #navigation-main ul.dropdown-level1 > li a:hover,
@@ -230,7 +230,7 @@ li.fa a span {
 
 /********************  menues Sidebar   **********************************/
 #sidebar-right,
-#sidebar-left{
+#sidebar-left {
   ul.nav {
     flex-direction: column;
     width: 100%;
@@ -250,9 +250,9 @@ li.fa a span {
       > .mod-menu__sub {
         li {
           padding-left: 1rem;
-          &:last-child {
-            border-bottom: none;
-          }
+        }
+        li:last-child {
+          border-bottom: none;
         }
       }
     }
@@ -265,22 +265,30 @@ li.fa a span {
 
 /**  Menue Zusatzlinks mit symbolen  ****/
 
-.menu-icons{
+.menu-icons {
   li {
     padding: 15px;
+    a {
+      padding-left: 0;
+      font-size: 18px;
+      line-height: 35px;
+      &:link {
+        font-weight: 600;
+      }
+    }
   }
- .icon {
-    display: inline-block;
+  .icon {
     @include iconfont;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    &::before{
-      height: 35px;
+    &::before {
+      display: inline-block;
+      height: 40px;
       padding: 5px 15px 5px 10px;
       font-size: 28px;
-      line-height: 35px;
+      line-height: 40px;
     }
   }
   .i-compass::before {
@@ -310,14 +318,6 @@ li.fa a span {
   .i-cutlery:before {
     content: "\f0f5";
   }
-  a {
-    padding-left: 0;
-    font-size: 18px;
-    line-height: 35px;
-    &:link {
-      font-weight: 600;
-    }
-  }
 }
 
 /***  fixed Navbar mit Buttons und Symbolen **/
@@ -337,7 +337,8 @@ li.fa a span {
 #fixed-sidebar-left li > a:focus {}
 #fixed-sidebar-left li > a:active {}
 
-@media (max-width: 480px) {/* phone */
+/* phone */
+@media (max-width: 480px) {
   #navigation-main ul {
     float: none;
     width: 100%;
@@ -362,7 +363,7 @@ li.fa a span {
   }
 }
 @media (min-width: 1200px) {
-  #navigation-main ul.nav-child {
+  #navigation-main ul.mod-menu__sub {
     position: absolute;
   }
   #navigation-main .dropdown-level1 {
@@ -372,7 +373,7 @@ li.fa a span {
     opacity: 0;
     transition: visibility .5s, opacity .3s linear;
     transition-delay: .5s;
-}
+  }
   #navigation-main li.level1:hover ul.dropdown-level1,
   #navigation-main li.level1:focus ul.dropdown-level1 {
     /*  bootstrap dropdown bei hover 1st-level */
@@ -380,7 +381,7 @@ li.fa a span {
     visibility: visible;
     opacity: 1;
     transition-delay: .5s;
-}
+  }
 
   /*** Bootstrap menue 3. level ********************************************/
   .dropdown-submenu {

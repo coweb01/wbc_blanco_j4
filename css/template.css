@@ -12623,7 +12623,7 @@ li.fa:before {
   left: 12px;
   display: block;
   font-size: 25px;
-  color: #999999;
+  color: #999;
 }
 
 li.fa a span {
@@ -12757,16 +12757,16 @@ li.fa a span {
 }
 
 /******  2. Ebene                                   **********************/
-#navigation-main ul.nav-child {
+#navigation-main ul.mod-menu__sub {
   position: relative;
 }
 
-#navigation-main ul.nav-child li {
+#navigation-main ul.mod-menu__sub li {
   display: block;
 }
 
-#navigation-main ul.nav-child li,
-#navigation-main ul.nav-child li a {
+#navigation-main ul.mod-menu__sub li,
+#navigation-main ul.mod-menu__sub li a {
   margin-left: 0;
 }
 
@@ -12852,8 +12852,15 @@ li.fa a span {
 .menu-icons li {
   padding: 15px;
 }
+.menu-icons li a {
+  padding-left: 0;
+  font-size: 18px;
+  line-height: 35px;
+}
+.menu-icons li a:link {
+  font-weight: 600;
+}
 .menu-icons .icon {
-  display: inline-block;
   font-family: var(--symbolfont);
   font-weight: 900;
   font-size: inherit;
@@ -12862,10 +12869,11 @@ li.fa a span {
   -moz-osx-font-smoothing: grayscale;
 }
 .menu-icons .icon::before {
-  height: 35px;
+  display: inline-block;
+  height: 40px;
   padding: 5px 15px 5px 10px;
   font-size: 28px;
-  line-height: 35px;
+  line-height: 40px;
 }
 .menu-icons .i-compass::before {
   content: "\f14e";
@@ -12894,14 +12902,6 @@ li.fa a span {
 .menu-icons .i-cutlery:before {
   content: "\f0f5";
 }
-.menu-icons a {
-  padding-left: 0;
-  font-size: 18px;
-  line-height: 35px;
-}
-.menu-icons a:link {
-  font-weight: 600;
-}
 
 /***  fixed Navbar mit Buttons und Symbolen **/
 #fixed-sidebar-left ul, #fixed-sidebar-left ul li {
@@ -12915,8 +12915,8 @@ li.fa a span {
   font-size: 2rem;
 }
 
+/* phone */
 @media (max-width: 480px) {
-  /* phone */
   #navigation-main ul {
     float: none;
     width: 100%;
@@ -12943,7 +12943,7 @@ li.fa a span {
   }
 }
 @media (min-width: 1200px) {
-  #navigation-main ul.nav-child {
+  #navigation-main ul.mod-menu__sub {
     position: absolute;
   }
 
