@@ -1,0 +1,238 @@
+:root {
+  --mm-color1: #F4F2F2;
+  --mm-color2: #D8D6D7;
+  --mm-color1-dark: #F4F2F2;
+}
+
+#navigation-main .wbcmetismenu.mod-menu {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: row;
+}
+#navigation-main li.wbc-dropdown.parent {
+  position: static;
+}
+
+.wbcmetismenu.menu-horizontal {
+  flex: 1 0 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+@media (min-width: 992px) {
+  .wbcmetismenu.menu-horizontal {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: row;
+  }
+}
+.wbcmetismenu.menu-horizontal > li {
+  position: relative;
+}
+.wbcmetismenu.menu-horizontal .level-1 > ul {
+  min-width: 12rem;
+}
+.wbcmetismenu.mod-menu {
+  margin: 0;
+  /* spalten dropdown */
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: top;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item.level-1 {
+  font-size: calc(var(--fontsize) + 0.8rem);
+  line-height: calc(var(--fontsize) + 0.2rem);
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item.parent {
+  position: relative;
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item > ul {
+  position: absolute;
+  top: 100%;
+  z-index: 1001;
+  display: block;
+  padding: 0;
+  list-style: none;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item > button {
+  font-size: 1rem;
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item > span,
+.wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetis-link,
+.wbcmetismenu.mod-menu .wbcmetismenu-item > button {
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetis-link:focus,
+.wbcmetismenu.mod-menu .wbcmetismenu-item > button:focus {
+  outline: 1px dotted var(--mm-color2);
+  outline-offset: 2px;
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item > button:hover,
+.wbcmetismenu.mod-menu .wbcmetismenu-item > button:focus {
+  border: none;
+  background-color: transparent;
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item.active > a, .wbcmetismenu.mod-menu .wbcmetismenu-item.active > button,
+.wbcmetismenu.mod-menu .wbcmetismenu-item > a:hover,
+.wbcmetismenu.mod-menu .wbcmetismenu-item > button:hover {
+  text-decoration: underline;
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item::after {
+  content: none;
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item:not(.level-1) > ul, .wbcmetismenu.mod-menu .wbcmetismenu-item:not(.level-2) > ul {
+  margin-right: -1em;
+}
+[dir=rtl] .wbcmetismenu.mod-menu .wbcmetismenu-item:not(.level-1) > ul, [dir=rtl] .wbcmetismenu.mod-menu .wbcmetismenu-item:not(.level-2) > ul {
+  margin-right: 0;
+  margin-left: -1em;
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item.divider:not(.parent) {
+  width: 1px;
+  padding: 0;
+  margin: 0.25em;
+  overflow: hidden;
+  border-right: 1px solid var(--mm-color2);
+}
+@media (max-width: 992px) {
+  .wbcmetismenu.mod-menu .wbcmetismenu-item.divider:not(.parent) {
+    width: auto;
+    height: 1px;
+    border-bottom: 1px solid var(--mm-color2);
+  }
+}
+.wbcmetismenu.mod-menu .mm-collapsing {
+  height: 0;
+  overflow: hidden;
+  transition-timing-function: ease;
+  transition-duration: 0.35s;
+  transition-property: color, background-color, height, visibility;
+}
+.wbcmetismenu.mod-menu .mm-collapse {
+  position: absolute;
+  background-color: var(--bgnavbarcolor, white);
+}
+.wbcmetismenu.mod-menu .mm-collapse:not(.mm-show) {
+  display: none;
+}
+.wbcmetismenu.mod-menu .mm-collapse > li a.wbcmetis-link {
+  display: block;
+  padding: 0.3rem 0.5rem;
+}
+.wbcmetismenu.mod-menu .mm-collapse > li.divider:not(.parent) {
+  width: auto;
+  height: 1px;
+  border-bottom: 1px solid var(--mm-color2);
+}
+.wbcmetismenu.mod-menu .mm-collapse > li.parent .mm-toggler {
+  display: inline-flex;
+}
+.wbcmetismenu.mod-menu .mm-collapse > li.parent > ul {
+  position: relative;
+  top: 0;
+  flex-basis: calc(100% + 1.5rem);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  box-shadow: none;
+}
+.wbcmetismenu.mod-menu .mm-toggler {
+  position: relative;
+  display: flex;
+  align-items: top;
+  height: 100%;
+  padding: 0.5rem 0 0 0;
+  color: currentColor;
+  user-select: none;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.wbcmetismenu.mod-menu .mm-toggler:after {
+  width: 0;
+  height: 0;
+  margin-inline-start: 0.5em;
+  content: "";
+  border-top: 0.5em solid currentColor;
+  border-right: 0.5em solid transparent;
+  border-left: 0.5em solid transparent;
+  transition: all 0.3s ease-out;
+}
+.mm-active > .wbcmetismenu.mod-menu .mm-toggler:after {
+  transform: rotateX(-180deg);
+}
+
+.wbcmetismenu.mod-menu .mm-toggler[aria-expanded=true]:after {
+  transform: rotateX(-180deg);
+}
+.wbcmetismenu.mod-menu .parent > ul {
+  color: var(--grey-200);
+}
+.wbcmetismenu.mod-menu ul.wbc-multicolumn-dropdown {
+  display: flex;
+  display: -ms-flexbox;
+  flex-wrap: no-wrap;
+  -ms-flex-wrap: no-wrap;
+  flex-wrap: wrap;
+  border-radius: 0px;
+  min-width: 90%;
+  width: auto;
+  padding: 2rem 1rem 2rem 1rem;
+  margin-left: 5%;
+  margin-right: 5%;
+  left: 0;
+  overflow: auto;
+  max-height: 80vh;
+}
+.wbcmetismenu.mod-menu .wbcmetis-link .wbcmetis-titel,
+.wbcmetismenu.mod-menu .mod-menu__heading .wbcmetis-titel {
+  display: block;
+}
+.wbcmetismenu.mod-menu .wbcmetis-link .wbcmetis-subtitel,
+.wbcmetismenu.mod-menu .mod-menu__heading .wbcmetis-subtitel {
+  display: block;
+  color: var(--mm-color);
+  font-size: calc(var(--fontsize) - 0.2rem);
+}
+.wbcmetismenu.mod-menu .wbc-dropdown-titel {
+  text-align: center;
+}
+
+.sidebar-right .wbcmetismenu .mm-collapse,
+.sidebar-left .wbcmetismenu .mm-collapse {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.sidebar-right .wbcmetismenu li.parent > ul,
+.sidebar-left .wbcmetismenu li.parent > ul {
+  position: relative;
+  top: 0;
+  box-shadow: none;
+}
+@media (max-width: 1200px) {
+  .sidebar-right .wbcmetismenu li.parent > ul,
+.sidebar-left .wbcmetismenu li.parent > ul {
+    width: 100%;
+  }
+}
+.sidebar-right .wbcmetismenu .wbcmetismenu-item > span,
+.sidebar-right .wbcmetismenu .wbcmetismenu-item > a,
+.sidebar-left .wbcmetismenu .wbcmetismenu-item > span,
+.sidebar-left .wbcmetismenu .wbcmetismenu-item > a {
+  white-space: inherit;
+}
+.sidebar-right .wbcmetismenu .wbcmetismenu-item.divider:not(.parent),
+.sidebar-left .wbcmetismenu .wbcmetismenu-item.divider:not(.parent) {
+  width: auto;
+  height: 1px;
+  border-bottom: 1px solid var(--mm-color2);
+}
