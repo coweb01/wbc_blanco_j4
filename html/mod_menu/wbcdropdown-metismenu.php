@@ -37,9 +37,9 @@ $start = (int) $params->get('startLevel', 1);
 
 <ul <?php echo ArrayHelper::toString($attributes); ?>>
 
-<?php 
+<?php
 /*  variablen für das mehrspaltige Untermenü --------------------------*/
- 
+
 $col                = 0; /* zähler spalten */
 $rowminwidth        = 0; /* init*/
 $open_cols          = false;  // schalter spalte dropdown geöffnet
@@ -61,12 +61,12 @@ $switch_item_deeper = false;
 
 	/* menu parameters aus plugin advancedmenuparams ---------------------*/
 
-	$accesskey           = $itemParams->get('accesskey'); 
+	$accesskey           = $itemParams->get('accesskey');
 	$dropdowncolums      = $itemParams->get('dropdowncolums');
     $menuecolumn         = $itemParams->get('menucolumn',0);
     $columnwidth         = $itemParams->get('columnwidth',30);
     $columnwidthUnit     = $itemParams->get('columnwidthunit','%');
-    $stylecolumn         = ' style="flex: 0 0 ' . $columnwidth . $columnwidthUnit .'; max-width: '. $columnwidth . $columnwidthUnit .';"';
+    $stylecolumn         = ' style="flex: 0 1 ' . $columnwidth . $columnwidthUnit .'; max-width: '. $columnwidth . $columnwidthUnit .';"';
 
     $menudescription     = $itemParams->get('description');
     $headlinedropdown    = $itemParams->get('headlinedropdown',0);
@@ -128,7 +128,7 @@ $switch_item_deeper = false;
 			$class[] = 'parent';
 		}
 
-		
+
     	$classcolumn = ' class="' .implode(' ', $class) .'"';
 
 	}
@@ -139,50 +139,49 @@ $switch_item_deeper = false;
 		 if ( $menuecolumn == 1 )  //oeffnen wenn mehrspaltig
 		  {
 			  echo '<ul class="mm-collapse wbc-multicolumn-dropdown-' .  $item_level . ' wbc-multicolumn-dropdown wbc-multicolumn-dropdown-'. $item_id.'">'. "\n";
-			  $col                    = 0; 
-			  $rowminwidth            = 0; 
-			  $rowid                  = $item_id; 
-				  
+			  $col                    = 0;
+			  $rowminwidth            = 0;
+			  $rowid                  = $item_id;
+
 		  } else {	  echo '<ul class="mm-collapse wbc-multicolumn-dropdown-' .  $item_level . '">'. "\n";  }
-		  
-		  if ( $item_level < 2 && !empty($rowtitle) ) { 
+
+		  if ( $item_level < 2 && !empty($rowtitle) ) {
 		  echo '<li class="wbc-dropdown-titel" style="flex: 0 0 100%; max-width: 100%;"><p class="h3 wbc-menutitle">'.$rowtitle.'</p></li>'. "\n";
 		  }
-		  
-		  $switch_item_deeper = false; 
-            
-	endif;  
-	  
-	 // html item levels 
+
+		  $switch_item_deeper = false;
+	endif;
+
+	 // html item levels
 	switch ($item->level) :
 		case 3:  echo '<li class="'. implode(' ', $class) .'">';
 				 break;
-		case 2:  
+		case 2:
  				 if (  $menuecolumn == 1  ) :
-				   
+
 			          /*if ( $open_cols == true ) { // vorherige Spalte erst schliessen.
 						  //echo '</ul></div></div></li>'. "\n";
 						  //echo '</ul></li>'. "\n";
-						  $open_cols = false; 
+						  $open_cols = false;
 						  }*/
-				       
+
 					  $rowminwidth  = $rowminwidth + $columnwidth;
-			
-					  echo '<li clas="wbc-wrap-nav-col-'. $col .'" ' . $stylecolumn .' >'. "\n";
-					  
+
+					  echo '<li class="wbc-wrap-nav-col-'. $col .'" ' . $stylecolumn .' >'. "\n";
+
 					  $col++;
 					  $open_cols = true;
 
-					else : 
+					else :
 						if ( $open_cols == false ) {
-					  		echo '<li class="'. implode(' ', $class) .'">';	
+					  		echo '<li class="'. implode(' ', $class) .'">';
 					  	}
 					endif;
 
 
 				 break;
-		case 1:  
-				 if ( $dropdowncolums == true  ) { $class[] = 'wbc-dropdown'; } 
+		case 1:
+				 if ( $dropdowncolums == true  ) { $class[] = 'wbc-dropdown'; }
 
 				 if ( $headlinedropdown == 1 ) {
 				 	 $rowtitle = ( $headlinedropdowntxt  ) ? $headlinedropdowntxt : $item->title;
@@ -190,7 +189,6 @@ $switch_item_deeper = false;
 				 echo '<li class="'. implode(' ', $class) .'">';
 				 break;
 	endswitch;
-	
 
 
 	// render the menu item
@@ -207,20 +205,14 @@ $switch_item_deeper = false;
 			require ModuleHelper::getLayoutPath('mod_menu', 'wbcdropdown-metismenu_url');
 	endswitch;
 
-
-
-
 	switch (true) :
-
-
 
 		// The next item is deeper.
 		case $showAll && $item->deeper:
-			// merke .. ul wird spaeter geoeffnet 
+			// merke .. ul wird spaeter geoeffnet
 			$switch_item_deeper = true;
 			$item_level = $item->level;
 			$item_id = $item->id;
-
 
 			break;
 
@@ -229,42 +221,29 @@ $switch_item_deeper = false;
 
 			$level_next = $item->level;
 			//$level_diff = $item->level_diff;
-			
-			 if ( $item->level > 2 )  { 
 
+			 if ( $item->level > 2 )  {
 
-			     if ( $open_cols == true && $level_next == 1  ) {
+				if ( $open_cols == true && $level_next == 1  ) {
+					echo '</li>'. "\n";
+					$open_cols = false;
 
-			     	  
-					  echo '</li>'. "\n";
-					
-					  $open_cols = false; 				
-				  
-				 } 
-				 
-				   
-			  } else  if ( $item->level == 2  ) {
+				}
+				} else if ($item->level == 2) {
+					if ($open_cols == true ) {
+						echo '</ul></li>'. "\n";
+						$open_cols = false;
+					} else {
 
-			  		if ($open_cols == true ) {
-
-			  			echo '</ul></li>'. "\n";
-					  	$open_cols = false; 
-
-			  		} else {
-
-			  			echo '</li></ul>'. "\n";
-			  		}
-	                  					 
-					 
-			    
+						echo '</li></ul>'. "\n";
+					}
 			 }
-			
-		  
+
 			break;
 
 		// The next item is on the same level.
 		default:
-			
+
 			if ( $item->level == 1 || $item->level > 2 ) {
 				echo '</li>';
 			}
@@ -273,6 +252,5 @@ $switch_item_deeper = false;
 
 	endswitch;
 
-	
 }
 ?></ul>

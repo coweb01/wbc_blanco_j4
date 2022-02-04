@@ -124,7 +124,7 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 						<?php endif; ?>
 
 						<?php if ($this->countModules('navMain') && $NavMainPos == 1): ?>
-						<nav id="navigation-main" class="navbar navbar-expand-lg navbar-light <?php echo ($bgnavbar == 1 ) ? 'wbc-bg-navbar' : '';?> <?php echo ($fixedheader == 1) ? 'sps"' :'';?>">
+						<nav id="navigation-main" class="navbar navbar-expand-lg navbar-light <?php echo ($bgnavbar == 1 ) ? 'wbc-bg-navbar' : '';?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>">
 							<?php
 								$LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'/html/layouts');
 								echo $LayoutMain ->render($displayData);
