@@ -17,7 +17,6 @@ extract($displayData);
 $app            = Factory::getApplication();
 $document       = $app->getDocument();
 $templatepath   = 'templates/'.$app->getTemplate().'/';
-echo $templatepath;
 
 
 $wa             = $document->getWebAssetManager();
@@ -54,21 +53,21 @@ $wa->addInlineScript($js);
 $wa->addInlineStyle("
 	@media (max-width: $offcanvas_breakpoint px) {
 		.header-top {display: none;};
-		.offcanvas {display: block;};
+		.wbc-hc-offcanvas {display: block;};
 		.wrap-outer {padding-top: $min_height_l px;}
-		.offcanvas .navbar {min-height: $min_height_l px;}
+		.wbc-hc-offcanvas .navbar {min-height: $min_height_l px;}
 	}
 	@media (max-width: 576px) {
-		.offcanvas .navbar {min-height: $offcanvas_navbar_height px;}
+		.wbc-hc-offcanvas .navbar {min-height: $offcanvas_navbar_height px;}
 		.wrap-outer { padding-top: $offcanvas_navbar_height px;}
 	}
 	@media (min-width: $offcanvas_breakpoint+1 px) {
 		.header-top {display: block;}
-		.offcanvas {display: none;}
+		.wbc-hc-offcanvas {display: none;}
 	}");
 ?>
 
-<div class="offcanvas offcanvas-<?php echo $offcanvas_pos; ?> ">
+<div class="wbc-hc-offcanvas wbc-hc-offcanvas-<?php echo $offcanvas_pos; ?> ">
   <nav class="fixed-top navbar toggle-pos-<?php echo $toggle_offcanvas_pos; ?>" >
 
         <a class="nav-toggle " href="#">
