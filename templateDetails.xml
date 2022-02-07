@@ -713,29 +713,23 @@
 
 				<field
 					name="image-body"
-					type="imagelist"
-					default="default_body.jpg"
+					type="media"
 					label="TPL_WBC_BLANCO_J4_FIELD_IMAGE_BODY_LABEL"
 					description="TPL_WBC_BLANCO_J4_FIELD_IMAGE_BODY_DESC"
-					directory="/images/headers" exclude="" stripext=""
 				/>
 
 				<field
 					name="logo"
-					type="imagelist"
-					default=""
+					type="media"
 					label="TPL_WBC_BLANCO_J4_FIELD_LOGO_LABEL"
 					description="TPL_WBC_BLANCO_J4_FIELD_LOGO_DESC"
-					directory="/images/" exclude="" stripext=""
 				/>
 
 				<field
 					name="logo_mobil"
-					type="imagelist"
-					default=""
+					type="media"
 					label="TPL_WBC_BLANCO_J4_FIELD_LOGO_MOBIL_LABEL"
 					description="TPL_WBC_BLANCO_J4_FIELD_LOGO_MOBIL_DESC"
-					directory="/images/" exclude="" stripext=""
 				/>
 
 				<field
@@ -839,20 +833,17 @@
 
 				<field
 					name="headerimg"
-					type="imagelist"
-					default=""
+					type="media"
 					label="TPL_WBC_BLANCO_J4_FIELD_HEADERIMAGE_LABEL"
 					description="TPL_WBC_BLANCO_J4_FIELD_HEADERIMAGE_DESC"
-					directory="/images/headers/" exclude="" stripext=""
+
 				/>
 
 				<field
 					name="bg-headerimg"
-					type="imagelist"
-					default=""
+					type="media"
 					label="TPL_WBC_BLANCO_J4_FIELD_BG_HEADERIMAGE_LABEL"
 					description="TPL_WBC_BLANCO_J4_FIELD_BG_HEADERIMAGE_DESC"
-					directory="/images/headers/" exclude="" stripext=""
 				/>
 
 				<!-- SHOWONFRONTPAGE -->

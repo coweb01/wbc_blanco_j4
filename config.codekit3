@@ -301,86 +301,6 @@
       "oAP" : "\/html\/layouts\/wbc_blanco_template\/navmain.php",
       "oF" : 0
     },
-    "\/html\/mod_menu\/AKdropdown_component.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/AKdropdown_component.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/AKdropdown_heading.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/AKdropdown_heading.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/AKdropdown_separator.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/AKdropdown_separator.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/AKdropdown_url.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/AKdropdown_url.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/AKdropdown.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/AKdropdown.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/AKQdropdown_component.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/AKQdropdown_component.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/AKQdropdown_heading.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/AKQdropdown_heading.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/AKQdropdown_separator.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/AKQdropdown_separator.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/AKQdropdown_url.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/AKQdropdown_url.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/AKQdropdown.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/AKQdropdown.php",
-      "oF" : 0
-    },
     "\/html\/mod_menu\/assets\/akdropdown.css" : {
       "aP" : 1,
       "bl" : 0,
@@ -405,108 +325,12 @@
       "oF" : 0,
       "pg" : 0
     },
-    "\/html\/mod_menu\/collapse-default.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/collapse-default.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/collapse-metismenu.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/collapse-metismenu.php",
-      "oF" : 0
-    },
     "\/html\/mod_menu\/collapse-wbcmetismenu.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/html\/mod_menu\/collapse-wbcmetismenu.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/default_component.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/default_component.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/default_heading.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/default_heading.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/default_separator.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/default_separator.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/default_url.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/default_url.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/default.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/default.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/dropdown-metismenu_component.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/dropdown-metismenu_component.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/dropdown-metismenu_heading.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/dropdown-metismenu_heading.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/dropdown-metismenu_separator.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/dropdown-metismenu_separator.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/dropdown-metismenu_url.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/dropdown-metismenu_url.php",
-      "oF" : 0
-    },
-    "\/html\/mod_menu\/dropdown-metismenu.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/dropdown-metismenu.php",
       "oF" : 0
     },
     "\/html\/mod_menu\/icon_component.php" : {
@@ -557,44 +381,44 @@
       "oAP" : "\/html\/mod_menu\/index.html",
       "oF" : 0
     },
-    "\/html\/mod_menu\/offcanvas_component.php" : {
+    "\/html\/mod_menu\/offcanvasv4_component.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/offcanvas_component.php",
+      "oAP" : "\/html\/mod_menu\/offcanvasv4_component.php",
       "oF" : 0
     },
-    "\/html\/mod_menu\/offcanvas_heading.php" : {
+    "\/html\/mod_menu\/offcanvasv4_heading.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/offcanvas_heading.php",
+      "oAP" : "\/html\/mod_menu\/offcanvasv4_heading.php",
       "oF" : 0
     },
-    "\/html\/mod_menu\/offcanvas_separator.php" : {
+    "\/html\/mod_menu\/offcanvasv4_separator.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/offcanvas_separator.php",
+      "oAP" : "\/html\/mod_menu\/offcanvasv4_separator.php",
       "oF" : 0
     },
-    "\/html\/mod_menu\/offcanvas_url.php" : {
+    "\/html\/mod_menu\/offcanvasv4_url.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/offcanvas_url.php",
+      "oAP" : "\/html\/mod_menu\/offcanvasv4_url.php",
       "oF" : 0
     },
-    "\/html\/mod_menu\/offcanvas.php" : {
+    "\/html\/mod_menu\/offcanvasv4.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/html\/mod_menu\/offcanvas.php",
+      "oAP" : "\/html\/mod_menu\/offcanvasv4.php",
       "oF" : 0
     },
     "\/html\/mod_menu\/overlay_component.php" : {
@@ -984,6 +808,18 @@
       "oF" : 0,
       "pg" : 0
     },
+    "\/libraries\/hc-offcanvas\/dist\/hc-offcanvas-nav.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/libraries\/hc-offcanvas\/dist\/hc-offcanvas-nav-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
     "\/libraries\/hc-offcanvas\/dist\/hc-offcanvas-nav.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -1172,17 +1008,17 @@
       "pg" : 0,
       "sct" : 0
     },
-    "\/scss\/wbcmetismenu\/_wbcmetismenu.scss" : {
+    "\/scss\/wbcmetismenu\/wbcmetismenu.scss" : {
       "aP" : 0,
       "bl" : 0,
-      "co" : 2,
+      "co" : 0,
       "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 0,
-      "oAP" : "\/css\/wbcmetismenu\/wbcmetismenu.css",
-      "oF" : 3,
+      "oAP" : "\/scss\/wbcmetismenu\/wbcmetismenu.css",
+      "oF" : 0,
       "oS" : 0,
       "pg" : 0,
       "sct" : 0
