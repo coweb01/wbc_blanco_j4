@@ -12576,14 +12576,15 @@ blockquote cite {
   MENUE STYLES
   ========================== */
 /** Offcanvas Navbar */
-.offcanvas .navbar.toggle-pos-left {
+.wbc-hc-offcanvas .navbar {
+  display: flex;
   justify-content: space-between;
 }
-.offcanvas .navbar.toggle-pos-right {
-  justify-content: space-between;
+.wbc-hc-offcanvas .navbar.toggle-pos-left .nav-toggle {
+  left: 5px;
 }
-.offcanvas .navbar.toggle-pos-right .nav-toggle {
-  order: 99;
+.wbc-hc-offcanvas .navbar.toggle-pos-right .nav-toggle {
+  right: 15px;
 }
 
 .hc-offcanvas-nav .nav {

@@ -4,19 +4,20 @@
 
 /** Offcanvas Navbar */
 
-.offcanvas {
+.wbc-hc-offcanvas {
   .navbar {
-    .nav-toggle {
-    }
-  }
-  .navbar.toggle-pos-left {
+    display: flex;
     justify-content: space-between;
   }
-  .navbar.toggle-pos-right {
-    justify-content: space-between;
-    .nav-toggle {
-      order: 99;
+    .navbar.toggle-pos-left {
+      .nav-toggle {
+        left: 5px;
+      }
     }
+    .navbar.toggle-pos-right {
+      .nav-toggle {
+        right: 15px;
+      }
   }
 }
 .hc-offcanvas-nav {
