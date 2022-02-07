@@ -75,18 +75,19 @@ body {
   overflow: hidden;
   font-size: 1.5rem;
   img {
-    width: 100%;
+    
     max-width: 100%;
     height: auto;
     padding: 0;
     margin: 0;
     @include media-breakpoint-up(xl) {
-      width: 100%;
+
       max-width: auto;
       height: auto;
       padding: 0;
       margin: 0;
     }
+    
   }
   .container-fluid .wrap-headerimg {
     padding: 0;
@@ -124,6 +125,11 @@ body {
 #overlay_headerimg {
   z-index: 20;
   width: 100%;
+  img { 
+    width: auto;
+    max-width: 100%;
+    height: auto
+  }
   @include vertikal-zentriert-pos-abs;
   @include media-breakpoint-up(xl) {
     position: absolute;
