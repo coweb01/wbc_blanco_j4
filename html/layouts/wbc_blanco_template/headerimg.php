@@ -31,7 +31,7 @@ extract($displayData);
 			<?php
 			else :
 			?>
-				<div class="wbc-background-image-stretch" style="background-image: url(<?php echo $jhtml->baseurl ?>/images/headers/<?php echo $jhtml->params->get('headerimg'); ?>);"></div>
+				<div class="wbc-background-image-stretch" style="background-image: url(<?php echo $jhtml->baseurl ?>/<?php echo $jhtml->params->get('headerimg'); ?>);"></div>
 			<?php
 			endif;
 			?>

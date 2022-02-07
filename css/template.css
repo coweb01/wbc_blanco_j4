@@ -11363,7 +11363,7 @@ select {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center 100;
-  background-size: cover;
+  background-size: contain;
 }
 
 /***** Hintergrundbild *******************************************/
@@ -13547,5 +13547,3 @@ footer {
     clear: both;
   }
 }
-
-/*# sourceMappingURL=template.css.map */
