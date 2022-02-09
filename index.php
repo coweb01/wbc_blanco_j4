@@ -52,52 +52,6 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 </head>
 <body id="top" class="body-01 <?php echo $classbody; ?>">
 	<div class="prevent-scrolling">
-		<!-- start Accesibility -->
-		<ul class="visually-hidden-focusable list-inline">
-			<li class="list-inline-item">
-				<a href="#wrap-content" class="d-inline-flex p-2 m-1">
-					<?php echo Text::_('TPL_WBC_BLANCO_J4_SKIP_TO_CONTENT'); ?>
-				</a>
-			</li>
-			<li class="list-inline-item">
-				<a href="#navigation-main" class="d-inline-flex p-2 m-1">
-					<?php echo Text::_('TPL_WBC_BLANCO_J4_SKIP_TO_MAIN_NAVIGATION'); ?>
-				</a>
-			</li>
-
-			<?php if ($this->countModules('header-top-01')) : ?>
-			<li class="list-inline-item">
-				<a href="#header-top-01" class="d-inline-flex p-2 m-1">
-					<?php echo Text::_('TPL_WBC_BLANCO_J4_SKIP_TO_TOP_NAVIGATION'); ?>
-				</a>
-			</li>
-			<?php endif; ?>
-
-			<?php if ($showleftColumn) : ?>
-			<li class="list-inline-item">
-				<a href="#sidebar-left" class="d-inline-flex p-2 m-1">
-					<?php echo Text::_('TPL_WBC_BLANCO_J4_JUMP_TO_LEFT_INFORMATION'); ?>
-				</a>
-			</li>
-			<?php endif ?>
-
-			<?php if ($showrightColumn) : ?>
-			<li class="list-inline-item">
-				<a href="#sidebar-right" class="d-inline-flex p-2 m-1">
-					<?php echo Text::_('TPL_WBC_BLANCO_J4_JUMP_TO_RIGHT_INFORMATION'); ?>
-				</a>
-			</li>
-			<?php endif; ?>
-
-			<?php if ($pos_search) : ?>
-			<li class="list-inline-item">
-				<a href="#suche" class="d-inline-flex p-2 m-1">
-					<?php echo Text::_('TPL_WBC_BLANCO_J4_JUMP_TO_SEARCH'); ?>
-				</a>
-			</li>
-			<?php endif; ?>
-		</ul>
-		<!-- end Accesibility -->
 
 		<?php /* wenn Modul grossflaechiges hintergrundbild */?>
 		<?php if ($this->countModules('bg-01')) : ?>
