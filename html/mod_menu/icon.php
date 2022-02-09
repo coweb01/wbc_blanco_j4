@@ -24,8 +24,8 @@ if ($tagId = $params->get('tag_id', ''))
 <?php foreach ($list as $i => &$item)
 {
 	$itemParams = $item->getParams();
-    $accesskey  = $itemParams->get('accesskey');
-    $subtitle   = $itemParams->get('description','');
+	$accesskey  = $itemParams->get('accesskey');
+	$subtitle   = $itemParams->get('description','');
 	$class      = ' nav-item d-inline-block mb-1 item-' . $item->id;
 
 	if ($item->id == $default_id)

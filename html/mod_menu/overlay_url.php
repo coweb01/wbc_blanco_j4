@@ -33,6 +33,11 @@ if ($accesskey)
 {
 	$attributes['accesskey'] = $accesskey;
 }
+$desc = '';
+if ($subtitle)
+{
+	$desc = '<span class="subtitle">' . $subtitle . '</span>';
+}
 
 $linktype = $item->title;
 
@@ -40,7 +45,7 @@ if ($item->menu_image)
 {
 	$linktype = HTMLHelper::_('image', $item->menu_image, $item->title);
 	if ($itemParams->get('menu_text', 1)){
-		$linktype .= '<div class="overlay"><span class="image-title">' . $item->title . '</span></div>';
+		$linktype .= '<div class="overlay"><div class="image-title"><span class="title">' . $item->title . '</span>' . $desc . '</div></div>';
 	}
 }
 else

@@ -37,6 +37,7 @@ if ($tagId = $params->get('tag_id', ''))
 
 	$itemParams = $item->getParams();
 	$accesskey  = $itemParams->get('accesskey');
+	$subtitle   = $itemParams->get('description','');
 
 	$class = 'item-' . $item->id;
 
