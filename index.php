@@ -40,6 +40,10 @@ $footerwidth = '-fluid';
 if (($this->params->get('footerwidth') == 1)) {
 	$footerwidth = '';
 }
+$nocontent = '';
+if (($this->params->get('hidecontentwrapper') == 1)) {
+	$nocontent = 'wbc-nocontent';
+}
 
 ?>
 
@@ -224,7 +228,7 @@ if (($this->params->get('footerwidth') == 1)) {
 							<!-- ***************************** End Sidebar Left ****************************************************** -->
 							<?php endif; ?>
 
-							<div id="wrap-content" class="base-row col-12 <?php echo $bootstrap_colclass_mobil_sm . $cols_sm . ' ' . $bootstrap_colclass . $cols;?>">
+							<div id="wrap-content" class="base-row col-12 <?php echo $bootstrap_colclass_mobil_sm . $cols_sm . ' ' . $bootstrap_colclass . $cols . ' ' . $nocontent;?>">
 								<div class="contentarea <?php echo $classinside;?>">
 									<noscript>
 									<!-- Anzeige wenn kein JavaScript -->
