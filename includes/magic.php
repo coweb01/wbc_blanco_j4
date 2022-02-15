@@ -23,7 +23,7 @@ $templateparams     = $app->getTemplate(true)->params; // Templateparameter
 $sitename           = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8'); // sitename in joomla konfigurationsdatei definiert
 $params             = $app->getParams(); //Parameter Menue
 $pageclass          = $params->get('pageclass_sfx'); // parameter (menu entry)
-$tpath              = '/templates/'.$this->template;
+$tpath              = 'templates/'.$this->template;
 $vorcontent_cols    = $templateparams->get('vorcontent-cols',1);
 $aftercontent_cols  = $templateparams->get('aftercontent-cols',1);
 $NavMainPos         = $templateparams->get('navmain',1);
@@ -188,29 +188,25 @@ $wa->usePreset('template.wbc')
 	->useStyle('template.user')
 	->useScript('template.user');
 
+$i = 1;
 foreach ($customcss as $value) {
-
 	if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/'.$value ) ) ) {
-		$doc->addStyleSheet($tpath . '/css/' .$value, array('version' => 'auto'));
-	} // else { echo "CSS Datei" . $customcss.  "nicht vorhanden"; }
+		$rname = 'custom'.$i;
+		$wa->registerAndUseStyle($rname, $tpath . '/css/'. $value);
+	} 
+	$i++;
 }
 
 /* Default CSS Alternativ */
 if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/default.css') ) ) {
-	$doc->addStyleSheet( $tpath . '/css/default.css', array(
-		'version' => 'auto'),
-		array('id'=>'stylesheet', 'title'=>'default')
-	);
+	$wa->registerAndUseStyle('default', $tpath . '/css/default.css');
 }
 
 /* Hochkontrast CSS Alternativ */
 
 if ($styleswitch) {
 	if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/hk.css') ) ) {
-		$doc->addStyleSheet( $tpath . '/css/hk.css', array(
-			'version' => 'auto'),
-			array('id'=>'stylesheet', 'title'=>'hk')
-		);
+		$wa->registerAndUseStyle('hk', $tpath . '/css/hk.css');
 	}
 }
 /**************************************************************************************/
