@@ -979,6 +979,18 @@
 					<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
 					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
 				</field>
+
+				<field
+					name="footerwidth"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
+					default="0"
+					label="TPL_WBC_BLANCO_J4_FIELD_FOOTERWIDTH_LABEL"
+					>
+					<option value="0">TPL_WBC_BLANCO_J4_FIELD_FOOTERWIDTH_FULL</option>
+					<option value="1">TPL_WBC_BLANCO_J4_FIELD_FOOTERWIDTH_WRAPPER</option>
+				</field>
 			</fieldset>
 
 			<fieldset name="Menue">

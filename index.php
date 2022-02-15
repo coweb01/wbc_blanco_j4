@@ -36,6 +36,11 @@ $himg = false;
 if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg') != "-1")) {
 	$himg = true;
 }
+$footerwidth = '-fluid';
+if (($this->params->get('footerwidth') == 1)) {
+	$footerwidth = '';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -378,7 +383,7 @@ if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg'
 			<?php $modpos = 'footer'; ?>
 			<?php if ($this->countModules($modpos)) : ?>
 			<div id="footer-middle" class="wbc-footer-middle">
-				<div class="container-fluid">
+				<div class="container<?php echo $footerwidth; ?>">
 					<?php
 						$LayoutFooter = new FileLayout('wbc_blanco_template.footermodules', $tpath.'/html/layouts');
 						echo $LayoutFooter ->render($displayData);
