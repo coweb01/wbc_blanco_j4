@@ -1,0 +1,52 @@
+.tns-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+.tns-nav > [aria-controls] {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  margin: 0 5px;
+  background: #ddd;
+  border: 0;
+  border-radius: 50%;
+}
+.tns-nav > .tns-nav-active > [aria-controls],
+.tns-nav > [aria-controls]:hover {
+  background: #999;
+}
+.tns-controls {
+  margin-bottom: 10px;
+  text-align: center;
+}
+.tns-controls [aria-controls] {
+  margin: 0 5px;
+  font-size: 15px;
+  color: var(--defaultcolor);
+  background: #ddd;
+  border: none;
+}
+.tns-controls [aria-controls]:hover {
+  background: #999;
+}
+[data-action] {
+  display: block;
+  min-width: 3em;
+  margin: 0 auto;
+  font-size: 17px;
+  color: #ddd;
+  text-align: center;
+  background: transparent;
+  border: 0;
+}
+[data-action]:hover {
+  color: #999;
+  background: transparent;
+}
+.wbc-slider a:link:not(.btn),
+.wbc-slider a:visited:not(.btn) {
+  color: var(--defaultcolor);
+  text-decoration: none;
+}
