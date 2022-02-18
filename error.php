@@ -95,7 +95,7 @@ else {
 		<header class="header-02 container">
 			<div class="logo row justify-content-center">
 				<div id="logo" class="<?php echo $bootstrap_colclass_mobil_ph . '6 ' . $bootstrap_colclass_mobil_tb . '4 ' .$bootstrap_colclass. '3 ' .$bootstrap_colclass_lg; ?>3">
-					<a href="index.php"><img src="<?php echo $this->baseurl ?>/images/<?php echo $logo ?>" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
+					<a href="index.php"><img src="<?php echo $this->baseurl ?><?php echo $logo ?>" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
 				</div><!--End Logo-->
 			</div>
 		</header>

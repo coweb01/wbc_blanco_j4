@@ -24,7 +24,7 @@ $css_logo = ($offcanvas == 1) ? 'wbc-offcanvas-on' : '';
 				<?php
 				else :
 				?>
-				<a href="index.php"><img class="img-fluid" src="<?php echo $jhtml->baseurl ?>/images/<?php echo $logo_mobil?>" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
+				<a href="index.php"><img class="img-fluid" src="<?php echo $jhtml->baseurl ?><?php echo $logo_mobil?>" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
 				<?php
 				endif;
 				?>
@@ -47,7 +47,7 @@ $css_logo = ($offcanvas == 1) ? 'wbc-offcanvas-on' : '';
 		<?php
 		elseif ($logo != '-1') :
 		?>
-		<a href="index.php"><img src="<?php echo $jhtml->baseurl ?>/images/<?php echo $logo?>" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
+		<a href="index.php"><img src="<?php echo $jhtml->baseurl ?><?php echo $logo?>" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
 		<?php
 		endif;
 		?>

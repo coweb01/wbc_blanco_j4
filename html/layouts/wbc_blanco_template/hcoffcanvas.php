@@ -78,7 +78,7 @@ $wa->addInlineStyle("
           <div class="navbar-brand">
           <?php if ($jhtml->countModules('logo-mobil')): ?>
               <jdoc:include type="modules" name="logo-mobil" style="none" />
-              <?php else : ?><a href="index.php"><img src="<?php echo $jhtml->baseurl ?>/images/<?php echo $logo_mobil?>" class="img-fluid" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
+              <?php else : ?><a href="index.php"><img src="<?php echo $jhtml->baseurl ?><?php echo $logo_mobil?>" class="img-fluid" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
           <?php endif; ?>
           </div>
         <?php endif; ?>
