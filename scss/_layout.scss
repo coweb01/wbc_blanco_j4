@@ -807,7 +807,7 @@ figcaption {
 }
 
 @media (min-width: 1500px) {
-  body:not(.no-front) #headerimg .wbc-background-image-stretch {
+  body:not(.nofront) #headerimg .wbc-background-image-stretch {
     min-height: 500px;
   }
   .wbc-fixed-sidebar a {

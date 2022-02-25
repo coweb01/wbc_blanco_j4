@@ -9,7 +9,7 @@ use Joomla\CMS\Helper\ModuleHelper;
 $app                = Factory::getApplication();
 $doc                = $app->getDocument();
 $templateparams     = $app->getTemplate(true)->params; // Templateparameter
-$tpath              = '/templates/'.$this->template;
+$tpath              = 'templates/'.$this->template;
 
 $wa                 = $this->getWebAssetManager();
 
