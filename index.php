@@ -18,6 +18,11 @@ include_once JPATH_THEMES . '/' . $this->template . '/includes/magic.php'; // lo
 if (!isset($bootstrap_colclass_mobil_sm)) { $bootstrap_colclass_mobil_sm = ''; };
 if (!isset($bootstrap_colclass_mobil_xs)) { $bootstrap_colclass_mobil_xs = ''; };
 
+$footerwidth = 'container-fluid';
+if (($this->params->get('footerwidth') == 1)) {
+	$footerwidth = 'container-xl';
+}
+
 // Template path
 $tpath = 'templates/' . $this->template;
 
@@ -387,7 +392,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 			<?php $modpos = 'footer'; ?>
 			<?php if ($this->countModules($modpos)) : ?>
 			<div id="footer-middle" class="wbc-footer-middle">
-				<div class="container<?php echo $footerwidth; ?>">
+				<div class="<?php echo $footerwidth; ?>">
 					<?php
 						$LayoutFooter = new FileLayout('wbc_blanco_template.footermodules', $tpath.'/html/layouts');
 						echo $LayoutFooter ->render($displayData);
