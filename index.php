@@ -234,7 +234,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 							<?php endif; ?>
 
 							<div id="wrap-content" class="base-row col-12 <?php echo $bootstrap_colclass_mobil_sm . $cols_sm . ' ' . $bootstrap_colclass . $cols . ' ' . $nocontent;?>">
-								<div class="contentarea <?php echo $classinside;?>">
+								<div class="contentarea">
 									<noscript>
 									<!-- Anzeige wenn kein JavaScript -->
 									<div class="alert alert-danger" role="alert"><?php echo Text::_('TPL_WBC_BLANCO_J4_INFOTXTJS'); ?></div>

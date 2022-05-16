@@ -20,12 +20,26 @@
       }
   }
 }
-.hc-offcanvas-nav {
+body.wbc-offcanvas .hc-offcanvas-nav {
   .nav {
     flex-direction: column;
   }
 }
 
+body.wbc-offcanvas .hc-offcanvas-nav .nav-close-button span::before, 
+body.wbc-offcanvas .hc-offcanvas-nav .nav-close-button span::after { 
+      width: 12px;
+      height: 12px;
+}
+body.wbc-offcanvas .hc-offcanvas-nav .nav-close-button span::before {
+  margin-left: -15px;
+}
+body.wbc-offcanvas .nav-content > ul { margin-top: 40px; }
+
+body.wbc-offcanvas .hc-offcanvas-nav::after, 
+body.wbc-offcanvas  .hc-offcanvas-nav .nav-wrapper::after {
+  background: rgba(0,0,0,0.6);
+}
 /*-------------------------------------------------*/
 
 .chrome-fix {
@@ -56,10 +70,10 @@ li.fa:before {
   left: 12px;
   display: block;
   font-size: 25px;
-  color: #999;
+  color: #999999;
 }
 li.fa a span {
-  padding-left: 20px;
+  padding-left:20px;
 }
 li.fa a span.chrome-fix {
   margin-top: 10px;
@@ -67,6 +81,7 @@ li.fa a span.chrome-fix {
 li.fa a span {
   font-size: inherit;
 }
+li.nav-item a { text-decoration: none;}
 
 /** menues Footer              */
 
@@ -104,9 +119,7 @@ li.fa a span {
 /* Ende menues Footer           */
 
 /** Hauptmenue                  */
-.navbar-toggler {
-  margin: .5rem 0;
-}
+
 #navigation-main {
   padding: 0;
   margin: 0;
@@ -181,19 +194,19 @@ li.fa a span {
 
 /******  2. Ebene                                   **********************/
 
-#navigation-main ul.mod-menu__sub {
+#navigation-main ul.nav-child {
   position: relative;
 }
-#navigation-main ul.mod-menu__sub li {
+#navigation-main ul.nav-child li {
   display: block;
 }
-#navigation-main ul.mod-menu__sub li,
-#navigation-main ul.mod-menu__sub li a {
+#navigation-main ul.nav-child li,
+#navigation-main ul.nav-child li a {
   margin-left: 0;
 }
 #navigation-main ul.dropdown-level1 > li a:link,
 #navigation-main ul.dropdown-level1 > li a:visited {
-  background-color: transparent;
+  background-color:transparent;
   border-top: none;
 }
 #navigation-main ul.dropdown-level1 > li a:hover,
@@ -225,101 +238,107 @@ li.fa a span {
 }
 
 /****** Menue Top ***********************************************/
+
 #top-01 .nav a:hover {
   background-color: transparent;
 }
 
 /********************  menues Sidebar   **********************************/
-#sidebar-right,
-#sidebar-left {
-  ul.nav {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    li {
-      display: block;
-      float: none;
-      margin-right: 0;
-      margin-left: 0;
-      border-bottom: 1px solid #ccc;
-      a {
-        display: block;
-        padding: .5rem 1rem;
-        text-decoration: none;
-      }
-      > .mod-menu__sub {
-        li {
-          padding-left: 1rem;
-        }
-        li:last-child {
-          border-bottom: none;
-        }
-      }
-    }
-    .mod-menu__heading {
-      display: block;
-      padding: .5rem 1rem;
-    }
-  }
+
+#sidebar-right ul.nav {
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
+#sidebar-right ul.nav li {
+  display: block;
+  float: none;
+  margin-right: 0;
+  margin-left: 0;
+  border-bottom: 1px solid #ccc;
+}
+#sidebar-right ul.nav li a {
+  display: block;
+}
+
+
+/* Left */
+
+#sidebar-left ul.nav {
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+#sidebar-left ul.nav li {
+  display: block;
+  float: none;
+  margin-right: 0;
+  margin-left: 0;
+  border-bottom: 1px solid #ccc;
+}
+#sidebar-left ul.nav li a {
+  display: block;
+}
+
 
 /**  Menue Zusatzlinks mit symbolen  ****/
 
-.menu-icons {
-  li {
-    padding: 15px;
-    a {
-      padding-left: 0;
-      font-size: 18px;
-      line-height: 35px;
-      &:link {
-        font-weight: 600;
-      }
-    }
-  }
-  .icon {
-    @include iconfont;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    &::before {
-      display: inline-block;
-      height: 40px;
-      padding: 5px 15px 5px 10px;
-      font-size: 28px;
-      line-height: 40px;
-    }
-  }
-  .i-compass::before {
-    content: "\f14e";
-  }
-  .i-graduation-cap::before {
-    content: "\f19d";
-  }
-  .i-check-square::before {
-    content: "\f14a";
-  }
-  .i-bullseye::before {
-    content: "\f140";
-  }
-  .i-university::before {
-    content: "\f19c";
-  }
-  .i-star::before {
-    content: "\f005";
-  }
-  .i-users::before {
-    content: "\f0c0";
-  }
-  .i-bob::before {
-    content: "\f1b9";
-  }
-  .i-cutlery:before {
-    content: "\f0f5";
-  }
+.menu-icons li {
+  padding: 15px;
 }
+.menu-icons .icon {
+  display: inline-block;
+  @include iconfont;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.menu-icons .icon:before {
+  height: 35px;
+  padding: 5px 15px 5px 10px;
+  font-size: 28px;
+  line-height: 35px;
+}
+.menu-icons .i-compass:before {
+  content: "\f14e";
+}
+.menu-icons .i-graduation-cap:before {
+  content: "\f19d";
+}
+.menu-icons .i-check-square:before {
+  content: "\f14a";
+}
+.menu-icons .i-bullseye:before {
+  content: "\f140";
+}
+.menu-icons .i-university:before {
+  content: "\f19c";
+}
+.menu-icons .i-star:before {
+  content: "\f005";
+}
+.menu-icons .i-users:before {
+  content: "\f0c0";
+}
+.menu-icons .i-bob:before {
+  content: "\f1b9";
+}
+.menu-icons .i-cutlery:before {
+  content: "\f0f5";
+}
+.menu-icons a {
+  padding-left: 0;
+  font-size: 18px;
+  line-height: 35px;
+}
+.menu-icons a:link,
+.menu-icons a:link {
+  font-weight: 600;
+}
+
 
 /***  fixed Navbar mit Buttons und Symbolen **/
 
@@ -332,14 +351,9 @@ li.fa a span {
   min-height: 50px;
   font-size: 2rem;
 }
-#fixed-sidebar-left li > a:link,
-#fixed-sidebar-left li > a:visited {}
-#fixed-sidebar-left li > a:hover,
-#fixed-sidebar-left li > a:focus {}
-#fixed-sidebar-left li > a:active {}
 
-/* phone */
-@media (max-width: 480px) {
+
+@media (max-width: 480px) {/* phone */
   #navigation-main ul {
     float: none;
     width: 100%;
@@ -364,7 +378,7 @@ li.fa a span {
   }
 }
 @media (min-width: 1200px) {
-  #navigation-main ul.mod-menu__sub {
+  #navigation-main ul.nav-child {
     position: absolute;
   }
   #navigation-main .dropdown-level1 {
@@ -374,7 +388,7 @@ li.fa a span {
     opacity: 0;
     transition: visibility .5s, opacity .3s linear;
     transition-delay: .5s;
-  }
+}
   #navigation-main li.level1:hover ul.dropdown-level1,
   #navigation-main li.level1:focus ul.dropdown-level1 {
     /*  bootstrap dropdown bei hover 1st-level */
@@ -382,7 +396,7 @@ li.fa a span {
     visibility: visible;
     opacity: 1;
     transition-delay: .5s;
-  }
+}
 
   /*** Bootstrap menue 3. level ********************************************/
   .dropdown-submenu {

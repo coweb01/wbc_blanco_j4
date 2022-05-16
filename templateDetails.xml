@@ -964,7 +964,19 @@
 					<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
 					<option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL12</option>
 				</field>
-
+				<field
+					name="footerwidth"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
+					default="0"
+					label="TPL_WBC_BLANCO_J4_FIELD_FOOTERWIDTH_LABEL"
+					description="TPL_WBC_BLANCO_J4_FIELDFOOTERWIDTH_DESC"
+					>
+					<option value="0">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCONTAINER_FLUID</option>
+					<option value="1">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCONTAINER</option>
+					
+				</field>
 				<field
 					name="footercols"
 					type="radio"
@@ -978,18 +990,6 @@
 					<option value="2">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL2</option>
 					<option value="3">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL3</option>
 					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
-				</field>
-
-				<field
-					name="footerwidth"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group"
-					default="0"
-					label="TPL_WBC_BLANCO_J4_FIELD_FOOTERWIDTH_LABEL"
-					>
-					<option value="0">TPL_WBC_BLANCO_J4_FIELD_FOOTERWIDTH_FULL</option>
-					<option value="1">TPL_WBC_BLANCO_J4_FIELD_FOOTERWIDTH_WRAPPER</option>
 				</field>
 			</fieldset>
 
@@ -1084,6 +1084,50 @@
 				/>
 
 				<field
+					name="offcanvas_pushContent"
+					type="text"
+					default=""
+					label="TPL_WBC_BLANCO_J4_OFFCANVASPUSHCONTENT_LABEL"
+					description="TPL_WBC_BLANCO_J4_OFFCANVASPUSHCONTENT_DESC"
+					filter="string"
+				/>
+
+				<field
+					name="offcanvas_levelOpen"
+					type="radio"
+					default="overlap"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
+					label="TPL_WBC_BLANCO_J4_OFFCANVASLEVELOPEN_LABEL"
+					description="TPL_WBC_BLANCO_J4_OFFCANVASLEVELOPEN_DESC" >
+						<option value="overlap">Overlap</option>
+						<option value="expand">Expand</option>
+						<option value="none">none</option>
+						<option value="false">false</option>
+				</field>
+
+				<field
+					name="offcanvas_levelSpacing"
+					type="text"
+					default="40"
+					label="TPL_WBC_BLANCO_J4_OFFCANVASLEVELSPACING_LABEL"
+					description="TPL_WBC_BLANCO_J4_OFFCANVASLEVELSPACING_DESC"
+					filter="string"
+				/>
+
+				<field
+					name="offcanvas_bodyInsert"
+					type="radio"
+					default="prepend"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
+					label="TPL_WBC_BLANCO_J4_OFFCANVASBODYINSERT_LABEL"
+					description="TPL_WBC_BLANCO_J4_OFFCANVASBODYINSERT_DESC" >
+						<option value="prepend">prepend</option>
+						<option value="append">append</option>
+				</field>
+				/>
+				<field
 					name="offcanvas_navbar_height"
 					type="text"
 					default="60"
@@ -1091,7 +1135,6 @@
 					description="TPL_WBC_BLANCO_J4_OFFCANVAS_NAVBARHEIGHT_DESC"
 					filter="string"
 				/>
-
 				<field
 					name="offcanvas_breakpoint"
 					type="text"
@@ -1100,6 +1143,19 @@
 					description="TPL_WBC_BLANCO_J4_OFFCANVASBREAKPOINT_DESC"
 					filter="string"
 				/>
+				<field
+					name="offcanvas_removeOriginalnav"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group btn-group-yesno"
+					default="false"
+					label="TPL_WBC_BLANCO_J4_PARAMETER_OFFCANVASREMOVEORIGINALNAV_LABEL"
+					description="TPL_WBC_BLANCO_J4_PARAMETER_OFFCANVASREMOVEORIGINALNAV_DESC"
+					>
+					<option value="false">JNO</option>
+					<option value="true">JYES</option>
+				</field>
+
 			</fieldset>
 
 			<fieldset name="formulare">

@@ -13,6 +13,7 @@ use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\HTML\HTMLHelper;
 
 $attributes = array();
+$attributes['role'] = 'button';
 
 if ($item->anchor_title)
 {

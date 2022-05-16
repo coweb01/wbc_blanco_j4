@@ -77,12 +77,21 @@ $headerimgSizeClass         = ($templateparams->get('headerimg-width') == 2 ) ? 
 $fontsize                   = $templateparams->get('fontsize', 0);
 $fontsize_pos               = $templateparams->get('fontsize-position', 1);
 $compress_css               = $templateparams->get('compress_css', 1) == 1  ? '.min' : '';
+/* offcanvas Menue*/
 $offcanvas                  = $templateparams->get('offcanvas', 1);
 $offcanvas_pos              = $templateparams->get('offcanvas_pos','left');
 $toggle_offcanvas_pos       = $templateparams->get('toggle_offcanvas_pos','left');
 $offcanvas_breakpoint       = $templateparams->get('offcanvas_breakpoint');
 $offcanvas_width            = $templateparams->get('offcanvas_width',300);
 $offcanvas_navbar_height    = $templateparams->get('offcanvas_navbar_height',80);
+$offcanvas_pushContent      = $templateparams->get('offcanvas_pushContent');
+$offcanvas_levelOpen        = $templateparams->get('offcanvas_levelOpen','overlap');
+$offcanvas_levelSpacing     = $templateparams->get('offcanvas_levelSpacing',40);
+$offcanvas_bodyInsert       = $templateparams->get('offcanvas_bodyInsert');
+$offcanvas_removeOriginalNav = $templateparams->get('offcanvas_removeOriginalnav');
+
+/* end offcanvas */
+
 $iconright                  = $templateparams->get('iconfixedright','fa fa-bars');
 $iconleft                   = $templateparams->get('iconfixedleft','fa fa-bars');
 $toggleright                = $templateparams->get('toggleright', 0);
@@ -123,6 +132,7 @@ if ($menu->getActive() == $menu->getDefault($lang->getTag())) {
 	$classbody  .= ' nofront';
 }
 
+$classbody .= ( $offcanvas == 1 ) ? ' wbc-offcanvas' : '';
 $classbody .= $pageclass;
 if ($bgimage == 1 && $templateparams->get('image-body')) {
 	$classbody .= ' bgimage-01';
@@ -145,25 +155,21 @@ $containercss =  ( $navbarHeaderWidth == 1 ) ? '-fluid' : ''; // Header  zentrie
 
 $cols        = "12";
 $cols_sm     = "12";
-$classinside = 'inside-left inside-right';
 $col_left    =  ( $colSidebarLeft_sm == 12 )  ? 0 : $colSidebarLeft_sm;
 $col_right   =  ( $colSidebarRight_sm == 12 ) ? 0 : $colSidebarRight_sm;
 
 if ($showleftColumn) {
 	$cols         = 12 -  $colSidebarLeft;
 	$cols_sm      = 12 -  $col_left;
-	$classinside  = "inside-left inside-right";
 }
 elseif ($showrightColumn) {
 	$cols          = 12 -  $colSidebarRight;
 	$cols_sm       = 12 -  $col_right;
-	$classinside  .= "inside-left inside-right";
 }
 
 if(($showleftColumn) && ($showrightColumn)) {
 	$cols = 12 - ( $colSidebarLeft + $colSidebarRight );
 	$cols_sm = 12 - ( $col_left + $col_right );
-	$classinside  = "inside-left inside-right";
 }
 
 // generator tag
@@ -246,6 +252,11 @@ $displayData = array(
 			'offcanvas_width'               => $offcanvas_width,
 			'toggle_offcanvas_pos'          => $toggle_offcanvas_pos,
 			'offcanvas_navbar_height'       => $offcanvas_navbar_height,
+			'offcanvas_pushContent'         => $offcanvas_pushContent,
+			'offcanvas_levelOpen'           => $offcanvas_levelOpen,
+			'offcanvas_levelSpacing'        => $offcanvas_levelSpacing,
+			'offcanvas_bodyInsert'          => $offcanvas_bodyInsert,
+			'offcanvas_removeOriginalNav'   => $offcanvas_removeOriginalNav,
 			'logoposition'                  => $logoposition,
 			'logo_mobil'                    => $logo_mobil,
 			'logo'                          => $logo,

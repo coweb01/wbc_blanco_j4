@@ -10,4 +10,4 @@
 defined('_JEXEC') or die;
 
 ?>
-<span class="nav-header"><?php echo $item->title; ?></span>
+<span class="nav-header" role="heading"><?php echo $item->title; ?></span>
