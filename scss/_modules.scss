@@ -79,7 +79,7 @@
 }
 #sidebar-left .extension-outer a:hover,
 #sidebar-left .extension-outer a:focus {
-  color: var(--default);
+  color: var(--defaultcolor);
 }
 #sidebar-right .extension-outer a:link,
 #sidebar-right .extension-outer a:visited {
@@ -87,7 +87,7 @@
 }
 #sidebar-right .extension-outer a:hover,
 #sidebar-right .extension-outer a:focus {
-  color: var(--default);
+  color: var(--defaultcolor);
 }
 #sidebar-left div.extension-outer-icon:first-child,
 #sidebar-right div.extension-outer-icon:first-child {
@@ -118,7 +118,7 @@
 #sidebar-left .ext-header h2,
 #sidebar-left .ext-header h3,
 #sidebar-left  .ext-header h4 {
-  color: var(--default);
+  color: var(--defaultcolor);
 }
 .append-sidebar-before .ext-icon-block {
   display: none;

@@ -12,16 +12,13 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\FileLayout;
-
+use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Uri\Uri;
 
 include_once JPATH_THEMES . '/' . $this->template . '/includes/magic.php'; // load magic.php
 if (!isset($bootstrap_colclass_mobil_sm)) { $bootstrap_colclass_mobil_sm = ''; };
 if (!isset($bootstrap_colclass_mobil_xs)) { $bootstrap_colclass_mobil_xs = ''; };
-
-$footerwidth = 'container-fluid';
-if (($this->params->get('footerwidth') == 1)) {
-	$footerwidth = 'container-xl';
-}
 
 // Template path
 $tpath = 'templates/' . $this->template;
@@ -41,9 +38,9 @@ $himg = false;
 if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg') != "-1")) {
 	$himg = true;
 }
-$footerwidth = '-fluid';
+$footerwidth = 'container-fluid';
 if (($this->params->get('footerwidth') == 1)) {
-	$footerwidth = '';
+	$footerwidth = 'container-xl';
 }
 $nocontent = '';
 if (($this->params->get('hidecontentwrapper') == 1)) {
@@ -65,7 +62,52 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 <!-- ***************************************************************************************************** -->
 </head>
 <body id="top" class="body-01 <?php echo $classbody; ?>">
+	
 	<div class="prevent-scrolling">
+			<!-- Bootstrap 5 offcanvas menü -->
+		<?php
+		if ($offcanvas == 1 && $this->countModules('offcanvas')) :
+			$LayoutOffcanvas = new FileLayout('wbc_blanco_template.bts5offcanvas', $tpath.'/html/layouts');
+			echo $LayoutOffcanvas ->render($displayData);
+		endif; ?>
+		<!-- end offcanvas -->
+
+		<!-- fixed sidebars -->
+		<?php
+		if( $this->countModules('sidebar-left-fix') ||
+			$this->countModules('sidebar-left-toggle') ||
+			$toggleleft) :
+		?>
+			<?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'/html/layouts');
+
+			$ReplacedisplayData = array( 'side' => 'left',
+										'toggle' => $toggleleft,
+										'pos' => '3'
+										);
+			$displayData = array_replace( $displayData, $ReplacedisplayData);
+			echo $LayoutSidebar ->render($displayData); ?>
+
+		<?php
+		endif;
+		?>
+
+		<?php
+		if( $this->countModules('sidebar-right-fix') ||
+			$this->countModules('sidebar-right-toggle') ||
+			$toggleright) :
+		?>
+			<?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'/html/layouts');
+
+			$ReplacedisplayData = array( 'side' => 'right',
+										'toggle' => $toggleright,
+										'pos' => '4'
+										);
+			$displayData = array_replace( $displayData, $ReplacedisplayData);
+			echo $LayoutSidebar ->render($displayData); ?>
+		<?php
+		endif;
+		?>
+		<!-- end fixed sidebars -->
 
 		<?php /* wenn Modul grossflaechiges hintergrundbild */?>
 		<?php if ($this->countModules('bg-01')) : ?>
@@ -80,7 +122,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 			<!-- ****************************************************************************************************** -->
 			<!-- *     Header                                                                                         * -->
 			<!-- ****************************************************************************************************** -->
-			<header class="header" >
+			<div class="header" >
 				<div class="header-top <?php echo ($fixedheader == 1) ? 'sps' :'';?>" >
 					<div class="container<?php echo ( $navbarHeaderWidth == 1) ? '-fluid' : '';?>">
 
@@ -432,50 +474,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 		</div>
 	</div> <!-- end prevent-scrolling / used offcanvas -->
 
-	<!-- offcanvas menü -->
-	<?php
-	if ($offcanvas == 1 && $this->countModules('offcanvas')) :
-		$LayoutOffcanvas = new FileLayout('wbc_blanco_template.hcoffcanvas', $tpath.'/html/layouts');
-		echo $LayoutOffcanvas ->render($displayData);
-	endif; ?>
-	<!-- end offcanvas -->
 
-	<!-- fixed sidebars -->
-	<?php
-	if( $this->countModules('sidebar-left-fix') ||
-		$this->countModules('sidebar-left-toggle') ||
-		$toggleleft) :
-	?>
-		<?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'/html/layouts');
-
-		$ReplacedisplayData = array( 'side' => 'left',
-									 'toggle' => $toggleleft,
-									 'pos' => '3'
-									);
-		$displayData = array_replace( $displayData, $ReplacedisplayData);
-		echo $LayoutSidebar ->render($displayData); ?>
-
-	<?php
-	endif;
-	?>
-
-	<?php
-	if( $this->countModules('sidebar-right-fix') ||
-		$this->countModules('sidebar-right-toggle') ||
-		$toggleright) :
-	?>
-		<?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'/html/layouts');
-
-		$ReplacedisplayData = array( 'side' => 'right',
-									 'toggle' => $toggleright,
-									 'pos' => '4'
-									);
-		$displayData = array_replace( $displayData, $ReplacedisplayData);
-		echo $LayoutSidebar ->render($displayData); ?>
-	<?php
-	endif;
-	?>
-	<!-- end fixed sidebars -->
 
 	<?php include_once JPATH_THEMES . '/' . $this->template . '/includes/magictwo.php'; // load scripts ?>
 </body>

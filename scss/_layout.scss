@@ -474,31 +474,75 @@ figcaption {
   text-align: left;
 }
 
-/** fixed sidebar zum ausklappen --------------------------------*/
+/** fixed sidebar LInks oder rechts toggle  ---------------------*/
 
 .wbc-fixed-sidebar-toggle {
   position: relative;
+  background-color: transparent;
+
   .container-fix {
     display: none;
-    float: left;
-    width: 400px;
+    position: relative;
     height: auto;
     padding: 15px 10px 15px 5px;
     margin-top: 0;
-    color: var(--default);
-    background-color: var(--color-bg, #fff);
+    color: var(--defaultcolor);
     transition: padding .3s;
   }
-  &.slide-open {
-    a {
+  &.wbc__slide-open {
+    a.btn-icon {
       position: absolute;
       top: 0;
       right: 0;
+      z-index: 999;
+      color: white;
+      background-color: var(--bgcolor-dark);
+    }
+    a.btn-icon:hover,
+    a.btn-icon:focus{
+      color: white;
+      background-color: var(--bgcolor-dark);
     }
     .container-fix {
       padding-left: 3rem;
     }
   }
+  &:not(.wbc__slide-open){
+      a.btn-icon {
+      color: white;
+      background-color: var(--bgcolor-dark);
+    }
+  }
+}
+#fixed-sidebar-left-toggle {
+  left: -var(--sidebar-toggle-width, -400px);
+}
+#fixed-sidebar-right-toggle {
+  right: -var(--sidebar-toggle-width, -400px);
+}
+/* toggle Container left or right ********************************/
+
+#fixed-sidebar-left-toggle.wbc__slide-open {
+  display: block;
+  width: var(--sidebar-toggle-width, 400px);
+  background-color: var(--bgcolor-light);
+  animation-name: wbc__sidebar-animation-left;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  .container-fix { 
+      display: block;
+    }
+}
+#right-container-fix.wbc__toggle {
+  display: block;
+  width: var(--sidebar-toggle-width, 400px);
+  background-color: var(--bgcolor-light);
+  animation-name: wbc__sidebar-animation-right;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  .container-fix { 
+      display: block;
+    }
 }
 .wbc-fixed-sidebar-toggle .btn-icon,
 .wbc-fixed-sidebar ul > li a,
@@ -510,31 +554,38 @@ figcaption {
   width: 3rem;
   height: 3rem;
   i.fa-accessible-icon {
+    font-family: var(--symbolfont);
+    content: "\f368";
+    font-size: 900;
   }
 }
-.wbc-fixed-sidebar-toggle:not(.slide-open) .btn-icon {
+.wbc-fixed-sidebar-toggle:not(.wbc__slide-open) .btn-icon {
   color: #fff;
-  background-color: var(--color1) !important;
+  background-color: var(--color1);
 }
-#fixed-sidebar-right-toggle.slide-open a {
-  right: auto; left: 0;
+#fixed-sidebar-right-toggle.wbc__slide-open a {
+  right: 0;
 }
-#fixed-sidebar-right-toggle.slide-open .btn-icon > i:before,
-#fixed-sidebar-left-toggle.slide-open .btn-icon > i:before {
-  font-family: "FontAwesome 5 Free";
+#fixed-sidebar-right-toggle.wbc__slide-open .btn-icon > i:before,
+#fixed-sidebar-left-toggle.wbc__slide-open .btn-icon > i:before {
+  font-family: var(--symbolfont);
   content: "\f00d";
+  font-size: 900;
 }
-#fixed-sidebar-right-toggle.slide-open .btn-icon:hover > i,
-#fixed-sidebar-left-toggle.slide-open .btn-icon:hover > i {
+#fixed-sidebar-right-toggle.wbc__slide-open .btn-icon:hover > i,
+#fixed-sidebar-left-toggle.wbc__slide-open .btn-icon:hover > i {
   animation: rotation 1s ease-in-out;
 }
+
+/* --------- Sidebars links und rechts toggle Symbol Animation -----------------*/
+
 .wbc-fixed-sidebar a .fa {
   font-size: 1rem;
 }
 .wbc-fixed-sidebar a.fa,
 .wbc-fixed-sidebar a.fas,
 .wbc-fixed-sidebar a.far {
-  transition: transform .5s ease-in-out;
+  transition: transform .3s ease-in-out;
   transform: rotate(1deg);
 }
 .wbc-fixed-sidebar a:link.fa,
@@ -549,11 +600,9 @@ figcaption {
   transform: rotate(1deg);
 }
 .wbc-fixed-sidebar a:hover .fa,
-.wbc-fixed-sidebar a:focus .fa,
 .wbc-fixed-sidebar a:hover .fas,
-.wbc-fixed-sidebar a:focus .fas,
-.wbc-fixed-sidebar a:hover .far,
-.wbc-fixed-sidebar a:focus .far {
+.wbc-fixed-sidebar a:hover .far
+{
   transform: rotate(-20deg);
 }
 

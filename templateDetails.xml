@@ -576,14 +576,6 @@
 				/>
 
 				<field
-					name="ColorfooterB"
-					type="color"
-					default=" #ffffff"
-					label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_COLOR_LABEL"
-					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_COLOR_DESC"
-				/>
-
-				<field
 					name="Linkcolorfooterfix"
 					type="color"
 					default=" #ffffff"
@@ -1126,7 +1118,7 @@
 						<option value="prepend">prepend</option>
 						<option value="append">append</option>
 				</field>
-				/>
+			
 				<field
 					name="offcanvas_navbar_height"
 					type="text"
@@ -1143,22 +1135,12 @@
 					description="TPL_WBC_BLANCO_J4_OFFCANVASBREAKPOINT_DESC"
 					filter="string"
 				/>
-				<field
-					name="offcanvas_removeOriginalnav"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group btn-group-yesno"
-					default="false"
-					label="TPL_WBC_BLANCO_J4_PARAMETER_OFFCANVASREMOVEORIGINALNAV_LABEL"
-					description="TPL_WBC_BLANCO_J4_PARAMETER_OFFCANVASREMOVEORIGINALNAV_DESC"
-					>
-					<option value="false">JNO</option>
-					<option value="true">JYES</option>
-				</field>
+				
 
 			</fieldset>
 
 			<fieldset name="formulare">
+				<field name="note_formulare" type="note" label="TPL_WBC_BLANCO_J4_INFO_FLOATINGLABELS_LABEL" description="TPL_WBC_BLANCO_J4_INFO_FLOATINGLABELS" class="alert alert-info" />
 				<field
 					name="floatingLabels"
 					type="radio"

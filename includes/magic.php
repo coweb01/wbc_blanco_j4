@@ -10,6 +10,8 @@ defined( '_JEXEC' ) or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Filesystem\File;
 use Joomla\CMS\Helper\ModuleHelper;
+use Joomla\CMS\Component\ComponentHelper;
+
 
 /** @var Joomla\CMS\Document\HtmlDocument $this */
 
@@ -73,7 +75,7 @@ $headerimg                  = $templateparams->get('headerimg-select', 1);
 $navbarHeaderWidth          = $templateparams->get('navbarheader-width', 1);
 $sourcebgimage              = $templateparams->get('image-body');
 $bgimage                    = $templateparams->get('image-body-select', 0);
-$headerimgSizeClass         = ($templateparams->get('headerimg-width') == 2 ) ? 'sm-slider' : 'lg-slider';
+$headerimgSizeClass         = ( $templateparams->get('headerimg-width') == 2 ) ? 'sm-slider' : 'lg-slider';
 $fontsize                   = $templateparams->get('fontsize', 0);
 $fontsize_pos               = $templateparams->get('fontsize-position', 1);
 $compress_css               = $templateparams->get('compress_css', 1) == 1  ? '.min' : '';
@@ -91,7 +93,6 @@ $offcanvas_bodyInsert       = $templateparams->get('offcanvas_bodyInsert');
 $offcanvas_removeOriginalNav = $templateparams->get('offcanvas_removeOriginalnav');
 
 /* end offcanvas */
-
 $iconright                  = $templateparams->get('iconfixedright','fa fa-bars');
 $iconleft                   = $templateparams->get('iconfixedleft','fa fa-bars');
 $toggleright                = $templateparams->get('toggleright', 0);
@@ -193,13 +194,12 @@ if ($fontawesome == 1)
 $wa->usePreset('template.wbc')
 	->useStyle('template.user')
 	->useScript('template.user');
-
 $i = 1;
 foreach ($customcss as $value) {
 	if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/'.$value ) ) ) {
 		$rname = 'custom'.$i;
 		$wa->registerAndUseStyle($rname, $tpath . '/css/'. $value);
-	} 
+	} // else { echo "CSS Datei" . $customcss.  "nicht vorhanden"; }
 	$i++;
 }
 
@@ -233,7 +233,8 @@ if ($functions == 1 ) $doc->addScript($tpath . '/js/vendor/page-scroll-to-id/js/
 
 // Suchen Seite
 
-if ($flexicontent == 1 ) {
+// check if Flexicontent is enabled 
+if ( ComponentHelper::getComponent('com_flexicontent', true)->enabled === 1 ) {
 	/* link zur Flexicontent Suchen Seite generieren */
 	require_once (JPATH_ADMINISTRATOR.'/components/com_flexicontent/defineconstants.php');
 	require_once (JPATH_SITE.'/components/com_flexicontent/helpers/route.php');

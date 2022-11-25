@@ -21,17 +21,17 @@ if ($item->menu_icon)
 	if ($itemParams->get('menu_text', 1))
 	{
 		// If the link text is to be displayed, the icon is added with aria-hidden
-		$linktype = '<span class="p-2 icon ' . $item->menu_icon . '" aria-hidden="true"></span>' . $item->title;
+		$linktype = '<span class="nav-icon ' . $item->menu_icon . '" aria-hidden="true"></span>' . $item->title;
 	}
 	else
 	{
 		// If the icon itself is the link, it needs a visually hidden text
-		$linktype = '<span class="p-2 icon ' . $item->menu_icon . '" aria-hidden="true"></span><span class="visually-hidden">' . $item->title . '</span>';
+		$linktype = '<span class="nav-icon ' . $item->menu_icon . '" aria-hidden="true"></span><span class="visually-hidden">' . $item->title . '</span>';
 	}
 }
 elseif ($item->menu_image)
 {
-	// The link is an image, maybe with its own class
+	// The link is an image, maybe with an own class
 	$image_attributes = [];
 
 	if ($item->menu_image_css)
@@ -48,7 +48,18 @@ elseif ($item->menu_image)
 }
 
 ?>
-
-<span class="separator"<?php echo $title; ?>>
-	<?php echo $linktype; ?>
-</span>
+<?php
+if ($item->anchor_css)
+{
+	$icon_class = '<i class="'.$item->anchor_css.'"></i>';
+}
+?>
+<span class="mod-menu__separator separator"><?php echo $icon_class; ?><span class="chrome-fix wbc-link-title visually-hidden"><?php echo $item->title;?></span></span>
+<?php 
+if ( $content_plg ) { 
+	// This code goes in your component method that's triggering the plugins
+	
+	$pluginContent = \Joomla\CMS\HTML\HTMLHelper::_('content.prepare', $content_plg);
+?>
+	<div id="wbc-toggle-<?php echo $item->id ?>" class="wbc-toggle-container"><?php echo $pluginContent; ?></div>
+<?php } ?>

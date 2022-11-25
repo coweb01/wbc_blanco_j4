@@ -13,9 +13,15 @@ use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\HTML\HTMLHelper;
 
 $attributes = array();
-$accesskey = $itemParams->get('accesskey');
 $attributes['role'] = 'button';
-$class = "nav-link ";
+
+$string_pos = strpos($item->flink,'#');
+
+if ( $string_pos !== false ) {
+	
+	$toggle_container_id = substr($item->flink, 1);
+
+}
 
 if ($item->anchor_title)
 {
@@ -28,19 +34,12 @@ if ($item->anchor_rel)
 }
 if ($item->anchor_css)
 {
-	$class .= $item->anchor_css;
+	$icon_html = '<i class="wbc-toggle-item-icon '.$item->anchor_css.'"></i>';
 }
-if ($item->id == $active_id)
-{
-	$attributes['aria-current'] = 'location';
 
-	if ($item->current)
-	{
-		$attributes['aria-current'] = 'page';
-	}
-}
-$attributes['class'] = $class;
-$linktype = $item->title;
+$attributes['class'] = 'wbc-toggle-item-link';
+
+//$linktype = $icon_html.'<span class="chrome-fix visually-hidden wbc-link-title">'.$item->title.'</span>';
 
 if ($item->menu_icon)
 {
@@ -48,12 +47,12 @@ if ($item->menu_icon)
 	if ($itemParams->get('menu_text', 1))
 	{
 		// If the link text is to be displayed, the icon is added with aria-hidden
-		$linktype = '<span class="p-2 icon ' . $item->menu_icon . '" aria-hidden="true"></span>' . $item->title;
+		$linktype = '<span class="nav-icon wbc-toggle-item-icon ' . $item->menu_icon . '" aria-hidden="true"></span>' . $item->title;
 	}
 	else
 	{
 		// If the icon itself is the link, it needs a visually hidden text
-		$linktype = '<span class="p-2 icon ' . $item->menu_icon . '" aria-hidden="true"></span><span class="visually-hidden">' . $item->title . '</span>';
+		$linktype = '<span class="nav-icon wbc-toggle-item-icon ' . $item->menu_icon . '" aria-hidden="true"></span><span class="visually-hidden">' . $item->title . '</span>';
 	}
 }
 elseif ($item->menu_image)
@@ -83,15 +82,25 @@ if ($item->browserNav == 1)
 	{
 		$attributes['rel'] .= ' nofollow';
 	}
+
 }
 elseif ($item->browserNav == 2)
 {
-	$options = 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,';
+	$options = 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,' . $params->get('window_open');
 
 	$attributes['onclick'] = "window.open(this.href, 'targetWindow', '" . $options . "'); return false;";
 }
+
+echo HTMLHelper::_('link', OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), $linktype, $attributes);
+if ( $content_plg ) { 
+	if ( $string_pos !== false) {	
+	$pluginContent = \Joomla\CMS\HTML\HTMLHelper::_('content.prepare', $content_plg);
 ?>
-<div class="bg-secondary shadow-sm d-inline-block">
-<?php echo HTMLHelper::_('link', OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), $linktype, $attributes);
+	<div id="<?php echo $toggle_container_id ?>" class="wbc-toggle-container">
+		<button type="button" class="btn-close btn-close-white wbc-toggle-container-close" aria-label="Close"></button>
+		<?php echo $pluginContent; ?>
+	</div>
+<?php
+	} 
+}	
 ?>
-</div>

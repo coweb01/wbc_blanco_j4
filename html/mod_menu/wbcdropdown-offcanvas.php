@@ -21,10 +21,10 @@ $tpath    = 'templates/'.$app->getTemplate();
 /** @var \Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $doc->getWebAssetManager();
 $wa->registerAndUseScript('wbcmetismenu', $tpath. '/js/wbcmenu-metismenu.min.js', [], ['defer' => true], ['metismenujs']);
-$wa->registerAndUseStyle('wbc.metismenu', $tpath. '/css/wbcmetismenu/wbcmetismenu.css');
+$wa->registerAndUseStyle('wbc.offcanvas', $tpath. '/css/wbcoffcanvasmenu/wbcoffcanvasmenu.css');
 
 $attributes          = [];
-$attributes['class'] = 'mod-menu mod-menu_wbcdropdown-metismenu wbcmetismenu mod-list ' . $class_sfx;
+$attributes['class'] = 'mod-menu mod-menu_wbcdropdown-metismenu wbcoffcanvasmenu mod-list ' . $class_sfx;
 
 if ($tagId = $params->get('tag_id', ''))
 {
@@ -78,7 +78,7 @@ $switch_item_deeper = false;
     /* end --------------------------------------------------------------*/
 
 	$class      = [];
-	$class[]    = 'wbcmetismenu-item item-' . $item->id . ' level-' . ($item->level - $start + 1);
+	$class[]    = 'wbcoffcanvasmenu-item item-' . $item->id . ' level-' . ($item->level - $start + 1);
 
 	if ($item->id == $default_id)
 	{
@@ -200,11 +200,11 @@ $switch_item_deeper = false;
 		case 'component':
 		case 'heading':
 		case 'url':
-			require ModuleHelper::getLayoutPath('mod_menu', 'wbcdropdown-metismenu_' . $item->type);
+			require ModuleHelper::getLayoutPath('mod_menu', 'wbcdropdown-offcanvas_' . $item->type);
 			break;
 
 		default:
-			require ModuleHelper::getLayoutPath('mod_menu', 'wbcdropdown-metismenu_url');
+			require ModuleHelper::getLayoutPath('mod_menu', 'wbcdropdown-offcanvas_url');
 	endswitch;
 
 

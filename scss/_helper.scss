@@ -60,6 +60,31 @@
   width: 100%;
   transform: translateY(-50%);
 }
+
+@keyframes wbc__sidebar-animation-left {
+  0%   { 
+    left: -var(--sidebar-toggle-width);
+    opacity: 0.5;
+  }
+  100% { 
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes wbc__sidebar-animation-right {
+  0%   { 
+    right:  -var(--sidebar-toggle-width);
+    background-color: transparent;
+    opacity: 0.5;
+  }
+  100% { 
+    right: 0;
+    background-color: #FFFFFF;
+    opacity: 1;
+  }
+}
+
 .grayscale {
   filter: grayscale(1);
 }
@@ -172,6 +197,8 @@
   background-position: center 100;
   background-size: contain;
 }
+
+
 
 /***** Hintergrundbild *******************************************/
 

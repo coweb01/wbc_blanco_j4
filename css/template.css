@@ -1,6 +1,5 @@
 @charset "UTF-8";
 :root {
-  --default: #484546;
   --fluid: clamp(var(--fluid-type-min, 1rem), calc(1rem + var(--fluid-type-target, 5vw)), var(--fluid-type-max, 1.1rem));
   --bordercolor: rgba(60, 60, 58, 0.2);
   --borderradius: 0;
@@ -9,6 +8,15 @@
   --fontfamily2: "Open Sans", Arial, sans-serif;
   --symbolfont: "Font Awesome 5 Free";
   --printcolor: #000;
+  --sidebar-toggle-width: 400px;
+  --bgcolor-light: #ffffff;
+  --bgcolor-dark: #333333;
+  --color1: $color1;
+  --color2: $color2;
+  --color3: $color3;
+  --color4: $color4;
+  --color5: $color5;
+  --color6: $color6;
 }
 
 /*!
@@ -11228,6 +11236,28 @@ select {
   }
 }
 /* End Resets */
+@keyframes wbc__sidebar-animation-left {
+  0% {
+    left: -var(--sidebar-toggle-width);
+    opacity: 0.5;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+@keyframes wbc__sidebar-animation-right {
+  0% {
+    right: -var(--sidebar-toggle-width);
+    background-color: transparent;
+    opacity: 0.5;
+  }
+  100% {
+    right: 0;
+    background-color: #FFFFFF;
+    opacity: 1;
+  }
+}
 .grayscale {
   filter: grayscale(1);
 }
@@ -11864,28 +11894,72 @@ figcaption {
   text-align: left;
 }
 
-/** fixed sidebar zum ausklappen --------------------------------*/
+/** fixed sidebar LInks oder rechts toggle  ---------------------*/
 .wbc-fixed-sidebar-toggle {
   position: relative;
+  background-color: transparent;
 }
 .wbc-fixed-sidebar-toggle .container-fix {
   display: none;
-  float: left;
-  width: 400px;
+  position: relative;
   height: auto;
   padding: 15px 10px 15px 5px;
   margin-top: 0;
-  color: var(--default);
-  background-color: var(--color-bg, #fff);
+  color: var(--defaultcolor);
   transition: padding 0.3s;
 }
-.wbc-fixed-sidebar-toggle.slide-open a {
+.wbc-fixed-sidebar-toggle.wbc__slide-open a.btn-icon {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 999;
+  color: white;
+  background-color: var(--bgcolor-dark);
 }
-.wbc-fixed-sidebar-toggle.slide-open .container-fix {
+.wbc-fixed-sidebar-toggle.wbc__slide-open a.btn-icon:hover,
+.wbc-fixed-sidebar-toggle.wbc__slide-open a.btn-icon:focus {
+  color: white;
+  background-color: var(--bgcolor-dark);
+}
+.wbc-fixed-sidebar-toggle.wbc__slide-open .container-fix {
   padding-left: 3rem;
+}
+.wbc-fixed-sidebar-toggle:not(.wbc__slide-open) a.btn-icon {
+  color: white;
+  background-color: var(--bgcolor-dark);
+}
+
+#fixed-sidebar-left-toggle {
+  left: -var(--sidebar-toggle-width, -400px);
+}
+
+#fixed-sidebar-right-toggle {
+  right: -var(--sidebar-toggle-width, -400px);
+}
+
+/* toggle Container left or right ********************************/
+#fixed-sidebar-left-toggle.wbc__slide-open {
+  display: block;
+  width: var(--sidebar-toggle-width, 400px);
+  background-color: var(--bgcolor-light);
+  animation-name: wbc__sidebar-animation-left;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+#fixed-sidebar-left-toggle.wbc__slide-open .container-fix {
+  display: block;
+}
+
+#right-container-fix.wbc__toggle {
+  display: block;
+  width: var(--sidebar-toggle-width, 400px);
+  background-color: var(--bgcolor-light);
+  animation-name: wbc__sidebar-animation-right;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+#right-container-fix.wbc__toggle .container-fix {
+  display: block;
 }
 
 .wbc-fixed-sidebar-toggle .btn-icon,
@@ -11898,27 +11972,36 @@ figcaption {
   width: 3rem;
   height: 3rem;
 }
-.wbc-fixed-sidebar-toggle:not(.slide-open) .btn-icon {
+.wbc-fixed-sidebar-toggle .btn-icon i.fa-accessible-icon,
+.wbc-fixed-sidebar ul > li a i.fa-accessible-icon,
+.wbc-fixed-sidebar a i.fa-accessible-icon {
+  font-family: var(--symbolfont);
+  content: "\f368";
+  font-size: 900;
+}
+
+.wbc-fixed-sidebar-toggle:not(.wbc__slide-open) .btn-icon {
   color: #fff;
-  background-color: var(--color1) !important;
+  background-color: var(--color1);
 }
 
-#fixed-sidebar-right-toggle.slide-open a {
-  right: auto;
-  left: 0;
+#fixed-sidebar-right-toggle.wbc__slide-open a {
+  right: 0;
 }
 
-#fixed-sidebar-right-toggle.slide-open .btn-icon > i:before,
-#fixed-sidebar-left-toggle.slide-open .btn-icon > i:before {
-  font-family: "FontAwesome 5 Free";
+#fixed-sidebar-right-toggle.wbc__slide-open .btn-icon > i:before,
+#fixed-sidebar-left-toggle.wbc__slide-open .btn-icon > i:before {
+  font-family: var(--symbolfont);
   content: "\f00d";
+  font-size: 900;
 }
 
-#fixed-sidebar-right-toggle.slide-open .btn-icon:hover > i,
-#fixed-sidebar-left-toggle.slide-open .btn-icon:hover > i {
+#fixed-sidebar-right-toggle.wbc__slide-open .btn-icon:hover > i,
+#fixed-sidebar-left-toggle.wbc__slide-open .btn-icon:hover > i {
   animation: rotation 1s ease-in-out;
 }
 
+/* --------- Sidebars links und rechts toggle Symbol Animation -----------------*/
 .wbc-fixed-sidebar a .fa {
   font-size: 1rem;
 }
@@ -11926,7 +12009,7 @@ figcaption {
 .wbc-fixed-sidebar a.fa,
 .wbc-fixed-sidebar a.fas,
 .wbc-fixed-sidebar a.far {
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   transform: rotate(1deg);
 }
 
@@ -11943,11 +12026,8 @@ figcaption {
 }
 
 .wbc-fixed-sidebar a:hover .fa,
-.wbc-fixed-sidebar a:focus .fa,
 .wbc-fixed-sidebar a:hover .fas,
-.wbc-fixed-sidebar a:focus .fas,
-.wbc-fixed-sidebar a:hover .far,
-.wbc-fixed-sidebar a:focus .far {
+.wbc-fixed-sidebar a:hover .far {
   transform: rotate(-20deg);
 }
 
@@ -13146,7 +13226,7 @@ li.nav-item a {
 
 #sidebar-left .extension-outer a:hover,
 #sidebar-left .extension-outer a:focus {
-  color: var(--default);
+  color: var(--defaultcolor);
 }
 
 #sidebar-right .extension-outer a:link,
@@ -13156,7 +13236,7 @@ li.nav-item a {
 
 #sidebar-right .extension-outer a:hover,
 #sidebar-right .extension-outer a:focus {
-  color: var(--default);
+  color: var(--defaultcolor);
 }
 
 #sidebar-left div.extension-outer-icon:first-child,
@@ -13194,7 +13274,7 @@ li.nav-item a {
 #sidebar-left .ext-header .h3,
 #sidebar-left .ext-header h4,
 #sidebar-left .ext-header .h4 {
-  color: var(--default);
+  color: var(--defaultcolor);
 }
 
 .append-sidebar-before .ext-icon-block {
@@ -13345,7 +13425,7 @@ li.nav-item a {
 FORMULAR STYLES
 ========================== */
 .form-control {
-  color: var(--default);
+  color: var(--defaultcolor);
   background-image: none;
   border: 1px solid var(--bordercolor);
   border-radius: var(--borderradius);

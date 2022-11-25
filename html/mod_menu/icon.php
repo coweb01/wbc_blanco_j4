@@ -18,6 +18,12 @@ if ($tagId = $params->get('tag_id', ''))
 	$id = ' id="' . $tagId . '"';
 }
 
+$tpath    = 'templates/'.$app->getTemplate();
+
+/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+$wa = $app->getDocument()->getWebAssetManager();
+$wa->registerAndUseStyle('iconmenu', $tpath . '/html/mod_menu/assets/iconmenu.css');
+
 // The menu class is deprecated. Use mod-menu instead
 ?>
 <ul<?php echo $id; ?> class="mod-menu mod-list nav menu-icons <?php echo $class_sfx; ?>">
@@ -26,7 +32,7 @@ if ($tagId = $params->get('tag_id', ''))
 	$itemParams = $item->getParams();
     $accesskey  = $itemParams->get('accesskey');
     $subtitle   = $itemParams->get('description','');
-	$class      = ' nav-item d-inline-block mb-1 item-' . $item->id;
+	$class      = ' nav-item d-inline-block mb-3 item-' . $item->id;
 
 	if ($item->id == $default_id)
 	{
@@ -44,7 +50,7 @@ if ($tagId = $params->get('tag_id', ''))
 	}
 	elseif ($item->type == 'alias')
 	{
-		$aliasToId = $item->params->get('aliasoptions');
+		$aliasToId = $itemParams->get('aliasoptions');
 
 		if (count($path) > 0 && $aliasToId == $path[count($path) - 1])
 		{

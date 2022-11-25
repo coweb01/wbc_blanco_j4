@@ -13,20 +13,6 @@ $tpath              = 'templates/'.$this->template;
 
 $wa                 = $this->getWebAssetManager();
 
-if ($floatingLabels == 1) {
-	$wa->registerAndUseScript('floating', $tpath . '/js/vendor/jquery.placeholder.label.min.js', [], [], []);
-
-	$jscript  = " ( function($) { $(document).ready(function(){";
-	$jscript .= "$('input[placeholder]').placeholderLabel(";
-	$jscript .= "  'labelColor:' + '#333333',
-			'placeholderColor:' + '#999999',
-			'useBorderColor:' + false,
-			'labelSize:' + '14px',
-			'timeMove:' + 200
-		);";
-	$jscript .= "}) })(jQuery); ";
-	$doc->addScriptDeclaration($jscript) ;
-}
 ?>
 
 <?php // script für den Styleumschalter HK / Default
@@ -49,12 +35,6 @@ if ($functions == 1) {
 ?>
 
 <?php
-if ($offcanvas == 1) {
-	$wa->registerAndUseScript('offcanvas', $tpath . '/js/offcanvas.js', [], [], []);
-}
-?>
-
-<?php
 	$wa->registerAndUseScript('tables', $tpath . '/js/table_resp.js', [], [], []);
 ?>
 
@@ -64,34 +44,4 @@ if ($holder == 1) {
 }
 ?>
 
-<?php
-if ($toggleright) : ?>
-<script >
-(function ($) {
-	$(document).ready(function () {
-		$( '#fixed-sidebar-right-toggle .btn-icon' ).click(function() {
-		let ToggleContainerRight = $( '#fixed-sidebar-right-toggle .container-fix');
-		ToggleContainerRight.toggle( 'slow' );
-		$( '#fixed-sidebar-right-toggle').toggleClass('slide-open');
 
-		});
-	});
-})(jQuery);
-</script>
-<?php endif;?>
-
-<?php
-if ($toggleleft) : ?>
-<script >
-(function ($) {
-	$(document).ready(function () {
-		$( '#fixed-sidebar-left-toggle .btn-icon' ).click(function() {
-		let ToggleContainerLeft =  $('#fixed-sidebar-left-toggle .container-fix');
-		ToggleContainerLeft.toggle( 'slow' );
-		$( '#fixed-sidebar-left-toggle').toggleClass('slide-open');
-
-		});
-	});
-})(jQuery);
-</script>
-<?php endif;?>
