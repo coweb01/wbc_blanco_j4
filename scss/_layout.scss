@@ -473,6 +473,24 @@ figcaption {
 .wbc-fixed-sidebar-left {
   text-align: left;
 }
+.wbc-fixed-sidebar ul > li a,
+.wbc-fixed-sidebar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .2rem .5rem;
+  width: 2rem;
+  height: 2rem;
+  i.fa-accessible-icon {
+    font-family: var(--symbolfont);
+    content: "\f368";
+    font-weight: 900;
+  }
+  @include media-breakpoint-up(md) {
+    width: 3rem;
+    height: 3rem;
+  }
+}
 
 /** fixed sidebar LInks oder rechts toggle  ---------------------*/
 
@@ -489,6 +507,23 @@ figcaption {
     color: var(--defaultcolor);
     transition: padding .3s;
   }
+  a.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .2rem .5rem;
+    width: 2rem;
+    height: 2rem;
+    i.fa-accessible-icon {
+      font-family: var(--symbolfont);
+      content: "\f368";
+      font-size: 900;
+    }
+    @include media-breakpoint-up(md) {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
   &.wbc__slide-open {
     a.btn-icon {
       position: absolute;
@@ -503,9 +538,6 @@ figcaption {
       color: white;
       background-color: var(--bgcolor-dark);
     }
-    .container-fix {
-      padding-left: 3rem;
-    }
   }
   &:not(.wbc__slide-open){
       a.btn-icon {
@@ -514,12 +546,7 @@ figcaption {
     }
   }
 }
-#fixed-sidebar-left-toggle {
-  left: -var(--sidebar-toggle-width, -400px);
-}
-#fixed-sidebar-right-toggle {
-  right: -var(--sidebar-toggle-width, -400px);
-}
+
 /* toggle Container left or right ********************************/
 
 #fixed-sidebar-left-toggle.wbc__slide-open {
@@ -531,9 +558,11 @@ figcaption {
   animation-timing-function: ease-in-out;
   .container-fix { 
       display: block;
+      padding-right: 3.5rem;
+      padding-left: 1rem;
     }
 }
-#right-container-fix.wbc__toggle {
+#fixed-sidebar-right-toggle.wbc__slide-open {
   display: block;
   width: var(--sidebar-toggle-width, 400px);
   background-color: var(--bgcolor-light);
@@ -542,30 +571,17 @@ figcaption {
   animation-timing-function: ease-in-out;
   .container-fix { 
       display: block;
+      padding-left: 3.5rem;
+      padding-right: 1rem;
     }
+   a.btn-icon { left: 0px;}
 }
-.wbc-fixed-sidebar-toggle .btn-icon,
-.wbc-fixed-sidebar ul > li a,
-.wbc-fixed-sidebar a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: .2rem .5rem;
-  width: 3rem;
-  height: 3rem;
-  i.fa-accessible-icon {
-    font-family: var(--symbolfont);
-    content: "\f368";
-    font-size: 900;
-  }
-}
+
 .wbc-fixed-sidebar-toggle:not(.wbc__slide-open) .btn-icon {
   color: #fff;
   background-color: var(--color1);
 }
-#fixed-sidebar-right-toggle.wbc__slide-open a {
-  right: 0;
-}
+
 #fixed-sidebar-right-toggle.wbc__slide-open .btn-icon > i:before,
 #fixed-sidebar-left-toggle.wbc__slide-open .btn-icon > i:before {
   font-family: var(--symbolfont);
@@ -859,14 +875,11 @@ figcaption {
   body:not(.nofront) #headerimg .wbc-background-image-stretch {
     min-height: 500px;
   }
-  .wbc-fixed-sidebar a {
-    width: 80px;
-    height: 80px;
-  }
+  
   .wbc-fixed-sidebar a > .fa,
   .wbc-fixed-sidebar a > .fas,
   .wbc-fixed-sidebar a > .far {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .wbc-fixed-sidebar-toggle.slide-open {
     .container-fix {

@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<updates>
+	<update>
+		<name>Wbc_blanco_j4 1.1.0</name>
+		<description>WBC_Blanco J4 Template - Update</description>
+		<element>wbc_blanco_j4</element>
+		<type>template</type>
+		<client>site</client>
+		<version>1.1.0</version>
+		<infourl title="Wbc_blaco_j4 Template">https://github.com/coweb01/wbc_blanco_j4</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/coweb01/wbc_blanco_j4/releases/new</downloadurl>
+		</downloads>
+        <tags>dev</tags>
+		<sha512>264d159c5102576378b097089c241ef1775003e9c75c4af9216b9b3b3120a2b08e4fe918c5f3a28f21dd509a440dc440724ddf4ee36710a55c4bc3552e69a7aa</sha512>
+		<maintainer>Claudia Oerter</maintainer>
+		<maintainerurl>https://www.das-webconcept.de</maintainerurl>
+		<php_minimum>7.2.5</php_minimum>
+		<targetplatform name="joomla" version="4.[1234567890]"/>
+	</update>
+</updates>

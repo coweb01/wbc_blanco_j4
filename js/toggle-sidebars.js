@@ -8,16 +8,30 @@ var ready = (callback) => {
   }
   
   ready(() => { 
-    document.querySelector("#fixed-sidebar-left-toggle .btn-icon").addEventListener("click", (event) => { 
-        event.preventDefault();
-        let ToggleContainerLeft =  document.querySelector('#fixed-sidebar-left-toggle .container-fix');
-        ToggleContainerLeft.classList.toggle('wbc__toggle');
-		document.querySelector( '#fixed-sidebar-left-toggle').classList.toggle('wbc__slide-open');
-    });
-    document.querySelector("#fixed-sidebar-right-toggle .btn-icon").addEventListener("click", (event) => { 
-        event.preventDefault();
-        let ToggleContainerLeft =  document.querySelector('#fixed-sidebar-right-toggle .container-fix');
-        ToggleContainerLeft.classList.toggle('wbc__toggle');
-		document.querySelector( '#fixed-sidebar-right-toggle').classList.toggle('wbc__slide-open');
-    });
-  });   
+
+    var wbcelements = document.querySelectorAll(".wbc-fixed-sidebar-toggle .toggle-btn");
+    
+    for (var i = 0; i < wbcelements.length; i++) {
+      console.log(wbcelements[i]);
+      wbcelements[i].addEventListener('click', wbcslideSidebar, false);
+    }
+    
+
+  });
+var wbcslideSidebar = function() {
+    console.log(this);
+    //let clicked = this;
+    let anker;
+    let ToggleContainer;
+    let containeractive;
+    if (this.id.length  ) {
+      anker = document.getElementById(this.id);
+    } else {
+      anker = document.getElementById(this.parentNode.id)
+    }
+    console.log(anker.parentNode);
+    containeractive = anker.parentNode.id;
+    ToggleContainer =  document.querySelector('#'+containeractive);
+    console.log(ToggleContainer);
+    ToggleContainer.classList.toggle('wbc__slide-open');
+};

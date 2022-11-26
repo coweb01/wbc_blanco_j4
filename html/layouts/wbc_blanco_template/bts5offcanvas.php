@@ -32,14 +32,15 @@ $wa->addInlineStyle("
 	@media (max-width: ".$offcanvas_breakpoint."px) {
 		.header-top {display: none;}
 		.wrap-outer {padding-top: ".$min_height_l."px;}
-		.wbc__offcanvas-navbar {min-height: ".$min_height_l."px;}
+		.wbc__offcanvas-navbar { min-height: ".$min_height_l."px; display: block; }
 	}
 	@media (max-width: 576px) {
-		.wbc__offcanvas-navbar {min-height: ".$offcanvas_navbar_height."px;}
-		.wrap-outer { padding-top: ".$offcanvas_navbar_height."px;}
+		.wbc__offcanvas-navbar { min-height: ".$offcanvas_navbar_height."px; }
+		.wrap-outer { padding-top: ".$offcanvas_navbar_height."px; }
 	}
 	@media (min-width: ".$Doffcanvas_breakpoint."px) {
 		.header-top {display: block;}
+		.wbc__offcanvas-navbar { display: none; }
 	}");
 ?>
 
@@ -74,7 +75,7 @@ $wa->addInlineStyle("
 <div id="OffcanvasMenu<?php echo $offcanvas_pos; ?>" class="wbc-bs5-offcanvas offcanvas-<?php echo $toggle_offcanvas_bs5_pos; ?> offcanvas text-bg-dark"  tabindex="-1">
 	<div class="offcanvas-header mt-3">
 		<h5 class="offcanvas-title" id="wbc-bs5-offcanvasLabel"><?php echo Text::_('TPL_WBC_MENU'); ?></h5>
-		<button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="<?php echo Text::_('TPL_WBC_MENU_CLOSE'); ?>"></button>
+		<button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="<?php echo Text::_('TPL_WBC_MENU_CLOSE_TXT'); ?>"></button>
 	</div>
  	<div class="offcanvas-body">
 		<nav>

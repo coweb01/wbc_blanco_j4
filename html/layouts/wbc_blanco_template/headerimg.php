@@ -19,7 +19,7 @@ extract($displayData);
 ?>
 
 <!-- start headerimg -->
-<div id="headerimg" class="<?php echo ($jhtml->params->get('bg-headerimg') != '') ? 'bg-headerimg'  : ''; ?>" >
+<div id="headerimg" class="<?php echo ($jhtml->params->get('bg-headerimg') != '') ? 'bg-headerimg'  : ''; ?>" role="banner">
 	<div class="container<?php echo ($jhtml->params->get('headerimg-width') == 1) ? '-fluid' : '';?>">
 		<div class="base-row row">
 			<div class="base-col wrap-headerimg <?php $headerimgSizeClass; ?> <?php echo $bootstrap_colclass; ?>12" >

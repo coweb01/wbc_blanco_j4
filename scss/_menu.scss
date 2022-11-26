@@ -2,44 +2,6 @@
   MENUE STYLES
   ========================== */
 
-/** Offcanvas Navbar */
-
-.wbc-hc-offcanvas {
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-  }
-    .navbar.toggle-pos-left {
-      .nav-toggle {
-        left: 5px;
-      }
-    }
-    .navbar.toggle-pos-right {
-      .nav-toggle {
-        right: 15px;
-      }
-  }
-}
-body.wbc-offcanvas .hc-offcanvas-nav {
-  .nav {
-    flex-direction: column;
-  }
-}
-
-body.wbc-offcanvas .hc-offcanvas-nav .nav-close-button span::before, 
-body.wbc-offcanvas .hc-offcanvas-nav .nav-close-button span::after { 
-      width: 12px;
-      height: 12px;
-}
-body.wbc-offcanvas .hc-offcanvas-nav .nav-close-button span::before {
-  margin-left: -15px;
-}
-body.wbc-offcanvas .nav-content > ul { margin-top: 40px; }
-
-body.wbc-offcanvas .hc-offcanvas-nav::after, 
-body.wbc-offcanvas  .hc-offcanvas-nav .nav-wrapper::after {
-  background: rgba(0,0,0,0.6);
-}
 /*-------------------------------------------------*/
 
 .chrome-fix {
@@ -83,7 +45,7 @@ li.fa a span {
 }
 li.nav-item a { text-decoration: none;}
 
-/** menues Footer              */
+/** menues Footer  ------------------------------------------------*/
 
 .wbc-footer ul.menu {
   flex-direction: column;
@@ -118,7 +80,7 @@ li.nav-item a { text-decoration: none;}
 
 /* Ende menues Footer           */
 
-/** Hauptmenue                  */
+/** Hauptmenue    ----------------------------------------------------*/
 
 #navigation-main {
   padding: 0;
@@ -291,7 +253,7 @@ li.nav-item a { text-decoration: none;}
 .menu-icons .icon {
   display: inline-block;
   @include iconfont;
-  font-size: inherit;
+  font-size: 900;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -299,8 +261,11 @@ li.nav-item a { text-decoration: none;}
 .menu-icons .icon:before {
   height: 35px;
   padding: 5px 15px 5px 10px;
-  font-size: 28px;
-  line-height: 35px;
+  font-size: 1rem;
+  line-height: 1.7rem;
+  @media (min-width: 1500px) {
+    font-size: 1.8rem;
+  }
 }
 .menu-icons .i-compass:before {
   content: "\f14e";
@@ -331,8 +296,8 @@ li.nav-item a { text-decoration: none;}
 }
 .menu-icons a {
   padding-left: 0;
-  font-size: 18px;
-  line-height: 35px;
+  font-size: 1rem;
+  line-height: 1.7rem;
 }
 .menu-icons a:link,
 .menu-icons a:link {
@@ -340,18 +305,16 @@ li.nav-item a { text-decoration: none;}
 }
 
 
-/***  fixed Navbar mit Buttons und Symbolen **/
+/***  Fixed Sidebar Menue Icons --------------------------*/
 
-#fixed-sidebar-left ul, #fixed-sidebar-left ul li {
-  list-style: none;
-}
-#fixed-sidebar-left li.nav-item  > div {
-  width: 56px;
-  height: 50px;
-  min-height: 50px;
-  font-size: 2rem;
-}
+.wbc-fixed-sidebar {
+  .menu-icons {
+    flex-direction:  column;
+      li.nav-item { padding: 0px;}
+  }
+} 
 
+/**-------------------------------------------------------*/
 
 @media (max-width: 480px) {/* phone */
   #navigation-main ul {

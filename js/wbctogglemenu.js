@@ -1,7 +1,7 @@
 document.addEventListener('click',function(ev){
     // only if it is wbc-toggle-item
     //console.log(event.target);
-    if ( ev.target.classList.contains('wbc-toggle-item-link') || event.target.classList.contains('wbc-toggle-item-icon') ) {
+    if ( ev.target.classList.contains('wbc-toggle-item-link') || ev.target.classList.contains('wbc-toggle-item-icon') ) {
         //console.log(event.target);  
         let toggleId;
         if ( ev.target.classList.contains('wbc-toggle-item-link') ) {
@@ -18,7 +18,7 @@ document.addEventListener('click',function(ev){
     }
 
     if ( ev.target.classList.contains('wbc-toggle-container-close')){
-        console.log(ev);
+        //console.log(ev);
         //console.log(document.querySelector('#'+toggleDiv));
         toggleId = document.getElementById(ev.target.parentNode.id);
         toggleId.classList.toggle('wbcshow');
