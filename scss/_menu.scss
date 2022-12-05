@@ -86,10 +86,6 @@ li.nav-item a { text-decoration: none;}
   padding: 0;
   margin: 0;
 }
-#navigation-main .navbar-default {
-  background-color: transparent;
-  border: none;
-}
 #navigation-main ul.nav li {
   display: inline-block;
   list-style: none;
@@ -207,44 +203,78 @@ li.nav-item a { text-decoration: none;}
 
 /********************  menues Sidebar   **********************************/
 
-#sidebar-right ul.nav {
+#sidebar-right ul.nav,
+#sidebar-left ul.nav 
+{
   flex-direction: column;
   width: 100%;
   padding: 0;
   margin: 0;
 }
-#sidebar-right ul.nav li {
+#sidebar-right ul.nav li,
+#sidebar-left ul.nav li
+{
   display: block;
   float: none;
   margin-right: 0;
   margin-left: 0;
   border-bottom: 1px solid #ccc;
 }
-#sidebar-right ul.nav li a {
+
+#sidebar-right ul.nav li:last-child,
+#sidebar-left ul.nav li:last-child
+{
+  border-bottom: none;
+}
+#sidebar-right ul.nav li .nav-header,
+#sidebar-left ul.nav li .nav-header {
   display: block;
+  padding: .8rem .3rem .5rem .3rem;
+  color: var(--h3_color);
+  font-size: var(--h3_size);
+}
+#sidebar-right ul.nav li a:link,
+#sidebar-left ul.nav li a:link,
+#sidebar-right ul.nav li a:visited,
+#sidebar-left ul.nav li a:visited
+{
+  display: block;  
+  background-color: transparent;
+  color: var(--defaultcolor, #333);
+  padding: 0.5rem 0.3rem;
+}
+#sidebar-right ul.nav li a:hover,
+#sidebar-left ul.nav li a:hover,
+#sidebar-right ul.nav li a:focus,
+#sidebar-left ul.nav li a:focus
+{
+  background-color: var( --bgcolor-light)
+}
+#sidebar-right ul.nav li a:active,
+#sidebar-left ul.nav li a:active
+{
+  color: var(--defaultcolor, #333);
+  background-color: var( --bgcolor-light)
 }
 
-
-/* Left */
-
-#sidebar-left ul.nav {
-  flex-direction: column;
-  width: 100%;
-  padding: 0;
-  margin: 0;
+#sidebar-right ul.nav > li.deeper ul,
+#sidebar-left ul.nav > li.deeper ul {
+  padding: .5rem 0 1rem 0;
 }
-#sidebar-left ul.nav li {
-  display: block;
-  float: none;
-  margin-right: 0;
-  margin-left: 0;
-  border-bottom: 1px solid #ccc;
-}
-#sidebar-left ul.nav li a {
-  display: block;
+#sidebar-right ul.nav > li.deeper ul li:last-child,
+#sidebar-left ul.nav > li.deeper ul li:last-child {
+  border-bottom: none;
 }
 
+#sidebar-right ul.nav > li.deeper ul > li > a,
+#sidebar-left ul.nav > li.deeper ul > li > a {
+  padding-left: 1rem;
+}
 
+#sidebar-right ul.nav > li.deeper ul > li.deeper > ul > li > a,
+#sidebar-left ul.nav > li.deeper ul > li.deeper > ul > li > a {
+  padding-left: 2.5rem;
+}
 /**  Menue Zusatzlinks mit symbolen  ****/
 
 .menu-icons li {
@@ -314,9 +344,20 @@ li.nav-item a { text-decoration: none;}
   }
 } 
 
-/**-------------------------------------------------------*/
+/** ------------------------------------------------------- */
+/* Bei Hover Untermenü einblenden */
 
-@media (max-width: 480px) {/* phone */
+@media (min-width: 992px) {
+  #navigation-main .mod-menu_wbcdropdown-metismenu .wbcmetismenu-item.level-1:hover .wbc-multicolumn-dropdown-1,
+  #navigation-main .mod-menu_wbcdropdown-metismenu .wbcmetismenu-item.level-1 .wbcmetis-link:hover .wbc-multicolumn-dropdown-1
+  {
+    display: block;
+  }
+}
+
+/*
+
+@media (max-width: 480px)*//* { phone 
   #navigation-main ul {
     float: none;
     width: 100%;
@@ -353,15 +394,15 @@ li.nav-item a { text-decoration: none;}
     transition-delay: .5s;
 }
   #navigation-main li.level1:hover ul.dropdown-level1,
-  #navigation-main li.level1:focus ul.dropdown-level1 {
-    /*  bootstrap dropdown bei hover 1st-level */
+  #navigation-main li.level1:focus ul.dropdown-level1 {*/
+    /*  bootstrap dropdown bei hover 1st-level 
     margin-top: 0;
     visibility: visible;
     opacity: 1;
     transition-delay: .5s;
 }
-
-  /*** Bootstrap menue 3. level ********************************************/
+*/
+  /*** Bootstrap menue 3. level *******************************************
   .dropdown-submenu {
     position: relative;
   }
@@ -404,4 +445,4 @@ li.nav-item a { text-decoration: none;}
   #navigation-main ul.nav > li {
     padding: 1rem;
   }
-}
+}*/

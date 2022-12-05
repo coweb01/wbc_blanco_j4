@@ -71,7 +71,7 @@
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetis-link:focus,
 .wbcmetismenu.mod-menu .wbcmetismenu-item > button:focus {
-  outline: 1px dotted var(--color1);
+  outline: 1px dotted var(--mm-color2);
   outline-offset: 2px;
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item > button:hover,
@@ -240,5 +240,3 @@
   height: 1px;
   border-bottom: 1px solid var(--mm-color2);
 }
-
-/*# sourceMappingURL=wbcmetismenu.css.map */

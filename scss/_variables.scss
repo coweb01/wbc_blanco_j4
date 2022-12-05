@@ -1,44 +1,26 @@
-$color1: #f1b307;
-$color2: #a2a29a;
-$color3: #e7e7e5;
-$color4: #707070;
-$color5: #d7dae2;
-$color6: #4497d6;
-$transwhite_8: rgba(255,255,255,.8);
-$transwhite_9: rgba(255,255,255,.9);
-$transwhite_7: rgba(255,255,255,.7);
-$transwhite_4: rgba(255,255,255,.4);
-$transwhite_3: rgba(255,255,255,.3);
-$grau_5: rgba(60,60,58,.5);
-$grau_8: rgba(60,60,58,.8);
-$grau_2: rgba(60,60,58,.2);
-$grau_3: rgba(60,60,58,.3);
-$grau_1: rgba(60,60,58,1);
-$grau_01: rgba(60,60,58,.1);
-$grau_02: #9a9999;
-$grau_03: #53575f;
-$grau_04: #5e626a;
-$dunkelgrau: #a2a29a;
-$hellgrau: #f8f8f8;
-$danger_color: #721c24;
-$secondary_color: #383d41;
-$primary_color: #1269b0;
-$success_color: #1fa22e;
-$warning_color: #856404;
-$primary_background: #383d41;
-$secondary_background: #1269b0;
-$success_color_hover: #1fa22e;
-$secondary_color_hover: #383d41;
-$primary_color_hover: #1269b0;
-$warning_color_hover: #856404;
-$animation_pl: padding-left .2s ease-in-out;
-$animation_ml: margin-left .5s ease-in-out;
-$animation_pr: padding-right .5s ease-in-out;
-$trans: 80%;
+/* bootstrap override */
+$primary:       rgb(241, 179, 7);
+$secondary:     rgb(162, 162, 154);
+$success:       rgb(215, 246, 75);
+$info:          rgb(234, 193, 11);
+$danger:        rgb(207, 9, 32);
+
+
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+/* end bootstrap */
 
 :root {
   --fluid: clamp(var(--fluid-type-min, 1rem), calc(1rem + var(--fluid-type-target, 5vw)), var(--fluid-type-max, 1.1rem));
-  --bordercolor: #{$grau_2};
+  --bordercolor: #{$gray-300};
   --borderradius: 0;
   --schatten: 0 3px 5px 0 rgba(38,36,38,.6);
   --fontfamily: "Open Sans", Arial, sans-serif;
@@ -46,12 +28,12 @@ $trans: 80%;
   --symbolfont: "Font Awesome 5 Free";
   --printcolor: #000;
   --sidebar-toggle-width: 400px;
-  --bgcolor-light: #ffffff;
+  --bgcolor-light: #f8f8f8;
   --bgcolor-dark: #333333;
   --color1: #f1b307;
   --color2: #a2a29a;
   --color3: #e7e7e5;
   --color4: #707070;
   --color5: #d7dae2;
-  --color6: #4497d6;
+  --color6: #4497d6;  
 } 

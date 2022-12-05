@@ -116,8 +116,6 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 		</div>
 		<?php endif; ?>
 
-		<div id="navbar-phone" class="d-block d-sm-none"></div>
-
 		<div class="wrap-outer">
 			<!-- ****************************************************************************************************** -->
 			<!-- *     Header                                                                                         * -->

@@ -10,18 +10,18 @@ FORMULAR STYLES
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 .form-control:focus {
-  border-color: $color6;
+  border-color: var(--color6);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
 input::-moz-placeholder {
-  color: $grau_02;
+  color:var(--bs-gray-200);
   opacity: 1;
 }
 .input:-ms-input-placeholder {
-  color: $grau_02;
+  color:var(--bs-gray-200);
 }
 input::-webkit-input-placeholder {
-  color: $grau_02;
+  color:var(--bs-gray-200);
 }
 .input-group .form-control:last-child,
 .input-group-text,

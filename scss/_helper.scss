@@ -1,7 +1,7 @@
 @mixin wbc-flex {
   display: flex;
 }
-@mixin white-trans($trans: 50%) {
+/*@mixin white-trans($trans: 50%) {
   color: fade(white, $trans);
 }
 @mixin color1-trans($trans: 20%) {
@@ -50,7 +50,7 @@
 }
 @mixin graustufe ($grey: 5%) {
   filter: grayscale($grey);
-}
+}*/
 @mixin boxshadow {
   box-shadow: var(--schatten);
 }
@@ -195,7 +195,7 @@
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center 100;
-  background-size: contain;
+  background-size: cover;
 }
 
 

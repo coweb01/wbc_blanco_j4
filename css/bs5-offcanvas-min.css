@@ -4,12 +4,7 @@
 /* ----------------------------------------------------------------*/
 
 .wbc__offcanvas-navbar {
-    background-color: var(--bgnavbarcolor, #fff);
-    color: var(--colornavbar, #333);
-}
-
-.wbc__offcanvas-navbar .navbar-brand.wbc__logo {
-    padding: 0px
+    
 }
 .wbc__offcanvas-navbar span.wbc__hamburger {
     margin-left: 0;

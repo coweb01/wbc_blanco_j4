@@ -3,13 +3,11 @@
   --mm-btn-color: rgba(0,0,0,0.3);
   --mm-btn-hover-color: rgba(0,0,0,0.2);
 }
-
-#navigation-main .wbcoffcanvasmenu.mod-menu {
+.wbcoffcanvasmenu {
   display: flex;
-  flex: 1 1 0%;
-  flex-direction: row;
+  flex-direction: column;
 }
-#navigation-main li.wbc-dropdown.parent {
+.wbcoffcanvasmenu li.wbc-dropdown.parent {
   position: static;
 }
 
@@ -59,7 +57,7 @@
   min-width: 60%;
 }
 .wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item.level-1:not(:last-child) { 
-  border-bottom: solid 1px rgba(255, 255, 255, 0.4);
+  border-bottom: solid 1px var(--bs-gray-300);
 }
 
 .wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item.parent {

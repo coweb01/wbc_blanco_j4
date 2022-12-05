@@ -75,19 +75,19 @@
 }
 #sidebar-left .extension-outer a:link,
 #sidebar-left .extension-outer a:visited {
-  color: var(--color-font, $grau_5);
+  color: var(-defaultcolor);
 }
 #sidebar-left .extension-outer a:hover,
 #sidebar-left .extension-outer a:focus {
-  color: var(--defaultcolor);
+  color: var(--bs-gray-600);
 }
 #sidebar-right .extension-outer a:link,
 #sidebar-right .extension-outer a:visited {
-  color: var(--color-font, $grau_5);
+  color: var(--defaultcolor);
 }
 #sidebar-right .extension-outer a:hover,
 #sidebar-right .extension-outer a:focus {
-  color: var(--defaultcolor);
+  color: var(--bs-gray-600);
 }
 #sidebar-left div.extension-outer-icon:first-child,
 #sidebar-right div.extension-outer-icon:first-child {
@@ -109,7 +109,7 @@
   border-radius: 50%;
 }
 #sidebar-left .ext-header .ext-icon-block {
-  background-color: $color1;
+  background-color: var(var(--color1));
 }
 #sidebar-left .ext-header i,
 #sidebar-right .ext-header i {
@@ -138,8 +138,8 @@
   #sidebar-left .extensions-outer-icon {
     .ext-header {
       padding: 2.3rem 0.5rem 1rem 1rem;
-      background-color: var(--color-bg, $hellgrau);
-      border: solid 1px $color1;
+      background-color: var(--color-bg);
+      border: solid 1px var(--color1);
       h2,
       h3,
       h4 {
@@ -150,7 +150,7 @@
         position: absolute;
         top: -2rem;
         right: 1%;
-        background-color: $color1;
+        background-color: var(--color1);
         i {
           font-size: 30px;
         }
@@ -160,11 +160,11 @@
   #sidebar-right .extension-outer-icon:nth-child(even),
   #sidebar-left .extensions-outer-icon:nth-child(even) {
     .ext-header {
-      border-color: $color2;
+      border-color: var(--color2);
       .ext-icon-block {
-        background-color: $color2;
+        background-color: var(--color2);
         i {
-          color: $color1 ;
+          color: var(--color1) ;
         }
       }
     }

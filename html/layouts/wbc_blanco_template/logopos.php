@@ -12,7 +12,7 @@ $css_logo_desk = ' class="d-none d-md-block"';
 $css_logo = ($offcanvas == 1) ? 'wbc-offcanvas-on' : '';
 ?>
 
-<div id="logo" class="base-col <?php echo $css_logo; ?>">
+<div id="logo" class="base-col wbc__logo <?php echo $css_logo; ?>">
 	<?php
 	if ($logo_mobil != '-1') :
 		if ($offcanvas == 0 && $logoposition != 1) : // anzeigen nur wenn logo nicht in der Navbar ?>
