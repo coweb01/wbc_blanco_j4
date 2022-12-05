@@ -398,17 +398,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 			endif;
 			?>
 
-			<?php
-			if ($this->countModules('onepagetoggle')):
-			?>
-			<section id="toggle01" class="onepage-toggle">
-				<div id="toggle-module">
-					<jdoc:include type="modules" name="onepagetoggle" style="onepagefullsize"/>
-				</div>
-			</section>
-			<?php
-			endif;
-			?>
+			
 
 		</div> <!-- wrap outer -->
 		<!-- ****************************************************************************************************** -->

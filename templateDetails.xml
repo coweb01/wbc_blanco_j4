@@ -39,13 +39,14 @@
 		<li>nachInhalt-02        -- nach Joomla Content ubterhalb Sidebars</li>
 		<li>onepagetop           -- Onepage Position vor Joomla Content</li>
 		<li>onepagebottom        -- Onepage Position nach Joomla Content</li>
-		<li>onepagetoggle        -- Onepage Position am Ende der Seite  zum ein und ausklappen</li>
 		<li>vorInhalt-01-col     -- Module mehrspaltig vor Contentbereich</li>
 		<li>nachInhalt-01-col    -- Module mehrspaltig nach Contentbereich</li>
 		<li>offcanvas            -- Offcanvas Mobil Menü</li>
-		<li>offcanvas-navbar.    -- rechts in der Offcanvas Navbar</li>
-		<li>sidebar-left-fix     -- Module links fixiert </li>
-		<li>sidebar-right-fix    -- Module rechts fixiert </li>
+		<li>offcanvas-navbar     -- Offcanvas Navbar</li>
+		<li>sidebar-left-fix     -- Menü Module / Icons links fixiert, Menü Layout icon </li>
+		<li>sidebar-right-fix    -- Menü Module / Icons rechts fixiert, Menü Layout icon </li>
+		<li>sidebar-left-toggle  -- Module links fixiert und zum aufklappen</li>
+		<li>sidebar-right-toggle  -- Module rechts fixiert und zum aufklappen</li>
 		<li>debug</li>
 		<li>fixed-footer-mobil   -- unten fixiert phone</li>
 		</ol>
@@ -91,10 +92,6 @@
 		<position>top-02</position>
 		<position>logo</position>
 		<position>logo-mobil</position>
-		<position>left-01</position>
-		<position>right-01</position>
-		<position>left-02</position>
-		<position>right-02</position>
 		<position>footer-top</position>
 		<position>footer</position>
 		<position>footer-bottom</position>
@@ -104,19 +101,23 @@
 		<position>headerimg-overlay</position>
 		<position>bg-01</position>
 		<position>vorInhalt-01</position>
-		<position>nachInhalt-02</position>
-		<position>vorInhalt-01-col</position>
+		<position>vorInhalt-01-col</position>	
 		<position>nachInhalt-01-col</position>
+		<position>nachInhalt-02</position>
 		<position>onepagetop</position>
-		<position>onepagebottom</position>
-		<position>onepagetoggle</position>
+		<position>onepagebottom</position>	
+		<position>nav-sidebar-left</position>
+		<position>left-01</position>
+		<position>left-02</position>
 		<position>nav-sidebar-right</position>
-		<position>offcanvas</position>
-		<position>offcanvas-navbar</position>
+		<position>right-01</position>
+		<position>right-02</position>
 		<position>sidebar-left-fix</position>
 		<position>sidebar-right-fix</position>
 		<position>sidebar-left-toggle</position>
 		<position>sidebar-right-toggle</position>
+		<position>offcanvas</position>
+		<position>offcanvas-navbar</position>
 		<position>suche</position>
 		<position>debug</position>
 		<position>fixed-footer-mobil</position>
