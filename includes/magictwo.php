@@ -34,14 +34,6 @@ if ($functions == 1) {
 }
 ?>
 
-<?php
-	$wa->registerAndUseScript('tables', $tpath . '/js/table_resp.js', [], [], []);
-?>
-
-<?php
-if ($holder == 1) {
-	$wa->registerAndUseScript('holder', $tpath . '/js/holder.js', [], [], []);
-}
 ?>
 
 

@@ -142,7 +142,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 					</div>
 				</div><!-- End header-top -->
 
-				<div class="header-middle" role="heading">
+				<div class="header-middle">
 
 					<?php if ($this->countModules('header-top-01-1') || $this->countModules('header-top-01-2')) : ?>
 					<div class="container<?php echo ($navbarHeaderWidth == 1) ? '-fluid' : '';?>">
