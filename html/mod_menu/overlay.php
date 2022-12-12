@@ -16,8 +16,8 @@ $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseScript('mod_menu', 'mod_menu/menu.min.js', [], ['type' => 'module']);
 $wa->registerAndUseScript('mod_menu', 'mod_menu/menu-es5.min.js', [], ['nomodule' => true, 'defer' => true]);
 
-$tpath    = 'templates/'.$app->getTemplate();
-$wa->registerAndUseStyle('overlaymenu', $tpath . '/html/mod_menu/assets/overlay.css');
+$tpath          = 'templates/wbc_blanco_j4/';
+$wa->registerAndUseStyle('overlaymenu', $tpath . 'html/mod_menu/assets/overlay.css');
 
 $id = '';
 

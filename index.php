@@ -12,26 +12,23 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\FileLayout;
-use Joomla\CMS\Factory;
-use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Uri\Uri;
 
-include_once JPATH_THEMES . '/' . $this->template . '/includes/magic.php'; // load magic.php
+// Template path
+$mediapath = 'media/templates/site/wbc_blanco_j4';
+$tpath = 'templates/wbc_blanco_j4/';
+
+include 'templates/wbc_blanco_j4/includes/magic.php'; // load magic.php
 if (!isset($bootstrap_colclass_mobil_sm)) { $bootstrap_colclass_mobil_sm = ''; };
 if (!isset($bootstrap_colclass_mobil_xs)) { $bootstrap_colclass_mobil_xs = ''; };
 
-// Template path
-$tpath = 'templates/' . $this->template;
-
-
 // Favicons https://realfavicongenerator.net/
-$this->addHeadLink($tpath . '/images/favicons/apple-touch-icon.png', 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
-$this->addHeadLink($tpath . '/images/favicons/favicon-32x32.png', 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
-$this->addHeadLink($tpath . '/images/favicons/favicon-16x16.png', 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
-$this->addHeadLink($tpath . '/images/favicons/safari-pinned-tab.svg', 'mask-icon', 'rel', ['color' => '#41599a']);
-$this->addHeadLink($tpath . '/images/favicons/site.webmanifest', 'manifest', 'rel', []);
-$this->addHeadLink($tpath . '/images/favicons/favicon.ico', 'shortcut icon', 'rel', []);
-$this->setMetaData('msapplication-config', $tpath . '/images/favicons/browserconfig.xml');
+$this->addHeadLink($mediapath . '/images/favicons/apple-touch-icon.png', 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
+$this->addHeadLink($mediapath . '/images/favicons/favicon-32x32.png', 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
+$this->addHeadLink($mediapath . '/images/favicons/favicon-16x16.png', 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
+$this->addHeadLink($mediapath . '/images/favicons/safari-pinned-tab.svg', 'mask-icon', 'rel', ['color' => '#41599a']);
+$this->addHeadLink($mediapath . '/images/favicons/site.webmanifest', 'manifest', 'rel', []);
+$this->addHeadLink($mediapath . '/images/favicons/favicon.ico', 'shortcut icon', 'rel', []);
+$this->setMetaData('msapplication-config', $mediapath . '/images/favicons/browserconfig.xml');
 $this->setMetaData('theme-color', '#ffffff');
 
 $himg = false;
@@ -53,7 +50,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
 	<jdoc:include type="metas" />
-	<?php include "includes/style.php";?>
+	<?php include "templates/wbc_blanco_j4/includes/style.php";?>
 	<jdoc:include type="styles" />
 	<jdoc:include type="scripts" />
 
@@ -62,12 +59,12 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 <!-- ***************************************************************************************************** -->
 </head>
 <body id="top" class="body-01 <?php echo $classbody; ?>">
-	
+
 	<div class="prevent-scrolling">
 			<!-- Bootstrap 5 offcanvas menü -->
 		<?php
 		if ($offcanvas == 1 && $this->countModules('offcanvas')) :
-			$LayoutOffcanvas = new FileLayout('wbc_blanco_template.bts5offcanvas', $tpath.'/html/layouts');
+			$LayoutOffcanvas = new FileLayout('wbc_blanco_template.bts5offcanvas', $tpath.'html/layouts');
 			echo $LayoutOffcanvas ->render($displayData);
 		endif; ?>
 		<!-- end offcanvas -->
@@ -78,7 +75,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 			$this->countModules('sidebar-left-toggle') ||
 			$toggleleft) :
 		?>
-			<?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'/html/layouts');
+			<?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'html/layouts');
 
 			$ReplacedisplayData = array( 'side' => 'left',
 										'toggle' => $toggleleft,
@@ -96,7 +93,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 			$this->countModules('sidebar-right-toggle') ||
 			$toggleright) :
 		?>
-			<?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'/html/layouts');
+			<?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'html/layouts');
 
 			$ReplacedisplayData = array( 'side' => 'right',
 										'toggle' => $toggleright,
@@ -126,7 +123,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 
 						<?php if ($logoposition == 2) : ?>
 							<?php
-								$LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $tpath.'/html/layouts');
+								$LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $tpath.'html/layouts');
 								echo $LayoutLogo ->render($displayData);
 							?>
 						<?php endif; ?>
@@ -134,7 +131,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 						<?php if ($this->countModules('navMain') && $NavMainPos == 1): ?>
 						<nav id="navigation-main" class="navbar navbar-expand-lg navbar-light <?php echo ($bgnavbar == 1 ) ? 'wbc-bg-navbar' : '';?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>">
 							<?php
-								$LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'/html/layouts');
+								$LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'html/layouts');
 								echo $LayoutMain ->render($displayData);
 							?>
 						</nav>
@@ -162,7 +159,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 					<?php if ($this->countModules('navMain') && $NavMainPos == 2): ?>
 					<nav id="navigation-main" class="navbar navbar-expand-lg navbar-light <?php echo ($bgnavbar == 1 ) ? 'wbc-bg-navbar' : '';?> <?php echo ($fixedheader == 1) ? 'sps"' :'';?>">
 						<?php
-							$LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'/html/layouts');
+							$LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'html/layouts');
 							echo $LayoutMain ->render($displayData);
 						?>
 					</nav>
@@ -184,7 +181,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 					<div class="header-02" role="heading">
 						<div class="base-row <?php echo $bootstrap_rowclass; ?>">
 							<?php
-								$LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $tpath.'/html/layouts');
+								$LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $tpath.'html/layouts');
 								echo $LayoutLogo ->render($displayData);
 							?>
 						</div>
@@ -196,7 +193,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 					/* wenn headerbild */
 					?>
 						<?php
-							$Layoutheaderimg = new FileLayout('wbc_blanco_template.headerimg', $tpath.'/html/layouts');
+							$Layoutheaderimg = new FileLayout('wbc_blanco_template.headerimg', $tpath.'html/layouts');
 							echo $Layoutheaderimg->render($displayData);
 						?>
 					<?php endif; ?>
@@ -211,7 +208,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 						<?php endif; ?>
 						<div class="container <?php echo $fixedheader ? 'container-fixed ' : '' ;?>">
 							<?php
-								$LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'/html/layouts');
+								$LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'html/layouts');
 								echo $LayoutMain ->render($displayData);
 							?>
 						</div>
@@ -295,7 +292,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 
 									<?php
 									if ($this->countModules('vorInhalt-01-col') > 0) : /* wenn Modul mehrspaltig */
-										$LayoutModules = new FileLayout('wbc_blanco_template.cardmodules', $tpath.'/html/layouts');
+										$LayoutModules = new FileLayout('wbc_blanco_template.cardmodules', $tpath.'html/layouts');
 
 										$ReplacedisplayData = array('Modules' => 'vorInhalt-01-col',
 																'Modules_cols' => $vorcontent_cols
@@ -316,7 +313,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 
 									<?php
 									if ($this->countModules('nachInhalt-01-col') > 0) : /* wenn Module mehrspaltig */
-										$LayoutModules = new FileLayout('wbc_blanco_template.cardmodules', $tpath.'/html/layouts');
+										$LayoutModules = new FileLayout('wbc_blanco_template.cardmodules', $tpath.'html/layouts');
 
 										$ReplacedisplayData = array('Modules' => 'nachInhalt-01-col',
 																'Modules_cols' => $aftercontent_cols
@@ -398,8 +395,6 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 			endif;
 			?>
 
-			
-
 		</div> <!-- wrap outer -->
 		<!-- ****************************************************************************************************** -->
 		<!-- *    Footer                                                                                         * -->
@@ -424,7 +419,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 			<div id="footer-middle" class="wbc-footer-middle">
 				<div class="<?php echo $footerwidth; ?>">
 					<?php
-						$LayoutFooter = new FileLayout('wbc_blanco_template.footermodules', $tpath.'/html/layouts');
+						$LayoutFooter = new FileLayout('wbc_blanco_template.footermodules', $tpath.'html/layouts');
 						echo $LayoutFooter ->render($displayData);
 					?>
 				</div>
@@ -461,9 +456,5 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 			<jdoc:include type="modules" name="fixed-footer-mobil" style="none" />
 		</div>
 	</div> <!-- end prevent-scrolling / used offcanvas -->
-
-
-
-	<?php include_once JPATH_THEMES . '/' . $this->template . '/includes/magictwo.php'; // load scripts ?>
 </body>
 </html>

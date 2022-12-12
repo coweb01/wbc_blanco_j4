@@ -13,7 +13,7 @@
 	extract($displayData);
 
 	$app            = Factory::getApplication();
-	$templatepath   = URI::base(true).'/templates/'.$app->getTemplate().'/';
+	$tpath   = 'templates/site/wbc_blanco_j4/';
 
 	$data_attr = 'collapse';
 	$cssbutton = 'navbar-toggler navbar-toggler-right';
@@ -38,7 +38,7 @@ endif
 	?>
 	<div class="navbar-brand logo-mo">
 		<?php
-			$LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $templatepath.'html/layouts');
+			$LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $tpath.'html/layouts');
 			$displayData = array(
 						'jhtml'          => $jhtml,
 						'templateparams' => $templateparams,

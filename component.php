@@ -10,9 +10,6 @@ use Joomla\CMS\HTML\HTMLHelper;
 $app = Factory::getApplication();
 $wa  = $this->getWebAssetManager();
 
-// Template path
-$templatePath = 'templates/' . $this->template;
-
 $doc = $app->getDocument();
 $templateparams = $app->getTemplate(true)->params; // Templateparameter
 $fontawesome = $templateparams->get('fontawesome');

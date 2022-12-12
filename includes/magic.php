@@ -25,7 +25,7 @@ $templateparams     = $app->getTemplate(true)->params; // Templateparameter
 $sitename           = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8'); // sitename in joomla konfigurationsdatei definiert
 $params             = $app->getParams(); //Parameter Menue
 $pageclass          = $params->get('pageclass_sfx'); // parameter (menu entry)
-$tpath              = 'templates/'.$this->template;
+$mediapath              = 'media/templates/site/wbc_blanco_j4/';
 $vorcontent_cols    = $templateparams->get('vorcontent-cols',1);
 $aftercontent_cols  = $templateparams->get('aftercontent-cols',1);
 $NavMainPos         = $templateparams->get('navmain',1);
@@ -198,21 +198,21 @@ $i = 1;
 foreach ($customcss as $value) {
 	if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/'.$value ) ) ) {
 		$rname = 'custom'.$i;
-		$wa->registerAndUseStyle($rname, $tpath . '/css/'. $value);
+		$wa->registerAndUseStyle($rname, $mediapath . 'css/'. $value);
 	} // else { echo "CSS Datei" . $customcss.  "nicht vorhanden"; }
 	$i++;
 }
 
 /* Default CSS Alternativ */
 if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/default.css') ) ) {
-	$wa->registerAndUseStyle('default', $tpath . '/css/default.css');
+	$wa->registerAndUseStyle('default', $mediapath . 'css/default.css');
 }
 
 /* Hochkontrast CSS Alternativ */
 
 if ($styleswitch) {
 	if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/hk.css') ) ) {
-		$wa->registerAndUseStyle('hk', $tpath . '/css/hk.css');
+		$wa->registerAndUseStyle('hk', $mediapath . 'css/hk.css');
 	}
 }
 /**************************************************************************************/
@@ -229,11 +229,11 @@ if ($bgimage == 1 ) {
 
 // jquery plugin smooth scroll
 
-if ($functions == 1 ) $doc->addScript($tpath . '/js/vendor/page-scroll-to-id/js/jquery.malihu.PageScroll2id.min.js');
+if ($functions == 1 ) $doc->addScript($mediapath . 'js/vendor/page-scroll-to-id/js/jquery.malihu.PageScroll2id.min.js');
 
 // Suchen Seite
 
-// check if Flexicontent is enabled 
+// check if Flexicontent is enabled
 if ( ComponentHelper::getComponent('com_flexicontent', true)->enabled === 1 ) {
 	/* link zur Flexicontent Suchen Seite generieren */
 	require_once (JPATH_ADMINISTRATOR.'/components/com_flexicontent/defineconstants.php');
@@ -267,7 +267,7 @@ $displayData = array(
 			'fontsize_pos'                  => $fontsize_pos,
 			'styleswitch'                   => $styleswitch,
 			'styleswitch_pos'               => $styleswitch_pos,
-			'tpath'                         => $tpath,
+			'mediapath'                     => $mediapath,
 			'fontawesome'                   => $fontawesome,
 			'iconleft'                      => $iconleft,
 			'iconright'                     => $iconright,
@@ -280,3 +280,17 @@ $displayData = array(
 );
 
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
+
+// script für den Styleumschalter HK / Default
+if($styleswitch == 1) {
+	$wa->registerAndUseScript('switcher', $mediapath . 'js/CSSswitcher.js', [], ['defer' => true], []);
+}
+
+//  script fixed Header on scroll
+if ($fixedheader == 1) {
+	$wa->registerAndUseScript('scroller', $mediapath . 'js/vendor/scrollPosStyler.min.js', [], ['defer' => true], []);
+}
+
+if ($functions == 1) {
+	$wa->registerAndUseScript('funktion', $mediapath . 'js/funktion.js', [], ['defer' => true], []);
+}

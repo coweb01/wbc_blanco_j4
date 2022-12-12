@@ -1,5 +1,5 @@
 <?php
-    /* Bootstrap 5 Offcanvas 
+    /* Bootstrap 5 Offcanvas
     *  Author: Webconceopt
     */
 
@@ -18,10 +18,11 @@ HTMLHelper::_('bootstrap.offcanvas','.offcanvas');
 extract($displayData);
 $app            = Factory::getApplication();
 $document       = $app->getDocument();
-$templatepath   = 'templates/'.$app->getTemplate().'/';
+$mediapath   = 'media/templates/site/wbc_blanco_j4/';
+$tpath   = 'templates/site/wbc_blanco_j4/';
 
 $wa             = $document->getWebAssetManager();
-$wa->registerAndUseStyle('bsoffcanvas', $templatepath . 'css/bs5-offcanvas.css');
+$wa->registerAndUseStyle('bsoffcanvas', $mediapath . 'css/bs5-offcanvas.css');
 
 
 $min_height_l             = intval($offcanvas_navbar_height)+20;
@@ -45,18 +46,17 @@ $wa->addInlineStyle("
 ?>
 
 
-<nav class="fixed-top navbar toggle-pos-<?php echo $toggle_offcanvas_pos; ?> wbc__offcanvas-navbar" >
+<nav class="fixed-top navbar navbar-light toggle-pos-<?php echo $toggle_offcanvas_pos; ?> wbc__offcanvas-navbar" >
 	<div class="container-fluid">
-		<a class="nav-offcanvas btn-toggle-offcanvas" data-bs-toggle="offcanvas" href="#OffcanvasMenu<?php echo $offcanvas_pos; ?>" role="button" aria-controls="OffcanvasMenu<?php echo $offcanvas_pos;?>" aria-label="<?php echo Text::_('TPL_WBC_MENU'); ?>">
-			<label class="visually-hidden-focusable"><?php echo Text::_('TPL_WBC_MENU'); ?></label>	
-			<span class="wbc__hamburger"></span>
-		</a>
+		<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#OffcanvasMenu<?php echo $offcanvas_pos; ?>" aria-controls="OffcanvasMenu<?php echo $offcanvas_pos;?>">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
 		<?php if ($logo_mobil != '-1' || $jhtml->countModules('logo-mobil') ) : ?>
 		<div class="navbar-brand wbc__logo">
 		<?php if ($jhtml->countModules('logo-mobil')): ?>
 			<jdoc:include type="modules" name="logo-mobil" style="none" />
-				<?php else : ?><a href="index.php"><img src="<?php echo $jhtml->baseurl ?><?php echo $logo_mobil?>" class="img-fluid" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
+				<?php else : ?><a href="index.php"><img src="<?php echo $jhtml->baseurl ?>/<?php echo $logo_mobil?>" class="img-fluid" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
 		<?php endif; ?>
 		</div>
 		<?php endif; ?>
@@ -66,7 +66,7 @@ $wa->addInlineStyle("
 				<jdoc:include type="modules" name="offcanvas-navbar" style="none" />
 				<?php
 				if ($styleswitch_pos == 5 ) {
-					$LayoutSwitch = new FileLayout('wbc_blanco_template.cssswitch', $templatepath.'html/layouts');
+					$LayoutSwitch = new FileLayout('wbc_blanco_template.cssswitch', $tpath.'html/layouts');
 					echo $LayoutSwitch ->render();
 				}
 				?>
@@ -74,15 +74,13 @@ $wa->addInlineStyle("
 		<?php endif; ?>
 	</div>
 </nav>
-<div id="OffcanvasMenu<?php echo $offcanvas_pos; ?>" class="wbc-bs5-offcanvas offcanvas-<?php echo $toggle_offcanvas_bs5_pos; ?> offcanvas text-bg-dark"  tabindex="-1">
+<div id="OffcanvasMenu<?php echo $offcanvas_pos; ?>" class="wbc-bs5-offcanvas offcanvas-<?php echo $toggle_offcanvas_bs5_pos; ?> offcanvas text-bg-dark"  tabindex="-1" aria-labelledby="wbc-bs5-offcanvasLabel">
 	<div class="offcanvas-header mt-3">
 		<h5 class="offcanvas-title" id="wbc-bs5-offcanvasLabel"><?php echo Text::_('TPL_WBC_MENU'); ?></h5>
 		<button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="<?php echo Text::_('TPL_WBC_MENU_CLOSE_TXT'); ?>"></button>
 	</div>
- 	<div class="offcanvas-body">
-		<nav>
-			<jdoc:include type="modules" name="offcanvas"/>
-		</nav>
+	<div class="offcanvas-body">
+		<jdoc:include type="modules" name="offcanvas"/>
 	</div>
 </div>
 <!--  Offcanvas -->

@@ -14,11 +14,12 @@ extract($displayData);
 
 $app            = Factory::getApplication();
 $document       = $app->getDocument();
-$tpath          = 'templates/'.$app->getTemplate().'/';
+$mediapath   = 'media/templates/site/wbc_blanco_j4/';
+$tpath          = 'templates/wbc_blanco_j4/';
 $wa             = $document->getWebAssetManager();
 
-if ($toggle) : 
-	$wa->registerAndUseScript('togglesidebars', $tpath . 'js/toggle-sidebars.js', [], [], []);
+if ($toggle) :
+	$wa->registerAndUseScript('togglesidebars', $mediapath . 'js/toggle-sidebars.js', [], [], []);
 endif;
 ?>
 
@@ -39,20 +40,20 @@ endif;
 
               <div id="fixed-sidebar-<?php echo $side; ?>-toggle" class="wbc-fixed-sidebar-toggle d-none d-sm-block">
                   <a id="<?php echo $side; ?>-fixed-btn" class="toggle-btn nav-link btn-icon shadow-sm" role="button" href="#" aria-label="<?php echo Text::_('TPL_WBC_BLANCO_J4_OPEN_TXT'); ?>">
-                      <i class="<?php echo ($side == 'left') ? $iconleft : $iconright;?>"></i> 
+                      <i class="<?php echo ($side == 'left') ? $iconleft : $iconright;?>"></i>
                       <span class="visually-hidden"><?php echo Text::_('TPL_WBC_BLANCO_J4_OPEN_TXT'); ?></span>
-                  </a>   
+                  </a>
                   <div id="<?php echo $side; ?>-container-fix" class="container-fix shadow-sm">
-                                
+
                       <?php if ( $fontsize  && ($fontsize_pos == $pos )) : ?>
                         <!-- Schriftgroesse anpassen -->
-                        <?php $Layout  = new FileLayout('wbc_blanco_template.fontsize', $tpath.'/html/layouts');
+                        <?php $Layout  = new FileLayout('wbc_blanco_template.fontsize', $tpath.'html/layouts');
                         echo $Layout->render(); ?>
                       <?php endif; ?>
-                    
-                      <?php if ( $styleswitch && ($styleswitch_pos == $pos ) ) : ?>  
+
+                      <?php if ( $styleswitch && ($styleswitch_pos == $pos ) ) : ?>
                         <!-- Styleswitcher Hochkontrast / Default -->
-                        <?php $Layout  = new FileLayout('wbc_blanco_template.cssswitch', $tpath.'/html/layouts');
+                        <?php $Layout  = new FileLayout('wbc_blanco_template.cssswitch', $tpath.'html/layouts');
                         echo $Layout->render(); ?>
                       <?php endif; ?>
 

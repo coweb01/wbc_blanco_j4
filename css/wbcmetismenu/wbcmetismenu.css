@@ -1,14 +1,18 @@
 :root {
   --mm-color1: #f3f1f1;
   --mm-color2: #d8d6d7;
+  --mm-color1-dark: #f4f2f2;
+  --grey-200: #585858;
 }
-#navMain.navbar { padding: 0px;}
 
-.wbcmetismenu.mod-menu {
+#navigation-main .wbcmetismenu.mod-menu {
   display: flex;
   gap: 1rem;
   flex: 1 1 0%;
   flex-direction: row;
+}
+#navigation-main li.wbc-dropdown.parent {
+  position: static;
 }
 
 .wbcmetismenu.menu-horizontal {
@@ -40,15 +44,11 @@
   align-items: center;
   font-size: 1.1rem;
   line-height: 1.5;
-  padding: .5rem;
 }
-.navbar .wbcmetismenu.mod-menu .wbcmetismenu-item {
-  padding: 1.2rem 1rem;
-}
-.wbcmetismenu.mod-menu .wbc-dropdown.parent {
+.wbcmetismenu.mod-menu .wbcmetismenu-item.parent {
   position: relative;
 }
-.wbcmetismenu.mod-menu .wbc-dropdown > ul {
+.wbcmetismenu.mod-menu .wbcmetismenu-item > ul {
   position: absolute;
   top: 100%;
   z-index: 1001;
@@ -71,7 +71,7 @@
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetis-link:focus,
 .wbcmetismenu.mod-menu .wbcmetismenu-item > button:focus {
-  outline: 1px dotted var(--color1);
+  outline: 1px dotted var(--mm-color2);
   outline-offset: 2px;
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item > button:hover,

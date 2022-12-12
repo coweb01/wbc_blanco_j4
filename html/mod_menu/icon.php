@@ -18,11 +18,11 @@ if ($tagId = $params->get('tag_id', ''))
 	$id = ' id="' . $tagId . '"';
 }
 
-$tpath    = 'templates/'.$app->getTemplate();
+$tpath          = 'templates/wbc_blanco_j4/';
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
-$wa->registerAndUseStyle('iconmenu', $tpath . '/html/mod_menu/assets/iconmenu.css');
+$wa->registerAndUseStyle('iconmenu', $tpath . 'html/mod_menu/assets/iconmenu.css');
 
 // The menu class is deprecated. Use mod-menu instead
 ?>

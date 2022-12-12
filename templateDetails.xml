@@ -6,10 +6,11 @@
 	<author>Viviana Menzel / Claudia Oerter</author>
 	<authorEmail>info@das-webconcept.de</authorEmail>
 	<copyright>(C) 2021 das webconcept GbR</copyright>
+	<inheritable>1</inheritable>
 
 	<description><![CDATA[
 		<h1>Blanco Template Joomla 4</h1>
-		<p><img src="../templates/wbc_blanco_j4/template_preview.png" /></p>
+		<p><img src="../media/templates/site/wbc_blanco_j4/images/template_preview.png" /></p>
 		<p>Stand: November / 2021 </p>
 		<h2>Module Positionen:</h2>
 		<ol>
@@ -53,7 +54,8 @@
 		<p>Basis Template Joomla 4 created by:  <a href="http://www.das-webconcept.de" target="_blank">Claudia Oerter| www.das-webconcept.de </a></p>
 		<p> Stand November 2021</p>
 	]]>
-	</description><!-- change the description as you like -->
+	</description>
+
 	<updateservers>
 		<server type="extension" name="webconcept Template Joomla4"></server>
 	</updateservers>
@@ -64,18 +66,17 @@
 		<filename>index.php</filename>
 		<filename>joomla.asset.json</filename>
 		<filename>templateDetails.xml</filename>
-		<filename>template_preview.png</filename>
-		<filename>template_thumbnail.png</filename>
-		<filename>templatepositionen.png</filename>
+		<folder>html</folder>
+		<folder>includes</folder>
+		<folder>libraries</folder>
+	</files>
+	<media destination="templates/site/wbc_blanco_j4" folder="media">
 		<folder>css</folder>
 		<folder>fonts</folder>
-		<folder>html</folder>
 		<folder>images</folder>
-		<folder>includes</folder>
 		<folder>js</folder>
-		<folder>libraries</folder>
 		<folder>scss</folder>
-	</files>
+	</media>
 
 	<languages folder="language">
 		<language tag="de-DE">de-DE/tpl_wbc_blanco_j4.ini</language>
@@ -101,11 +102,11 @@
 		<position>headerimg-overlay</position>
 		<position>bg-01</position>
 		<position>vorInhalt-01</position>
-		<position>vorInhalt-01-col</position>	
+		<position>vorInhalt-01-col</position>
 		<position>nachInhalt-01-col</position>
 		<position>nachInhalt-02</position>
 		<position>onepagetop</position>
-		<position>onepagebottom</position>	
+		<position>onepagebottom</position>
 		<position>nav-sidebar-left</position>
 		<position>left-01</position>
 		<position>left-02</position>
@@ -967,7 +968,7 @@
 					>
 					<option value="0">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCONTAINER_FLUID</option>
 					<option value="1">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCONTAINER</option>
-					
+
 				</field>
 				<field
 					name="footercols"
@@ -1013,7 +1014,7 @@
 					<option value="0">CENTER</option>
 					<option value="1">FLUID</option>
 				</field>
-				
+
 				<field name="note_offcanvas" type="note" label="TPL_WBC_BLANCO_J4_INFO_OFFCANVAS_LABEL" description="TPL_WBC_BLANCO_J4_INFO_OFFCANVAS_DESC" class="alert alert-info" />
 
 				<field
@@ -1107,7 +1108,7 @@
 						<option value="prepend">prepend</option>
 						<option value="append">append</option>
 				</field>
-			
+
 				<field
 					name="offcanvas_navbar_height"
 					type="text"
@@ -1124,7 +1125,7 @@
 					description="TPL_WBC_BLANCO_J4_OFFCANVASBREAKPOINT_DESC"
 					filter="string"
 				/>
-				
+
 
 			</fieldset>
 
