@@ -12,7 +12,7 @@
 			<downloadurl type="full" format="zip">https://github.com/coweb01/wbc_blanco_j4/releases/download/1.1.0/wbc_blanco_j4-1.1.0.zip</downloadurl>
 		</downloads>
 		<tags>dev</tags>
-		<sha512>43d42c60a9717126a265a4d83742540ec141d399787c1276c55f3b4f149586613c35a064563b6cc1ff6b353cd952cb94942cb158219e75be8f775c8f3890ce7d</sha512>
+		<sha512>a04472f779ad7144ffdfa7954a97632512f23c2fd61dc0aa1949ceea9eebd49e68fc9f978356583327e7a1ac28e43e9a1846280aa4dd04a61fcd10eafcb32408</sha512>
 		<maintainer>Claudia Oerter</maintainer>
 		<maintainerurl>https://www.das-webconcept.de</maintainerurl>
 		<php_minimum>7.2.5</php_minimum>
