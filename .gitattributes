@@ -3,6 +3,6 @@
 .gitattributes export-ignore
 .gitignore export-ignore
 config.codekit3 export-ignore
-css\tiny-slider.css export-ignore
-css\wbc-tiny-slider.css export-ignore
-includes\less.php export-ignore
+css/tiny-slider.css export-ignore
+css/wbc-tiny-slider.css export-ignore
+includes/less.php export-ignore
