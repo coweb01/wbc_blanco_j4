@@ -57,7 +57,7 @@
 	</description>
 
 	<updateservers>
-		<server type="extension" name="webconcept Template Joomla4"></server>
+		<server type="extension" name="webconcept Template Joomla4">https://raw.githubusercontent.com/coweb01/wbc_blanco_j4/main/update.xml</server>
 	</updateservers>
 	<files>
 		<filename>component.php</filename>
