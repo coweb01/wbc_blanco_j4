@@ -117,7 +117,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 			<!-- ****************************************************************************************************** -->
 			<!-- *     Header                                                                                         * -->
 			<!-- ****************************************************************************************************** -->
-			<div class="header" >
+			<header class="header" >
 				<div class="header-top <?php echo ($fixedheader == 1) ? 'sps' :'';?>" >
 					<div class="container<?php echo ( $navbarHeaderWidth == 1) ? '-fluid' : '';?>">
 

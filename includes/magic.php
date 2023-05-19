@@ -196,7 +196,7 @@ $wa->usePreset('template.wbc')
 	->useScript('template.user');
 $i = 1;
 foreach ($customcss as $value) {
-	if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/'.$value ) ) ) {
+	if ((File::exists($mediapath . 'css/'.$value ) ) ) {
 		$rname = 'custom'.$i;
 		$wa->registerAndUseStyle($rname, $mediapath . 'css/'. $value);
 	} // else { echo "CSS Datei" . $customcss.  "nicht vorhanden"; }
