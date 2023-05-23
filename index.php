@@ -55,7 +55,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 	<jdoc:include type="scripts" />
 
 <!-- ***************************************************************************************************** -->
-<!-- *****     copyright Template www.das-webconcept.de       2021                                    **** -->
+<!-- *****     copyright Template www.das-webconcept.de       2023                                    **** -->
 <!-- ***************************************************************************************************** -->
 </head>
 <body id="top" class="body-01 <?php echo $classbody; ?>">

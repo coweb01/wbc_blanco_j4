@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <updates>
 	<update>
-		<name>wbc_blanco_j4 1.1.0</name>
+		<name>wbc_blanco_j4 1.1.1</name>
 		<description>WBC_Blanco J4 Template - Update</description>
 		<element>wbc_blanco_j4</element>
 		<type>template</type>
@@ -9,10 +9,10 @@
 		<version>1.1.0</version>
 		<infourl title="wbc_blaco_j4 Template">https://github.com/coweb01/wbc_blanco_j4</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/coweb01/wbc_blanco_j4/releases/download/1.1.0/wbc_blanco_j4-1.1.0.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/coweb01/wbc_blanco_j4/releases/download/1.1.0/wbc_blanco_j4-1.1.1.zip</downloadurl>
 		</downloads>
 		<tags>dev</tags>
-		<sha512>a04472f779ad7144ffdfa7954a97632512f23c2fd61dc0aa1949ceea9eebd49e68fc9f978356583327e7a1ac28e43e9a1846280aa4dd04a61fcd10eafcb32408</sha512>
+		<sha512>84f8e3c7b322ca03d968d981aa27dc65bd385f38ba2beb90847a7ee94d900396</sha512>
 		<maintainer>Claudia Oerter</maintainer>
 		<maintainerurl>https://www.das-webconcept.de</maintainerurl>
 		<php_minimum>7.2.5</php_minimum>
