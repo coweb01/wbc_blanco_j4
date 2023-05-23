@@ -1,6 +1,6 @@
 <?php
     /* Bootstrap 5 Offcanvas
-    *  Author: Webconceopt
+    *  Author: Webconcept
     */
 
 defined( '_JEXEC' ) or die;
@@ -31,24 +31,24 @@ $toggle_offcanvas_bs5_pos = ($toggle_offcanvas_pos == 'left') ? 'start' : 'end';
 $Doffcanvas_breakpoint = $offcanvas_breakpoint+1;
 $wa->addInlineStyle("
 	@media (max-width: ".$offcanvas_breakpoint."px) {
-		#navigation-main .navbar.collapse  { display: none; }
+		#navigation-main .navbar.collapse  { display: none!important; }
 		.wrap-outer { padding-top: ".$min_height_l."px; }
-		.wbc__offcanvas-navbar { min-height: ".$min_height_l."px; display: block; }
+		.wbc__offcanvas-navbar { min-height: ".$min_height_l."px; display: flex!important; }
 	}
 	@media (max-width: 576px) {
 		.wbc__offcanvas-navbar { min-height: ".$offcanvas_navbar_height."px; }
 		.wrap-outer { padding-top: ".$offcanvas_navbar_height."px; }
 	}
 	@media (min-width: ".$Doffcanvas_breakpoint."px) {
-		#navigation-main .navbar.collapse { display: block; }
-		.wbc__offcanvas-navbar { display: none; }
+		#navigation-main .navbar.collapse { display: flex!important; }
+		.wbc__offcanvas-navbar { display: none!important; }
 	}");
 ?>
 
 
 <nav class="fixed-top navbar navbar-light toggle-pos-<?php echo $toggle_offcanvas_pos; ?> wbc__offcanvas-navbar" >
 	<div class="container-fluid">
-		<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#OffcanvasMenu<?php echo $offcanvas_pos; ?>" aria-controls="OffcanvasMenu<?php echo $offcanvas_pos;?>">
+		<button class="btn btn-primary " type="button" data-bs-toggle="offcanvas" data-bs-target="#OffcanvasMenu<?php echo $offcanvas_pos; ?>" aria-controls="OffcanvasMenu<?php echo $offcanvas_pos;?>">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 

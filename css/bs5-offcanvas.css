@@ -11,33 +11,47 @@
 .wbc__offcanvas-navbar .navbar-brand.wbc__logo {
     padding: 0px
 }
-.wbc__offcanvas-navbar span.wbc__hamburger {
+
+.wbc__offcanvas-navbar.toggle-pos-left  .btn, 
+.wbc__offcanvas-navbar.toggle-pos-right  .btn {
+    width: 2rem;
+    height: 2rem;
+    background-color: unset;
+    background-image: none;
+    position: relative;
+}
+
+.wbc__offcanvas-navbar.toggle-pos-right .btn {
+    order: 9;
+}
+
+.wbc__offcanvas-navbar span.navbar-toggler-icon {
     margin-left: 0;
-    left: 5px;
+    left: 2px;
     color: var(--linkcolor, #333);
     width: 30px;
     top: 50%;
     transform: translateY(-50%);
     transform-origin: 50% 50%;
 }
-.wbc__offcanvas-navbar span.wbc__hamburger,
-.wbc__offcanvas-navbar span.wbc__hamburger::before,
-.wbc__offcanvas-navbar span.wbc__hamburger::after {
+.wbc__offcanvas-navbar span.navbar-toggler-icon,
+.wbc__offcanvas-navbar span.navbar-toggler-icon:before,
+.wbc__offcanvas-navbar span.navbar-toggler-icon:after {
     display: block;
     position: absolute;
-    height: 4px;
+    height: 2px;
     background: var(--linkcolor, #333);
     transition: all .2s ease;
 }
-.wbc__offcanvas-navbar span.wbc__hamburger::before, 
-.wbc__offcanvas-navbar span.wbc__hamburger::after {
+.wbc__offcanvas-navbar span.navbar-toggler-icon:before, 
+.wbc__offcanvas-navbar span.navbar-toggler-icon:after {
     content: '';
     width: 100%;
 }
-.wbc__offcanvas-navbar span.wbc__hamburger::before {
+.wbc__offcanvas-navbar span.navbar-toggler-icon:before {
     top: -10px;
 }
-.wbc__offcanvas-navbar span.wbc__hamburger::after {
+.wbc__offcanvas-navbar span.navbar-toggler-icon:after {
     bottom: -10px;
 }
 
@@ -48,11 +62,24 @@
     background-color: var(--color1, rgba(0,0,0 1)); 
     color: rgba(255,255,255, 1);
 }
+
 .wbc-bs5-offcanvas .offcanvas-body {
     flex-grow: 1;
     padding: 1rem 1rem;
-    overflow-y: auto;
-  }
+    overflow-y: auto; 
+    
+    visibility: hidden;
+}
+
+.wbc-bs5-offcanvas.offcanvas.show .offcanvas-body {
+    visibility: visible;
+}
+
+.wbc-bs5-offcanvas.offcanvas.show
+{
+    visibility: visible;
+    transform: none;
+}
 
 /* linkfarben */
 
@@ -69,22 +96,15 @@
 .wbc-bs5-offcanvas .btn-close:focus {
     background-color: transparent;
 }
-.wbc__offcanvas-navbar.toggle-pos-left > .btn-toggle-offcanvas, 
-.wbc__offcanvas-navbar.toggle-pos-right > .btn-toggle-offcanvas {
-        width: 2rem;
-        height: 2rem;
-}
+
 
 @media (min-width: 992px) {
-    .wbc__offcanvas-navbar.toggle-pos-left > .btn-toggle-offcanvas, 
-    .wbc__offcanvas-navbar.toggle-pos-right > .btn-toggle-offcanvas {
+    .wbc__offcanvas-navbar.toggle-pos-left  .btn, 
+    .wbc__offcanvas-navbar.toggle-pos-right  .btn {
         width: 4rem;
         height: 4rem;
-        background-color: #fff;
-        box-shadow: 1px 1px 5px rgba(0,0,0,.1);
-        position: relative;
     }
-    .wbc__offcanvas-navbar span.wbc__hamburger {
+    .wbc__offcanvas-navbar span.navbar-toggler-icon {
         margin-left: 18px;
         left: 0px;
     }
