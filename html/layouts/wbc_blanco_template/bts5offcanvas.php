@@ -10,16 +10,19 @@ use Joomla\CMS\Layout\FileLayout;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Layout\LayoutHelper;
+
 
 HTMLHelper::_('bootstrap.offcanvas','.offcanvas');
 
 /** @var Joomla\CMS\Document\HtmlDocument $this */
 
 extract($displayData);
+
 $app            = Factory::getApplication();
 $document       = $app->getDocument();
-$mediapath   = 'media/templates/site/wbc_blanco_j4/';
-$tpath   = 'templates/site/wbc_blanco_j4/';
+$mediapath      = 'media/templates/site/wbc_blanco_j4/';
+$tpath          = 'templates/site/wbc_blanco_j4/';
 
 $wa             = $document->getWebAssetManager();
 $wa->registerAndUseStyle('bsoffcanvas', $mediapath . 'css/bs5-offcanvas.css');
@@ -56,7 +59,7 @@ $wa->addInlineStyle("
 		<div class="navbar-brand wbc__logo">
 		<?php if ($jhtml->countModules('logo-mobil')): ?>
 			<jdoc:include type="modules" name="logo-mobil" style="none" />
-				<?php else : ?><a href="index.php"><img src="<?php echo $jhtml->baseurl ?>/<?php echo $logo_mobil?>" class="img-fluid" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
+				<?php else : ?><a href="index.php"><?php  echo LayoutHelper::render('joomla.html.image', ['src' => $logo_mobil, 'loading' => 'eager', 'alt' => htmlspecialchars($templateparams->get('sitetitle'))]);?></a>
 		<?php endif; ?>
 		</div>
 		<?php endif; ?>

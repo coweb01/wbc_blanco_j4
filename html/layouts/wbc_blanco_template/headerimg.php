@@ -14,6 +14,9 @@ Modul mod_custom aus. Keinen Modulinhalt.
 
 defined('_JEXEC') or die;
 
+            use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Uri\Uri;
+
 extract($displayData);
 
 ?>
@@ -31,7 +34,7 @@ extract($displayData);
 			<?php
 			else :
 			?>
-				<div class="wbc-background-image-stretch" style="background-image: url(<?php echo $jhtml->baseurl ?>/<?php echo $jhtml->params->get('headerimg'); ?>);"></div>
+				<div class="wbc-background-image-stretch" style="background-image: url(<?php echo Uri::root(true) . '/' . HTMLHelper::_('cleanImageURL', $jhtml->params->get('headerimg'))->url;?>)"></div>
 			<?php
 			endif;
 			?>

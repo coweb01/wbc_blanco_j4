@@ -5,11 +5,12 @@
 
 defined('_JEXEC') or die;
 
-extract($displayData);
+use Joomla\CMS\Layout\LayoutHelper;
 
+extract($displayData);
 $css_logo_mobil = ' class="d-block d-md-none"';
-$css_logo_desk = ' class="d-none d-md-block"';
-$css_logo = ($offcanvas == 1) ? 'wbc-offcanvas-on' : '';
+$css_logo_desk  = ' class="d-none d-md-block"';
+$css_logo       = ($offcanvas == 1) ? 'wbc-offcanvas-on' : '';
 ?>
 
 <div id="logo" class="base-col wbc__logo <?php echo $css_logo; ?>">
@@ -24,7 +25,7 @@ $css_logo = ($offcanvas == 1) ? 'wbc-offcanvas-on' : '';
 				<?php
 				else :
 				?>
-				<a href="index.php"><img class="img-fluid" src="<?php echo $jhtml->baseurl ?><?php echo $logo_mobil?>" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
+				<a href="index.php"><?php  echo LayoutHelper::render('joomla.html.image', ['src' => $logo_mobil, 'loading' => 'eager', 'alt' => $sitename]);?></a>
 				<?php
 				endif;
 				?>
@@ -36,8 +37,7 @@ $css_logo = ($offcanvas == 1) ? 'wbc-offcanvas-on' : '';
 	endif;
 	?>
 
-	<?php
-	if ($jhtml->countModules('logo') || $logo != '-1'):
+	<?php if ($jhtml->countModules('logo') || $logo != '-1'):
 	?>
 	<div <?php echo $css_logo_desk;?>>
 		<?php
@@ -47,7 +47,7 @@ $css_logo = ($offcanvas == 1) ? 'wbc-offcanvas-on' : '';
 		<?php
 		elseif ($logo != '-1') :
 		?>
-		<a href="index.php"><img src="<?php echo $jhtml->baseurl ?><?php echo $logo?>" alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" title="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" /></a>
+		<a href="index.php"><?php  echo LayoutHelper::render('joomla.html.image', ['src' => $logo, 'loading' => 'eager', 'alt' => $sitename]);?></a>
 		<?php
 		endif;
 		?>

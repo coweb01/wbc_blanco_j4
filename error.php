@@ -8,6 +8,7 @@
  * Version: 1.0
  * copyright Template das webconcept
  **********************************************************/
+defined( '_JEXEC' ) or die; 
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;

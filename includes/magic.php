@@ -245,6 +245,7 @@ if ( ComponentHelper::getComponent('com_flexicontent', true)->enabled === 1 ) {
 
 $displayData = array(
 			'jhtml'                         => $this,
+			'sitename'                      => $sitename,
 			'sidebar'                       => array( 0=>'left', 1=>'right'),
 			'templateparams'                => $templateparams,
 			'offcanvas'                     => $offcanvas,
@@ -278,7 +279,6 @@ $displayData = array(
 			'bootstrap_colclass'            => $bootstrap_colclass,
 			'bootstrap_colclass_mobil_sm'   => $bootstrap_colclass_mobil_sm
 );
-
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 
 // script für den Styleumschalter HK / Default

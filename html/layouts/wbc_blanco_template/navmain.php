@@ -39,15 +39,7 @@ endif
 	<div class="navbar-brand logo-mo">
 		<?php
 			$LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $tpath.'html/layouts');
-			$displayData = array(
-						'jhtml'          => $jhtml,
-						'templateparams' => $templateparams,
-						'offcanvas'      => $offcanvas,
-						'logoposition'   => $logoposition,
-						'logo_mobil'     => $logo_mobil,
-						'logo'           => $logo
-			);
-
+			
 			echo $LayoutLogo ->render($displayData);
 		?>
 	</div>
