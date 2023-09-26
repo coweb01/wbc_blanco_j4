@@ -10,19 +10,21 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
+use Joomla\CMS\Factory;
 
+$app          = Factory::getApplication();
 $id = '';
-
 if ($tagId = $params->get('tag_id', ''))
 {
 	$id = ' id="' . $tagId . '"';
 }
 
-$tpath          = 'templates/wbc_blanco_j4/';
+$template     = $app->getTemplate(true);
+$mediapath    = 'media/templates/site/'. $template->template. '/';
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
-$wa->registerAndUseStyle('iconmenu', $tpath . 'html/mod_menu/assets/iconmenu.css');
+$wa->registerAndUseStyle('iconmenu', $mediapath . 'css/menues/iconmenu.css');
 
 // The menu class is deprecated. Use mod-menu instead
 ?>

@@ -63,7 +63,7 @@ if ($item->menu_icon)
 		$linktype = '<span class="p-2 ' . $item->menu_icon . '" aria-hidden="true"></span><span class="visually-hidden">' . $item->title . '</span>';
 	}
 }
-elseif ($item->menu_image)
+elseif ($item->menu_image && $item->level != 1 )
 {
 	// The link is an image, maybe with an own class
 	$image_attributes = [];
@@ -98,9 +98,11 @@ elseif ($item->browserNav == 2)
 	$attributes['onclick'] = "window.open(this.href, 'targetWindow', '" . $options . "'); return false;";
 }
 
-echo HTMLHelper::link(OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), $linktype, $attributes);
-
 if ($showAll && $item->deeper)
 {
 	echo '<button class="mm-collapsed mm-toggler mm-toggler-link" aria-haspopup="true" aria-expanded="false" aria-label="' . $item->title . '"></button>';
 }
+echo HTMLHelper::link(OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), $linktype, $attributes);
+
+
+echo $toggleLink;

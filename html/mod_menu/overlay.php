@@ -10,14 +10,19 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
+use Joomla\CMS\Factory;
+
+$app          = Factory::getApplication();
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseScript('mod_menu', 'mod_menu/menu.min.js', [], ['type' => 'module']);
 $wa->registerAndUseScript('mod_menu', 'mod_menu/menu-es5.min.js', [], ['nomodule' => true, 'defer' => true]);
 
-$tpath          = 'templates/wbc_blanco_j4/';
-$wa->registerAndUseStyle('overlaymenu', $tpath . 'html/mod_menu/assets/overlay.css');
+
+$template     = $app->getTemplate(true);
+$mediapath    = 'media/templates/site/'. $template->template. '/';
+$wa->registerAndUseStyle('overlaymenu', $mediapath . '/css/menues/overlay.css');
 
 $id = '';
 

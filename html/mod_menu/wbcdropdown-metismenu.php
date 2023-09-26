@@ -13,14 +13,15 @@ use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\Utilities\ArrayHelper;
 use Joomla\CMS\Factory;
 
-$app      = Factory::getApplication();
-$doc      = $app->getDocument();
-$mediapath   = 'media/templates/site/wbc_blanco_j4/';
+$app          = Factory::getApplication();
+$doc          = $app->getDocument();
+$template     = $app->getTemplate(true);
+$mediapath    = 'media/templates/site/'. $template->template. '/';
 
 /** @var \Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $doc->getWebAssetManager();
-$wa->registerAndUseScript('wbcmetismenu', $mediapath. 'js/wbcmenu-metismenu.min.js', [], ['defer' => true], ['metismenujs']);
-$wa->registerAndUseStyle('wbc.metismenu', $mediapath. 'css/wbcmetismenu/wbcmetismenu.css');
+$wa->registerAndUseScript('wbcmetismenu', $mediapath. 'js/menues/wbcmenu-metismenu.min.js', [], ['defer' => true], ['metismenujs']);
+$wa->registerAndUseStyle('wbc.metismenu', $mediapath. 'css/menues/wbcmetismenu.css');
 
 $attributes          = [];
 $attributes['class'] = 'mod-menu mod-menu_wbcdropdown-metismenu wbcmetismenu mod-list ' . $class_sfx;

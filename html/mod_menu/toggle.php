@@ -17,14 +17,15 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\CMSObject;
 use Joomla\CMS\Plugin\PluginHelper;
 
-$app      = Factory::getApplication();
-$doc      = $app->getDocument();
-$mediapath          = 'media/templates/site/wbc_blanco_j4/';
+$app          = Factory::getApplication();
+$doc          = $app->getDocument();
+$template     = $app->getTemplate(true);
+$mediapath    = 'media/templates/site/'. $template->template. '/';
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
-$wa->registerAndUseScript('wbc.togglemenu', $mediapath. 'js/wbctogglemenu.js');
-$wa->registerAndUseStyle('wbc.togglemenu', $mediapath. 'css/togglemenu/wbctogglemenu.css');
+$wa->registerAndUseScript('wbc.togglemenu', $mediapath. 'js/menues/wbctogglemenu.js');
+$wa->registerAndUseStyle('wbc.togglemenu', $mediapath. 'css/menues/wbctogglemenu.css');
 
 $id = '';
 

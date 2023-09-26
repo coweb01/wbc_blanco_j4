@@ -15,13 +15,13 @@ use Joomla\CMS\Factory;
 
 $app      = Factory::getApplication();
 $doc      = $app->getDocument();
-$mediapath    = 'media/templates/site/wbc_blanco_j4/';
-
+$template     = $app->getTemplate(true);
+$mediapath    = 'media/templates/site/'. $template->template. '/';
 
 /** @var \Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $doc->getWebAssetManager();
-$wa->registerAndUseScript('wbcmetismenu', $mediapath. 'js/wbcmenu-metismenu.min.js', [], ['defer' => true], ['metismenujs']);
-$wa->registerAndUseStyle('wbc.offcanvas', $mediapath. 'css/wbcoffcanvasmenu/wbcoffcanvasmenu.css');
+$wa->registerAndUseScript('wbcmetismenu', $mediapath. 'js/menues/wbcmenu-metismenu.min.js', [], ['defer' => true], ['metismenujs']);
+$wa->registerAndUseStyle('wbc.offcanvas', $mediapath. 'css/menues/wbcoffcanvasmenu.css');
 
 $attributes          = [];
 $attributes['class'] = 'mod-menu mod-menu_wbcdropdown-metismenu wbcoffcanvasmenu mod-list ' . $class_sfx;
@@ -73,9 +73,19 @@ $switch_item_deeper = false;
     $headlinedropdowntxt = $itemParams->get('headlinedropdowntxt');
 
     $linkcss            = $itemParams->get('linkcss');
-
+	$toggleLink         = '';
 
     /* end --------------------------------------------------------------*/
+	
+	if ( $item->level == 1 && $item->menu_image)
+	{
+	  
+		if ($item->menu_image_css)
+		{
+			$image_class = ($item->menu_image_css) ? '<i class="link-image '. $item->menu_image_css .'"></i>' : '';					
+		}
+	$toggleLink = '<a href="#" title="" class="toggle-offcanvas toggle-offcanvas-item offcanvas-left" data-toggle="wbc-offcanvas" ><img src="'.$item->menu_image.'" alt="'.$item->title.' "/>'.$image_class.'</a>';
+	}
 
 	$class      = [];
 	$class[]    = 'wbcoffcanvasmenu-item item-' . $item->id . ' level-' . ($item->level - $start + 1);
@@ -160,11 +170,6 @@ $switch_item_deeper = false;
 		case 2:
  				 if (  $menuecolumn == 1  ) :
 
-			          /*if ( $open_cols == true ) { // vorherige Spalte erst schliessen.
-						  //echo '</ul></div></div></li>'. "\n";
-						  //echo '</ul></li>'. "\n";
-						  $open_cols = false;
-						  }*/
 
 					  $rowminwidth  = $rowminwidth + $columnwidth;
 

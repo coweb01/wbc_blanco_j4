@@ -19,7 +19,7 @@ if ($item->menu_icon)
 	if ($itemParams->get('menu_text', 1))
 	{
 		// If the link text is to be displayed, the icon is added with aria-hidden
-		$linktype = '<div class="overlay overlay-icon"><span class="overlay-symbol ' . $item->menu_icon . '" aria-hidden="true"></span><span class="link-title">' . $item->title. '</span></div>';
+		$linktype = '<div class="overlay overlay-icon"><span class="overlay-symbol ' . $item->menu_icon . '" aria-hidden="true"></span><span class="link-title h4 mt-3">' . $item->title. '</span></div>';
 	}
 	else
 	{
@@ -36,7 +36,7 @@ elseif ($item->menu_image)
 }
 else
 {
-	$linktype = '<span class="link-title"' .$item->title .'</span>';
+	$linktype = '<span class="link-title h4 mt-3"' .$item->title .'</span>';
 }
 
 ?>
