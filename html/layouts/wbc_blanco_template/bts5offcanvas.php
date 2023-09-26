@@ -21,8 +21,9 @@ extract($displayData);
 
 $app            = Factory::getApplication();
 $document       = $app->getDocument();
-$mediapath      = 'media/templates/site/wbc_blanco_j4/';
-$tpath          = 'templates/site/wbc_blanco_j4/';
+$template       = $app->getTemplate(true);
+$mediapath      = 'media/templates/site/'. $template->template. '/';
+$tpath          = 'templates/site/'. $template->template. '/';
 
 $wa             = $document->getWebAssetManager();
 $wa->registerAndUseStyle('bsoffcanvas', $mediapath . 'css/bs5-offcanvas.css');
