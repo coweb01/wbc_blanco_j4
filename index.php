@@ -22,12 +22,12 @@ if (!isset($bootstrap_colclass_mobil_sm)) { $bootstrap_colclass_mobil_sm = ''; }
 if (!isset($bootstrap_colclass_mobil_xs)) { $bootstrap_colclass_mobil_xs = ''; };
 
 // Favicons https://realfavicongenerator.net/
-$this->addHeadLink($mediapath . '/images/favicons/apple-touch-icon.png', 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
-$this->addHeadLink($mediapath . '/images/favicons/favicon-32x32.png', 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
-$this->addHeadLink($mediapath . '/images/favicons/favicon-16x16.png', 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
-$this->addHeadLink($mediapath . '/images/favicons/safari-pinned-tab.svg', 'mask-icon', 'rel', ['color' => '#41599a']);
-$this->addHeadLink($mediapath . '/images/favicons/site.webmanifest', 'manifest', 'rel', []);
-$this->addHeadLink($mediapath . '/images/favicons/favicon.ico', 'shortcut icon', 'rel', []);
+$this->addHeadLink($mediapath . 'images/favicons/apple-touch-icon.png', 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
+$this->addHeadLink($mediapath . 'images/favicons/favicon-32x32.png', 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
+$this->addHeadLink($mediapath . 'images/favicons/favicon-16x16.png', 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
+$this->addHeadLink($mediapath . 'images/favicons/safari-pinned-tab.svg', 'mask-icon', 'rel', ['color' => '#41599a']);
+$this->addHeadLink($mediapath . 'images/favicons/site.webmanifest', 'manifest', 'rel', []);
+$this->addHeadLink($mediapath . 'images/favicons/favicon.ico', 'shortcut icon', 'rel', []);
 $this->setMetaData('msapplication-config', $mediapath . '/images/favicons/browserconfig.xml');
 $this->setMetaData('theme-color', '#ffffff');
 
