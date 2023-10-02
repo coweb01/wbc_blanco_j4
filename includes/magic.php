@@ -60,7 +60,6 @@ $colSidebarLeft_sm          = $templateparams->get('colsidebarleft_sm',4);
 $colSidebarRight_sm         = $templateparams->get('colsidebarright_sm',4);
 $holder                     = $templateparams->get('holder');
 $fontawesome                = $templateparams->get('fontawesome');
-$functions	                = $templateparams->get('funktionen');
 $logo                       = $templateparams->get('logo');
 $logo_mobil                 = $templateparams->get('logo_mobil');
 $hidecontentwrapper         = $templateparams->get('hidecontentwrapper', 0);
@@ -229,7 +228,10 @@ if ($bgimage == 1 ) {
 
 // jquery plugin smooth scroll
 
-if ($functions == 1 ) $doc->addScript($mediapath . 'js/vendor/page-scroll-to-id/js/jquery.malihu.PageScroll2id.min.js');
+//if ($functions == 1 ) $doc->addScript($mediapath . 'js/vendor/page-scroll-to-id/js/jquery.malihu.PageScroll2id.min.js');//
+
+// Template Java Script
+$wa->registerAndUseScript('funktion', $mediapath . 'js/funktion.js', [], ['defer' => true], []);
 
 // Suchen Seite
 
@@ -291,6 +293,5 @@ if ($fixedheader == 1) {
 	$wa->registerAndUseScript('scroller', $mediapath . 'js/vendor/scrollPosStyler.min.js', [], ['defer' => true], []);
 }
 
-if ($functions == 1) {
-	$wa->registerAndUseScript('funktion', $mediapath . 'js/funktion.js', [], ['defer' => true], []);
-}
+
+

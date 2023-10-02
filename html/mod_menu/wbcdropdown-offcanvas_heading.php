@@ -42,8 +42,8 @@ if ($item->menu_icon)
 		// If the icon itself is the link, it needs a visually hidden text
 		$linktype = '<span class="p-2 ' . $item->menu_icon . '" aria-hidden="true"></span><span class="visually-hidden">' . $item->title . '</span>';
 	}
-}
-elseif ($item->menu_image)
+} 
+elseif ($item->menu_image && $item->level != 1)
 {
 	// The link is an image, maybe with its own class
 	$image_attributes = [];
@@ -72,3 +72,4 @@ else
 {
 	echo '<span ' . ArrayHelper::toString($attributes) . '>' . $linktype . '</span>';
 }
+echo $toggleLink;

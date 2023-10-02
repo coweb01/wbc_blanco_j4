@@ -1,0 +1,104 @@
+﻿/* CSS Styles für override mod_menu */
+/* Author: c.Oerter                 */
+/* Stand:  08 / 2022                */
+/* Icon Menue                       */
+/* website: www.das-webconcept.de   */
+
+.menu-icons li.nav-item {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-icons a.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+  }
+  .menu-icons .image-title {
+    margin-top: auto;
+    margin-bottom: 0px;
+  }
+  .menu-icons a.nav-link .icon,
+  .menu-icons a.nav-link .icon::before {
+    font-size: 3rem;
+    line-height: 1.5;
+  }
+  .menu-icons a.nav-link img {
+    max-width: 80px;
+    max-height: 80px;
+    margin:0.8rem auto 0.8rem auto;
+  }
+
+.menu-icons.spalten1,
+.menu-icons.spalten2,
+.menu-icons.spalten3,
+.menu-icons.spalten4,
+.menu-icons.spalten5,
+.menu-icons.spalten6,
+.menu-icons.spalten7,
+.menu-icons.spalten8  {
+    display: grid;
+    justify-content: center;
+    margin-top: 3rem;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+
+
+@media ( min-width: 576px ) {
+   
+    .menu-icons.spalten2,
+    .menu-icons.spalten3,
+    .menu-icons.spalten4,
+    .menu-icons.spalten5,
+    .menu-icons.spalten6,
+    .menu-icons.spalten7,
+    .menu-icons.spalten8  {
+        display: grid;
+        justify-content: center;
+        margin-top: 3rem;
+        grid-template-columns: repeat(2, 1fr);
+    }   
+}
+
+@media ( min-width: 768px )  {
+    .menu-icons.spalten8 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .menu-icons.spalten6 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .menu-icons.spalten5 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .menu-icons.spalten4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .menu-icons.spalten3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .menu-icons.spalten2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .menu-icons.spalten1 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+}
+
+@media ( min-width: 876px )  {
+    .menu-icons.spalten8 {
+        grid-template-columns: repeat(8, 1fr);
+    }
+    .menu-icons.spalten6 {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .menu-icons.spalten5 {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+}
