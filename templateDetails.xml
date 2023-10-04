@@ -239,7 +239,7 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				
+
 				<!-- custom css -->
 				<field
 					name="customcss"
@@ -507,7 +507,7 @@
 					name="ColorfooterB"
 					type="color"
 					default=" #ffffff"
-					label="TPL_WBC_BLANCO_J4_FOOTER_COLORBOTTOM_LABEL"
+					label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_COLOR_DESC"
 				/>
 

@@ -21,8 +21,8 @@ $wa->registerAndUseScript('mod_menu', 'mod_menu/menu-es5.min.js', [], ['nomodule
 
 
 $template     = $app->getTemplate(true);
-$mediapath    = 'media/templates/site/'. $template->template. '/';
-$wa->registerAndUseStyle('overlaymenu', $mediapath . '/css/menues/overlay.css');
+$mediapath    = 'media/templates/site/wbc_blanco_j4/';
+$wa->registerAndUseStyle('overlaymenu', $mediapath . 'css/menues/overlay.css');
 
 $id = '';
 

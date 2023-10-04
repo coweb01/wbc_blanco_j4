@@ -13,10 +13,10 @@ use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\Utilities\ArrayHelper;
 use Joomla\CMS\Factory;
 
-$app      = Factory::getApplication();
-$doc      = $app->getDocument();
-$template     = $app->getTemplate(true);
-$mediapath    = 'media/templates/site/'. $template->template. '/';
+$app       = Factory::getApplication();
+$doc       = $app->getDocument();
+$template  = $app->getTemplate(true);
+$mediapath = 'media/templates/site/wbc_blanco_j4/';
 
 /** @var \Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $doc->getWebAssetManager();

@@ -118,6 +118,7 @@
 .wbcmetismenu.mod-menu .mm-collapse {
   position: absolute;
   background-color: var(--bgnavbarcolor, white);
+  top: 100%;
 }
 .wbcmetismenu.mod-menu .mm-collapse:not(.mm-show) {
   display: none;

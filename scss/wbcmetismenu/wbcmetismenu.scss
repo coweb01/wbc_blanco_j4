@@ -117,6 +117,7 @@
     .mm-collapse {
       position: absolute;
       background-color: var(--bgnavbarcolor, hsl(0, 0%, 100%));
+      top: 100%;
       &:not(.mm-show) {
         display: none;
       }
