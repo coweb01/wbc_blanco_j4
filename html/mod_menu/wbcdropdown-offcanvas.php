@@ -144,7 +144,7 @@ $switch_item_deeper = false;
 
          if ( $menuecolumn == 1 )  //oeffnen wenn mehrspaltig
         {
-            echo '<ul class="mm-collapse wbc-multicolumn-dropdown-' .  $item_level . ' wbc-multicolumn-dropdown wbc-multicolumn-dropdown-'. $item_id.'">'. "\n";
+            echo '<ul class="mm-collapse wbc-multicolumn-dropdown-' . $item_level . ' wbc-multicolumn-dropdown wbc-multicolumn-dropdown-'. $item_id.'">'. "\n";
             $col                    = 0;
             $rowminwidth            = 0;
             $rowid                  = $item_id;

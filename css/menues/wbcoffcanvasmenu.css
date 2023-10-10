@@ -10,7 +10,6 @@
 .wbcoffcanvasmenu li.wbc-dropdown.parent {
   position: static;
 }
-
 .wbcoffcanvasmenu.menu-horizontal {
   flex: 1 0 100%;
   padding: 0;
@@ -32,10 +31,8 @@
 }
 .wbcoffcanvasmenu.mod-menu {
   margin: 0 0 2rem 0;
-
 }
 .wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item {
-  
   padding: 0.5rem 0rem;
   font-size: var(--fontsize);
   line-height: calc(var(--fontsize)+ 0.2);
@@ -47,30 +44,16 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   flex-direction: row;
-
   font-size: 1.3rem;
   line-height: calc(var(--fontsize)+0.6);
 }
-.wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item.level-1 > .wbcoffcanvasmenu-link {
-  min-width: 60%;
-}
-.wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item.level-1:not(:last-child) { 
+.wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item.level-1:not(:last-child) {
   border-bottom: solid 1px var(--bs-gray-300);
 }
-
 .wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item.parent {
   position: relative;
 }
-.wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item > button {
-  font-size: 1rem;
-  width: 35px;
-  height: 35px;
-  background-color: var(--mm-btn-color);
-  border-radius: 5px;
-}
-
 .wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item > span,
 .wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item > a.wbcoffcanvasmenu-link,
 .wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item > button {
@@ -83,11 +66,6 @@
 .wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item > button:focus {
   outline: 1px dotted var(--mm-color2);
   outline-offset: 2px;
-}
-.wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item > button:hover,
-.wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item > button:focus {
-  border: none;
-  background-color: var(--mm-btn-hover-color);
 }
 .wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item.active > a, .wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item.active > button,
 .wbcoffcanvasmenu.mod-menu .wbcoffcanvasmenu-item > a:hover,
@@ -121,6 +99,7 @@
 }
 .wbcoffcanvasmenu.mod-menu .mm-collapsing {
   height: 0;
+  width: 100%;
   overflow: hidden;
   transition-timing-function: ease;
   transition-duration: 0.35s;
@@ -128,8 +107,7 @@
 }
 .wbcoffcanvasmenu.mod-menu .mm-collapse {
   background-color: var(--color1);
-  flex: 0 0 100%;
-  max-width: 100%;
+  width: 100%;
   position: relative;
   display: block;
   padding: 0;
@@ -147,10 +125,8 @@
   height: 1px;
   border-bottom: 1px solid var(--mm-color2);
 }
-
 .wbcoffcanvasmenu.mod-menu .mm-collapse > li.parent .mm-toggler {
   display: inline-flex;
- 
 }
 .wbcoffcanvasmenu.mod-menu .mm-collapse > li.parent > ul {
   position: relative;
@@ -178,6 +154,7 @@
   width: 0;
   height: 0;
   content: "";
+  margin-inline-start: .5rem;
   border-top: 0.5em solid currentColor;
   border-right: 0.5em solid transparent;
   border-left: 0.5em solid transparent;
@@ -186,11 +163,13 @@
 .mm-active > .wbcoffcanvasmenu.mod-menu .mm-toggler:after {
   transform: rotateX(-180deg);
 }
-
 .wbcoffcanvasmenu.mod-menu .mm-toggler[aria-expanded=true]:after {
   transform: rotateX(-180deg);
 }
-
+.wbcoffcanvasmenu.mod-menu .mm-toggler:active {
+  background-color: transparent;
+  border: none;
+}
 .wbcoffcanvasmenu.mod-menu .wbcmetis-link .wbcoffcanvasmenu-titel,
 .wbcoffcanvasmenu.mod-menu .mod-menu__heading .wbcoffcanvasmenu-titel {
   display: block;
