@@ -168,7 +168,7 @@ $switch_item_deeper = false;
 
 					  $rowminwidth  = $rowminwidth + $columnwidth;
 
-					  echo '<li clas="wbc-wrap-nav-col-'. $col .'" ' . $stylecolumn .' >'. "\n";
+					  echo '<li class="wbc-wrap-nav-col-'. $col .'" ' . $stylecolumn .' >'. "\n";
 
 					  $col++;
 					  $open_cols = true;
