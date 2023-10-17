@@ -14,7 +14,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 
 $attributes = [];
 
-$class = 'wbcmetis-link ';
+$class = 'wbcmetismenu-link ';
 $description = '';
 
 if ($accesskey ) {

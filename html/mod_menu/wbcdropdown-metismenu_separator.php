@@ -19,7 +19,7 @@ if ($item->anchor_title)
 	$attributes['title'] = $item->anchor_title;
 }
 
-$attributes['class'] = 'mod-menu__separator separator';
+$attributes['class'] = 'separator';
 $attributes['class'] .= $item->anchor_css ? ' ' . $item->anchor_css : null;
 
 $linktype = $item->title;

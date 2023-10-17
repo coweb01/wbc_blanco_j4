@@ -6,7 +6,7 @@
  * @since       4.0.0
  */
 document.addEventListener('DOMContentLoaded', () => {
-  const allMenus = document.querySelectorAll('ul.mod-menu_wbcdropdown-metismenu');
+  const allMenus = document.querySelectorAll('ul.wbcmetismenu');
   allMenus.forEach(menu => {
     // eslint-disable-next-line no-new, no-undef
     const mm = new MetisMenu(menu, {
