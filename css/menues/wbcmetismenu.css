@@ -178,7 +178,7 @@
 .wbcmetismenu .parent > ul {
   color: var(--grey-200);
 }
-.wbcmetismenu ul.wbc-multicolumn-dropdown {
+/*.wbcmetismenu ul.wbc-multicolumn-dropdown {
   left: 0;
   display: flex;
   flex-wrap: nowrap;
@@ -191,7 +191,7 @@
   margin-left: 5%;
   overflow: auto;
   border-radius: 0;
-}
+}*/
 .wbcmetismenu [class^=wbc-wrap-nav-col] > a:not(:last-child) {
   border-bottom: 1px solid #fff;
 }
@@ -209,6 +209,40 @@
   text-align: center;
 }
 
+/* Dropdown */
+
+.wbcmetismenu .mm-collapse .wbcmetismenu-item .nav-header {
+  padding: 0.3rem 0.5rem;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+.wbcmetismenu .mm-collapse .wbcmetismenu-item  {
+  border-bottom: 1px solid var(--mm-color2);
+}
+.wbcmetismenu .mm-collapse .wbcmetismenu-item:last-child  {
+  border-bottom: none;
+}
+.wbcmetismenu .mm-collapse .wbcmetismenu-item > .wbcmetismenu-link {
+  padding: 0.3rem 0.5rem;
+}
+
+/* Dropdown mehrspaltig */
+
+.wbcmetismenu .wbcmulticolumn .mm-collapse h3 {
+  text-align: center;
+  margin: 1rem 0;
+}
+.wbcmetismenu .mm-collapse.wbc-col .wbcmetismenu-item  {
+  border-bottom: 1px solid var(--mm-color2);
+}
+.wbcmetismenu .mm-collapse.wbc-col .wbcmetismenu-item:last-child  {
+  border-bottom: none;
+}
+.wbcmetismenu .mm-collapse.wbc-col .wbcmetismenu-item > .wbcmetismenu-link {
+  padding: 0.3rem 0.5rem;
+}
+
+/* Sidebar */
 .sidebar-right .wbcmetismenu .mm-collapse,
 .sidebar-left .wbcmetismenu .mm-collapse {
   position: relative;

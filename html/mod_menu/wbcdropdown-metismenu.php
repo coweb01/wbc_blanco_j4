@@ -52,6 +52,8 @@ $ColOpen = false;  // schalter für mehrspaltiges dropdown und spalte geöffnet.
             $columnwidthUnit     = $itemParams->get('columnwidthunit','%');
             if ( $columnwidth &&  $menuecolumn ) {
                 $stylecolumn     = ' style="flex: 0 0 ' . $columnwidth . $columnwidthUnit .'; max-width: '. $columnwidth . $columnwidthUnit .';"';
+            } else {
+                $stylecolumn     = '';
             }
             $menudescription     = $itemParams->get('description');
             $headlinedropdown    = $itemParams->get('headlinedropdown',0);
