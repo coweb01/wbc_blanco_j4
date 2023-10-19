@@ -4,8 +4,8 @@
  * Template Joomla 4
  * Kunde:
  * Author: Claudia Oerter / Viviana Menzel
- * Stand: 11 / 2021
- * Version: 1.0
+ * Stand: 10 / 2023
+ * Version: 1.1.1
  * copyright Template das webconcept
  **********************************************************/
 defined('_JEXEC') or die;
