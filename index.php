@@ -119,6 +119,17 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
             <!-- ****************************************************************************************************** -->
             <header class="header" >
                 <div class="header-top <?php echo ($fixedheader == 1) ? 'sps' :'';?>" >
+
+                    <?php if ($this->countModules('header-top-01') ) : ?>
+                    <div class="container<?php echo ($navbarHeaderWidth == 1) ? '-fluid' : '';?>">
+                        <div id="header-top-01" class="base-row <?php echo $bootstrap_rowclass; ?> d-none d-sm-block">
+                            <div class="base-col col">
+                                <jdoc:include type="modules" name="header-top-01" style="none" />
+                            </div>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    
                     <div class="container<?php echo ( $navbarHeaderWidth == 1) ? '-fluid' : '';?>">
 
                         <?php if ($logoposition == 2) : ?>
@@ -140,21 +151,6 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                 </div><!-- End header-top -->
 
                 <div class="header-middle">
-
-                    <?php if ($this->countModules('header-top-01-1') || $this->countModules('header-top-01-2')) : ?>
-                    <div class="container<?php echo ($navbarHeaderWidth == 1) ? '-fluid' : '';?>">
-                        <div id="header-top-01" class="base-row <?php echo $bootstrap_rowclass; ?> d-none d-sm-block">
-                            <div class="
-                                <?php echo $bootstrap_colclass_mobil_xs . $col_xs_header_top01;?>
-                                <?php echo $bootstrap_colclass_mobil_sm . $col_sm_header_top01;?>
-                                <?php echo $bootstrap_colclass . $col_md_header_top01; ?>
-                            ">
-                                <jdoc:include type="modules" name="header-top-01-1" style="none" />
-                                <jdoc:include type="modules" name="header-top-01-2" style="none" />
-                            </div>
-                        </div>
-                    </div>
-                    <?php endif; ?>
 
                     <?php if ($this->countModules('navMain') && $NavMainPos == 2): ?>
                     <nav id="navigation-main" class="navbar navbar-expand-lg navbar-light <?php echo ($bgnavbar == 1 ) ? 'wbc-bg-navbar' : '';?> <?php echo ($fixedheader == 1) ? 'sps"' :'';?>" aria-label="Main Navigation">
