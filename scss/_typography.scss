@@ -152,7 +152,8 @@ a:not([class]) {
   outline: 2px dotted var(--color1);
 }
 
-.wrap-outer a:link:not(.btn), .wrap-outer a:visited:not(.btn) {
+.wrap-outer a:link:not(.btn),
+.wrap-outer a:visited:not(.btn) {
   color: var(--linkcolor);
 }
 
