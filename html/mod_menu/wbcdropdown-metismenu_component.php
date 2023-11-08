@@ -55,8 +55,8 @@ if ($item->id == $active_id)
 
 $attributes['class'] = $class;
 
-if ($menudescription) {
-	$description 	= '<span class="wbcmetis-subtitel">' . $menudescription . '</span>';
+if ($menuedescription) {
+	$description 	= '<span class="wbcmetis-subtitel">' . $menuedescription . '</span>';
 }
 
 $linktype  		= '<span class="wbcmetis-titel">' . $item->title .'</span>' . $description;

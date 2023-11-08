@@ -1,24 +1,9 @@
 :root {
   --mm-color1: #f3f1f1;
-  --mm-color2: #d8d6d7;
+  --mm-color2: #bebcbc;
   --mm-color1-dark: #f4f2f2;
   --grey-200: #585858;
 }
-
-.wbc-multicolumn-metismenu div > ul.wbc-col { /* Spalten des mehrspaltigen dropdwons immer anzeigen  */
-  display: block !important; 
-}
-
-#navigation-main .wbc-multicolumn-metismenu {
-  display: flex;
-  gap: 1rem;
-  flex: 1 1 0%;
-  flex-direction: row;
-}
-#navigation-main li.wbcmulticolumn.parent {
-  position: static;
-}
-
 .wbcmetismenu .wbcmetismenu-item {
   display: flex;
   flex-wrap: wrap;
@@ -27,7 +12,7 @@
   line-height: 1.5;
 }
 .wbcmetismenu .wbcmetismenu-item.parent {
-  position: static;
+  position: static !important;
 }
 .wbcmetismenu .wbcmetismenu-item > ul {
   position: absolute;
@@ -50,7 +35,7 @@
 
 .wbcmetismenu .wbcmetismenu-item .wbcmetismenu-link {
   padding: 0.3rem 1rem;
-  white-space: nowrap;
+  white-space: normal;
   text-decoration: none;
 }
 
@@ -114,7 +99,7 @@
 }
 .wbcmetismenu .mm-collapse:not(.wbc-col) {
   position: absolute;
-  background-color: var(--bgnavbarcolor, white);
+  background-color: var(--mm-color1, white);
   top: 100%;
 }
 .wbcmetismenu .mm-collapse:not(.mm-show) {
@@ -178,20 +163,7 @@
 .wbcmetismenu .parent > ul {
   color: var(--grey-200);
 }
-/*.wbcmetismenu ul.wbc-multicolumn-dropdown {
-  left: 0;
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 2rem;
-  width: auto;
-  min-width: 90%;
-  max-height: 80vh;
-  padding: 2rem 1rem;
-  margin-right: 5%;
-  margin-left: 5%;
-  overflow: auto;
-  border-radius: 0;
-}*/
+
 .wbcmetismenu [class^=wbc-wrap-nav-col] > a:not(:last-child) {
   border-bottom: 1px solid #fff;
 }
@@ -228,18 +200,54 @@
 
 /* Dropdown mehrspaltig */
 
-.wbcmetismenu .wbcmulticolumn .mm-collapse h3 {
+.wbc-multicolumn-metismenu {
+  display: flex;
+  gap: 1rem;
+  flex: 1 1 0%;
+  flex-direction: row;
+}
+
+.wbc-multicolumn-metismenu .wbcmulticolumn.level-1 > ul.mm-collapse {
+  width: 100%;
+  left: 0;
+  right: auto;
+  margin: auto auto;
+  max-width: 100%;
+}
+.wbc-multicolumn-metismenu div > ul.wbc-col {
+  padding: 1.3rem;
+}
+.wbc-multicolumn-metismenu div > ul.wbc-col,
+.wbc-multicolumn-metismenu .mm-collapse.wbc-col .wbcmetismenu-submenu
+{ 
+  width: 100%;
+  display: block !important; /* Spalten des mehrspaltigen Dropdowns immer anzeigen  */
+  position: relative !important;
+  border: none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.wbc-multicolumn-metismenu .wbcmulticolumn .mm-collapse h3 {
   text-align: center;
   margin: 1rem 0;
 }
-.wbcmetismenu .mm-collapse.wbc-col .wbcmetismenu-item  {
+.wbc-multicolumn-metismenu .mm-collapse.wbc-col .wbcmetismenu-item  {
   border-bottom: 1px solid var(--mm-color2);
 }
-.wbcmetismenu .mm-collapse.wbc-col .wbcmetismenu-item:last-child  {
+.wbc-multicolumn-metismenu .mm-collapse.wbc-col .wbcmetismenu-item:last-child  {
   border-bottom: none;
 }
-.wbcmetismenu .mm-collapse.wbc-col .wbcmetismenu-item > .wbcmetismenu-link {
+.wbc-multicolumn-metismenu .mm-collapse.wbc-col .wbcmetismenu-item > .wbcmetismenu-link {
   padding: 0.3rem 0.5rem;
+}
+.wbc-multicolumn-metismenu .wbcmetismenu-item.level-2 .mm-toggler:after {
+  border: none;
+}
+
+.wbc-multicolumn-metismenu .wbcmetismenu-item.level-2.deeper {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 /* Sidebar */
