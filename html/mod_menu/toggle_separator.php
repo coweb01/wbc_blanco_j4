@@ -57,9 +57,13 @@ if ($item->anchor_css)
 <span class="mod-menu__separator separator"><?php echo $icon_class; ?><span class="chrome-fix wbc-link-title visually-hidden"><?php echo $item->title;?></span></span>
 <?php 
 if ( $content_plg ) { 
-	// This code goes in your component method that's triggering the plugins
-	
-	$pluginContent = \Joomla\CMS\HTML\HTMLHelper::_('content.prepare', $content_plg);
-?>
-	<div id="wbc-toggle-<?php echo $item->id ?>" class="wbc-toggle-container"><?php echo $pluginContent; ?></div>
-<?php } ?>
+	if ( $string_pos !== false) {	
+	$pluginContent = \Joomla\CMS\HTML\HTMLHelper::_('content.prepare', $content_plg);?>
+
+	<div id="<?php echo $toggle_container_id ?>" class="wbc-toggle-container">
+		<button type="button" class="btn-close btn-close-white wbc-toggle-container-close" aria-label="Close"></button>
+		<?php echo $pluginContent; ?>
+	</div>
+<?php
+	} 
+}?>

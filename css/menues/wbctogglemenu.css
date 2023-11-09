@@ -39,14 +39,14 @@
 
 /* toggle Box */
 
-.wbc-nav-toggle .nav-item .wbc-toggle-container {
+.wbc-toggle-container {
     position: absolute;
     width: 100%;
     height: 100vh;
     overflow: hidden;
     left: 0;
     top: 0rem;
-    z-index: 9999;
+    z-index: 999999;
     background-color: rgba(10, 10, 10, 0.9);
     color: white !important;
     padding: 2rem;
@@ -54,22 +54,22 @@
     justify-content: center;
     align-items: center;
 } 
-.wbc-nav-toggle .nav-item .wbc-toggle-container.wbcshow {
+.wbc-toggle-container.wbcshow {
     display: flex !important;
 }
-.wbc-nav-toggle .nav-item .wbc-toggle-container  * { 
+.wbc-toggle-container  * { 
     color: white!important;
     border-color: white;
 }
-.wbc-nav-toggle .nav-item .wbc-toggle-container .btn-close {
+.wbc-toggle-container .btn-close {
     position: absolute;
     top: 15px;
     right:15px;
     z-index:10000;
 }
-.wbc-nav-toggle .nav-item .wbc-toggle-container .btn-close:hover,
-.wbc-nav-toggle .nav-item .wbc-toggle-container .btn-close:focus,
-.wbc-nav-toggle .nav-item .wbc-toggle-container .btn-close:active
+.wbc-toggle-container .btn-close:hover,
+.wbc-toggle-container .btn-close:focus,
+.wbc-toggle-container .btn-close:active
 {
     background-color: transparent;
     border-color: white;
