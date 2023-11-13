@@ -21,48 +21,52 @@
   display: block;
   padding: 1rem;
   list-style: none;
-  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.1);
 }
-.wbcmetismenu .wbcmetismenu-item > button {
-  font-size: 1rem;
-}
+
 .wbcmetismenu .wbcmetismenu-item .wbcmetismenu-link.fa:before,
 .wbcmetismenu .wbcmetismenu-item .wbcmetismenu-link.fas:before,
 .wbcmetismenu .wbcmetismenu-item .wbcmetismenu-link.far:before 
 {
   margin-right: 0.5rem;
 }
-
 .wbcmetismenu .wbcmetismenu-item .wbcmetismenu-link {
   padding: 0.3rem 1rem;
   white-space: normal;
   text-decoration: none;
+  color: var(--Linkcolornavbar);
 }
-
+.wbcmetismenu .wbcmetismenu-item > .mm-toggler { /* toggler Button */
+  font-size: 1rem;
+}
 .wbcmetismenu .wbcmetismenu-item > span,
-.wbcmetismenu .wbcmetismenu-item > button {
-  padding: 5px 0;
+.wbcmetismenu .wbcmetismenu-item > .mm-toggler {
+  padding: .5rem .5rem;
   overflow: hidden;
   text-decoration: none;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
 }
-
 .wbcmetismenu .wbcmetismenu-item > a.wbcmetismenu-link:focus,
-.wbcmetismenu .wbcmetismenu-item > button:focus {
-  outline: 1px dotted var(--mm-color2);
+.wbcmetismenu .wbcmetismenu-item > .mm-toggler:focus {
+  outline: 1px dotted var(--color1);
   outline-offset: 2px;
+  color: var(--Hovercolornavbar);
 }
-.wbcmetismenu .wbcmetismenu-item > button:hover,
-.wbcmetismenu .wbcmetismenu-item > button:focus {
+.wbcmetismenu .wbcmetismenu-item > .mm-toggler:hover,
+.wbcmetismenu .wbcmetismenu-item > .mm-toggler:focus {
   border: none;
   background-color: transparent;
+  color: var(--Hovercolornavbar);
 }
 .wbcmetismenu .wbcmetismenu-item.active > a, 
-.wbcmetismenu .wbcmetismenu-item.active > button,
+.wbcmetismenu .wbcmetismenu-item.active > .mm-toggler,
 .wbcmetismenu .wbcmetismenu-item > a:hover,
-.wbcmetismenu .wbcmetismenu-item > button:hover {
-  text-decoration: underline;
+.wbcmetismenu .wbcmetismenu-item > .mm-toggler:hover {
+  text-decoration: none;
+  color: var(--Activecolornavbar);
 }
 .wbcmetismenu .wbcmetismenu-item::after {
   content: none;
@@ -83,13 +87,13 @@
   overflow: hidden;
   border-right: 1px solid var(--mm-color2);
 }
-@media (max-width: 992px) {
-  .wbcmetismenu .wbcmetismenu-item.divider:not(.parent) {
-    width: auto;
-    height: 1px;
-    border-bottom: 1px solid var(--mm-color2);
+  @media (max-width: 992px) {
+    .wbcmetismenu .wbcmetismenu-item.divider:not(.parent) {
+      width: auto;
+      height: 1px;
+      border-bottom: 1px solid var(--mm-color2);
+    }
   }
-}
 .wbcmetismenu .mm-collapsing {
   height: 0;
   overflow: hidden;
@@ -99,7 +103,7 @@
 }
 .wbcmetismenu .mm-collapse:not(.wbc-col) {
   position: absolute;
-  background-color: var(--mm-color1, white);
+  background-color: var(--bgnavbar, white);
   top: 100%;
 }
 .wbcmetismenu .mm-collapse:not(.mm-show) {
@@ -117,21 +121,12 @@
 .wbcmetismenu .mm-collapse:not(.wbc-col) > li.parent .mm-toggler {
   display: inline-flex;
 }
-.wbcmetismenu .mm-collapse:not(.wbc-col) > li.parent > ul {
-  position: relative;
-  top: 0;
-  flex-basis: calc(100% + 1.5rem);
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  background-color: rgba(0, 0, 0, 0.03);
-  box-shadow: none;
-}
 .wbcmetismenu .mm-toggler {
   position: relative;
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0.5rem 0 0;
+  padding: .5rem .5rem;
   margin: 0;
   color: currentColor;
   -webkit-user-select: none;
@@ -145,43 +140,45 @@
 .wbcmetismenu .mm-toggler:after {
   width: 0;
   height: 0;
-  -webkit-margin-start: 0.5em;
-  margin-inline-start: 0.5em;
-  content: "";
-  border-top: 0.5em solid currentColor;
-  border-right: 0.5em solid transparent;
-  border-left: 0.5em solid transparent;
-  transition: all 0.3s ease-out;
+  border: none;
+  transition: none;
 }
-.mm-active > .wbcmetismenu .mm-toggler:after {
+.mm-active > .mm-toggler i {
   transform: rotateX(-180deg);
+}
+.wbcmetismenu .mm-collapse:not(.wbc-col) > li.parent > ul {
+  position: relative;
+  top: 0;
+  flex-basis: calc(100% + 1.5rem);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  box-shadow: none;
 }
 
-.wbcmetismenu .mm-toggler[aria-expanded=true]:after {
-  transform: rotateX(-180deg);
-}
 .wbcmetismenu .parent > ul {
   color: var(--grey-200);
 }
-
 .wbcmetismenu [class^=wbc-wrap-nav-col] > a:not(:last-child) {
-  border-bottom: 1px solid #fff;
+  border-bottom: none;
 }
-.wbcmetismenu .wbcmetismenu-link .wbcmetis-titel,
-.wbcmetismenu .mod-menu__heading .wbcmetis-titel {
+.wbcmetismenu .wbcmetismenu-item .wbcmetis-titel {
   display: inline-block;
 }
-.wbcmetismenu .wbcmetismenu-link .wbcmetis-subtitel,
-.wbcmetismenu .mod-menu__heading .wbcmetis-subtitel {
-  display: inline-flex;
+.wbcmetismenu .wbcmetismenu-item .wbcmetis-subtitel {
+  display: block;
   font-size: calc(var(--fontsize) - 0.2rem);
-  color: var(--mm-color);
 }
+
+.wbcmetismenu .wbc-col .wbcmetismenue_heading  .wbcmetis-titel {
+  color: var(--color1);
+}
+
 .wbcmetismenu .wbc-dropdown-titel {
   text-align: center;
 }
 
-/* Dropdown */
+/* Dropdown ----------------------------------------------------*/
 
 .wbcmetismenu .mm-collapse .wbcmetismenu-item .nav-header {
   padding: 0.3rem 0.5rem;
@@ -198,7 +195,7 @@
   padding: 0.3rem 0.5rem;
 }
 
-/* Dropdown mehrspaltig */
+/* Dropdown mehrspaltig ----------------------------------------*/
 
 .wbc-multicolumn-metismenu {
   display: flex;
@@ -207,26 +204,33 @@
   flex-direction: row;
 }
 
-.wbc-multicolumn-metismenu .wbcmulticolumn.level-1 > ul.mm-collapse {
+.wbc-multicolumn-metismenu .wbcmetismenu-submenu-dropdown {
   width: 100%;
   left: 0;
   right: auto;
   margin: auto auto;
   max-width: 100%;
 }
-.wbc-multicolumn-metismenu div > ul.wbc-col {
+.wbc-multicolumn-metismenu div > ul.wbc-col,
+.wbc-multicolumn-metismenu div > ul.wbc-col.mm-collapse:not(.mm-show)
+{
   padding: 1.3rem;
+  display: block;
+  position: relative !important;
 }
 .wbc-multicolumn-metismenu div > ul.wbc-col,
 .wbc-multicolumn-metismenu .mm-collapse.wbc-col .wbcmetismenu-submenu
 { 
   width: 100%;
-  display: block !important; /* Spalten des mehrspaltigen Dropdowns immer anzeigen  */
-  position: relative !important;
   border: none;
   box-shadow: none;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
+}
+.wbc-multicolumn-metismenu .mm-collapse.wbc-col .wbcmetismenu-submenu.sublevel-2 {
+  padding: 0px; 
+  display: block !important; /* Spalten des mehrspaltigen Dropdowns immer anzeigen  */ 
+  position: relative !important;
 }
 .wbc-multicolumn-metismenu .wbcmulticolumn .mm-collapse h3 {
   text-align: center;
@@ -241,10 +245,6 @@
 .wbc-multicolumn-metismenu .mm-collapse.wbc-col .wbcmetismenu-item > .wbcmetismenu-link {
   padding: 0.3rem 0.5rem;
 }
-.wbc-multicolumn-metismenu .wbcmetismenu-item.level-2 .mm-toggler:after {
-  border: none;
-}
-
 .wbc-multicolumn-metismenu .wbcmetismenu-item.level-2.deeper {
   padding-top: 1rem;
   padding-bottom: 1rem;

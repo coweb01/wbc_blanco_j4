@@ -152,7 +152,7 @@ $ColOpen = false;  // schalter für mehrspaltiges dropdown und spalte geöffnet.
         // The next item is deeper. Ebene Tiefer
         case $showAll && $item->deeper:
             if ($item->level == 1 ) {
-                echo '<ul class="mm-collapse">';
+                echo '<ul class="wbcmetismenu-submenu-dropdown sublevel-'.$item->level.' mm-collapse">';
 
                 // öffnen wenn mehrspaltiges Untermenue
                 if ( $dropdowncolums == true ) {
@@ -170,7 +170,7 @@ $ColOpen = false;  // schalter für mehrspaltiges dropdown und spalte geöffnet.
                     $ColOpen = true;
                 }
             } else {
-                    echo '<ul class="wbcmetismenu-submenu">';
+                    echo '<ul class="wbcmetismenu-submenu sublevel-'.$item->level.'">';
                 }
             break;
 

@@ -12,44 +12,34 @@
     $variablen = $displayData;
     extract($displayData);
 
-    $app            = Factory::getApplication();
-    $tpath   = 'templates/site/wbc_blanco_j4/';
-
-    $data_attr = 'collapse';
-    $cssbutton = 'navbar-toggler navbar-toggler-right';
+    $app       = Factory::getApplication();
+    $tpath     = 'templates/site/wbc_blanco_j4/';
 
 ?>
 
 <!-- Static navbar -->
-<?php
-if($offcanvas == 0) :
-?>
+<?php if($offcanvas == 0) :?>
     <?php // dieser Button aktiviert das normale Bootstrap offcanvas ?>
-    <button class="<?php echo $cssbutton;?>" type="button" data-bs-toggle="<?php echo $data_attr; ?>" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="<?php echo Text::_('TPL_WBC_BLANCO_J4_MENU'); ?><">
-        <span class="navbar-toggler-icon"></span>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#OffcanvasMenu<?php echo $offcanvas_pos; ?>" aria-controls="#OffcanvasMenu<?php echo $offcanvas_pos; ?>" aria-label="<?php echo Text::_('TPL_WBC_BLANCO_J4_MENU'); ?><">
+    <span class="navbar-toggler-icon"></span>
     </button>
 <?php
 endif
 ?>
 <div id="navMain" class="navbar navbar-collapse collapse">
-
     <?php
-    if ($logoposition == 1) : // Logo vor der Navigation
-    ?>
+    if ($logoposition == 1) : // Logo vor der Navigation ?>
     <div class="navbar-brand logo-mo">
         <?php
-            $LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $tpath.'html/layouts');
-
-            echo $LayoutLogo ->render($displayData);
+        $LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $tpath.'html/layouts');
+        echo $LayoutLogo ->render($displayData);
         ?>
     </div>
-    <?php
-    endif;
-    ?>
-
+    <?php endif;  ?>
+   
     <jdoc:include type="modules" name="navMain"/>
-
-    <?php
+   
+   <?php
     if ($jhtml->countModules('suche')) : // suche in der Navbar
     ?>
     <div class="suche d-print-none wbc-d-xlarge">

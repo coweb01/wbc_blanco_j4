@@ -22,15 +22,14 @@ extract($displayData);
 $app            = Factory::getApplication();
 $document       = $app->getDocument();
 $template       = $app->getTemplate(true);
-$mediapath = 'media/templates/site/wbc_blanco_j4/';
-$tpath = 'templates/wbc_blanco_j4/';
+$mediapath      = 'media/templates/site/wbc_blanco_j4/';
+$tpath          = 'templates/wbc_blanco_j4/';
 
 $wa             = $document->getWebAssetManager();
 $wa->registerAndUseStyle('bsoffcanvas', $mediapath . 'css/bs5-offcanvas.css');
 
 
 $min_height_l             = intval($offcanvas_navbar_height)+20;
-$toggle_offcanvas_bs5_pos = ($toggle_offcanvas_pos == 'left') ? 'start' : 'end';
 
 $Doffcanvas_breakpoint = $offcanvas_breakpoint+1;
 $wa->addInlineStyle("
@@ -49,7 +48,7 @@ $wa->addInlineStyle("
     }");
 ?>
 
-
+<!-- Bootstrap 5 offcanvas navbar -->
 <nav class="fixed-top navbar navbar-light toggle-pos-<?php echo $toggle_offcanvas_pos; ?> wbc__offcanvas-navbar" >
     <div class="container-fluid">
         <button class="btn btn-primary " type="button" data-bs-toggle="offcanvas" data-bs-target="#OffcanvasMenu<?php echo $offcanvas_pos; ?>" aria-controls="OffcanvasMenu<?php echo $offcanvas_pos;?>">
@@ -78,13 +77,4 @@ $wa->addInlineStyle("
         <?php endif; ?>
     </div>
 </nav>
-<div id="OffcanvasMenu<?php echo $offcanvas_pos; ?>" class="wbc-bs5-offcanvas offcanvas-<?php echo $toggle_offcanvas_bs5_pos; ?> offcanvas text-bg-dark"  tabindex="-1" aria-labelledby="wbc-bs5-offcanvasLabel">
-    <div class="offcanvas-header mt-3">
-        <h5 class="offcanvas-title" id="wbc-bs5-offcanvasLabel"><?php echo Text::_('TPL_WBC_MENU'); ?></h5>
-        <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="<?php echo Text::_('TPL_WBC_MENU_CLOSE_TXT'); ?>"></button>
-    </div>
-    <div class="offcanvas-body">
-        <jdoc:include type="modules" name="offcanvas"/>
-    </div>
-</div>
-<!--  Offcanvas -->
+<!-- end offcanvas navbar -->
