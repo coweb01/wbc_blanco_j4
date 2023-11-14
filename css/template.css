@@ -13576,65 +13576,65 @@ li.nav-item a {
 
 /* Ende menues Footer           */
 /** Hauptmenue    ----------------------------------------------------*/
-#navigation-main {
+.navigation-main {
   padding: 0;
   margin: 0;
 }
 
-#navigation-main ul.nav li {
+.navigation-main ul.nav li {
   display: inline-block;
   list-style: none;
   background-color: transparent;
   background-image: none;
 }
 
-#navigation-main ul li .separator,
-#navigation-main ul li a,
-#navigation-main ul li .nav-header {
+.navigation-main ul li .separator,
+.navigation-main ul li a,
+.navigation-main ul li .nav-header {
   font-size: 1.2rem;
   text-align: left;
   background-color: transparent;
   background-image: none;
 }
 
-#navigation-main ul li > a,
-#navigation-main ul li > button,
-#navigation-main ul li > span {
+.navigation-main ul li > a,
+.navigation-main ul li > button,
+.navigation-main ul li > span {
   overflow: hidden;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-#navigation-main ul li a {
+.navigation-main ul li a {
   text-decoration: none;
 }
 
-#navigation-main ul li a:link,
-#navigation-main ul li a:visited {
+.navigation-main ul li a:link,
+.navigation-main ul li a:visited {
   color: var(--Linkcolornavbar);
 }
 
-#navigation-main ul li a:hover,
-#navigation-main ul li a:focus {
+.navigation-main ul li a:hover,
+.navigation-main ul li a:focus {
   color: var(--Hovercolornavbar);
   background-color: transparent;
   background-image: none;
 }
 
-#navigation-main ul li a:active {
+.navigation-main ul li a:active {
   color: var(--Activecolornavbar);
 }
 
-#navigation-main ul li.active a:link,
-#navigation-main ul li.active a:visited {
+.navigation-main ul li.active a:link,
+.navigation-main ul li.active a:visited {
   color: var(--Activecolornavbar);
 }
 
-#navigation-main ul li.parent {
+.navigation-main ul li.parent {
   position: relative;
 }
-#navigation-main ul li.parent .mod-menu__sub {
+.navigation-main ul li.parent .mod-menu__sub {
   position: absolute;
   top: 100%;
   z-index: 1001;
@@ -13645,61 +13645,61 @@ li.nav-item a {
   background: rgba(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb), var(--transnavbar)) !important;
   box-shadow: var(--schatten);
 }
-#navigation-main ul li.parent .mod-menu__sub li {
+.navigation-main ul li.parent .mod-menu__sub li {
   display: block;
 }
-#navigation-main ul li.parent .mod-menu__sub a {
+.navigation-main ul li.parent .mod-menu__sub a {
   display: inline-flex;
 }
 
 /******  2. Ebene                                   **********************/
-#navigation-main ul.nav-child {
+.navigation-main ul.nav-child {
   position: relative;
 }
 
-#navigation-main ul.nav-child li {
+.navigation-main ul.nav-child li {
   display: block;
 }
 
-#navigation-main ul.nav-child li,
-#navigation-main ul.nav-child li a {
+.navigation-main ul.nav-child li,
+.navigation-main ul.nav-child li a {
   margin-left: 0;
 }
 
-#navigation-main ul.dropdown-level1 > li a:link,
-#navigation-main ul.dropdown-level1 > li a:visited {
+.navigation-main ul.dropdown-level1 > li a:link,
+.navigation-main ul.dropdown-level1 > li a:visited {
   background-color: transparent;
   border-top: none;
 }
 
-#navigation-main ul.dropdown-level1 > li a:hover,
-#navigation-main ul.dropdown-level1 > li a:focus {
+.navigation-main ul.dropdown-level1 > li a:hover,
+.navigation-main ul.dropdown-level1 > li a:focus {
   border-top: none;
 }
 
-#navigation-main ul.dropdown-level1 li.active > a:link,
-#navigation-main ul.dropdown-level1li.active > a:visited {
+.navigation-main ul.dropdown-level1 li.active > a:link,
+.navigation-main ul.dropdown-level1li.active > a:visited {
   border-top: none;
 }
 
 /******* 3. Ebene                                  ***********************/
-#navigation-main ul.dropdown-level2 > li a {
+.navigation-main ul.dropdown-level2 > li a {
   background-color: transparent;
 }
 
-#navigation-main ul.dropdown-level2 > li a:link,
-#navigation-main ul.dropdown-level2 > li a:visited {
+.navigation-main ul.dropdown-level2 > li a:link,
+.navigation-main ul.dropdown-level2 > li a:visited {
   background-color: transparent;
   border-top: none;
 }
 
-#navigation-main ul.dropdown-level2 li > a:hover,
-#navigation-main ul.dropdown-level2 > li a:focus {
+.navigation-main ul.dropdown-level2 li > a:hover,
+.navigation-main ul.dropdown-level2 > li a:focus {
   border-top: none;
 }
 
-#navigation-main ul.dropdown-level2 li.active a:link,
-#navigation-main ul.dropdown-level2 li.active a:visited {
+.navigation-main ul.dropdown-level2 li.active a:link,
+.navigation-main ul.dropdown-level2 li.active a:visited {
   border-top: none;
 }
 
@@ -13867,19 +13867,19 @@ li.nav-item a {
 /** ------------------------------------------------------- */
 /* Bei Hover Untermenü einblenden */
 @media (min-width: 992px) {
-  #navigation-main .mod-menu_wbcdropdown-metismenu .wbcmetismenu-item.level-1:hover .wbc-multicolumn-dropdown-1,
-  #navigation-main .mod-menu_wbcdropdown-metismenu .wbcmetismenu-item.level-1 .wbcmetis-link:hover .wbc-multicolumn-dropdown-1 {
+  .navigation-main .mod-menu_wbcdropdown-metismenu .wbcmetismenu-item.level-1:hover .wbc-multicolumn-dropdown-1,
+  .navigation-main .mod-menu_wbcdropdown-metismenu .wbcmetismenu-item.level-1 .wbcmetis-link:hover .wbc-multicolumn-dropdown-1 {
     display: block;
   }
 }
 /*
 
 @media (max-width: 480px)*/ /* { phone 
-  #navigation-main ul {
+  .navigation-main ul {
     float: none;
     width: 100%;
   }
-  #navigation-main ul li {
+  .navigation-main ul li {
     display: block;
     float: none;
     width: 100%;
@@ -13887,11 +13887,11 @@ li.nav-item a {
   }
 }
 @media (min-width: 480px) and (max-width: 768px) {
-  #navigation-main ul {
+  .navigation-main ul {
     float: none;
     width: 100%;
   }
-  #navigation-main ul li {
+  .navigation-main ul li {
     display: block;
     float: none;
     width: 100%;
@@ -13899,10 +13899,10 @@ li.nav-item a {
   }
 }
 @media (min-width: 1200px) {
-  #navigation-main ul.nav-child {
+  .navigation-main ul.nav-child {
     position: absolute;
   }
-  #navigation-main .dropdown-level1 {
+  .navigation-main .dropdown-level1 {
     display: flex !important;
     margin-top: 0;
     visibility: hidden;
@@ -13910,8 +13910,8 @@ li.nav-item a {
     transition: visibility .5s, opacity .3s linear;
     transition-delay: .5s;
 }
-  #navigation-main li.level1:hover ul.dropdown-level1,
-  #navigation-main li.level1:focus ul.dropdown-level1 {*/
+  .navigation-main li.level1:hover ul.dropdown-level1,
+  .navigation-main li.level1:focus ul.dropdown-level1 {*/
 /*  bootstrap dropdown bei hover 1st-level 
     margin-top: 0;
     visibility: visible;
@@ -13959,7 +13959,7 @@ li.nav-item a {
 @media (min-width: 992px) {
 }
 @media (min-width: 1200px) {
-  #navigation-main ul.nav > li {
+  .navigation-main ul.nav > li {
     padding: 1rem;
   }
 }*/
