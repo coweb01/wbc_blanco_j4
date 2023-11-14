@@ -35,21 +35,23 @@ $counter            = 0;
 
 // custom css styles in Tabelle speichern
 $customcss          = array();
-$customcss          = explode (',',$templateparams->get('customcss'));
+if (!empty($templateparams->get('customcss'))) {
+    $customcss          = explode (',',$templateparams->get('customcss'));
+}
 
 if ($NavMainPos == 5 ) {
-	// Hauptnavigation rechts
-	$showrightColumn    = $this->countModules('navMain');
+    // Hauptnavigation rechts
+    $showrightColumn    = $this->countModules('navMain');
 }
 if ($NavMainPos == 4 ) {
-	// Hauptnavigation links
-	$showleftColumn     = $this->countModules('navMain');
+    // Hauptnavigation links
+    $showleftColumn     = $this->countModules('navMain');
 }
 
 $pos_search = '';
 if ($module = ModuleHelper::getModule('finder')) {;
-	$pos_search = $module->position;
-	$anker_search = 'id="suche-'. $pos_search. '"';
+    $pos_search = $module->position;
+    $anker_search = 'id="suche-'. $pos_search. '"';
 }
 
 $showrightColumn            = $showrightColumn + (($this->countModules('right-01')) || ($this->countModules('right-02')) || ($this->countModules('nav-sidebar-right')));
@@ -111,9 +113,9 @@ $col_sm_header_top01 = 12;
 $col_xs_header_top01 = 12;
 
 if ($logoposition == 2) {
-	$col_md_header_top01 = ( $logowidth_md != 12 ) ? 12 - $logowidth_md : 12;
-	$col_sm_header_top01 = ( $logowidth_sm != 12 ) ? 12 - $logowidth_sm : 12;
-	$col_xs_header_top01 = ( $logowidth_xs != 12 ) ? 12 - $logowidth_xs : 12;
+    $col_md_header_top01 = ( $logowidth_md != 12 ) ? 12 - $logowidth_md : 12;
+    $col_sm_header_top01 = ( $logowidth_sm != 12 ) ? 12 - $logowidth_sm : 12;
+    $col_xs_header_top01 = ( $logowidth_xs != 12 ) ? 12 - $logowidth_xs : 12;
 }
 
 if ($NavMainPos == 4) { $showleftColumn++; }
@@ -126,17 +128,17 @@ $activeMenuTitle          = isset($activeMenu->title); // aktiven Menuetitel
 
 /**      klasse setzen für Bodytag   *****/
 if ($menu->getActive() == $menu->getDefault($lang->getTag())) {
-	$frontpage = 1;
-	$classbody .= ' front';
+    $frontpage = 1;
+    $classbody .= ' front';
 } else {
-	$frontpage = 0;
-	$classbody  .= ' nofront';
+    $frontpage = 0;
+    $classbody  .= ' nofront';
 }
 
 $classbody .= ( $offcanvas == 1 ) ? ' wbc-offcanvas' : '';
 $classbody .= $pageclass;
 if ($bgimage == 1 && $templateparams->get('image-body')) {
-	$classbody .= ' bgimage-01';
+    $classbody .= ' bgimage-01';
 }
 
 /* ------------------------------------------------------------------------------*/
@@ -160,17 +162,17 @@ $col_left    =  ( $colSidebarLeft_sm == 12 )  ? 0 : $colSidebarLeft_sm;
 $col_right   =  ( $colSidebarRight_sm == 12 ) ? 0 : $colSidebarRight_sm;
 
 if ($showleftColumn) {
-	$cols         = 12 -  $colSidebarLeft;
-	$cols_sm      = 12 -  $col_left;
+    $cols         = 12 -  $colSidebarLeft;
+    $cols_sm      = 12 -  $col_left;
 }
 elseif ($showrightColumn) {
-	$cols          = 12 -  $colSidebarRight;
-	$cols_sm       = 12 -  $col_right;
+    $cols          = 12 -  $colSidebarRight;
+    $cols_sm       = 12 -  $col_right;
 }
 
 if(($showleftColumn) && ($showrightColumn)) {
-	$cols = 12 - ( $colSidebarLeft + $colSidebarRight );
-	$cols_sm = 12 - ( $col_left + $col_right );
+    $cols = 12 - ( $colSidebarLeft + $colSidebarRight );
+    $cols_sm = 12 - ( $col_left + $col_right );
 }
 
 // generator tag
@@ -178,7 +180,7 @@ $this->setGenerator(null);
 
 // force latest IE & chrome frame
 if (isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) {
-	$doc->setMetadata('x-ua-compatible', 'IE=edge,chrome=1');
+    $doc->setMetadata('x-ua-compatible', 'IE=edge,chrome=1');
 }
 
 $doc->setMetadata('viewport', '');
@@ -187,44 +189,44 @@ $doc->setMetadata('content-language',substr($this->language, 0, 2));
 // Load Icons
 if ($fontawesome == 1)
 {
-	$wa->useStyle('fontawesome');
+    $wa->useStyle('fontawesome');
 }
 
 // Enable assets
 $wa->usePreset('template.wbc')
-	->useStyle('template.user')
-	->useScript('template.user');
+    ->useStyle('template.user')
+    ->useScript('template.user');
 $i = 1;
 foreach ($customcss as $value) {
-	if ((File::exists($mediapath . 'css/'.$value ) ) ) {
-		$rname = 'custom'.$i;
-		$wa->registerAndUseStyle($rname, $mediapath . 'css/'. $value);
-	} // else { echo "CSS Datei" . $customcss.  "nicht vorhanden"; }
-	$i++;
+    if ((File::exists($mediapath . 'css/'.$value ) ) ) {
+        $rname = 'custom'.$i;
+        $wa->registerAndUseStyle($rname, $mediapath . 'css/'. $value);
+    } // else { echo "CSS Datei" . $customcss.  "nicht vorhanden"; }
+    $i++;
 }
 
 /* Default CSS Alternativ */
 if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/default.css') ) ) {
-	$wa->registerAndUseStyle('default', $mediapath . 'css/default.css');
+    $wa->registerAndUseStyle('default', $mediapath . 'css/default.css');
 }
 
 /* Hochkontrast CSS Alternativ */
 
 if ($styleswitch) {
-	if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/hk.css') ) ) {
-		$wa->registerAndUseStyle('hk', $mediapath . 'css/hk.css');
-	}
+    if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/hk.css') ) ) {
+        $wa->registerAndUseStyle('hk', $mediapath . 'css/hk.css');
+    }
 }
 /**************************************************************************************/
 
 if ($bgimage == 1 ) {
-	$Tmplstyle  = '.bgimage-01 { background-image: url(" ';
-	$Tmplstyle  .= $this->baseurl. '/images/headers/' . $sourcebgimage.'"); ';
-	$Tmplstyle  .= 'background-size: cover;';
-	$Tmplstyle  .= 'background-repeat: no-repeat;';
-	$Tmplstyle  .= 'background-position: center center;';
-	$Tmplstyle  .= '}';
-	$doc->addStyleDeclaration($Tmplstyle);
+    $Tmplstyle  = '.bgimage-01 { background-image: url(" ';
+    $Tmplstyle  .= $this->baseurl. '/images/headers/' . $sourcebgimage.'"); ';
+    $Tmplstyle  .= 'background-size: cover;';
+    $Tmplstyle  .= 'background-repeat: no-repeat;';
+    $Tmplstyle  .= 'background-position: center center;';
+    $Tmplstyle  .= '}';
+    $doc->addStyleDeclaration($Tmplstyle);
 }
 
 // jquery plugin smooth scroll
@@ -238,60 +240,60 @@ $wa->registerAndUseScript('funktion', $mediapath . 'js/funktion.js', [], ['defer
 
 // check if Flexicontent is enabled
 if ( ComponentHelper::getComponent('com_flexicontent', true)->enabled === 1 ) {
-	/* link zur Flexicontent Suchen Seite generieren */
-	require_once (JPATH_ADMINISTRATOR.'/components/com_flexicontent/defineconstants.php');
-	require_once (JPATH_SITE.'/components/com_flexicontent/helpers/route.php');
-	$searchsite = JRoute::_(FlexicontentHelperRoute::getSearchRoute($this->params->get($searchsiteId)));
+    /* link zur Flexicontent Suchen Seite generieren */
+    require_once (JPATH_ADMINISTRATOR.'/components/com_flexicontent/defineconstants.php');
+    require_once (JPATH_SITE.'/components/com_flexicontent/helpers/route.php');
+    $searchsite = JRoute::_(FlexicontentHelperRoute::getSearchRoute($this->params->get($searchsiteId)));
 } else {
-	$searchsite = '';
+    $searchsite = '';
 }
 
 $displayData = array(
-			'jhtml'                         => $this,
-			'sitename'                      => $sitename,
-			'sidebar'                       => array( 0=>'left', 1=>'right'),
-			'templateparams'                => $templateparams,
-			'offcanvas'                     => $offcanvas,
-			'offcanvas_pos'                 => $offcanvas_pos,
-			'offcanvas_breakpoint'          => $offcanvas_breakpoint,
-			'offcanvas_width'               => $offcanvas_width,
-			'toggle_offcanvas_pos'          => $toggle_offcanvas_pos,
-			'offcanvas_navbar_height'       => $offcanvas_navbar_height,
-			'offcanvas_pushContent'         => $offcanvas_pushContent,
-			'offcanvas_levelOpen'           => $offcanvas_levelOpen,
-			'offcanvas_levelSpacing'        => $offcanvas_levelSpacing,
-			'offcanvas_bodyInsert'          => $offcanvas_bodyInsert,
-			'offcanvas_removeOriginalNav'   => $offcanvas_removeOriginalNav,
-			'logoposition'                  => $logoposition,
-			'logo_mobil'                    => $logo_mobil,
-			'logo'                          => $logo,
-			'toggleleft'                    => $toggleleft,
-			'toggleright'                   => $toggleright,
-			'fontsize'                      => $fontsize,
-			'fontsize_pos'                  => $fontsize_pos,
-			'styleswitch'                   => $styleswitch,
-			'styleswitch_pos'               => $styleswitch_pos,
-			'mediapath'                     => $mediapath,
-			'fontawesome'                   => $fontawesome,
-			'iconleft'                      => $iconleft,
-			'iconright'                     => $iconright,
-			'bgnavbar'                      => $bgnavbar,
-			'headerimg'                     => $headerimg,
-			'footercols'                    => $footercols,
-			'headerimgSizeClass'            => $headerimgSizeClass,
-			'bootstrap_colclass'            => $bootstrap_colclass,
-			'bootstrap_colclass_mobil_sm'   => $bootstrap_colclass_mobil_sm
+            'jhtml'                         => $this,
+            'sitename'                      => $sitename,
+            'sidebar'                       => array( 0=>'left', 1=>'right'),
+            'templateparams'                => $templateparams,
+            'offcanvas'                     => $offcanvas,
+            'offcanvas_pos'                 => $offcanvas_pos,
+            'offcanvas_breakpoint'          => $offcanvas_breakpoint,
+            'offcanvas_width'               => $offcanvas_width,
+            'toggle_offcanvas_pos'          => $toggle_offcanvas_pos,
+            'offcanvas_navbar_height'       => $offcanvas_navbar_height,
+            'offcanvas_pushContent'         => $offcanvas_pushContent,
+            'offcanvas_levelOpen'           => $offcanvas_levelOpen,
+            'offcanvas_levelSpacing'        => $offcanvas_levelSpacing,
+            'offcanvas_bodyInsert'          => $offcanvas_bodyInsert,
+            'offcanvas_removeOriginalNav'   => $offcanvas_removeOriginalNav,
+            'logoposition'                  => $logoposition,
+            'logo_mobil'                    => $logo_mobil,
+            'logo'                          => $logo,
+            'toggleleft'                    => $toggleleft,
+            'toggleright'                   => $toggleright,
+            'fontsize'                      => $fontsize,
+            'fontsize_pos'                  => $fontsize_pos,
+            'styleswitch'                   => $styleswitch,
+            'styleswitch_pos'               => $styleswitch_pos,
+            'mediapath'                     => $mediapath,
+            'fontawesome'                   => $fontawesome,
+            'iconleft'                      => $iconleft,
+            'iconright'                     => $iconright,
+            'bgnavbar'                      => $bgnavbar,
+            'headerimg'                     => $headerimg,
+            'footercols'                    => $footercols,
+            'headerimgSizeClass'            => $headerimgSizeClass,
+            'bootstrap_colclass'            => $bootstrap_colclass,
+            'bootstrap_colclass_mobil_sm'   => $bootstrap_colclass_mobil_sm
 );
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 
 // script für den Styleumschalter HK / Default
 if($styleswitch == 1) {
-	$wa->registerAndUseScript('switcher', $mediapath . 'js/CSSswitcher.js', [], ['defer' => true], []);
+    $wa->registerAndUseScript('switcher', $mediapath . 'js/CSSswitcher.js', [], ['defer' => true], []);
 }
 
 //  script fixed Header on scroll
 if ($fixedheader == 1) {
-	$wa->registerAndUseScript('scroller', $mediapath . 'js/vendor/scrollPosStyler.min.js', [], ['defer' => true], []);
+    $wa->registerAndUseScript('scroller', $mediapath . 'js/vendor/scrollPosStyler.min.js', [], ['defer' => true], []);
 }
 
 

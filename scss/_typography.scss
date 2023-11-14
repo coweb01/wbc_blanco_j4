@@ -62,7 +62,7 @@
 html, body {
   --fluid-type-max: var(--fontsize);
   font-family: var(--fontfamily);
-  font-size: clamp(var(--fluid-type-min, 1rem), calc(1rem + var(--fluid-type-target, 5vw)), var(--fluid-type-max, 1.1rem));
+  font-size: clamp(1em, calc(1rem + var(--fluid-type-target, 2.8vw)), var(--fluid-type-max, 1.1rem));
   font-weight: 400;
   line-height: 150%;
   color: var(--defaultcolor);
@@ -84,14 +84,14 @@ h6, .h6 {
 h1, .h1 {
   --fluid-type-max: var(--h1_size);
   font-family: var(--fontfamily2);
-  font-size: clamp(var(--fluid-type-min, 1rem), calc(1rem + var(--fluid-type-target, 5vw)), var(--fluid-type-max, 1.1rem));
+  font-size: clamp(var(--fluid-type-min, 1.8rem), calc(1rem + var(--fluid-type-target, 2.8vw)), var(--fluid-type-max));
   line-height: calc(var(--h1_size) * 1.2);
   color: var(--h1_color);
 }
 
 h2, .h2 {
   --fluid-type-max: var(--h2_size);
-  font-size: clamp(var(--fluid-type-min, 1rem), calc(1rem + var(--fluid-type-target, 5vw)), var(--fluid-type-max, 1.1rem));
+  font-size: clamp(var(--fluid-type-min, 1.5rem), calc(1rem + var(--fluid-type-target, 2.8vw)), var(--fluid-type-max));
   line-height: calc(var(--h2_size) * 1.2);
   color: var(--h2_color);
 }
@@ -152,7 +152,8 @@ a:not([class]) {
   outline: 2px dotted var(--color1);
 }
 
-.wrap-outer a:link:not(.btn), .wrap-outer a:visited:not(.btn) {
+.wrap-outer a:link:not(.btn),
+.wrap-outer a:visited:not(.btn) {
   color: var(--linkcolor);
 }
 

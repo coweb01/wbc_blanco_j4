@@ -61,7 +61,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 <body id="top" class="body-01 <?php echo $classbody; ?>">
 
     <div class="prevent-scrolling">
-       
+
         <?php
         if ($offcanvas == 1 && $this->countModules('offcanvas')) :
 
@@ -81,12 +81,12 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
         </div>
         <!-- Offcanvas Body -->
 
-      
+
         <?php
         if( $this->countModules('sidebar-left-fix') ||
             $this->countModules('sidebar-left-toggle') ||
             $toggleleft) : ?>
-       
+
         <!-- fixed sidebars -->
             <?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'html/layouts');
 
@@ -103,7 +103,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
         if( $this->countModules('sidebar-right-fix') ||
             $this->countModules('sidebar-right-toggle') ||
             $toggleright) : ?>
-       
+
             <?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'html/layouts');
 
             $ReplacedisplayData = array( 'side' => 'right',
@@ -114,7 +114,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
             echo $LayoutSidebar ->render($displayData); ?>
         <!-- end fixed sidebars -->
         <?php endif; ?>
-       
+
         <?php /* wenn Modul grossflaechiges hintergrundbild */?>
         <?php if ($this->countModules('bg-01')) : ?>
         <div id="bg">
@@ -138,7 +138,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                         </div>
                     </div>
                     <?php endif; ?>
-                    
+
                     <div class="container<?php echo ( $navbarHeaderWidth == 1) ? '-fluid' : '';?>">
 
                         <?php if ($logoposition == 2) : ?>
@@ -286,17 +286,14 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                                     <jdoc:include type="message" />
 
                                     <div id="wrap-nav-sidebar-append" class="append-sidebar-before" data-set="appendsectionone"></div>
-                                    <?php
-                                    if ($this->countModules('vorInhalt-01') > 0) : ?>
+                                    <?php if ($this->countModules('vorInhalt-01') > 0) : ?>
                                     <div id="vorInhalt-01">
                                         <jdoc:include type="modules" name="vorInhalt-01" style="default" />
                                     </div>
-                                    <?php
-                                    endif;
-                                    ?>
+                                    <?php endif; ?>
 
-                                    <?php
-                                    if ($this->countModules('vorInhalt-01-col') > 0) : /* wenn Modul mehrspaltig */
+                                    <?php if ($this->countModules('vorInhalt-01-col') > 0) {
+                                        /* wenn Modul mehrspaltig */
                                         $LayoutModules = new FileLayout('wbc_blanco_template.cardmodules', $tpath.'html/layouts');
 
                                         $ReplacedisplayData = array('Modules' => 'vorInhalt-01-col',
@@ -305,19 +302,16 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 
                                         $displayData = array_replace($displayData, $ReplacedisplayData);
                                         echo $LayoutModules->render($displayData);
-                                    endif;
+                                    }
                                     ?>
 
-                                    <?php
-                                    if (!$hidecontentwrapper) : // contentbereich + module anzeigen
-                                    ?>
-                                    <jdoc:include type="component" />
-                                    <?php
-                                    endif;
-                                    ?>
+                                    <?php /* contentbereich + module anzeigen */?>
+                                    <?php if (!$hidecontentwrapper) : ?>
+                                        <jdoc:include type="component" />
+                                    <?php endif; ?>
 
-                                    <?php
-                                    if ($this->countModules('nachInhalt-01-col') > 0) : /* wenn Module mehrspaltig */
+                                    <?php if ($this->countModules('nachInhalt-01-col') > 0) {
+                                        /* wenn Module mehrspaltig */
                                         $LayoutModules = new FileLayout('wbc_blanco_template.cardmodules', $tpath.'html/layouts');
 
                                         $ReplacedisplayData = array('Modules' => 'nachInhalt-01-col',
@@ -326,22 +320,18 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 
                                         $displayData = array_replace($displayData, $ReplacedisplayData);
                                         echo $LayoutModules->render($displayData);
-                                    endif;
+                                    }
                                     ?>
                                 </div> <!-- Contenarea -->
                             </div><!--Content -->
 
-                            <?php
-                            if ($showrightColumn) :
-                            ?>
+                            <?php if ($showrightColumn) : ?>
                             <!-- ****************************************************************************************************** -->
                             <!-- *    Sidebar right                                                                                   * -->
                             <!-- ****************************************************************************************************** -->
                             <div id="sidebar-right" role="complementary" class="base-col col-12 <?php echo $bootstrap_colclass_mobil_sm . $colSidebarRight_sm . ' ' . $bootstrap_colclass . $colSidebarRight ; ?>" aria-labelledby="Sidebar right">
 
-                                <?php
-                                if ($this->countModules('nav-sidebar-right')) :
-                                ?>
+                                <?php if ($this->countModules('nav-sidebar-right')) : ?>
                                 <div class="append-sidebar-nav" data-set="appendsectionone">
                                     <nav id="wrap-nav-sidebar-right" aria-label="Nav sidebar right">
                                         <a href="#" id="toggle-btn-right" class="wbc-toggle-btn">
@@ -357,9 +347,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                                         </div>
                                     </nav>
                                 </div>
-                                <?php
-                                endif;
-                                ?>
+                                <?php endif; ?>
 
                                 <?php echo ($pos_search == 'right-01') ? '<div '. $anker_search .'></div>' : ''; ?>
                                 <jdoc:include type="modules" name="right-01" style="icon" /><!--End right-01-->
@@ -374,17 +362,12 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                     </div><!--End Container main-Content-->
 
                     <div class="clearfix"></div>
-                    <div class="append-sidebar-bottom" role="complementary" data-set="appendsection" aria-labelledby="Sidebar bottom"></div>
 
-                    <?php
-                    if ($this->countModules('nachInhalt-02')) :
-                    ?>
+                    <?php if ($this->countModules('nachInhalt-02')) : ?>
                     <div id="wrap-nach-content-02">
                         <jdoc:include type="modules" name="nachInhalt-02" style="default" />
                     </div>
-                    <?php
-                    endif;
-                    ?>
+                    <?php endif; ?>
                 </div> <!-- end container -->
                 </main> <!-- end main -->
             <!-- </div> end wrap-main -->
@@ -392,13 +375,9 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
             <div class="clearfix"></div>
             <!-- ****************************  End Main Content ***************************************************** -->
 
-            <?php
-            if ($this->countModules('onepagebottom')):
-            ?>
-            <jdoc:include type="modules" name="onepagebottom" style="onepage"/>
-            <?php
-            endif;
-            ?>
+            <?php if ($this->countModules('onepagebottom')) : ?>
+                <jdoc:include type="modules" name="onepagebottom" style="onepage"/>
+            <?php endif; ?>
 
         </div> <!-- wrap outer -->
         <!-- ****************************************************************************************************** -->
