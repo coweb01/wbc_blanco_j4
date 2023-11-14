@@ -26,7 +26,7 @@
 <?php
 endif
 ?>
-<div id="navMain" class="navbar navbar-collapse collapse">
+<div id="navMain" class="navigation-main navbar navbar-collapse collapse">
     <?php
     if ($logoposition == 1) : // Logo vor der Navigation ?>
     <div class="navbar-brand logo-mo">
