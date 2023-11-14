@@ -19,10 +19,13 @@ if ($item->anchor_title)
 	$attributes['title'] = $item->anchor_title;
 }
 
-$attributes['class'] = 'mod-menu__separator separator';
+$attributes['class'] = 'separator';
 $attributes['class'] .= $item->anchor_css ? ' ' . $item->anchor_css : null;
 
-$linktype = $item->title;
+if ($menuedescription) {
+	$description 	= '<span class="wbcmetis-subtitel">' . $menuedescription . '</span>';
+}
+$linktype  	= '<span class="wbcmetis-titel">' . $item->title .'</span>'.$description;
 
 if ($item->menu_icon)
 {
@@ -56,15 +59,15 @@ elseif ($item->menu_image)
 	}
 }
 
+echo '<span ' . ArrayHelper::toString($attributes) . '>' . $linktype . '</span>';
 
 if ($showAll && $item->deeper)
-{
-	$attributes['class'] .= ' mm-collapsed mm-toggler mm-toggler-nolink';
-	$attributes['aria-haspopup'] = 'true';
-	$attributes['aria-expanded'] = 'false';
-	echo '<button ' . ArrayHelper::toString($attributes) . '>' . $linktype . '</button>';
-}
-else
-{
-	echo '<span ' . ArrayHelper::toString($attributes) . '>' . $linktype . '</span>';
-}
+{		
+	if ( $dropdowncolums === true && $item->level != 2 ) {
+		 
+			$attributes['class'] = ' mm-collapsed mm-toggler mm-toggler-nolink';
+			$attributes['aria-haspopup'] = 'true';
+			$attributes['aria-expanded'] = 'false';
+			echo '<button ' . ArrayHelper::toString($attributes) . '><i aria-hidden="true" class="fas fa-chevron-down"></i></button>';
+	}
+} 

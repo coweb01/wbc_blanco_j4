@@ -16,8 +16,8 @@
 		<ol>
 		<li>logo                 -- Logo</li>
 		<li>logo-mobil           -- Logo Mobil </li>
-		<li>header-top-01-1      -- Header 1. Position oberer Rand</li>
-		<li>header-top-01-2      -- Header 2. Position oberer Rand</li>
+		<li>header-top-01        -- Header 1. Position oberer Rand</li>
+		<li>header-top-02        -- Header 2. Position unterer Rand</li>
 		<li>top-01               -- 1. Position oben</li>
 		<li>top-02               -- 2. Position oben</li>
 		<li>breadcrumb           -- Navigationspfad</li>
@@ -86,8 +86,7 @@
 	</languages>
 
 	<positions>
-		<position>header-top-01-1</position>
-		<position>header-top-01-2</position>
+		<position>header-top-01</position>
 		<position>header-top-02</position>
 		<position>top-01</position>
 		<position>top-02</position>

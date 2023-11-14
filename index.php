@@ -4,8 +4,8 @@
  * Template Joomla 4
  * Kunde:
  * Author: Claudia Oerter / Viviana Menzel
- * Stand: 11 / 2021
- * Version: 1.0
+ * Stand: 10 / 2023
+ * Version: 1.1.1
  * copyright Template das webconcept
  **********************************************************/
 defined('_JEXEC') or die;
@@ -61,37 +61,59 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 <body id="top" class="body-01 <?php echo $classbody; ?>">
 
     <div class="prevent-scrolling">
-            <!-- Bootstrap 5 offcanvas menü -->
-        <?php if ($offcanvas == 1 && $this->countModules('offcanvas')) {
+
+        <?php
+        if ($offcanvas == 1 && $this->countModules('offcanvas')) :
+
             $LayoutOffcanvas = new FileLayout('wbc_blanco_template.bts5offcanvas', $tpath.'html/layouts');
             echo $LayoutOffcanvas ->render($displayData);
-        }
-        ?>
-        <!-- end offcanvas -->
+        endif; ?>
+
+        <!-- Offcanvas Body -->
+        <div id="OffcanvasMenu<?php echo $offcanvas_pos; ?>" class="wbc-bs5-offcanvas offcanvas-<?php echo $toggle_offcanvas_pos; ?> offcanvas text-bg-dark"  tabindex="-1" aria-labelledby="wbc-bs5-offcanvasLabel">
+            <div class="offcanvas-header mt-3">
+                <h5 class="offcanvas-title" id="wbc-bs5-offcanvasLabel"><?php echo Text::_('TPL_WBC_MENU'); ?></h5>
+                <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="<?php echo Text::_('TPL_WBC_MENU_CLOSE_TXT'); ?>"></button>
+            </div>
+            <div class="offcanvas-body">
+                <jdoc:include type="modules" name="offcanvas"/>
+            </div>
+        </div>
+        <!-- Offcanvas Body -->
+
+
+        <?php
+        if( $this->countModules('sidebar-left-fix') ||
+            $this->countModules('sidebar-left-toggle') ||
+            $toggleleft) : ?>
 
         <!-- fixed sidebars -->
-        <?php if( $this->countModules('sidebar-left-fix') || $this->countModules('sidebar-left-toggle') || $toggleleft) {
-            $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'html/layouts');
+            <?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'html/layouts');
+
             $ReplacedisplayData = array( 'side' => 'left',
                                         'toggle' => $toggleleft,
                                         'pos' => '3'
                                         );
             $displayData = array_replace( $displayData, $ReplacedisplayData);
-            echo $LayoutSidebar ->render($displayData);
-        }
-        ?>
+            echo $LayoutSidebar ->render($displayData); ?>
 
-        <?php if($this->countModules('sidebar-right-fix') || $this->countModules('sidebar-right-toggle') || $toggleright) {
-           $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'html/layouts');
-           $ReplacedisplayData = array( 'side' => 'right',
+        <?php endif; ?>
+
+        <?php
+        if( $this->countModules('sidebar-right-fix') ||
+            $this->countModules('sidebar-right-toggle') ||
+            $toggleright) : ?>
+
+            <?php $LayoutSidebar = new FileLayout('wbc_blanco_template.fixedsidebars', $tpath.'html/layouts');
+
+            $ReplacedisplayData = array( 'side' => 'right',
                                         'toggle' => $toggleright,
                                         'pos' => '4'
                                         );
-           $displayData = array_replace( $displayData, $ReplacedisplayData);
-           echo $LayoutSidebar ->render($displayData);
-        }
-        ?>
+            $displayData = array_replace( $displayData, $ReplacedisplayData);
+            echo $LayoutSidebar ->render($displayData); ?>
         <!-- end fixed sidebars -->
+        <?php endif; ?>
 
         <?php /* wenn Modul grossflaechiges hintergrundbild */?>
         <?php if ($this->countModules('bg-01')) : ?>
@@ -106,6 +128,17 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
             <!-- ****************************************************************************************************** -->
             <header class="header" >
                 <div class="header-top <?php echo ($fixedheader == 1) ? 'sps' :'';?>" >
+
+                    <?php if ($this->countModules('header-top-01') ) : ?>
+                    <div class="container<?php echo ($navbarHeaderWidth == 1) ? '-fluid' : '';?>">
+                        <div id="header-top-01" class="base-row <?php echo $bootstrap_rowclass; ?> d-none d-sm-block">
+                            <div class="base-col col">
+                                <jdoc:include type="modules" name="header-top-01" style="none" />
+                            </div>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+
                     <div class="container<?php echo ( $navbarHeaderWidth == 1) ? '-fluid' : '';?>">
 
                         <?php if ($logoposition == 2) : ?>
@@ -127,21 +160,6 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                 </div><!-- End header-top -->
 
                 <div class="header-middle">
-
-                    <?php if ($this->countModules('header-top-01-1') || $this->countModules('header-top-01-2')) : ?>
-                    <div class="container<?php echo ($navbarHeaderWidth == 1) ? '-fluid' : '';?>">
-                        <div id="header-top-01" class="base-row <?php echo $bootstrap_rowclass; ?> d-none d-sm-block">
-                            <div class="
-                                <?php echo $bootstrap_colclass_mobil_xs . $col_xs_header_top01;?>
-                                <?php echo $bootstrap_colclass_mobil_sm . $col_sm_header_top01;?>
-                                <?php echo $bootstrap_colclass . $col_md_header_top01; ?>
-                            ">
-                                <jdoc:include type="modules" name="header-top-01-1" style="none" />
-                                <jdoc:include type="modules" name="header-top-01-2" style="none" />
-                            </div>
-                        </div>
-                    </div>
-                    <?php endif; ?>
 
                     <?php if ($this->countModules('navMain') && $NavMainPos == 2): ?>
                     <nav id="navigation-main" class="navbar navbar-expand-lg navbar-light <?php echo ($bgnavbar == 1 ) ? 'wbc-bg-navbar' : '';?> <?php echo ($fixedheader == 1) ? 'sps"' :'';?>" aria-label="Main Navigation">

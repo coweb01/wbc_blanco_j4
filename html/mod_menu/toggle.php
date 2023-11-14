@@ -5,7 +5,7 @@
  *
  * @copyright   (C) 2009 Open Source Matters, Inc. <https://www.joomla.org>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
- *
+ * 
  * Nur Menülevel = 1
  */
 
@@ -19,13 +19,13 @@ use Joomla\CMS\Plugin\PluginHelper;
 
 $app          = Factory::getApplication();
 $doc          = $app->getDocument();
-$template     = $app->getTemplate(true);
-$mediapath = 'media/templates/site/wbc_blanco_j4/';
+$mediapath    = 'media/templates/site/wbc_blanco_j4/';
+
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
-$wa->registerAndUseScript('wbc.togglemenu', $mediapath. 'js/menues/wbctogglemenu.js');
-$wa->registerAndUseStyle('wbc.togglemenu', $mediapath. 'css/menues/wbctogglemenu.css');
+$wa->registerAndUseScript('wbc.togglemenu', $mediapath. 'js/menues/wbctogglemenu.min.js');
+$wa->registerAndUseStyle('wbc.togglemenu', $mediapath. 'css/menues/wbctogglemenu.min.css');
 
 $id = '';
 
@@ -44,7 +44,7 @@ if ($tagId = $params->get('tag_id', ''))
 		$class      = 'nav-item wbc-toggle-item wbc-toggle-item-' . $item->id;
 
 		/* menu parameters aus plugin advancedmenuparams ---------------------*/
-		$accesskey           = $itemParams->get('accesskey');
+		$accesskey           = $itemParams->get('accesskey'); 
 		$dropdowncolums      = $itemParams->get('dropdowncolums');
 		$menuecolumn         = $itemParams->get('menucolumn',0);
 		$columnwidth         = $itemParams->get('columnwidth',30);
@@ -116,8 +116,8 @@ if ($tagId = $params->get('tag_id', ''))
 				break;
 		endswitch;
 
-
+		
 		echo '</li>';
-	}
+	}	
 }
 ?></ul>

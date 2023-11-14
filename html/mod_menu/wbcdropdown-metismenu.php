@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Joomla.Site
  * @subpackage  mod_menu
@@ -19,260 +20,195 @@ $template     = $app->getTemplate(true);
 $mediapath    = 'media/templates/site/wbc_blanco_j4/';
 
 /** @var \Joomla\CMS\WebAsset\WebAssetManager $wa */
-$wa = $doc->getWebAssetManager();
-$wa->registerAndUseScript('wbcmetismenu', $mediapath. 'js/menues/wbcmenu-metismenu.min.js', [], ['defer' => true], ['metismenujs']);
+$wa = $app->getDocument()->getWebAssetManager();
+$wa->registerAndUseScript('wbcmetismenu', $mediapath. 'js/menues/wbcmenu-metismenu.js', [], ['defer' => true], ['metismenujs']);
 $wa->registerAndUseStyle('wbc.metismenu', $mediapath. 'css/menues/wbcmetismenu.css');
 
-$attributes          = [];
-$attributes['class'] = 'mod-menu mod-menu_wbcdropdown-metismenu wbcmetismenu mod-list ' . $class_sfx;
-
-if ($tagId = $params->get('tag_id', ''))
-{
-	$attributes['id'] = $tagId;
+$attributes             = [];
+$attributes['class']    = 'mod-menu wbc-multicolumn-metismenu wbcmetismenu metismenu mod-list ' . $class_sfx;
+$attributes['class']    .= ' wbc-position-' . $module->position;
+if ($tagId = $params->get('tag_id', '')) {
+    $attributes['id'] = $tagId;
 }
 
 $start = (int) $params->get('startLevel', 1);
+$ColOpen = false;  // schalter für mehrspaltiges dropdown und spalte geöffnet.
 
 ?>
-
 <ul <?php echo ArrayHelper::toString($attributes); ?>>
+<?php foreach ($list as $i => &$item) {
+    // Skip sub-menu items if they are set to be hidden in the module's options
+    if (!$showAll && $item->level > $start) {
+        continue;
+    }
 
-<?php
-/*  variablen für das mehrspaltige Untermenü --------------------------*/
+    /* menu parameters aus plugin advancedmenuparams ---------------------*/
 
-$col                = 0; /* zähler spalten */
-$rowminwidth        = 0; /* init*/
-$open_cols          = false;  // schalter spalte dropdown geöffnet
-$switch_item_deeper = false;
-
-/* end ----------------------------------------------------------------*/
-?>
-
-<?php foreach ($list as $i => &$item)
-{
-
-	// Skip sub-menu items if they are set to be hidden in the module's options
-	if (!$showAll && $item->level > $start)
-	{
-		continue;
-	}
-
-	$itemParams         = $item->getParams();
-
-	/* menu parameters aus plugin advancedmenuparams ---------------------*/
-
-	$accesskey           = $itemParams->get('accesskey');
-	$dropdowncolums      = $itemParams->get('dropdowncolums');
-    $menuecolumn         = $itemParams->get('menucolumn',0);
-    $columnwidth         = $itemParams->get('columnwidth',30);
-    $columnwidthUnit     = $itemParams->get('columnwidthunit','%');
-    $stylecolumn         = ' style="flex: 0 0 ' . $columnwidth . $columnwidthUnit .'; max-width: '. $columnwidth . $columnwidthUnit .';"';
-
-    $menudescription     = $itemParams->get('description');
-    $headlinedropdown    = $itemParams->get('headlinedropdown',0);
-    $headlinedropdowntxt = $itemParams->get('headlinedropdowntxt');
-
-    $linkcss            = $itemParams->get('linkcss');
-
+        if ($item->getParams()) {
+            $itemParams          = $item->getParams();
+            $accesskey           = $itemParams->get('accesskey');
+            $menuecolumn         = $itemParams->get('menucolumn',);
+            $columnwidth         = $itemParams->get('columnwidth');
+            $columnwidthUnit     = $itemParams->get('columnwidthunit','%');
+            if ( $columnwidth &&  $menuecolumn ) {
+                $stylecolumn     = ' style="flex: 0 0 ' . $columnwidth . $columnwidthUnit .'; max-width: '. $columnwidth . $columnwidthUnit .';"';
+            } else {
+                $stylecolumn     = '';
+            }
+            $menuedescription     = $itemParams->get('description');
+            $headlinedropdown    = $itemParams->get('headlinedropdown',0);
+            if ( $headlinedropdown == 1 ) {
+                $headlinedropdowntxt = ( !empty($itemParams->get('headlinedropdowntxt')) ) ? $itemParams->get('headlinedropdowntxt') : $item->title;
+            } else {
+                $headlinedropdowntxt = '';
+            }
+            $linkcss             = $itemParams->get('linkcss');
+            $htmlmegamenu        = [];
+	    }
 
     /* end --------------------------------------------------------------*/
 
-	$class      = [];
-	$class[]    = 'wbcmetismenu-item item-' . $item->id . ' level-' . ($item->level - $start + 1);
-
-	if ($item->id == $default_id)
-	{
-		$class[] = 'default';
-	}
-
-	if ($item->id == $active_id || ($item->type === 'alias' && $itemParams->get('aliasoptions') == $active_id))
-	{
-		$class[] = 'current';
-	}
-
-	if (in_array($item->id, $path))
-	{
-		$class[] = 'active';
-	}
-	elseif ($item->type === 'alias')
-	{
-		$aliasToId = $itemParams->get('aliasoptions');
 
-		if (count($path) > 0 && $aliasToId == $path[count($path) - 1])
-		{
-			$class[] = 'active';
-		}
-		elseif (in_array($aliasToId, $path))
-		{
-			$class[] = 'alias-parent-active';
-		}
-	}
-
-	if ($item->type === 'separator')
-	{
-		$class[] = 'divider';
-	}
-
-	if ($showAll)
-	{
-		if ($item->deeper)
-		{
-			$class[] = 'deeper';
-			if ( $item->level == 1 && $dropdowncolums == 1 ) {
-				$class[] = 'wbc-dropdown-multicolumn';  /* Klasse li Elternelement wenn menu mehrspaltig */
-			}
-		}
-
-		if ($item->parent)
-		{
-			$class[] = 'parent';
-		}
-
-
-    	$classcolumn = ' class="' .implode(' ', $class) .'"';
-
-	}
-
-
-	if ( $switch_item_deeper == true ) :
-
-		 if ( $menuecolumn == 1 )  //oeffnen wenn mehrspaltig
-		  {
-			  echo '<ul class="mm-collapse wbc-multicolumn-dropdown-' .  $item_level . ' wbc-multicolumn-dropdown wbc-multicolumn-dropdown-'. $item_id.'">'. "\n";
-			  $col                    = 0;
-			  $rowminwidth            = 0;
-			  $rowid                  = $item_id;
-
-		  } else {	  echo '<ul class="mm-collapse wbc-multicolumn-dropdown-' .  $item_level . '">'. "\n";  }
-
-		  if ( $item_level < 2 && !empty($rowtitle) ) {
-		  echo '<li class="wbc-dropdown-titel" style="flex: 0 0 100%; max-width: 100%;"><p class="h3 wbc-menutitle">'.$rowtitle.'</p></li>'. "\n";
-		  }
-
-		  $switch_item_deeper = false;
-
-	endif;
-
-	 // html item levels
-	switch ($item->level) :
-		case 3:  echo '<li class="'. implode(' ', $class) .'">';
-				 break;
-		case 2:
- 				 if (  $menuecolumn == 1  ) :
-
-			          /*if ( $open_cols == true ) { // vorherige Spalte erst schliessen.
-						  //echo '</ul></div></div></li>'. "\n";
-						  //echo '</ul></li>'. "\n";
-						  $open_cols = false;
-						  }*/
-
-					  $rowminwidth  = $rowminwidth + $columnwidth;
-
-					  echo '<li clas="wbc-wrap-nav-col-'. $col .'" ' . $stylecolumn .' >'. "\n";
-
-					  $col++;
-					  $open_cols = true;
-
-					else :
-						if ( $open_cols == false ) {
-					  		echo '<li class="'. implode(' ', $class) .'">';
-					  	}
-					endif;
-
-
-				 break;
-		case 1:
-				 if ( $dropdowncolums == true  ) { $class[] = 'wbc-dropdown'; }
-
-				 if ( $headlinedropdown == 1 ) {
-				 	 $rowtitle = ( $headlinedropdowntxt  ) ? $headlinedropdowntxt : $item->title;
-				 }
-				 echo '<li class="'. implode(' ', $class) .'">';
-				 break;
-	endswitch;
-
-
-
-	// render the menu item
-
-	switch ($item->type) :
-		case 'separator':
-		case 'component':
-		case 'heading':
-		case 'url':
-			require ModuleHelper::getLayoutPath('mod_menu', 'wbcdropdown-metismenu_' . $item->type);
-			break;
-
-		default:
-			require ModuleHelper::getLayoutPath('mod_menu', 'wbcdropdown-metismenu_url');
-	endswitch;
-
-
-
-
-	switch (true) :
-
-
-
-		// The next item is deeper.
-		case $showAll && $item->deeper:
-			// merke .. ul wird spaeter geoeffnet
-			$switch_item_deeper = true;
-			$item_level = $item->level;
-			$item_id = $item->id;
-
-
-			break;
-
-		// The next item is shallower.
-		case $item->shallower:
-
-			$level_next = $item->level;
-			//$level_diff = $item->level_diff;
-
-			 if ( $item->level > 2 )  {
-
-
-			     if ( $open_cols == true && $level_next == 1  ) {
-
-
-					  echo '</li>'. "\n";
-
-					  $open_cols = false;
-
-				 }
-
-
-			  } else  if ( $item->level == 2  ) {
-
-			  		if ($open_cols == true ) {
-
-			  			echo '</ul></li>'. "\n";
-					  	$open_cols = false;
-
-			  		} else {
-
-			  			echo '</li></ul>'. "\n";
-			  		}
-
-
-
-			 }
-
-
-			break;
-
-		// The next item is on the same level.
-		default:
-
-			if ( $item->level == 1 || $item->level > 2 ) {
-				echo '</li>';
-			}
-
-			break;
-
-	endswitch;
-
-
+    $class      = [];
+    $class[]    = 'wbcmetismenu-item item-' . $item->id . ' level-' . ($item->level - $start + 1);
+
+    // Startseite erhält class "default"
+    if ($item->id == $default_id) {
+        $class[] = 'default';
+    }
+
+    if ($item->id == $active_id || ($item->type === 'alias' && $itemParams->get('aliasoptions') == $active_id)) {
+        $class[] = 'current';
+    }
+    // aktive Menueeintrag
+    if (in_array($item->id, $path)) {
+        $class[] = 'active';
+    } elseif ($item->type === 'alias') {
+        $aliasToId = $itemParams->get('aliasoptions');
+
+        if (count($path) > 0 && $aliasToId == $path[count($path) - 1]) {
+            $class[] = 'active';
+        } elseif (in_array($aliasToId, $path)) {
+            $class[] = 'alias-parent-active';
+        }
+    }
+
+    if ($item->type === 'separator') {
+        $class[] = 'divider';
+    }
+
+    if ($showAll) {
+        if ($item->deeper) {
+            $class[] = 'deeper';
+            if ( $item->level == 1 ) {
+                if ( $itemParams->get('dropdowncolums') == "1") {
+                $dropdowncolums =  true;
+                $class[] = 'wbcmulticolumn';
+                } 
+            } 
+        }
+
+        if ($item->parent) {
+            $class[] = 'parent';
+        }
+    }
+
+    // Spalten innerhalb des Dropdowns
+    if ( $item->level == 2 ) { // Im Menüparameter ist ein Spaltenumbruch gesetzt
+        if ( $menuecolumn  == true && $dropdowncolums == true ) {
+            if ( $ColOpen == true && !$firstcol) {
+                echo '</ul>'. "\n";
+                echo '</div>'. "\n";
+                $ColOpen = false;
+            } 
+            if ( !$firstcol ) {
+                echo '<div class="col"'. $stylecolumn .'>'. "\n";  
+                echo '<ul class="wbc-col">'. "\n";
+                $ColOpen = true;
+            } 
+            $firstcol = false;
+        }
+    }
+    // ende Spalten 
+    
+    echo '<li class="' . implode(' ', $class) . '">';
+
+    // Render the menu link
+    switch ($item->type) :
+        case 'separator':
+        case 'component':
+        case 'heading':
+        case 'url':
+            require ModuleHelper::getLayoutPath('mod_menu', 'wbcdropdown-metismenu_' . $item->type);
+            break;
+
+        default:
+            require ModuleHelper::getLayoutPath('mod_menu', 'wbcdropdown-metismenu_url');
+    endswitch;
+
+    //close Tags
+
+    switch (true) :
+        // The next item is deeper. Ebene Tiefer
+        case $showAll && $item->deeper:
+            if ($item->level == 1 ) {
+                echo '<ul class="wbcmetismenu-submenu-dropdown sublevel-'.$item->level.' mm-collapse">';
+
+                // öffnen wenn mehrspaltiges Untermenue
+                if ( $dropdowncolums == true ) {
+                    $htmlmegamenu[] = '<li class="container-fluid">'. "\n";
+                    $htmlmegamenu[] = '<div class="row">'. "\n";
+                    
+                    if ( !empty( $headlinedropdowntxt ) ){
+                        $htmlmegamenu[] = '<h3>'. $headlinedropdowntxt .'</h3>'. "\n";
+                    }
+                    $htmlmegamenu[] = '<div class="col"'. $stylecolumn .'>'. "\n";
+                    $htmlmegamenu[] = '<ul class="wbc-col">'. "\n";
+                    $htmlmegamenu   =  implode("\n",$htmlmegamenu); 
+                    echo $htmlmegamenu;
+                    $firstcol = true;
+                    $ColOpen = true;
+                }
+            } else {
+                    echo '<ul class="wbcmetismenu-submenu sublevel-'.$item->level.'">';
+                }
+            break;
+
+        // Dern nächste Datensatz ist eine Ebene höher. Schliessen des Dropdowns
+        case $item->shallower:
+            echo '</li>';
+
+            
+            // der nächste Level ist 1 mehrspaltiges Dropdown wieder schliessen
+            if ( $dropdowncolums == true ) { 
+                if ( $item->level == 2 && $item->level_diff == 1 ) {
+                    $dropdowncolums = false;
+                    echo '</ul>'. "\n";
+                    echo '</div>'. "\n";
+                    echo '</div>'. "\n";
+                    echo '</li>'. "\n";
+                    echo '</ul></li>'. "\n";
+                    break;
+                } 
+                if ( $item->level > 2  && $item->level_diff > 1  ) {
+                        $dropdowncolums = false;
+                        echo str_repeat('</ul></li>', $item->level_diff-1);  // erst alle offenen unterebenen schliessen
+                        echo '</ul>'. "\n";
+                        echo '</div>'. "\n";
+                        echo '</div>'. "\n";
+                        echo '</li>'. "\n";
+                        echo '</ul></li>'. "\n";
+                    break;
+                } 
+            }
+
+            echo str_repeat('</ul></li>', $item->level_diff);
+            break;
+
+        // The next item is on the same level.
+        default:
+            echo '</li>';
+            break;
+    endswitch;
 }
 ?></ul>

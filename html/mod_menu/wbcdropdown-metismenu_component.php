@@ -13,7 +13,7 @@ use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\HTML\HTMLHelper;
 
 $attributes = [];
-$class = 'wbcmetis-link ';
+$class = 'wbcmetismenu-link ';
 $description = '';
 
 if ($accesskey ) {
@@ -55,11 +55,10 @@ if ($item->id == $active_id)
 
 $attributes['class'] = $class;
 
-if ($menudescription) {
-	$description 	= '<span class="wbcmetis-subtitel">' . $menudescription . '</span>';
+if ($menuedescription) {
+	$description 	= '<span class="wbcmetis-subtitel">' . $menuedescription . '</span>';
 }
-
-$linktype  		= '<span class="wbcmetis-titel">' . $item->title .'</span>' . $description;
+$linktype  		= '<span class="wbcmetis-titel">' . $item->title .'</span>'.$description;
 
 if ($item->menu_icon)
 {
@@ -106,7 +105,8 @@ elseif ($item->browserNav == 2)
 
 echo HTMLHelper::link(OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), $linktype, $attributes);
 
-if ($showAll && $item->deeper)
+if ($showAll && $item->deeper && $item->level != 2)
 {
-	echo '<button class="mm-collapsed mm-toggler mm-toggler-link" aria-haspopup="true" aria-expanded="false" aria-label="' . $item->title . '"></button>';
+	echo '<button class="mm-collapsed mm-toggler mm-toggler-link" aria-haspopup="true" aria-expanded="false" aria-label="' . $item->title . '"><i aria-hidden="true" class="fas fa-chevron-down"></i></button>';
 }
+
