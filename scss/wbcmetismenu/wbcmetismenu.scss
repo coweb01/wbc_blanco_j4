@@ -84,6 +84,7 @@
         text-decoration: none;
         text-overflow: ellipsis;
         color: var(--Linkcolornavbar);
+        white-space: normal;
       }
       > a.wbcmetismenu-link:focus-visible,
       > button:focus-visible
@@ -394,7 +395,8 @@
             }
             .col {
               padding: 0px;
-              flex: 0 0 100%;
+              flex: 0 0 100%!important;
+              max-width: 100%!important;
               .wbc-col {
                 padding: 0px;
               }

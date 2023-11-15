@@ -25,7 +25,7 @@ $template       = $app->getTemplate(true);
 $mediapath      = 'media/templates/site/wbc_blanco_j4/';
 $tpath          = 'templates/wbc_blanco_j4/';
 
-//$wa             = $document->getWebAssetManager();
+$wa             = $document->getWebAssetManager();
 //$wa->registerAndUseStyle('bsoffcanvas', $mediapath . 'css/bs5-offcanvas.css');
 
 

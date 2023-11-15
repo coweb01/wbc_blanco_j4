@@ -80,6 +80,7 @@
   text-decoration: none;
   text-overflow: ellipsis;
   color: var(--Linkcolornavbar);
+  white-space: normal;
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetismenu-link:focus-visible,
 .wbcmetismenu.mod-menu .wbcmetismenu-item > button:focus-visible {
@@ -359,7 +360,8 @@
 }
 .wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item .container-fluid .row .col {
   padding: 0px;
-  flex: 0 0 100%;
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
 }
 .wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item .container-fluid .row .col .wbc-col {
   padding: 0px;
