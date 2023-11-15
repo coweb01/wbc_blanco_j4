@@ -1,0 +1,122 @@
+/* Styles Bootstrap 5 Offcanvas */
+/* Author das-webconcept c.oerter */
+/* Layout html/layouts/wbc_blanco_template/bts5offcanvas.php */
+
+.wbc__offcanvas-navbar {
+    background-color: var(--bgnavbarcolor, #fff);
+    color: var(--colornavbar, #333);
+
+    .navbar-brand.wbc__logo {
+        padding: 0px;
+    }
+
+    
+    .btn {
+      &.wbc__offcanvas-toggler-button  {
+            width: 2rem;
+            height: 2rem;
+            background-color: unset;
+            background-image: none;
+            position: relative;
+            background-color: transparent;
+            background-image: none;
+            border: unset;
+        }
+      
+    }
+    
+   
+
+    &.toggle-pos-right .btn {
+        order: 9;
+    }
+
+    span.navbar-toggler-icon {
+        position: absolute; 
+        left: 2px;
+        top: 50%; 
+        display: inline-block;
+        margin-left: 0;
+        width: 100%;
+        transform: translateY(-50%);
+        transform-origin: 50% 50%;
+        transition: all .2s ease;
+        background-color: var(--linkcolor, #333);
+        background-image: none;
+        height: 2px;
+
+        &:before,
+        &:after {
+            display: inline-block;
+            position: absolute;
+            left: 0px;
+            height: 2px;
+            background-color: var(--linkcolor, #333);
+            content: '';
+            width: 140%;
+        }
+
+        &:before {
+            top: -10px;
+        }
+
+        &:after {
+            bottom: -10px;
+        }
+    }
+}
+
+.wbc-bs5-offcanvas,
+.wbc-bs5-offcanvas .offcanvas-header,
+.wbc-bs5-offcanvas .offcanvas-body {
+    background-color: var(--color1, rgba(0,0,0, .95)); 
+    color: rgba(255,255,255, 1);
+}
+
+.wbc-bs5-offcanvas {
+    .offcanvas-body {
+        flex-grow: 1;
+        padding: 1rem 1rem;
+        overflow-y: auto; 
+        visibility: hidden;
+    }
+
+    &.offcanvas.show .offcanvas-body {
+        visibility: visible;
+    }
+
+    &.offcanvas.show {
+        visibility: visible;
+        transform: none;
+    }
+
+    a:link,
+    a:visited {
+        color:  rgba(255,255,255, 1);
+    }
+
+    a:hover,
+    a:focus {
+        color:  rgba(255,255,255, .7);
+    }
+
+    .btn-close:hover,
+    .btn-close:focus {
+        background-color: transparent;
+    }
+}
+
+@media (min-width: 992px) {
+    .wbc__offcanvas-navbar {
+        &.toggle-pos-left .btn, 
+        &.toggle-pos-right .btn {
+            width: 4rem;
+            height: 4rem;
+        }
+
+        span.navbar-toggler-icon {
+            margin-left: 18px;
+            left: 0px;
+        }
+    }
+}

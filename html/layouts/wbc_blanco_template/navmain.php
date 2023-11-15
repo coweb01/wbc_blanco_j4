@@ -36,9 +36,9 @@ endif
         ?>
     </div>
     <?php endif;  ?>
-   
-    <jdoc:include type="modules" name="navMain"/>
-   
+    <div class="navbar-collapse main-append">
+        <jdoc:include type="modules" name="navMain"/>
+    </div>
    <?php
     if ($jhtml->countModules('suche')) : // suche in der Navbar
     ?>

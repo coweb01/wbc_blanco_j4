@@ -256,7 +256,41 @@
 					type="note"
 					label="TPL_WBC_BLANCO_J4_DEFAULT_COLORS"
 				/>
-
+				<field
+					name="color1"
+					type="color"
+					default="#ffffff"
+					label="TPL_WBC_BLANCO_J4_COLOR1_LABEL"
+					description="TPL_WBC_BLANCO_J4_COLOR1_DESC"
+				/>
+				<field
+					name="color2"
+					type="color"
+					default="#ffffff"
+					label="TPL_WBC_BLANCO_J4_COLOR2_LABEL"
+					description="TPL_WBC_BLANCO_J4_COLOR2_DESC"
+				/>
+				<field
+					name="color3"
+					type="color"
+					default="#ffffff"
+					label="TPL_WBC_BLANCO_J4_COLOR3_LABEL"
+					description="TPL_WBC_BLANCO_J4_COLOR3_DESC"
+				/>
+				<field
+					name="color4"
+					type="color"
+					default="#ffffff"
+					label="TPL_WBC_BLANCO_J4_COLOR4_LABEL"
+					description="TPL_WBC_BLANCO_J4_COLOR3_DESC"
+				/>
+				<field
+					name="color5"
+					type="color"
+					default="#ffffff"
+					label="TPL_WBC_BLANCO_J4_COLOR5_LABEL"
+					description="TPL_WBC_BLANCO_J5_COLOR3_DESC"
+				/>
 				<field
 					name="backgroundcolor"
 					type="color"

@@ -67,6 +67,14 @@
         &.far:before {
           margin-right: 0.5rem;
         }
+        img {
+          max-width: 80px;
+          height: auto;
+          padding-right: 10px;
+        }
+      }
+      .wbcmetismenu-link {
+        display: flex;
       }
       > span,
       > a.wbcmetismenu-link,
@@ -75,11 +83,17 @@
         overflow: hidden;
         text-decoration: none;
         text-overflow: ellipsis;
+        color: var(--Linkcolornavbar);
       }
-      > a.wbcmetismenu-link:focus,
-      > button:focus {
-        outline: 1px dotted var(----color1);
+      > a.wbcmetismenu-link:focus-visible,
+      > button:focus-visible
+      {
+        outline: 1px dotted var(--color1);
         outline-offset: 2px;
+      } 
+      > a.wbcmetismenu-link:focus,
+      > button:focus
+      {
         color: var(--Hovercolornavbar);
       }
       > button:hover,
@@ -160,8 +174,7 @@
       top: 100%;
       > li {
           a.wbcmetismenu-link {
-          display: block;
-          padding: .3rem .5rem;
+            padding: .3rem .5rem;
         }
         &.divider:not(.parent) {
           width: auto;
@@ -328,3 +341,71 @@
     }
   }
 }
+
+/* offcanvas  Body */
+.wbc-bs5-offcanvas {
+  .wbcmetismenu {
+    &.mod-menu {
+      flex-direction: column;
+      
+      .wbcmetismenu-item {
+        border-bottom: 1px solid rgba(255,255,255,0.4);
+        justify-content: space-between;
+
+        > a.wbcmetismenu-link, 
+        > button, 
+        > span
+        {
+          color: var(--lightcolor, rgba(255,255,255,.8));
+        }
+        a.wbcmetismenu-link:hover,
+        a.wbcmetismenu-link:focus {
+          color: var(--lightcolor, rgba(255,255,255,1));
+        } 
+        a.wbcmetismenu-link:active {
+          color: var(--lightcolor, rgba(255,255,255,9));
+        } 
+        &.level-2 {
+          .wbcmetismenue_heading {
+            border-left: 3px solid var(--lightcolor, rgba(255,255,255,.8));
+          }
+        }  
+        &:not(.level-1) {
+          .wbcmetismenue_heading {
+            .wbcmetis-titel {
+              color: var(--lightcolor, rgba(255,255,255,1));
+            }
+          }  
+        }
+          
+        > ul {
+          position: static;
+          padding: 0px;
+          margin: 0px;
+          background-color: transparent;
+          transition: all .5s ease-in-out;
+        }
+        .container-fluid  {
+          padding: 0px; 
+          .row {
+            margin: 0px;
+            h3 {
+              display: none;
+            }
+            .col {
+              padding: 0px;
+              flex: 0 0 100%;
+              .wbc-col {
+                padding: 0px;
+              }
+            }
+          }
+
+        }
+
+      }
+    }
+  }
+}
+
+

@@ -64,6 +64,14 @@
 .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fa:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fas:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.far:before {
   margin-right: 0.5rem;
 }
+.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link img {
+  max-width: 80px;
+  height: auto;
+  padding-right: 10px;
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link {
+  display: flex;
+}
 .wbcmetismenu.mod-menu .wbcmetismenu-item > span,
 .wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetismenu-link,
 .wbcmetismenu.mod-menu .wbcmetismenu-item > button {
@@ -71,11 +79,15 @@
   overflow: hidden;
   text-decoration: none;
   text-overflow: ellipsis;
+  color: var(--Linkcolornavbar);
+}
+.wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetismenu-link:focus-visible,
+.wbcmetismenu.mod-menu .wbcmetismenu-item > button:focus-visible {
+  outline: 1px dotted var(--color1);
+  outline-offset: 2px;
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetismenu-link:focus,
 .wbcmetismenu.mod-menu .wbcmetismenu-item > button:focus {
-  outline: 1px dotted var(----color1);
-  outline-offset: 2px;
   color: var(--Hovercolornavbar);
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item > button:hover,
@@ -153,7 +165,6 @@
   top: 100%;
 }
 .wbcmetismenu.mod-menu .mm-collapse:not(.wbc-col) > li a.wbcmetismenu-link {
-  display: block;
   padding: 0.3rem 0.5rem;
 }
 .wbcmetismenu.mod-menu .mm-collapse:not(.wbc-col) > li.divider:not(.parent) {
@@ -302,4 +313,54 @@
   width: auto;
   height: 1px;
   border-bottom: 1px solid var(--mm-color2);
+}
+
+/* offcanvas  Body */
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu {
+  flex-direction: column;
+}
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  justify-content: space-between;
+}
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetismenu-link,
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item > button,
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item > span {
+  color: var(--lightcolor, rgba(255, 255, 255, 0.8));
+}
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item a.wbcmetismenu-link:hover,
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item a.wbcmetismenu-link:focus {
+  color: var(--lightcolor, white);
+}
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item a.wbcmetismenu-link:active {
+  color: var(--lightcolor, white);
+}
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item.level-2 .wbcmetismenue_heading {
+  border-left: 3px solid var(--lightcolor, rgba(255, 255, 255, 0.8));
+}
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item:not(.level-1) .wbcmetismenue_heading .wbcmetis-titel {
+  color: var(--lightcolor, white);
+}
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item > ul {
+  position: static;
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+  transition: all 0.5s ease-in-out;
+}
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item .container-fluid {
+  padding: 0px;
+}
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item .container-fluid .row {
+  margin: 0px;
+}
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item .container-fluid .row h3 {
+  display: none;
+}
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item .container-fluid .row .col {
+  padding: 0px;
+  flex: 0 0 100%;
+}
+.wbc-bs5-offcanvas .wbcmetismenu.mod-menu .wbcmetismenu-item .container-fluid .row .col .wbc-col {
+  padding: 0px;
 }
