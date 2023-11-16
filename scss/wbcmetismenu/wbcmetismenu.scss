@@ -169,9 +169,12 @@
         }
       }
     }
+    .wbcmetismenu-submenu-dropdown {
+        background-color: var(--bgnavbar, hsl(0, 0%, 100%));
+        margin-top: var(--bs-navbar-padding-y, .5rem);
+    }
     .mm-collapse:not(.wbc-col) {
       position: absolute;
-      background-color: var(--bgnavbar, hsl(0, 0%, 100%));
       top: 100%;
       > li {
           a.wbcmetismenu-link {

@@ -160,9 +160,12 @@
   width: 100%;
   display: block;
 }
+.wbcmetismenu.mod-menu .wbcmetismenu-submenu-dropdown {
+  background-color: var(--bgnavbar, white);
+  margin-top: var(--bs-navbar-padding-y, 0.5rem);
+}
 .wbcmetismenu.mod-menu .mm-collapse:not(.wbc-col) {
   position: absolute;
-  background-color: var(--bgnavbar, white);
   top: 100%;
 }
 .wbcmetismenu.mod-menu .mm-collapse:not(.wbc-col) > li a.wbcmetismenu-link {
