@@ -40,15 +40,15 @@
 /* toggle Box */
 
 .wbc-toggle-container {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100vh;
     overflow: hidden;
     left: 0;
     top: 0rem;
     z-index: 999999;
-    background-color: rgba(10, 10, 10, 0.9);
-    color: white !important;
+    background-color: rgba(10, 10, 10, 0.95);
+    color: white;
     padding: 2rem;
     display: none;
     justify-content: center;
@@ -58,7 +58,7 @@
     display: flex !important;
 }
 .wbc-toggle-container  * { 
-    color: white!important;
+    color: white;
     border-color: white;
 }
 .wbc-toggle-container .btn-close {
@@ -76,4 +76,23 @@
 }
 
 
+.wbc-toggle-container.wbc-bg-hell {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--bs-dark,black);
+}
+.wbc-toggle-container.wbc-bg-hell  * { 
+    color: var(--bs-dark,black);
+    border-color: var(--bs-dark,black);
+}
+.wbc-toggle-container.wbc-bg-hell .btn-close {
+    filter:none;
 
+}
+.wbc-toggle-container.wbc-bg-hell .btn-close:hover,
+.wbc-toggle-container.wbc-bg-hell .btn-close:focus,
+.wbc-toggle-container.wbc-bg-hell .btn-close:active
+{
+    background-color: transparent;
+    border-color: var(--bs-dark,black);
+    color: var(--bs-dark,black);
+}

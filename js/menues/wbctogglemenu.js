@@ -20,14 +20,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('click',function(ev){
     // only if it is wbc-toggle-item
-    console.log(ev.target.parentElement.classList);
+    //console.log(ev.target.parentElement.classList);
     let toggleId;
     let container;
     if ( ev.target.classList.contains('wbc-toggle-item-link') || ev.target.parentElement.classList.contains('wbc-toggle-item-link') ) {
 
         ev.preventDefault();
-
-            toggleId = ev.target.dataset.toggleContainer;
+            if (ev.target.hasAttribute('data-toggle-container')) { 
+                toggleId = ev.target.dataset.toggleContainer;
+            }   else if (ev.target.parentElement.hasAttribute('data-toggle-container')){
+                toggleId = ev.target.parentElement.dataset.toggleContainer;
+            }   else {
+                return;
+            }
             if (toggleId.length === 0) { return; }
             container = document.getElementById(toggleId);
             container.classList.toggle('wbcshow');

@@ -20,7 +20,7 @@ $attributes['role'] = 'button';
 $string_pos = strpos($item->flink,'#');
 
 if ( $string_pos !== false ) {
-	$toggle_container_id  = substr($item->flink, 1);
+	$toggle_container_id  				 = substr($item->flink, 1);
 	$attributes['data-toggle-container'] = $toggle_container_id;
 }
 
@@ -114,7 +114,7 @@ if ($item->type !== 'alias') {
 		$attributes['type'] = 'button';
 		if ( $string_pos !== false) {	
 			$pluginContent = \Joomla\CMS\HTML\HTMLHelper::_('content.prepare', $content_plg);?>
-			<div id="<?php echo $toggle_container_id ?>" class="wbc-toggle-container">
+			<div id="<?php echo $toggle_container_id ?>" class="wbc-toggle-container <?php echo $class_sfx;?>">
 				<button <?php echo  ArrayHelper::toString($attributes) ?>></button>
 				<?php echo $pluginContent; ?>
 			</div>
