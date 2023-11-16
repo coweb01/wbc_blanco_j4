@@ -63,6 +63,7 @@ $ColOpen = false;  // schalter für mehrspaltiges dropdown und spalte geöffnet.
                 $headlinedropdowntxt = '';
             }
             $linkcss             = $itemParams->get('linkcss');
+            $content_plg         = $itemParams->get('content_plg');
             $htmlmegamenu        = [];
 	    }
 

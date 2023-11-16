@@ -10,6 +10,7 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\Utilities\ArrayHelper;
 
 $title      = $item->anchor_title ? ' title="' . $item->anchor_title . '"' : '';
 $anchor_css = $item->anchor_css ?: '';
@@ -48,12 +49,6 @@ elseif ($item->menu_image)
 }
 
 ?>
-<?php
 
 
-if ($item->anchor_css)
-{
-	$icon_class = '<i class="'.$item->anchor_css.'"></i>';
-}
-?>
-<span class="mod-menu__heading nav-header"><?php echo $icon_class; ?><span class="chrome-fix wbc-link-title visually-hidden"><?php echo $item->title;?></span></span>
+<span class="mod-menu__heading nav-header <?php echo $anchor_css; ?>"<?php echo $title; ?>><?php echo $linktype; ?></span>

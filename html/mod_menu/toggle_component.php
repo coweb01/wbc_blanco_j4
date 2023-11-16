@@ -12,12 +12,21 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\HTML\HTMLHelper;
 
-$attributes = array();
+$html_description = '';
+$attributes = [];
 $attributes['role'] = 'button';
+
+if ($accesskey ) {
+	$attributes['accesskey'] = $accesskey;
+}
 
 if ($item->anchor_title)
 {
 	$attributes['title'] = $item->anchor_title;
+}
+
+if ($item->anchor_css) {
+    $attributes['class'] = 'nav-link ' . $item->anchor_css;
 }
 
 if ($item->anchor_rel)
@@ -34,12 +43,12 @@ if ($item->id == $active_id)
 		$attributes['aria-current'] = 'page';
 	}
 }
-if ($item->anchor_css)
-{
-	$icon_class = $item->anchor_css;
-}
 
-// $linktype = '<i class="'.$icon_class.'"></i><span class="chrome-fix wbc-link-title visually-hidden">'.$item->title.'</span>';
+if ($menuedescription) {
+	$html_description 	= '<span class="wbc-toggle-subtitel">' . $menuedescription . '</span>';
+}
+$linktype  		= '<span class="wbc-toggle-titel">' . $item->title .'</span>'.$html_description;
+
 
 if ($item->menu_icon)
 {

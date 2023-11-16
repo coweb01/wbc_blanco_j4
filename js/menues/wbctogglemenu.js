@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('click',function(ev){
     // only if it is wbc-toggle-item
-    //console.log(event.target);
+    console.log(ev.target.parentElement.classList);
     let toggleId;
     let container;
-    if ( ev.target.classList.contains('wbc-toggle-item-link') || event.target.classList.contains('wbc-toggle-item-icon') ) {
+    if ( ev.target.classList.contains('wbc-toggle-item-link') || ev.target.parentElement.classList.contains('wbc-toggle-item-link') ) {
 
         ev.preventDefault();
 

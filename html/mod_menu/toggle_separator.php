@@ -10,6 +10,8 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\Utilities\ArrayHelper;
+
 
 $title      = $item->anchor_title ? ' title="' . $item->anchor_title . '"' : '';
 $anchor_css = $item->anchor_css ?: '';
@@ -48,22 +50,5 @@ elseif ($item->menu_image)
 }
 
 ?>
-<?php
-if ($item->anchor_css)
-{
-	$icon_class = '<i class="'.$item->anchor_css.'"></i>';
-}
-?>
-<span class="mod-menu__separator separator"><?php echo $icon_class; ?><span class="chrome-fix wbc-link-title visually-hidden"><?php echo $item->title;?></span></span>
-<?php 
-if ( $content_plg ) { 
-	if ( $string_pos !== false) {	
-	$pluginContent = \Joomla\CMS\HTML\HTMLHelper::_('content.prepare', $content_plg);?>
 
-	<div id="<?php echo $toggle_container_id ?>" class="wbc-toggle-container">
-		<button type="button" class="btn-close btn-close-white wbc-toggle-container-close" aria-label="Close"></button>
-		<?php echo $pluginContent; ?>
-	</div>
-<?php
-	} 
-}?>
+<span class="mod-menu__separator separator <?php echo $anchor_css; ?>"<?php echo $title; ?>><?php echo $linktype; ?></span>

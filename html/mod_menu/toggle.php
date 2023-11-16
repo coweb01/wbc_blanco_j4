@@ -19,44 +19,59 @@ use Joomla\CMS\Plugin\PluginHelper;
 
 $app          = Factory::getApplication();
 $doc          = $app->getDocument();
-$mediapath    = 'media/templates/site/wbc_blanco_j4/';
-
+$template     = $app->getTemplate(true);
+$mediapath    = 'media/templates/site/'.$template->template.'/';
+$attributes   = [];
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
-$wa->registerAndUseScript('wbc.togglemenu', $mediapath. 'js/menues/wbctogglemenu.min.js');
-$wa->registerAndUseStyle('wbc.togglemenu', $mediapath. 'css/menues/wbctogglemenu.min.css');
+$wa->registerAndUseScript('wbc.togglemenu', $mediapath. 'js/menues/wbctogglemenu.js');
+$wa->registerAndUseStyle('wbc.togglemenu', $mediapath. 'css/menues/wbctogglemenu.css');
 
-$id = '';
+$attributes['class']  = 'wbc-nav-toggle nav ' .$class_sfx;
 
-if ($tagId = $params->get('tag_id', ''))
+if ($tagId = $params->get('tag_id'))
 {
-	$id = ' id="wbctoogle-' . $tagId . '"';
+	$attributes['id']     = 'wbctoogle-' .$tagId;
+	
 }
 
-// The menu class is deprecated. Use mod-menu instead
-?>
-<ul<?php echo $id; ?> class="wbc-nav-toggle nav <?php echo $class_sfx; ?>">
-<?php foreach ($list as $i => &$item)
+// The menu class is deprecated. Use mod-menu instead 
+
+echo '<ul '. ArrayHelper::toString($attributes) .'>'; 
+foreach ($list as $i => &$item)
 {
 	if ( $item->level == 1 ) {
 		$itemParams = $item->getParams();
 		$class      = 'nav-item wbc-toggle-item wbc-toggle-item-' . $item->id;
 
-		/* menu parameters aus plugin advancedmenuparams ---------------------*/
-		$accesskey           = $itemParams->get('accesskey'); 
-		$dropdowncolums      = $itemParams->get('dropdowncolums');
-		$menuecolumn         = $itemParams->get('menucolumn',0);
-		$columnwidth         = $itemParams->get('columnwidth',30);
-		$columnwidthUnit     = $itemParams->get('columnwidthunit','%');
-		$stylecolumn         = ' style="flex: 0 0 ' . $columnwidth . $columnwidthUnit .'; max-width: '. $columnwidth . $columnwidthUnit .';"';
+    /* menu parameters aus plugin advancedmenuparams ---------------------*/
 
-		$menudescription     = $itemParams->get('description');
-		$headlinedropdown    = $itemParams->get('headlinedropdown',0);
-		$headlinedropdowntxt = $itemParams->get('headlinedropdowntxt');
-		$content_plg         = $itemParams->get('content_plg');
+	if ($item->getParams()) {
+		$itemParams          = $item->getParams();
+		$accesskey           = $itemParams->get('accesskey');
+		$menuecolumn         = $itemParams->get('menucolumn',);
+		$columnwidth         = $itemParams->get('columnwidth');
+		$columnwidthUnit     = $itemParams->get('columnwidthunit','%');
+		if ( $columnwidth &&  $menuecolumn ) {
+			$stylecolumn     = ' style="flex: 0 0 ' . $columnwidth . $columnwidthUnit .'; max-width: '. $columnwidth . $columnwidthUnit .';"';
+		} else {
+			$stylecolumn     = '';
+		}
+		$menuedescription     = $itemParams->get('description');
+		$headlinedropdown     = $itemParams->get('headlinedropdown',0);
+		if ( $headlinedropdown == 1 ) {
+			$headlinedropdowntxt = ( !empty($itemParams->get('headlinedropdowntxt')) ) ? $itemParams->get('headlinedropdowntxt') : $item->title;
+		} else {
+			$headlinedropdowntxt = '';
+		}
 		$linkcss             = $itemParams->get('linkcss');
-		/* end --------------------------------------------------------------*/
+		$content_plg         = $itemParams->get('content_plg');
+		$htmlmegamenu        = [];
+	}
+
+	/* end --------------------------------------------------------------*/
+
 
 		if ($item->id == $default_id)
 		{
