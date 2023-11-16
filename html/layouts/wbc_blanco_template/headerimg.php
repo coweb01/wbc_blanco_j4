@@ -15,6 +15,7 @@ Modul mod_custom aus. Keinen Modulinhalt.
 defined('_JEXEC') or die;
 
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
 
 extract($displayData);
@@ -22,7 +23,7 @@ extract($displayData);
 ?>
 
 <!-- start headerimg -->
-<div id="headerimg" class="<?php echo ($jhtml->params->get('bg-headerimg') != '') ? 'bg-headerimg'  : ''; ?>" role="banner">
+<div id="headerimg" class="<?php echo ($jhtml->params->get('bg-headerimg') != '') ? 'bg-headerimg'  : ''; ?>" role="banner"  aria-label="<?php echo Text::_('TPL_WBC_BLANCO_J4_HEADERIMG'); ?>">
 	<div class="container<?php echo ($jhtml->params->get('headerimg-width') == 1) ? '-fluid' : '';?>">
 		<div class="base-row row">
 			<div class="base-col wrap-headerimg <?php $headerimgSizeClass; ?> <?php echo $bootstrap_colclass; ?>12" >
