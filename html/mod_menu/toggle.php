@@ -20,7 +20,7 @@ use Joomla\CMS\Plugin\PluginHelper;
 $app          = Factory::getApplication();
 $doc          = $app->getDocument();
 $template     = $app->getTemplate(true);
-$mediapath    = 'media/templates/site/'.$template->template.'/';
+$mediapath    = 'media/templates/site/wbc_blanco_j4/';
 $attributes   = [];
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
