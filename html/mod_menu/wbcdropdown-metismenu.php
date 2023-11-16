@@ -160,7 +160,7 @@ $ColOpen = false;  // schalter für mehrspaltiges dropdown und spalte geöffnet.
                     $htmlmegamenu[] = '<div class="row">'. "\n";
                     
                     if ( !empty( $headlinedropdowntxt ) ){
-                        $htmlmegamenu[] = '<h3>'. $headlinedropdowntxt .'</h3>'. "\n";
+                        $htmlmegamenu[] = '<h3 class="wbcheadlinedropdown" aria-hidden="true">'. $headlinedropdowntxt .'</h3>'. "\n";
                     }
                     $htmlmegamenu[] = '<div class="col"'. $stylecolumn .'>'. "\n";
                     $htmlmegamenu[] = '<ul class="wbc-col">'. "\n";

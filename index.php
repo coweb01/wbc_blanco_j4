@@ -63,25 +63,20 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
     <div class="prevent-scrolling">
 
         <?php
-        if ($offcanvas == 1 && $this->countModules('offcanvas')) :
-
-            $LayoutOffcanvas = new FileLayout('wbc_blanco_template.bts5offcanvas', $tpath.'html/layouts');
-            echo $LayoutOffcanvas ->render($displayData);
-        endif; ?>
-
-        <!-- Offcanvas Body -->
-        <div id="OffcanvasMenu<?php echo $offcanvas_pos; ?>" class="wbc-bs5-offcanvas offcanvas-<?php echo $toggle_offcanvas_pos; ?> offcanvas text-bg-dark"  tabindex="-1" aria-labelledby="wbc-bs5-offcanvasLabel">
-            <div class="offcanvas-header mt-3">
-                <h5 class="offcanvas-title" id="wbc-bs5-offcanvasLabel"><?php echo Text::_('TPL_WBC_MENU'); ?></h5>
-                <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="<?php echo Text::_('TPL_WBC_MENU_CLOSE_TXT'); ?>"></button>
-            </div>
-            <div class="offcanvas-body">
-                <jdoc:include type="modules" name="offcanvas"/>
-            </div>
-        </div>
-        <!-- Offcanvas Body -->
-
-
+        if ($offcanvas == 1) : ?>
+            <!-- Offcanvas Navbar -->
+            <?php $LayoutOffcanvas = new FileLayout('wbc_blanco_template.bts5offcanvasnavbar', $tpath.'html/layouts'); ?>
+            <?php echo $LayoutOffcanvas ->render($displayData); ?>
+            <!-- end Offcanvas Navbar -->
+        <?php endif; ?>
+        
+        <?php  if ($offcanvas == 1) :?>
+            <!-- Offcanvas Body -->
+            <?php $LayoutOffcanvas = new FileLayout('wbc_blanco_template.bts5offcanvasbody', $tpath.'html/layouts'); ?>
+            <?php echo $LayoutOffcanvas ->render($displayData); ?>
+            <!-- end Offcanvas Body -->
+        <?php endif; ?>
+          
         <?php
         if( $this->countModules('sidebar-left-fix') ||
             $this->countModules('sidebar-left-toggle') ||
