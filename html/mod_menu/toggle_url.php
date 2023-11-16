@@ -11,13 +11,21 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\Utilities\ArrayHelper;
 
-$attributes = array();
+
+$attributes = [];
+$html_description = '';
 $attributes['role'] = 'button';
 $string_pos = strpos($item->flink,'#');
 
 if ( $string_pos !== false ) {
-	$toggle_container_id = substr($item->flink, 1);
+	$toggle_container_id  = substr($item->flink, 1);
+	$attributes['data-toggle-container'] = $toggle_container_id;
+}
+
+if ($accesskey ) {
+	$attributes['accesskey'] = $accesskey;
 }
 
 if ($item->anchor_title)
@@ -29,15 +37,15 @@ if ($item->anchor_rel)
 {
 	$attributes['rel'] = $item->anchor_rel;
 }
-if ($item->anchor_css)
-{
-	$icon_html = '<i class="wbc-toggle-item-icon '.$item->anchor_css.'"></i>';
+
+if ($menuedescription) {
+	$html_description 	= '<span class="wbc-toggle-subtitel">' . $menuedescription . '</span>';
 }
+$linktype  		= '<span class="wbc-toggle-titel">' . $item->title .'</span>'.$html_description;
+
 if ($item->type != 'alias') {
-	$attributes['class'] = 'wbc-toggle-item-link';
-	$attributes['data-toggle-container'] = $toggle_container_id;
+	$attributes['class'] = 'nav-link wbc-toggle-item-link';
 }
-//$linktype = $icon_html.'<span class="chrome-fix visually-hidden wbc-link-title">'.$item->title.'</span>';
 
 if ($item->menu_icon)
 {
@@ -49,7 +57,6 @@ if ($item->menu_icon)
 			$linktype = '<span class="nav-icon wbc-toggle-item-icon ' . $item->menu_icon . '" aria-hidden="true" data-toggle-container="'.$toggle_container_id.'"></span>' . $item->title;
 		} else {
 			$linktype = '<span class="nav-icon ' . $item->menu_icon . '" aria-hidden="true"></span>' . $item->title;
-
 		}
 	}
 	else
@@ -102,15 +109,16 @@ echo HTMLHelper::_('link', OutputFilter::ampReplace(htmlspecialchars($item->flin
 
 if ($item->type !== 'alias') {
 	if ( $content_plg ) { 
+		$attributes['class'] = 'btn-close btn-close-white wbc-toggle-container-close';
+		$attributes['aria-label'] = 'Close';
+		$attributes['type'] = 'button';
 		if ( $string_pos !== false) {	
-		$pluginContent = \Joomla\CMS\HTML\HTMLHelper::_('content.prepare', $content_plg);?>
-
-		<div id="<?php echo $toggle_container_id ?>" class="wbc-toggle-container">
-			<button type="button" class="btn-close btn-close-white wbc-toggle-container-close" aria-label="Close"></button>
-			<?php echo $pluginContent; ?>
-		</div>
-	<?php
-		} 
+			$pluginContent = \Joomla\CMS\HTML\HTMLHelper::_('content.prepare', $content_plg);?>
+			<div id="<?php echo $toggle_container_id ?>" class="wbc-toggle-container">
+				<button <?php echo  ArrayHelper::toString($attributes) ?>></button>
+				<?php echo $pluginContent; ?>
+			</div>
+	<?php } 
 	}
 }		
 ?>

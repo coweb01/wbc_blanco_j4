@@ -103,10 +103,7 @@ else {
 		<div class="wrap-main container">
 			<div class="main">
 				<div class="info-message row border position-relative">
-					<p class="h2 p-5 col-8"><?php echo Text::_('TPL_WBC_BLANCO_J4_JERROR_TEXT_ERROR'); ?></p>
-					<div class="col-4">
-						<img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/images/fehler.jpg" alt="sorry" >
-					</div>
+					<p class="h2 p-5 col"><?php echo Text::_('TPL_WBC_BLANCO_J4_JERROR_TEXT_ERROR'); ?></p>
 				</div>
 				<div class="alert alert-secondary row justify-content-center">
 					<p class="text-center">

@@ -11,6 +11,8 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\Utilities\ArrayHelper;
+
 
 $attributes = [];
 
@@ -100,8 +102,15 @@ elseif ($item->browserNav == 2)
 
 echo HTMLHelper::link(OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), $linktype, $attributes);
 
-if ($showAll && $item->deeper && $item->level != 2)
-{
-	echo '<button class="mm-collapsed mm-toggler mm-toggler-link" aria-haspopup="true" aria-expanded="false" aria-label="' . $item->title . '"><i aria-hidden="true" class="fas fa-chevron-down"></i></button>';
-}
-
+if ($showAll && $item->deeper)
+{		
+	$attributes['class'] = ' mm-collapsed mm-toggler mm-toggler-nolink';
+	
+	if ( $dropdowncolums === true && $item->level == 2 ) {
+		$attributes['class'] .=  ' wbcmetismenue_level2_btn';
+	}
+	$attributes['aria-haspopup'] = 'true';
+	$attributes['aria-expanded'] = 'false';
+	$attributes['aria-label'] = $item->title;
+	echo '<button ' . ArrayHelper::toString($attributes) . '><i aria-hidden="true" class="fas fa-chevron-down"></i></button>';
+} 

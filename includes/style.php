@@ -14,6 +14,12 @@ if ($templateparams->get('bgnavbarcolor')) {
 
 $wa->addInlineStyle('
 :root {
+	--color1: ' . $templateparams->get('color1') . ';
+	--color2: ' . $templateparams->get('color2') . ';
+	--color3: ' . $templateparams->get('color3') . ';
+	--color4: ' . $templateparams->get('color4') . ';
+	--color5: ' . $templateparams->get('color5') . ';
+	
 	--fontsize: ' . $templateparams->get('defaultfontsize') . 'rem;
 	--bgfooter: ' . $templateparams->get('bgfootercolor') . ';
 	--bgfooterfix: ' . $templateparams->get('bgfootercolorfix') . ';
