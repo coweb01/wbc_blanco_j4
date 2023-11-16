@@ -30,4 +30,7 @@ $black:    #000;
   --sidebar-toggle-width: 400px;
   --bgcolor-light: #f8f8f8;
   --bgcolor-dark: #333333;
-} 
+  --pagination-active-bg: var(--linkcolor);
+  --pagination-active-border-color: var(--linkcolor);
+  --pagination-active-color: #fff;
+}

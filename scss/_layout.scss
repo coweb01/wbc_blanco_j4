@@ -58,7 +58,7 @@ body {
 /* Position Logo *******************************************************************/
 
 .wbc__logo {
- 
+
   img {
     max-width: 250px;
     height: auto;
@@ -418,8 +418,11 @@ figcaption {
 .article-info-term {
   font-weight: 600;
 }
-.page-item.active .page-link{
-  background-color: rgba(var(--bs-primary-rgb));
+.page-link.active,
+.active > .page-link {
+  background-color: var(--pagination-active-bg);
+  border-color: var(--pagination-active-border-color);
+  color: var(--pagination-active-color) !important;
 }
 
 /*------------   Module vor_content_col --------------------------------------*/
@@ -576,7 +579,7 @@ figcaption {
   animation-name: wbc__sidebar-animation-left;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
-  .container-fix { 
+  .container-fix {
       display: block;
       padding-right: 3.5rem;
       padding-left: 1rem;
@@ -589,7 +592,7 @@ figcaption {
   animation-name: wbc__sidebar-animation-right;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
-  .container-fix { 
+  .container-fix {
       display: block;
       padding-left: 3.5rem;
       padding-right: 1rem;
@@ -895,7 +898,7 @@ figcaption {
   body:not(.nofront) #headerimg .wbc-background-image-stretch {
     min-height: 500px;
   }
-  
+
   .wbc-fixed-sidebar a > .fa,
   .wbc-fixed-sidebar a > .fas,
   .wbc-fixed-sidebar a > .far {
