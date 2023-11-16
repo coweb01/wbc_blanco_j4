@@ -126,7 +126,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
             <!-- ****************************************************************************************************** -->
             <!-- *     Header                                                                                         * -->
             <!-- ****************************************************************************************************** -->
-            <header class="header" >
+            <header class="header" aria-label="<?php echo Text::_('TPL_WBC_BLANCO_J4_HEADER'); ?>">
                 <div class="header-top <?php echo ($fixedheader == 1) ? 'sps' :'';?>" >
 
                     <?php if ($this->countModules('header-top-01') ) : ?>
@@ -261,7 +261,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                             <!-- *    Sidebar left                                                                                    * -->
                             <!-- ****************************************************************************************************** -->
 
-                            <div id="sidebar-left" role="complementary" class="append-sidebar-left base-col col-12 <?php echo $bootstrap_colclass_mobil_sm . $colSidebarLeft_sm . ' ' . $bootstrap_colclass . $colSidebarLeft; ?>" data-set="appendsection" aria-labelledby="Sidebar left">
+                            <div id="sidebar-left" role="complementary" class="append-sidebar-left base-col col-12 <?php echo $bootstrap_colclass_mobil_sm . $colSidebarLeft_sm . ' ' . $bootstrap_colclass . $colSidebarLeft; ?>" data-set="appendsection" aria-label="Sidebar left">
 
 
                                 <?php if ($this->countModules('nav-sidebar-left')) : ?>
@@ -329,7 +329,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                             <!-- ****************************************************************************************************** -->
                             <!-- *    Sidebar right                                                                                   * -->
                             <!-- ****************************************************************************************************** -->
-                            <div id="sidebar-right" role="complementary" class="base-col col-12 <?php echo $bootstrap_colclass_mobil_sm . $colSidebarRight_sm . ' ' . $bootstrap_colclass . $colSidebarRight ; ?>" aria-labelledby="Sidebar right">
+                            <div id="sidebar-right" role="complementary" class="base-col col-12 <?php echo $bootstrap_colclass_mobil_sm . $colSidebarRight_sm . ' ' . $bootstrap_colclass . $colSidebarRight ; ?>" aria-label="Sidebar right">
 
                                 <?php if ($this->countModules('nav-sidebar-right')) : ?>
                                 <div class="append-sidebar-nav" data-set="appendsectionone">
