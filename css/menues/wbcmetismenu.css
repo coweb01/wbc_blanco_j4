@@ -61,6 +61,9 @@
 .wbcmetismenu.mod-menu .wbcmetismenu-item > button {
   font-size: 1rem;
 }
+.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenue_level2_btn {
+  display: none;
+}
 .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fa:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fas:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.far:before {
   margin-right: 0.5rem;
 }
@@ -157,12 +160,7 @@
 .wbcmetismenu.mod-menu .mm-collapse .wbcmetismenu-item .nav-header {
   padding: 0.3rem 0.5rem;
   margin: 1rem 0;
-  width: 100%;
   display: block;
-}
-.wbcmetismenu.mod-menu .wbcmetismenu-submenu-dropdown {
-  background-color: var(--bgnavbar, white);
-  margin-top: var(--bs-navbar-padding-y, 0.5rem);
 }
 .wbcmetismenu.mod-menu .mm-collapse:not(.wbc-col) {
   position: absolute;
@@ -238,12 +236,18 @@
   flex: 1 1 0%;
   flex-direction: row;
 }
-.wbc-multicolumn-metismenu .wbcmetismenu-submenu-dropdown {
+.wbc-multicolumn-metismenu .wbcmulticolumn.parent .wbcmetismenu-submenu-dropdown {
   width: 100%;
   left: 0;
   right: auto;
   margin: auto auto;
+}
+.wbc-multicolumn-metismenu .wbcmetismenu-submenu-dropdown {
   max-width: 100%;
+  background-color: var(--bgnavbar, white);
+  margin-top: var(--bs-navbar-padding-y, 0.5rem);
+  overflow-y: auto;
+  max-height: 85vh;
 }
 .wbc-multicolumn-metismenu div > ul.wbc-col {
   padding: 1.3rem;
@@ -269,9 +273,9 @@
 }
 .wbc-multicolumn-metismenu .mm-collapse.wbc-col .wbcmetismenu-submenu.sublevel-2 {
   padding: 0px;
-  display: block !important;
-  /* Spalten des mehrspaltigen Dropdowns immer anzeigen  */
-  position: relative !important;
+  display: block;
+  /* ul level2 im mehrspaltigen Dropdown immer anzeigen  */
+  position: relative;
 }
 .wbc-multicolumn-metismenu .mm-collapse.wbc-col .wbcmetismenu-item {
   border-bottom: 1px solid var(--mm-color2);

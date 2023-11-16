@@ -70,7 +70,6 @@ if ($showAll && $item->deeper)
 	if ( $dropdowncolums === true && $item->level == 2 ) {
 		$attributes['class'] .=  ' wbcmetismenue_level2_btn';
 	}
-
 	$attributes['aria-haspopup'] = 'true';
 	$attributes['aria-expanded'] = 'false';
 	echo '<button ' . ArrayHelper::toString($attributes) . '><i aria-hidden="true" class="fas fa-chevron-down"></i></button>';

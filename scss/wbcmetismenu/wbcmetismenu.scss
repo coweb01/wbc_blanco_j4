@@ -61,6 +61,9 @@
       > button {
         font-size: 1rem;
       }
+      .wbcmetismenue_level2_btn {
+        display: none;
+      }
       .wbcmetismenu-link {
         &.fa:before,
         &.fas:before,
@@ -164,15 +167,11 @@
         .nav-header {
           padding: 0.3rem 0.5rem;
           margin: 1rem 0;
-          width: 100%;
           display: block;
         }
       }
     }
-    .wbcmetismenu-submenu-dropdown {
-        background-color: var(--bgnavbar, hsl(0, 0%, 100%));
-        margin-top: var(--bs-navbar-padding-y, .5rem);
-    }
+    
     .mm-collapse:not(.wbc-col) {
       position: absolute;
       top: 100%;
@@ -254,14 +253,23 @@
   gap: 1rem;
   flex: 1 1 0%;
   flex-direction: row;
-
+  .wbcmulticolumn {
+    &.parent {
+      .wbcmetismenu-submenu-dropdown {
+          width: 100%;
+          left: 0;
+          right: auto;
+          margin: auto auto;
+      }
+    }
+  }
   .wbcmetismenu-submenu-dropdown 
   {
-      width: 100%;
-      left: 0;
-      right: auto;
-      margin: auto auto;
       max-width: 100%;
+      background-color: var(--bgnavbar, hsl(0, 0%, 100%));
+      margin-top: var(--bs-navbar-padding-y, .5rem);
+      overflow-y: auto;
+      max-height: 85vh;
   }
   div > ul.wbc-col
   {
@@ -282,6 +290,7 @@
   } 
 
   .mm-collapse.wbc-col {
+    
     .wbcmetismenu-submenu
     { 
       width: 100%;
@@ -290,11 +299,12 @@
       -moz-box-shadow: none;
       -webkit-box-shadow: none;
     }
+  
     .wbcmetismenu-submenu.sublevel-2 
     {
       padding: 0px; 
-      display: block !important; /* Spalten des mehrspaltigen Dropdowns immer anzeigen  */ 
-      position: relative !important;
+      display: block; /* ul level2 im mehrspaltigen Dropdown immer anzeigen  */ 
+      position: relative;
     } 
     .wbcmetismenu-item  {
       border-bottom: 1px solid var(--mm-color2);
