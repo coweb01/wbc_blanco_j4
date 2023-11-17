@@ -11,6 +11,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\Utilities\ArrayHelper;
+use Joomla\CMS\Language\Text;
 
 $attributes = [];
 
@@ -70,6 +71,8 @@ if ($showAll && $item->deeper)
 	}
 	$attributes['aria-haspopup'] = 'true';
 	$attributes['aria-expanded'] = 'false';
+	$attributes['aria-label'] = Text::_('TPL_WBC_BLANCO_J4_TOOGLER_ARIA_LABEL'); 
+	$attributes['aria-label'] .= ' '.$item->title;
 	echo '<button ' . ArrayHelper::toString($attributes) . '><i aria-hidden="true" class="fas fa-chevron-down"></i></button>';
 } 
 
