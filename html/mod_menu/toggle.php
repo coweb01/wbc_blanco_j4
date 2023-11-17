@@ -7,6 +7,13 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * 
  * Nur Menülevel = 1
+ * Override um ein Modul in einem Modal zu öffnen
+ * Im Menütyp URL kann al URL die ID angegeben werden #meinLink
+ * Das Plugin advancedmenuparams muss aktiv sein,
+ * dann kann das Modul über einen Plugincode geladen werden.
+ * CSS Klassen für das Modal kann im Feld CSS in den Menüparametern des plugins advancedmenuparams angegeben werden.
+ * wbc-bg-hell = Modal heller Hintergrund
+ * 
  */
 
 defined('_JEXEC') or die;

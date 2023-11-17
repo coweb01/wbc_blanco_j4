@@ -19,9 +19,16 @@ $html_description = '';
 $attributes['role'] = 'button';
 $string_pos = strpos($item->flink,'#');
 
+$attributes['class'] = 'nav-link';
+
 if ( $string_pos !== false ) {
-	$toggle_container_id  				 = substr($item->flink, 1);
+	$toggle_container_id  	= substr($item->flink, 1);
+	$toggle_container_id 	.= '-'.$item->id;
 	$attributes['data-toggle-container'] = $toggle_container_id;
+
+	if ($item->type != 'alias') {
+		$attributes['class'] .= ' wbc-toggle-item-link';
+	}	
 }
 
 if ($accesskey ) {
@@ -42,10 +49,6 @@ if ($menuedescription) {
 	$html_description 	= '<span class="wbc-toggle-subtitel">' . $menuedescription . '</span>';
 }
 $linktype  		= '<span class="wbc-toggle-titel">' . $item->title .'</span>'.$html_description;
-
-if ($item->type != 'alias') {
-	$attributes['class'] = 'nav-link wbc-toggle-item-link';
-}
 
 if ($item->menu_icon)
 {
@@ -114,7 +117,7 @@ if ($item->type !== 'alias') {
 		$attributes['type'] = 'button';
 		if ( $string_pos !== false) {	
 			$pluginContent = \Joomla\CMS\HTML\HTMLHelper::_('content.prepare', $content_plg);?>
-			<div id="<?php echo $toggle_container_id ?>" class="wbc-toggle-container <?php echo $class_sfx;?>">
+			<div id="<?php echo $toggle_container_id ?>" class="wbc-toggle-container <?php echo isset($linkcss) ? $linkcss : '';?>">
 				<button <?php echo  ArrayHelper::toString($attributes) ?>></button>
 				<?php echo $pluginContent; ?>
 			</div>

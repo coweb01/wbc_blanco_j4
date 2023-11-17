@@ -15,6 +15,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 $html_description = '';
 $attributes = [];
 $attributes['role'] = 'button';
+$attributes['class'] = 'nav-link'; 
 
 if ($accesskey ) {
 	$attributes['accesskey'] = $accesskey;
@@ -26,7 +27,7 @@ if ($item->anchor_title)
 }
 
 if ($item->anchor_css) {
-    $attributes['class'] = 'nav-link ' . $item->anchor_css;
+    $attributes['class'] .= ' '.$item->anchor_css;
 }
 
 if ($item->anchor_rel)
