@@ -41,7 +41,7 @@
 				<field
 					name="layout_type"
 					type="hidden"
-					default="wbcblogaccordion"
+					default="blog"
 				/>
 
 				<field
@@ -119,6 +119,26 @@
 		</fieldset>
 
 		<fieldset name="advanced" label="JGLOBAL_BLOG_LAYOUT_OPTIONS" description="JGLOBAL_SUBSLIDER_BLOG_LAYOUT_LABEL">
+
+			<field
+				name="num_leading_articles"
+				type="number"
+				label="JGLOBAL_NUM_LEADING_ARTICLES_LABEL"
+				filter="integer"
+				validate="number"
+				min="0"
+				useglobal="true"
+				parentclass="stack span-1"
+			/>
+
+			<field
+				name="blog_class_leading"
+				type="text"
+				label="JGLOBAL_BLOG_CLASS_LEADING"
+				parentclass="stack span-2-inline"
+				useglobal="true"
+				validate="CssIdentifier"
+			/>
 
 			<field
 				name="num_intro_articles"

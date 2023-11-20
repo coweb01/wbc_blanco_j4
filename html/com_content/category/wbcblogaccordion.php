@@ -87,6 +87,19 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
         <?php endif; ?>
     <?php endif; ?>
 
+    <?php if (!empty($this->lead_items)) : ?>
+        <div class="com-content-category-blog__items blog-items items-leading <?php echo $this->params->get('blog_class_leading'); ?>">
+            <?php foreach ($this->lead_items as &$item) : ?>
+                <div class="com-content-category-blog__item blog-item" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+                    <?php
+                    $this->item = &$item;
+                    echo $this->loadTemplate('item');
+                    ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+
     <?php $count_items = 0; ?>
     <?php $collapse_first_item = $this->params->get('collapse_first_item',0); ?>
     <?php if (!empty($this->intro_items)) : ?>
