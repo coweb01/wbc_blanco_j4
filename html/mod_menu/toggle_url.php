@@ -12,6 +12,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\Utilities\ArrayHelper;
+use Joomla\CMS\Language\Text;
 
 
 $attributes = [];
@@ -113,13 +114,19 @@ echo HTMLHelper::_('link', OutputFilter::ampReplace(htmlspecialchars($item->flin
 if ($item->type !== 'alias') {
 	if ( $content_plg ) { 
 		$attributes['class'] = 'btn-close btn-close-white wbc-toggle-container-close';
-		$attributes['aria-label'] = 'Close';
+		$attributes['aria-label'] =  Text::_('TPL_WBC_BLANCO_J4_CLOSE');
 		$attributes['type'] = 'button';
 		if ( $string_pos !== false) {	
 			$pluginContent = \Joomla\CMS\HTML\HTMLHelper::_('content.prepare', $content_plg);?>
-			<div id="<?php echo $toggle_container_id ?>" class="wbc-toggle-container <?php echo isset($linkcss) ? $linkcss : '';?>">
+			<div id="<?php echo $toggle_container_id ?>" class="wbc-toggle-container overflow-scroll <?php echo isset($linkcss) ? $linkcss : '';?>">
 				<button <?php echo  ArrayHelper::toString($attributes) ?>></button>
-				<?php echo $pluginContent; ?>
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<?php echo $pluginContent; ?>
+						</div>
+					</div>
+				</div>
 			</div>
 	<?php } 
 	}
