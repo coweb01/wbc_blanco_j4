@@ -69,14 +69,14 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
             <?php echo $LayoutOffcanvas ->render($displayData); ?>
             <!-- end Offcanvas Navbar -->
         <?php endif; ?>
-        
+
         <?php  if ($offcanvas == 1) :?>
             <!-- Offcanvas Body -->
             <?php $LayoutOffcanvas = new FileLayout('wbc_blanco_template.bts5offcanvasbody', $tpath.'html/layouts'); ?>
             <?php echo $LayoutOffcanvas ->render($displayData); ?>
             <!-- end Offcanvas Body -->
         <?php endif; ?>
-          
+
         <?php
         if( $this->countModules('sidebar-left-fix') ||
             $this->countModules('sidebar-left-toggle') ||
@@ -232,7 +232,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 
             <?php if ($this->countModules('breadcrumb')): ?>
             <!-- start Breadcrumbs -->
-            <div id="wrap-breadcrumb" class="d-none d-md-block">
+            <div id="wrap-breadcrumb">
                 <div class="container">
                     <div class="base-row <?php echo $bootstrap_rowclass; ?>">
                         <div class="base-col <?php echo $bootstrap_colclass; ?>12">

@@ -5,7 +5,7 @@
   --fluid: clamp(var(--fluid-type-min, 1rem), calc(1rem + var(--fluid-type-target, 5vw)), var(--fluid-type-max, 1.1rem));
   --bordercolor: #dee2e6;
   --borderradius: 0;
-  --schatten: 0 3px 5px 0 rgba(38,36,38,.6);
+  --schatten: 0 0px 20px 0 rgba(38,36,38,.2);
   --fontfamily: "Open Sans", Arial, sans-serif;
   --fontfamily2: "Open Sans", Arial, sans-serif;
   --symbolfont: "Font Awesome 5 Free";
@@ -12177,7 +12177,7 @@ select {
   min-height: 200px;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center 100;
+  background-position: center 100%;
   background-size: cover;
 }
 
@@ -12239,8 +12239,8 @@ body {
 
 /* Header *****************************************************/
 .header-top {
-  background: rgb(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb)) !important;
-  background: rgba(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb), var(--transnavbar)) !important;
+  background: rgb(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb));
+  background: rgba(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb), var(--transnavbar));
 }
 
 .header-top-01 {
@@ -13192,9 +13192,8 @@ figcaption {
 html, body {
   --fluid-type-max: var(--fontsize);
   font-family: var(--fontfamily);
-  font-size: clamp(1em, 1rem + var(--fluid-type-target, 2.8vw), var(--fluid-type-max, 1.1rem));
+  font-size: var(--fluid-type-max, 1.1rem);
   font-weight: 400;
-  line-height: 150%;
   color: var(--defaultcolor);
 }
 
@@ -13209,44 +13208,35 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   font-weight: 500;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
+@media (min-width: 1200px) {
+  h1, .h1,
+  h2, .h2,
+  h3, .h3 {
+    font-size: var(--fluid-type-max);
+  }
+}
 h1, .h1 {
   --fluid-type-max: var(--h1_size);
   font-family: var(--fontfamily2);
-  font-size: clamp(var(--fluid-type-min, 1.8rem), 1rem + var(--fluid-type-target, 2.8vw), var(--fluid-type-max));
-  line-height: calc(var(--h1_size) * 1.2);
   color: var(--h1_color);
 }
 
 h2, .h2 {
   --fluid-type-max: var(--h2_size);
-  font-size: clamp(var(--fluid-type-min, 1.5rem), 1rem + var(--fluid-type-target, 2.8vw), var(--fluid-type-max));
-  line-height: calc(var(--h2_size) * 1.2);
   color: var(--h2_color);
 }
 
 h3, .h3 {
-  font-size: var(--h3_size);
-  line-height: calc(var(--h3_size) * 1.2);
+  --fluid-type-max: var(--h3_size);
   color: var(--h3_color);
 }
 
 h4, .h4 {
   font-size: var(--h4_size);
-  line-height: calc(var(--h4_size) * 1.2);
   color: var(--h4_color);
-}
-
-h5, .h5 {
-  font-size: 16px;
-  line-height: 27px;
-}
-
-h6, .h6 {
-  font-size: 15px;
-  line-height: 26px;
 }
 
 .hide-h1 h1, .hide-h1 .h1,

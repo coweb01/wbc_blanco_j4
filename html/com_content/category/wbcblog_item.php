@@ -70,7 +70,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 		$truncated_text = HTMLHelper::_('string.truncate', strip_tags($this->item->introtext), $params->get('chars_number'));
 		$last_space = strrpos($truncated_text, " ");
 		$truncated_text = substr($truncated_text, 0, $last_space);
-		echo $truncated_text;
+		echo '<p>' . $truncated_text . '</p>';
 		} else {
 			echo $this->item->introtext;
 		}

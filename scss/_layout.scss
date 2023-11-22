@@ -18,8 +18,8 @@ body {
 /* Header *****************************************************/
 
 .header-top {
-  background: rgb(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb)) !important;
-  background: rgba(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb), var(--transnavbar)) !important;
+  background: rgb(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb));
+  background: rgba(var(--bgnavbarr), var(--bgnavbarg), var(--bgnavbarb), var(--transnavbar));
 }
 .header-top-01 {
   padding-top: 15px;
