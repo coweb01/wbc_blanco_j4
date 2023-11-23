@@ -68,6 +68,6 @@ if (empty($output)) {
     return;
 }
 ?>
-<div class="wbc_fields-container mb-3">
+<div class="wbc__fields-container mb-3">
     <?php echo implode("\n", $output); ?>
 </div>

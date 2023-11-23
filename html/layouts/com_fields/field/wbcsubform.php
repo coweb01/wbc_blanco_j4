@@ -61,12 +61,12 @@ foreach ($field->subform_rows as $subform_row) {
         continue;
     }
 
-    $result .= '<div class="wbc__subform_row">' . implode(' ', $row_output) . '</div>';
+    $result .= '<div class="wbc__subform-row">' . implode(' ', $row_output) . '</div>';
 }
 ?>
 
 <?php if (trim($result) != '') : ?>
-    <div class="wbc__subform_fields mb-3">
+    <div class="wbc__subform-fields mb-3">
         <?php echo $result; ?>
 </div>
 <?php endif; ?>
