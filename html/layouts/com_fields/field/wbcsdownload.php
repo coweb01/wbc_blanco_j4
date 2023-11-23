@@ -24,7 +24,6 @@ if (!array_key_exists('field', $displayData)) {
     return;
 }
 $field = $displayData['field'];
-
 $result = '';
 $context = $field->context;
 
