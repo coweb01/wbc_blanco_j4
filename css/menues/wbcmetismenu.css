@@ -84,6 +84,8 @@
   text-overflow: ellipsis;
   color: var(--Linkcolornavbar);
   white-space: normal;
+  line-height: 2rem;
+  font-size: 1.2rem;
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetismenu-link:focus-visible,
 .wbcmetismenu.mod-menu .wbcmetismenu-item > button:focus-visible {
