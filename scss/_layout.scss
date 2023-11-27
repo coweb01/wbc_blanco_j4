@@ -254,9 +254,10 @@ body {
   &.image-right {
     .item-content {
       flex-wrap: nowrap;
-      flex: 0 0 60%;
+      flex: 0 0 100%;
       @include media-breakpoint-up(lg) {
         flex-direction: row;
+        flex: 0 0 60%;
       }
     }
   }
@@ -282,15 +283,22 @@ body {
     }
 
     &.right  {
-      order: 1;
-      flex: 0 0 40%;
-      padding-left: 25px;
+      flex: 0 0 100%;
+      order: 0;
+      @include media-breakpoint-up(lg) {
+        flex: 0 0 40%; 
+        padding-left: 25px; 
+        order: 1;
+      }
     }
 
     &.left  {
       order: 0;
-      flex: 0 0 40%;
-      padding-right: 25px;
+      flex: 0 0 100%;
+      @include media-breakpoint-up(lg) {
+        flex: 0 0 40%; 
+        padding-right: 25px; 
+      }
     }
 
     &.bottom  {

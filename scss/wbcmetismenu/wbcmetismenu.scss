@@ -28,10 +28,12 @@
     }
     > li {
       position: relative;
-    }
-    .level-1 {
-      > ul {
-        min-width: 12rem;
+    
+      &.level-1 {
+        padding: .5rem 1rem;
+        > ul {
+          min-width: 12rem;
+        }
       }
     }
   }
@@ -64,30 +66,48 @@
       .wbcmetismenue_level2_btn {
         display: none;
       }
+     
       .wbcmetismenu-link {
+        display: flex;
+
         &.fa:before,
         &.fas:before,
-        &.far:before {
-          margin-right: 0.5rem;
+        &.far:before,
+        &.fal:before,
+        &.fad:before,
+        &.fab:before,
+        > span.fa:before,
+        > span.fas:before,
+        > span.far:before,  
+        > span.fal:before,
+        > span.fad:before,
+        > span.fab:before {
+          margin-right: 0.3rem;
         }
         img {
           max-width: 80px;
           height: auto;
           padding-right: 10px;
         }
+        
       }
-      .wbcmetismenu-link {
-        display: flex;
-      }
-      > span,
-      > a.wbcmetismenu-link,
-      > button {
+      > span:not(.fa), 
+      > span:not(.fas), 
+      > span:not(.far),
+      > span:not(.fal),
+      > span:not(.fad),
+      > span:not(.fab)
+      > button,
+      > a.wbcmetismenu-link
+      {
+        align-items: flex-end;
         padding: .5rem .5rem;
         overflow: hidden;
         text-decoration: none;
         text-overflow: ellipsis;
         color: var(--Linkcolornavbar);
         white-space: normal;
+        line-height: 1rem;
       }
       > a.wbcmetismenu-link:focus-visible,
       > button:focus-visible
@@ -161,11 +181,11 @@
           border-bottom: none;
         }
         > .wbcmetismenu-link {
-          padding: 0.3rem 0.5rem;
+          padding: 0.8rem 0.3rem;
           font-size: 1rem;
         }
         .nav-header {
-          padding: 0.3rem 0.5rem;
+          padding: 0.8rem 0.3rem;
           margin: 1rem 0;
           display: block;
         }
@@ -177,7 +197,7 @@
       top: 100%;
       > li {
           a.wbcmetismenu-link {
-            padding: .3rem .5rem;
+            padding: 0.8rem 0.3rem;
         }
         &.divider:not(.parent) {
           width: auto;
