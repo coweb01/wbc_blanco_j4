@@ -31,12 +31,12 @@ $bootstrapColclass = "col-" . $bootstrapSize;
  */
 ?>
 <!-- ***************  start section <?php echo $ankerid; ?>**********************  -->
-<section id="onepage-<?php echo $ankerid; ?>" class="onepage">
+<section id="onepage-<?php echo $ankerid; ?>" class="onepage <?php echo htmlspecialchars($params->get('moduleclass_sfx')); ?>">
 
     <?php
     if ($bgimage != '') :
     ?>
-    <div class="onepage-inner" data-speed="8" data-type="background" style="background-image:url("<?php echo $bgimage; ?>")>
+    <div class="onepage-inner" data-speed="8" data-type="background" style="background-image:url('<?php echo $bgimage; ?>')">
     <?php
     else : ?>
     <div class="onepage-inner <?php echo htmlspecialchars($params->get('moduleclass_sfx')); ?>">
