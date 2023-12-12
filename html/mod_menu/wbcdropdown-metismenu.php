@@ -30,10 +30,9 @@ $attributes['class']    .= ' wbc-position-' . $module->position;
 if ($tagId = $params->get('tag_id', '')) {
     $attributes['id'] = $tagId;
 }
-
 $start = (int) $params->get('startLevel', 1);
 $ColOpen = false;  // schalter für mehrspaltiges dropdown und spalte geöffnet.
-
+$dropdowncolums = false; // schalter für mehrspaltiges dropdown
 ?>
 <ul <?php echo ArrayHelper::toString($attributes); ?>>
 <?php foreach ($list as $i => &$item) {
@@ -156,7 +155,7 @@ $ColOpen = false;  // schalter für mehrspaltiges dropdown und spalte geöffnet.
                 echo '<ul class="wbcmetismenu-submenu-dropdown sublevel-'.$item->level.' mm-collapse">';
 
                 // öffnen wenn mehrspaltiges Untermenue
-                if ( $dropdowncolums == true ) {
+                if ( isset($dropdowncolums) && $dropdowncolums == true ) {
                     $htmlmegamenu[] = '<li class="container-fluid">'. "\n";
                     $htmlmegamenu[] = '<div class="row">'. "\n";
                     
@@ -181,7 +180,7 @@ $ColOpen = false;  // schalter für mehrspaltiges dropdown und spalte geöffnet.
 
             
             // der nächste Level ist 1 mehrspaltiges Dropdown wieder schliessen
-            if ( $dropdowncolums == true ) { 
+            if ( isset($dropdowncolums) && $dropdowncolums == true ) { 
                 if ( $item->level == 2 && $item->level_diff == 1 ) {
                     $dropdowncolums = false;
                     echo '</ul>'. "\n";

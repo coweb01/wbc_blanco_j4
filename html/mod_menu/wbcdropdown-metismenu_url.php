@@ -14,7 +14,6 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\Utilities\ArrayHelper;
 use Joomla\CMS\Language\Text;
 
-
 $attributes = [];
 
 $class = 'wbcmetismenu-link ';
@@ -106,10 +105,12 @@ echo HTMLHelper::link(OutputFilter::ampReplace(htmlspecialchars($item->flink, EN
 if ($showAll && $item->deeper)
 {		
 	$attributes['class'] = ' mm-collapsed mm-toggler mm-toggler-nolink';
-	
-	if ( $dropdowncolums === true && $item->level == 2 ) {
-		$attributes['class'] .=  ' wbcmetismenue_level2_btn';
+	if (isset($dropdowncolumns)) {
+		if ( $dropdowncolums === true && $item->level == 2 ) {
+			$attributes['class'] .=  ' wbcmetismenue_level2_btn';
+		}
 	}
+	
 	$attributes['aria-haspopup'] = 'true';
 	$attributes['aria-expanded'] = 'false';
 	$attributes['aria-label'] = Text::_('TPL_WBC_BLANCO_J4_TOOGLER_ARIA_LABEL'); 

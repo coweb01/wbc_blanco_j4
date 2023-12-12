@@ -112,8 +112,10 @@ if ($showAll && $item->deeper)
 {		
 	$attributes['class'] = ' mm-collapsed mm-toggler mm-toggler-nolink';
 	
-	if ( $dropdowncolums === true && $item->level == 2 ) {
-		$attributes['class'] .=  ' wbcmetismenue_level2_btn';
+	if (isset($dropdowncolumns)) {
+		if ( $dropdowncolums === true && $item->level == 2 ) {
+			$attributes['class'] .=  ' wbcmetismenue_level2_btn';
+		}
 	}
 	$attributes['aria-haspopup'] = 'true';
 	$attributes['aria-expanded'] = 'false';
