@@ -14,7 +14,6 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\Utilities\ArrayHelper;
 use Joomla\CMS\Language\Text;
 
-
 $attributes = [];
 
 $class = 'wbcmetismenu-link ';
@@ -58,12 +57,12 @@ if ($item->menu_icon)
 	if ($itemParams->get('menu_text', 1))
 	{
 		// If the link text is to be displayed, the icon is added with aria-hidden
-		$linktype = '<span class="p-2 ' . $item->menu_icon . '" aria-hidden="true"></span>' . $item->title;
+		$linktype = '<span class="px-2 ' . $item->menu_icon . '" aria-hidden="true"></span><span class="wbcmetis-titel">' . $item->title .'</span>'.$description;
 	}
 	else
 	{
 		// If the icon itself is the link, it needs a visually hidden text
-		$linktype = '<span class="p-2 ' . $item->menu_icon . '" aria-hidden="true"></span><span class="visually-hidden">' . $item->title . '</span>';
+		$linktype = '<span class="px-2 ' . $item->menu_icon . '" aria-hidden="true"></span><span class="visually-hidden">' . $item->title . '</span>';
 	}
 }
 elseif ($item->menu_image)
@@ -80,7 +79,7 @@ elseif ($item->menu_image)
 
 	if ($itemParams->get('menu_text', 1))
 	{
-		$linktype .= '<span class="image-title">' . $item->title . '</span>';
+		$linktype .= '<span class="image-title">' . $item->title . '</span>'.$description;
 	}
 }
 
@@ -106,10 +105,12 @@ echo HTMLHelper::link(OutputFilter::ampReplace(htmlspecialchars($item->flink, EN
 if ($showAll && $item->deeper)
 {		
 	$attributes['class'] = ' mm-collapsed mm-toggler mm-toggler-nolink';
-	
-	if ( $dropdowncolums === true && $item->level == 2 ) {
-		$attributes['class'] .=  ' wbcmetismenue_level2_btn';
+	if (isset($dropdowncolumns)) {
+		if ( $dropdowncolums === true && $item->level == 2 ) {
+			$attributes['class'] .=  ' wbcmetismenue_level2_btn';
+		}
 	}
+	
 	$attributes['aria-haspopup'] = 'true';
 	$attributes['aria-expanded'] = 'false';
 	$attributes['aria-label'] = Text::_('TPL_WBC_BLANCO_J4_TOOGLER_ARIA_LABEL'); 

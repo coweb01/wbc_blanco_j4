@@ -20,7 +20,7 @@ var ready = (callback) => {
 		//console.log(Etables);
 		for(let i = 0; i < Etables.length; i++ ){
 			//console.log(Etables[i]);
-			Etables[i].className = "table table-condensed table-striped wbc__table";
+			Etables[i].className = "table table-sm table-borderless wbc__table";
 			let wrapDiv = document.createElement('div');
 			wrapDiv.classList.add("table-responsive", "wbc__table-responsive");
 			//console.log(wrapDiv);

@@ -32,7 +32,6 @@ $results = $app->triggerEvent('onContentAfterDisplay', [$this->category->extensi
 $afterDisplayContent = trim(implode("\n", $results));
 
 $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
-
 ?>
 <div class="com-content-category-blog blog" itemscope itemtype="https://schema.org/Blog">
     <?php if ($this->params->get('show_page_heading')) : ?>
@@ -54,7 +53,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
     <?php endif; ?>
 
     <?php if ($beforeDisplayContent || $afterDisplayContent || $this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
-        <div class="category-desc clearfix">
+        <div class="category-desc mb-3">
             <?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
                 <?php echo LayoutHelper::render(
                     'joomla.html.image',
@@ -84,9 +83,12 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
     <?php if (!empty($this->lead_items)) : ?>
         <div class="com-content-category-blog__items blog-items items-leading <?php echo $this->params->get('blog_class_leading'); ?>">
             <?php foreach ($this->lead_items as &$item) : ?>
-                <div class="com-content-category-blog__item blog-item" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+                <?php $this->item = &$item; ?>
+                <?php $images     = json_decode($this->item->images); ?>
+                <?php $imgclass   = empty($images->float_intro) ? 'image-'.$this->params->get('float_intro') : 'image-'.$images->float_intro; ?>
+
+                <div class="com-content-category-blog__item blog-item <?php echo $this->escape($imgclass); ?>" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
                     <?php
-                    $this->item = &$item;
                     echo $this->loadTemplate('item');
                     ?>
                 </div>
@@ -102,10 +104,14 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
         <?php endif; ?>
         <div class="com-content-category-blog__items blog-items <?php echo $blogClass; ?>">
         <?php foreach ($this->intro_items as $key => &$item) : ?>
-            <div class="com-content-category-blog__item blog-item"
+            <?php $this->item = &$item; ?>
+            <?php $images     = json_decode($this->item->images); ?>
+            <?php $imgclass   = empty($images->float_intro) ? 'image-'.$this->params->get('float_intro') : 'image-'.$images->float_intro; ?>
+            
+            <div class="com-content-category-blog__item blog-item <?php echo $this->escape($imgclass); ?>"
                 itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
                     <?php
-                    $this->item = & $item;
+                    
                     echo $this->loadTemplate('item');
                     ?>
             </div>

@@ -121,7 +121,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
             <!-- ****************************************************************************************************** -->
             <!-- *     Header                                                                                         * -->
             <!-- ****************************************************************************************************** -->
-            <header class="header" aria-label="<?php echo Text::_('TPL_WBC_BLANCO_J4_HEADER'); ?>">
+            <header class="header <?php echo ($navbarHeaderWidth == 1) ? 'header-fluid' : '';?>" aria-label="<?php echo Text::_('TPL_WBC_BLANCO_J4_HEADER'); ?>">
                 <div class="header-top <?php echo ($fixedheader == 1) ? 'sps' :'';?>" >
 
                     <?php if ($this->countModules('header-top-01') ) : ?>
