@@ -89,17 +89,15 @@
         visibility: visible;
         transform: none;
     }
-
-    a:link,
-    a:visited {
+    a:link:not(.btn),
+    a:visited:not(.btn) {
         color:  var(--offcanvas-color, rgba(255,255,255, 1));
     }
-
-    a:hover,
-    a:focus {
+    a:hover:not(.btn),
+    a:focus:not(.btn) {
         color:  var(--offcanvas-hover-color, rgba(255,255,255, .7));
     }
-    a:active {
+    a:active:not(.btn) {
         color:  var(--offcanvas-active-color, rgba(255,255,255, .9));
     }
 

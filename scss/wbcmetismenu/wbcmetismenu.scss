@@ -1,7 +1,7 @@
 :root {
   --mm-color1: #f3f1f1;
   --mm-color2: #d8d6d7;
-  --mm-color1-dark: #f4f2f2;
+  --mm-color1-dark: #242424;
   --grey-200: #585858;
 }
 .navigation-main {
@@ -45,6 +45,7 @@
       flex-wrap: wrap;
       align-items: center;
       font-size: 1.1rem;
+      font-weight: 400;
       line-height: 1.5;
       &.parent {
         position: static;
@@ -62,6 +63,13 @@
       }
       > button {
         font-size: 1rem;
+      }
+      > button.wbcmetismenue-togger-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 100%;
       }
       .wbcmetismenue_level2_btn {
         display: none;
@@ -181,7 +189,7 @@
           border-bottom: none;
         }
         > .wbcmetismenu-link {
-          padding: 0.8rem 0.3rem;
+          padding: 0.5rem 0.8rem;
           font-size: 1rem;
         }
         .nav-header {
@@ -197,7 +205,7 @@
       top: 100%;
       > li {
           a.wbcmetismenu-link {
-            padding: 0.8rem 0.3rem;
+            padding: 0.5rem 0.5rem;
         }
         &.divider:not(.parent) {
           width: auto;
@@ -324,7 +332,7 @@
     .wbcmetismenu-submenu.sublevel-2 
     {
       padding: 0px; 
-      display: block; /* ul level2 im mehrspaltigen Dropdown immer anzeigen  */ 
+      /* display: block; ul level2 im mehrspaltigen Dropdown immer anzeigen  */ 
       position: relative;
     } 
     .wbcmetismenu-item  {
@@ -379,36 +387,42 @@
 
 /* offcanvas  Body */
 .wbc-bs5-offcanvas {
+   --ms-color2: rgba(255, 255, 255,0.3);
+
   .wbcmetismenu {
     &.mod-menu {
       flex-direction: column;
       
       .wbcmetismenu-item {
-        border-bottom: 1px solid rgba(255,255,255,0.4);
         justify-content: space-between;
 
-        > a.wbcmetismenu-link, 
+        > a.wbcmetismenu-link:link, 
         > button, 
         > span
         {
-          color: var(--lightcolor, rgba(255,255,255,.8));
+          color: var(--offcanvas-color, rgba(255,255,255,.8));
         }
         a.wbcmetismenu-link:hover,
-        a.wbcmetismenu-link:focus {
-          color: var(--lightcolor, rgba(255,255,255,1));
+        a.wbcmetismenu-link:focus,
+        > button:hover,
+        > button:focus
+        {
+          color: var(--offcanvas-hover-color, rgba(255,255,255,1));
         } 
-        a.wbcmetismenu-link:active {
-          color: var(--lightcolor, rgba(255,255,255,9));
+        a.wbcmetismenu-link:active,
+        > button:active
+        {
+          color: var(--offcanvas-active-color, rgba(255,255,255,9));
         } 
         &.level-2 {
           .wbcmetismenue_heading {
-            border-left: 3px solid var(--lightcolor, rgba(255,255,255,.8));
+            border-left: 3px solid var(--offcanvas-color, rgba(255,255,255,.8));
           }
         }  
         &:not(.level-1) {
           .wbcmetismenue_heading {
             .wbcmetis-titel {
-              color: var(--lightcolor, rgba(255,255,255,1));
+              color: var(--offcanvas-color, rgba(255,255,255,1));
             }
           }  
         }

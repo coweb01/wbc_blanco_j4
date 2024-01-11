@@ -43,7 +43,17 @@ li.fa a span.chrome-fix {
 li.fa a span {
   font-size: inherit;
 }
-li.nav-item a { text-decoration: none;}
+li.nav-item a { 
+  text-decoration: none;
+  display: block;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  text-decoration: none;
+  background: 0 0;
+  border: 0;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+
 
 /** menues Footer  ------------------------------------------------*/
 

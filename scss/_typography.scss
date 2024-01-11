@@ -217,12 +217,12 @@ button,
 .btn {
   color: var(--linkcolorbtn);
   background-color: var(--linkbgcolorbtn);
-  border-color: var(--linkbgcolorbtn);
+  border-color: var(--linkbordercolorbtn);
   border-radius: var(--borderradius);
   &:hover {
     color: var(--hovercolorbtn);
     background-color: var(--hoverbgcolorbtn);
-    border-color: var(--hoverbgcolorbtn);
+    border-color: var(--hoverbordercolorbtn);
   }
   &:active,
   &:not(:disabled):not(.disabled).active,
@@ -230,17 +230,17 @@ button,
   .show > .btn.dropdown-toggle {
     color: var(--activecolorbtn);
     background-color: var(--activebgcolorbtn);
-    border-color: var(--activebgcolorbtn);
+    border-color: var(--activebordercolorbtn);
   }
 }
 .btn-outline-primary {
-  color: var(--linkcolor);
+  color: var(--linkcolorbtn);
   background-color: transparent;
-  border-color: var(--linkbgcolorbtn);
+  border-color: var(--linkbordercolorbtn);
   &:hover {
     color: #fff !important;
-    background-color: var(--linkbgcolorbtn);
-    border-color: var(--linkbgcolorbtn);
+    background-color: var(--linkcolorbtn);
+    border-color: var(--linkcolorbtn);
   }
 }
 .input-password-toggle,

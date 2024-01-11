@@ -69,11 +69,16 @@ $wa->addInlineStyle('
 
 	--linkcolorbtn: ' . $templateparams->get('Linkcolorbtn') . ';
 	--linkbgcolorbtn: ' . $templateparams->get('Linkbgcolorbtn') . ';
+	--linkbordercolorbtn: ' . $templateparams->get('Linkcolorbtn') . ';
+
 	--hovercolorbtn: ' . $templateparams->get('Hovercolorbtn') . ';
 	--hoverbgcolorbtn: ' . $templateparams->get('Hoverbgcolorbtn') . ';
+	--hoverbordercolorbtn: ' . $templateparams->get('Hovercolorbtn') . ';
+
 	--activecolorbtn: ' . $templateparams->get('Activecolorbtn') . ';
 	--activebgcolorbtn: ' . $templateparams->get('Activebgcolorbtn') . ';
-
+	--activebordercolorbtn: ' . $templateparams->get('Activecolorbtn') . ';
+	
 	--transnavbar: ' . $templateparams->get('transnavbar') . ';
 }'
 );

@@ -62,11 +62,9 @@ elseif ($item->menu_image)
 	}
 }
 
-echo '<span ' . ArrayHelper::toString($attributes) . '>' . $linktype . '</span>';
-
 if ($showAll && $item->deeper)
 {		
-	$attributes['class'] = ' mm-collapsed mm-toggler mm-toggler-nolink';
+	$attributes['class'] = ' mm-collapsed mm-toggler mm-nolink wbcmetismenue-togger-heading';
 	
 	if ( $dropdowncolums === true && $item->level == 2 ) {
 		$attributes['class'] .=  ' wbcmetismenue_level2_btn';
@@ -75,8 +73,7 @@ if ($showAll && $item->deeper)
 	$attributes['aria-expanded'] = 'false';
 	$attributes['aria-label'] = Text::_('TPL_WBC_BLANCO_J4_TOOGLER_ARIA_LABEL'); 
 	$attributes['aria-label'] .= ' '.$item->title;
-	echo '<button ' . ArrayHelper::toString($attributes) . '><i aria-hidden="true" class="fas fa-chevron-down"></i></button>';
-} 
-
-
-
+	echo '<button ' . ArrayHelper::toString($attributes) . '><span>' . $linktype . '</span><i aria-hidden="true" class="fas fa-chevron-down"></i></button>';
+} else {
+	echo '<span ' . ArrayHelper::toString($attributes) . '>' . $linktype . '</span>';
+}
