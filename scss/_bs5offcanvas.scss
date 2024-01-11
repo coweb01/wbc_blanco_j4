@@ -3,8 +3,8 @@
 /* Layout html/layouts/wbc_blanco_template/bts5offcanvas.php */
 
 .wbc__offcanvas-navbar {
-    background-color: var(--bgnavbarcolor, #fff);
-    color: var(--colornavbar, #333);
+    background-color: var(--bgnavbarcolor, rgba(0,0,0,.95));
+    color: var(--colornavbar, rgba(255,255,255,.1));
 
     .navbar-brand.wbc__logo {
         padding: 0px;
@@ -13,8 +13,8 @@
     
     .btn {
       &.wbc__offcanvas-toggler-button  {
-            width: 2rem;
-            height: 2rem;
+            width: 3rem;
+            height: 3rem;
             background-color: unset;
             background-image: none;
             position: relative;
@@ -41,7 +41,7 @@
         transform: translateY(-50%);
         transform-origin: 50% 50%;
         transition: all .2s ease;
-        background-color: var(--linkcolor, #333);
+        background-color: var(--color1, #333);
         background-image: none;
         height: 2px;
 
@@ -51,9 +51,9 @@
             position: absolute;
             left: 0px;
             height: 2px;
-            background-color: var(--linkcolor, #333);
+            background-color: var(--color1, #333);
             content: '';
-            width: 140%;
+            width: 100%;
         }
 
         &:before {
@@ -69,8 +69,8 @@
 .wbc-bs5-offcanvas,
 .wbc-bs5-offcanvas .offcanvas-header,
 .wbc-bs5-offcanvas .offcanvas-body {
-    background-color: var(--color1, rgba(0,0,0, .95)); 
-    color: rgba(255,255,255, 1);
+    background-color: var(--offcanvas-bg-color, rgba(0,0,0, .95)); 
+    color: var(--offcanvas-color, rgba(255,255,255, 1));
 }
 
 .wbc-bs5-offcanvas {
@@ -92,12 +92,15 @@
 
     a:link,
     a:visited {
-        color:  rgba(255,255,255, 1);
+        color:  var(--offcanvas-color, rgba(255,255,255, 1));
     }
 
     a:hover,
     a:focus {
-        color:  rgba(255,255,255, .7);
+        color:  var(--offcanvas-hover-color, rgba(255,255,255, .7));
+    }
+    a:active {
+        color:  var(--offcanvas-active-color, rgba(255,255,255, .9));
     }
 
     .btn-close:hover,
@@ -110,12 +113,11 @@
     .wbc__offcanvas-navbar {
         &.toggle-pos-left .btn, 
         &.toggle-pos-right .btn {
-            width: 4rem;
-            height: 4rem;
+            width: 4.5rem;
+            height: 4.5rem;
         }
 
         span.navbar-toggler-icon {
-            margin-left: 18px;
             left: 0px;
         }
     }

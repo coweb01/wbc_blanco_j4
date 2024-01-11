@@ -18,6 +18,7 @@ $app          = Factory::getApplication();
 $doc          = $app->getDocument();
 $template     = $app->getTemplate(true);
 $mediapath    = 'media/templates/site/wbc_blanco_j4/';
+$class_sfx    = htmlspecialchars($params->get('class_sfx', ''));
 
 /** @var \Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();

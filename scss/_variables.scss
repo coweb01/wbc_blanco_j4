@@ -33,4 +33,8 @@ $black:    #000;
   --pagination-active-bg: var(--linkcolor);
   --pagination-active-border-color: var(--linkcolor);
   --pagination-active-color: #fff;
+  --offcanvas-bg-color: rgba(0,0,0,.95);
+  --offcanvas-color: rgba(255,255,255, 1);
+  --offcanvas-hover-color: rgba(255,255,255, .7);
+  --offcanvas-active-color: rgba(255,255,255, .9);
 }
