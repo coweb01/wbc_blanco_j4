@@ -15064,6 +15064,9 @@ li.nav-item a {
   background-color: var(--bgnavbarcolor, rgba(0, 0, 0, 0.95));
   color: var(--colornavbar, rgba(255, 255, 255, 0.1));
 }
+.wbc__offcanvas-navbar.toggle-pos-end .navbar-button {
+  order: 99;
+}
 .wbc__offcanvas-navbar .navbar-brand.wbc__logo {
   padding: 0px;
 }

@@ -6,6 +6,12 @@
     background-color: var(--bgnavbarcolor, rgba(0,0,0,.95));
     color: var(--colornavbar, rgba(255,255,255,.1));
 
+    &.toggle-pos-end {
+        .navbar-button {
+            order: 99;
+        }
+    }
+
     .navbar-brand.wbc__logo {
         padding: 0px;
     }

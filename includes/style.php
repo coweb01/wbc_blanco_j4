@@ -11,6 +11,7 @@ if ($templateparams->get('bgnavbarcolor')) {
 	$g = hexdec(substr($templateparams->get('bgnavbarcolor'),3,2));
 	$b = hexdec(substr($templateparams->get('bgnavbarcolor'),5,2));
 }
+$bgnavbarcolor = 'rgba('.$r.','.$g.','.$b.','.$templateparams->get('transnavbar').')';
 
 $wa->addInlineStyle('
 :root {
@@ -26,9 +27,7 @@ $wa->addInlineStyle('
 	--bgfooterB: ' . $templateparams->get('bgfootercolorB') . ';
 
 	--bgnavbar: ' . $templateparams->get('bgnavbarcolor') . ';
-	--bgnavbarr: ' . $r .';
-	--bgnavbarg: ' . $g .';
-	--bgnavbarb: ' . $b .';
+	--bgnavbarcolor: '. $bgnavbarcolor . ';
 	--bgcolor: ' . $templateparams->get('backgroundcolor') . ';
 	--bgcolormain: ' . $templateparams->get('backgroundcolormain') . ';
 	--defaultcolor: ' . $templateparams->get('defaultcolor') . ';
@@ -59,8 +58,6 @@ $wa->addInlineStyle('
 	--Linkcolorfooterfix: ' . $templateparams->get('Linkcolorfooterfix') . ';
 	--Hovercolorfooterfix: ' . $templateparams->get('Hovercolorfooterfix') . ';
 	--Activecolorfooterfix: ' . $templateparams->get('Activecolorfooterfix') . ';
-
-	--bgnavbarcolor: ' . $templateparams->get('bgnavbarcolor') . ';
 
 	--colornavbar: ' . $templateparams->get('colornavbar') . ';
 	--Linkcolornavbar: ' . $templateparams->get('Linkcolornavbar') . ';
