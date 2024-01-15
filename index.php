@@ -14,10 +14,12 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\FileLayout;
 
 // Template path
-$mediapath = 'media/templates/site/wbc_blanco_j4/';
-$tpath = 'templates/wbc_blanco_j4/';
+$template    = $this->template;
+$mediapath   = 'media/templates/site/'.$this->template.'/';
+$tpath       = 'templates'. $template .'/';
+$includepath = 'templates/wbc_blanco_j4/includes/';
 
-include 'templates/wbc_blanco_j4/includes/magic.php'; // load magic.php
+include $includepath.'magic.php'; // load magic.php
 if (!isset($bootstrap_colclass_mobil_sm)) { $bootstrap_colclass_mobil_sm = ''; };
 if (!isset($bootstrap_colclass_mobil_xs)) { $bootstrap_colclass_mobil_xs = ''; };
 
@@ -50,7 +52,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
     <jdoc:include type="metas" />
-    <?php include "templates/wbc_blanco_j4/includes/style.php";?>
+    <?php include $includepath.'style.php';?>
     <jdoc:include type="styles" />
     <jdoc:include type="scripts" />
 
