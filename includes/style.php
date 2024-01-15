@@ -5,13 +5,18 @@ defined('_JEXEC') or die;
 $r = '255';
 $g = '255';
 $b = '255';
+$bgnavbaroptions = $templateparams->get('bgnavbaroptions');
 
-if ($templateparams->get('bgnavbarcolor')) {
-	$r = hexdec(substr($templateparams->get('bgnavbarcolor'),1,2));
-	$g = hexdec(substr($templateparams->get('bgnavbarcolor'),3,2));
-	$b = hexdec(substr($templateparams->get('bgnavbarcolor'),5,2));
+if ( $templateparams->get('bgnavbar') == 0) {
+	$bgnavbarcolor = 'transparent';
+} else {
+	if (!empty($bgnavbaroptions->bgnavbarcolor && $bgnavbaroptions->bgnavbarcolor != 'transparent' )) {
+		$r = hexdec(substr($bgnavbaroptions->bgnavbarcolor,1,2));
+		$g = hexdec(substr($bgnavbaroptions->bgnavbarcolor,3,2));
+		$b = hexdec(substr($bgnavbaroptions->bgnavbarcolor,5,2));
+	}
+	$bgnavbarcolor = 'rgba('.$r.','.$g.','.$b.','.$bgnavbaroptions->transnavbar.')';
 }
-$bgnavbarcolor = 'rgba('.$r.','.$g.','.$b.','.$templateparams->get('transnavbar').')';
 
 $wa->addInlineStyle('
 :root {

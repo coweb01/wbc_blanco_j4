@@ -289,7 +289,7 @@
 					type="color"
 					default="#ffffff"
 					label="TPL_WBC_BLANCO_J4_COLOR5_LABEL"
-					description="TPL_WBC_BLANCO_J5_COLOR3_DESC"
+					description="TPL_WBC_BLANCO_J4_COLOR3_DESC"
 				/>
 				<field
 					name="backgroundcolor"
@@ -626,31 +626,23 @@
 					<option value="1">JYES</option>
 				</field>
 
-				<field
-					name="bgnavbarcolor"
-					type="color"
-					default="#dddddd"
-					label="TPL_WBC_BLANCO_J4_NAVBAR_BG_LABEL"
-					description="TPL_WBC_BLANCO_J4_NAVBAR_BG_DESC"
-				/>
+				<field name="bgnavbaroptions" type="subform" label="TPL_WBC_BLANCO_J4_NAVBAR_BG_LABEL" description="TPL_WBC_BLANCO_J4_NAVBAR_BG_LABEL" multiple="false"  showon="bgnavbar:1">
+					<form>
+						<field name="bgnavbarcolor" type="color" default="transparent" label="TPL_WBC_BLANCO_J4_NAVBAR_BGCOLOR_LABEL" description="TPL_WBC_BLANCO_J4_NAVBAR_BGCOLOR_DESC"/>
 
-				<field
-					name="transnavbar"
-					type="list"
-					default="0.8"
-					label="TPL_WBC_BLANCO_J4_FIELD_TRANSNAVBAR_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_TRANSNAVBAR_DESC"
-					>
-					<option value="0.1">10%</option>
-					<option value="0.2">20%</option>
-					<option value="0.3">30%</option>
-					<option value="0.4">40%</option>
-					<option value="0.5">50%</option>
-					<option value="0.6">60%</option>
-					<option value="0.7">70%</option>
-					<option value="0.8">80%</option>
-					<option value="0.9">90%</option>
-					<option value="1">100%</option>
+						<field name="transnavbar" type="list" default="1" label="TPL_WBC_BLANCO_J4_FIELD_TRANSNAVBAR_LABEL" description="TPL_WBC_BLANCO_J4_FIELD_TRANSNAVBAR_DESC">
+						<option value="0.1">10%</option>
+						<option value="0.2">20%</option>
+						<option value="0.3">30%</option>
+						<option value="0.4">40%</option>
+						<option value="0.5">50%</option>
+						<option value="0.6">60%</option>
+						<option value="0.7">70%</option>
+						<option value="0.8">80%</option>
+						<option value="0.9">90%</option>
+						<option value="1">100%</option>
+						</field>
+					</form>
 				</field>
 
 				<field

@@ -35,12 +35,10 @@ $Doffcanvas_breakpoint = $offcanvas_breakpoint+1;
 $wa->addInlineStyle("
     @media (max-width: ".$offcanvas_breakpoint."px) {
         #navigation-main .navbar.collapse  { display: none!important; }
-        .wrap-outer { padding-top: ".$min_height_l."px; }
         .wbc__offcanvas-navbar { min-height: ".$min_height_l."px; display: flex!important; }
     }
     @media (max-width: 576px) {
         .wbc__offcanvas-navbar { min-height: ".$offcanvas_navbar_height."px; }
-        .wrap-outer { padding-top: ".$offcanvas_navbar_height."px; }
     }
     @media (min-width: ".$Doffcanvas_breakpoint."px) {
         #navigation-main .navbar.collapse { display: flex!important; }
