@@ -14,6 +14,7 @@ use Joomla\Utilities\ArrayHelper;
 use Joomla\CMS\Language\Text;
 
 $attributes = [];
+$description = '';
 
 if ($item->anchor_title)
 {
