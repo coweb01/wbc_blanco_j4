@@ -16,22 +16,22 @@ if ($module->content === null || $module->content === '')
 }
 
 $moduleTag              = $params->get('module_tag', 'div');
-$headerTag              = htmlspecialchars($params->get('header_tag', 'h3'), ENT_QUOTES, 'UTF-8');
-$headerClass            = htmlspecialchars($params->get('header_class', ''), ENT_QUOTES, 'UTF-8');
+$headerTag              = ($params->get('header_tag', 'h3')) ? htmlspecialchars($params->get('header_tag'), ENT_QUOTES, 'UTF-8') : 'h3';
+$headerClass            = ($params->get('header_class', '')) ? htmlspecialchars($params->get('header_class'), ENT_QUOTES, 'UTF-8') : '';
 $headerAttribs          = [];
-
-$bgimage            = $params->get('backgroundimage');
-$ankerid            = $headerClass;
-$bootstrapSize      = ((int) $params->get('bootstrap_size') == 0) ? '12' : (int) $params->get('bootstrap_size');
-$bootstrapRowclass = "row";
-$bootstrapColclass = "col-" . $bootstrapSize;
+$moduleClassSfx         = ($params->get('moduleclass_sfx')) ? htmlspecialchars($params->get('moduleclass_sfx'), ENT_QUOTES, 'UTF-8') : '';
+$bgimage                = $params->get('backgroundimage');
+$ankerid                = $headerClass;
+$bootstrapSize          = ((int) $params->get('bootstrap_size') == 0) ? '12' : (int) $params->get('bootstrap_size');
+$bootstrapRowclass      = "row";
+$bootstrapColclass      = "col-" . $bootstrapSize;
 
 /*
  * html5 (chosen html5 tag and font header tags)
  */
 ?>
 <!-- ***************  start section <?php echo $ankerid; ?>**********************  -->
-<section id="onepage-<?php echo $ankerid; ?>" class="onepage <?php echo htmlspecialchars($params->get('moduleclass_sfx')); ?>">
+<section id="onepage-<?php echo $ankerid; ?>" class="onepage <?php echo $moduleClassSfx; ?>">
 
     <?php
     if ($bgimage != '') :

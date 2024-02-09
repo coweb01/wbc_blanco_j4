@@ -15,9 +15,10 @@ if ($module->content === null || $module->content === '')
     return;
 }
 
+$moduleClassSfx         = ($params->get('moduleclass_sfx')) ? htmlspecialchars($params->get('moduleclass_sfx'), ENT_QUOTES, 'UTF-8') : '';
 $moduleTag              = $params->get('module_tag', 'div');
-$headerTag              = htmlspecialchars($params->get('header_tag', 'h3'), ENT_QUOTES, 'UTF-8');
-$headerClass            = htmlspecialchars($params->get('header_class', ''), ENT_QUOTES, 'UTF-8');
+$headerTag              = ($params->get('header_tag', 'h3')) ? htmlspecialchars($params->get('header_tag'), ENT_QUOTES, 'UTF-8') : 'h3';
+$headerClass            = ($params->get('header_class', '')) ? htmlspecialchars($params->get('header_class'), ENT_QUOTES, 'UTF-8') : '';
 $headerClass            = !empty($headerClass) ? $headerClass : 'fa fa-bars';
 $headerAttribs          = [];
 
@@ -26,7 +27,7 @@ $ankerid            = $headerClass;
 $bootstrapSize      = ((int) $params->get('bootstrap_size') == 0) ? '12' : (int) $params->get('bootstrap_size');
 
 ?>
-<<?php echo $moduleTag; ?> class="extension-outer extension-outer-icon <?php echo htmlspecialchars($params->get('moduleclass_sfx')) .  $bootstrapSize; ?>">
+<<?php echo $moduleTag; ?> class="extension-outer extension-outer-icon <?php echo $moduleClassSfx .  $bootstrapSize; ?>">
     <div class="extension-inner extension-icon">
         <?php if ((bool) $module->showtitle) : ?>
         <div class="ext-header">
