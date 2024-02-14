@@ -14,6 +14,7 @@ Modul mod_custom aus. Keinen Modulinhalt.
 
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
@@ -29,16 +30,17 @@ extract($displayData);
 			<div class="base-col wrap-headerimg <?php $headerimgSizeClass; ?> <?php echo $bootstrap_colclass; ?>12" >
 
 			<?php
-			if ($jhtml->countModules('headerimg')):
-			?>
-				<jdoc:include type="modules" name="headerimg" style="headerimg" />
-			<?php
-			else :
-			?>
+			if ($jhtml->countModules('headerimg') || (isset($imgHeader) && !empty($imgHeader))):?>				   
+					<?php if (isset($imgHeader) && !empty($imgHeader)) { ?>
+                    	<?php echo $imgHeader; ?>
+					<?php } else { ?>
+						<?php if ($jhtml->countModules('headerimg')) { ?> 
+							<jdoc:include type="modules" name="headerimg" style="headerimg" />
+						<?php } ?> 
+					<?php } ?>   
+			<?php else : ?>
 				<div class="wbc-background-image-stretch" style="background-image: url(<?php echo Uri::root(true) . '/' . HTMLHelper::_('cleanImageURL', $jhtml->params->get('headerimg'))->url;?>)"></div>
-			<?php
-			endif;
-			?>
+			<?php endif; ?>
 
 			<?php
 			if($jhtml->countModules('headerimg-overlay')) :
