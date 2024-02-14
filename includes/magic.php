@@ -25,7 +25,6 @@ $templateparams     = $app->getTemplate(true)->params; // Templateparameter
 $sitename           = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8'); // sitename in joomla konfigurationsdatei definiert
 $params             = $app->getParams(); //Parameter Menue
 $pageclass          = $params->get('pageclass_sfx'); // parameter (menu entry)
-$mediapath              = 'media/templates/site/wbc_blanco_j4/';
 $vorcontent_cols    = $templateparams->get('vorcontent-cols',1);
 $aftercontent_cols  = $templateparams->get('aftercontent-cols',1);
 $NavMainPos         = $templateparams->get('navmain',1);
