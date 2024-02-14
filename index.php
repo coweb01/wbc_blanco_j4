@@ -12,6 +12,8 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\FileLayout;
+use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
+use Joomla\CMS\Categories\Categories;
 
 // Template path
 $template    = $this->template;
@@ -44,6 +46,42 @@ if (($this->params->get('footerwidth') == 1)) {
 $nocontent = '';
 if (($this->params->get('hidecontentwrapper') == 1)) {
     $nocontent = 'wbc-nocontent';
+}
+
+/* ************************************************************* ***********************************   
+******     Headerbild aus Custom field Beitrag oder Kategorie                                   ****
+******     Custom Field muss den Namen headerimg / cat-headerimg haben                          **** 
+****************************************************************************************************/
+
+// die ID der Beitrags oder der Kategorie aus dem Link holen
+if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=article') !== false ||
+    strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=category') !== false)
+{
+   
+    $urlParams = parse_url($activeMenu->link);
+    parse_str($urlParams['query'], $params);
+    $id     = $params['id'];  // ID aus dem Link
+    
+    if (strpos($activeMenu->link, 'view=category') !== false) { // Custom Fields Kategorie 
+        $categories = Categories::getInstance('content');
+        $item       = $categories->get($id);
+        $context    = 'com_content.categories';
+        $arrayKey   = 'cat-headerimg';
+    } else { // Custom Fields Beitrag
+        $item    = $app->bootComponent('com_content')->getMVCFactory()->createModel('Article', 'Administrator')->getItem($id);
+        $context = 'com_content.article';
+        $arrayKey   = 'headerimg';
+    }
+    $fields = FieldsHelper::getFields($context, $item, true);
+    if ($fields){
+        foreach($fields as $field)
+        {
+            $fields[$field->name] = $field;
+        }
+    }  
+    if (array_key_exists($arrayKey,$fields ) && !empty($fields[$arrayKey]->value))  {
+        $displayData['imgHeader'] =  $fields[$arrayKey]->value;
+    }  
 }
 
 ?>
