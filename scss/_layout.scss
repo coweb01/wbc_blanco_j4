@@ -200,7 +200,12 @@ body {
 
 /* Blog */
 // com_content
-
+.category-desc {
+  margin-bottom: 2rem;
+  > img {
+    margin-bottom: 1rem;
+  }
+}
 .com-content-category-blog {
   > .page-header > h1 {
     margin-bottom: 2rem;
