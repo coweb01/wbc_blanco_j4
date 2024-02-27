@@ -40,7 +40,7 @@ if ($item->id == $active_id)
 	}
 }
 $attributes['class'] = $class;
-$linktype = $item->title;
+$linktype = '<span class="p-2 icon icon-default" aria-hidden="true"></span><span class="wbc-ink-title">' . $item->title . '</span>';
 
 if ($item->menu_icon)
 {
@@ -48,12 +48,12 @@ if ($item->menu_icon)
 	if ($itemParams->get('menu_text', 1))
 	{
 		// If the link text is to be displayed, the icon is added with aria-hidden
-		$linktype = '<span class="p-2 icon ' . $item->menu_icon . '" aria-hidden="true"></span>' . $item->title;
+		$linktype = '<span class="p-2 icon ' . $item->menu_icon . '" aria-hidden="true"></span><span class="wbc-ink-title">' . $item->title . '</span>';
 	}
 	else
 	{
 		// If the icon itself is the link, it needs a visually hidden text
-		$linktype = '<span class="p-2 icon ' . $item->menu_icon . '" aria-hidden="true"></span><span class="visually-hidden">' . $item->title . '</span>';
+		$linktype = '<span class="p-2 icon ' . $item->menu_icon . '" aria-hidden="true"></span><span class="wbc-ink-title visually-hidden">' . $item->title . '</span>';
 	}
 }
 elseif ($item->menu_image)
