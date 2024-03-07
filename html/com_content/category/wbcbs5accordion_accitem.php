@@ -24,6 +24,8 @@ use Joomla\CMS\Uri\Uri;
 use Joomla\Component\Content\Administrator\Extension\ContentComponent;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
 use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
+use Joomla\CMS\HTML\HTMLHelper;
+
 
 // Create a shortcut for params.
 $params      = $this->item->params;
@@ -54,6 +56,12 @@ if ($params->get('show_customfields') == 2) {
         }
     }
 }
+/* Kompletten Beitragstext holen */
+$app          = Factory::getApplication();
+$mvcFactory   = $app->bootComponent('com_content')->getMVCFactory();
+$articleModel = $mvcFactory->createModel('Article', 'Administrator', ['ignore_request' => true]);
+$Contentitem  = $articleModel->getItem($this->item->id);
+$fulltext     = str_replace('<hr id="system-readmore">', '', $Contentitem->articletext);
 ?>
                     
 <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
@@ -97,7 +105,8 @@ if ($params->get('show_customfields') == 2) {
             
     <?php  } else { ?>
         <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item);?>
-        <?php echo $this->item->introtext; ?>
+        
+        <?php echo HTMLHelper::_('content.prepare', $fulltext);?>
 
         <?php /* Ausgabe Customfields */ ?>
         <?php switch($params->get('show_customfields')) : 
@@ -119,22 +128,7 @@ if ($params->get('show_customfields') == 2) {
                 <?php echo LayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
             <?php endif; ?>
         <?php endif; ?>
-
-        <?php if ($params->get('show_readmore') && $this->item->readmore) :
-            if ($params->get('access-view')) :
-                $link = Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language));
-            else :
-                $menu = Factory::getApplication()->getMenu();
-                $active = $menu->getActive();
-                $itemId = $active->id;
-                $link = new Uri(Route::_('index.php?option=com_users&view=login&Itemid=' . $itemId, false));
-                $link->setVar('return', base64_encode(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)));
-            endif; ?>
-
-            <?php echo LayoutHelper::render('joomla.content.readmore', ['item' => $this->item, 'params' => $params, 'link' => $link]); ?>
-
-        <?php endif; ?>
-
+    
         <?php if ($isUnpublished) : ?>
             </div>
         <?php endif; ?>
