@@ -634,7 +634,29 @@
 				showon="trunc_introtext:1"
 				label="WBC_FIELD_TRUNCINTROTEXT_CHARS_LABEL">
 			</field>
-
+			<field
+				name="show_customfields"
+				type="radio"
+				label="WBC_FIELD_SHOW_CUSTOMFIELDS_LABEL"
+				default="1"
+				filter="integer"
+				description="WBC_FIELD_SHOW_CUSTOMFIELDS_DESC"
+				>
+				<option value="0">JNO</option>
+				<option value="1">ALL_FIELDS</option>
+				<option value="2">SELECT_FIELDS</option>
+			</field>
+			<field
+				name="select_customfield"
+				multiple="multiple"
+				type="sql"
+				default="10"
+				label="WBC_FIELD_SELECT_CUSTOMFIELD_LABEL"
+				query="SELECT title, id, context, state, type  FROM #__fields WHERE context LIKE 'com_content.article' AND type LIKE 'subform' AND state = 1"
+				key_field="id"
+				value_field="title"
+				showon="show_customfields:2"
+			/>
 			<field
 				name="show_readmore"
 				type="list"
@@ -647,7 +669,6 @@
 				<option value="0">JHIDE</option>
 				<option value="1">JSHOW</option>
 			</field>
-
 			<field
 				name="show_readmore_title"
 				type="list"

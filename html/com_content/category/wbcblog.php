@@ -15,6 +15,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\FileLayout;
 use Joomla\CMS\Layout\LayoutHelper;
+use \Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 
 $app = Factory::getApplication();
 
@@ -32,6 +33,11 @@ $results = $app->triggerEvent('onContentAfterDisplay', [$this->category->extensi
 $afterDisplayContent = trim(implode("\n", $results));
 
 $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
+
+if ($this->params->get('show_customfields') == 2) {
+    $this->selectedFields = $this->params->get('select_customfield');
+}
+
 ?>
 <div class="com-content-category-blog blog" itemscope itemtype="https://schema.org/Blog">
     <?php if ($this->params->get('show_page_heading')) : ?>
@@ -110,10 +116,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
             
             <div class="com-content-category-blog__item blog-item <?php echo $this->escape($imgclass); ?>"
                 itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-                    <?php
-                    
-                    echo $this->loadTemplate('item');
-                    ?>
+                    <?php echo $this->loadTemplate('item');?>
             </div>
         <?php endforeach; ?>
         </div>
