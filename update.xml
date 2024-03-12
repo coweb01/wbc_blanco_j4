@@ -9,10 +9,10 @@
 		<version>1.1.31</version>
 		<infourl title="wbc_blaco_j4 Template">https://github.com/coweb01/wbc_blanco_j4</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/coweb01/wbc_blanco_j4/releases/download/1.1.1/wbc_blanco_j4-1.1.31.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/coweb01/wbc_blanco_j4/releases/download/1.1.31/wbc_blanco_j4-1.1.31.zip</downloadurl>
 		</downloads>
 		<tags>dev</tags>
-		<sha512>4675d53b758d7d7705e94feb3cd7fde862e48115346548a27163e4486d1d105d</sha512>
+		<sha512>58d5bb4480782ed5654e2c6f4735995c3074a0f39f693544956a93ba91443fb76a4b1470b61815f7637b770c96eb7be23f0fdc2e8d319657be9d4167dbdcc193</sha512>
 		<maintainer>Claudia Oerter</maintainer>
 		<maintainerurl>https://www.das-webconcept.de</maintainerurl>
 		<php_minimum>7.2.5</php_minimum>
