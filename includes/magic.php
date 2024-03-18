@@ -82,8 +82,8 @@ $compress_css               = $templateparams->get('compress_css', 1) == 1  ? '.
 /* offcanvas Menue*/
 
 $offcanvas                  = $templateparams->get('offcanvas', 1);
-$offcanvas_pos              = $templateparams->get('offcanvas_pos','left');
-$toggle_offcanvas_pos       = ( $templateparams->get('toggle_offcanvas_pos','left') == 'left') ? 'start' : 'end';
+$offcanvas_pos              = $templateparams->get('offcanvas_pos');
+$toggle_offcanvas_pos       = $templateparams->get('toggle_offcanvas_pos');
 $offcanvas_breakpoint       = $templateparams->get('offcanvas_breakpoint');
 $offcanvas_width            = $templateparams->get('offcanvas_width',300);
 $offcanvas_navbar_height    = $templateparams->get('offcanvas_navbar_height',80);
