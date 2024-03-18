@@ -555,7 +555,7 @@
 				<field
 					name="HovercolorfooterB"
 					type="color"
-					default=" #ffffff"
+					default="#ffffff"
 					label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_HOVER_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_HOVER_COLOR_DESC"
 				/>
@@ -563,7 +563,7 @@
 				<field
 					name="ActivecolorfooterB"
 					type="color"
-					default=" #ffffff"
+					default="#ffffff"
 					label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_ACTIVE_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_ACTIVE_COLOR_DESC"
 				/>
@@ -585,7 +585,7 @@
 				<field
 					name="Linkcolorfooterfix"
 					type="color"
-					default=" #ffffff"
+					default="#ffffff"
 					label="TPL_WBC_BLANCO_J4_LINK_FOOTERBOTTOM_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_LINK_FOOTERBOTTOM_COLOR_DESC"
 				/>
@@ -593,7 +593,7 @@
 				<field
 					name="Hovercolorfooterfix"
 					type="color"
-					default=" #ffffff"
+					default="#ffffff"
 					label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_HOVER_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_HOVER_COLOR_DESC"
 				/>
