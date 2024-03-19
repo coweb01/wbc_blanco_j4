@@ -17,7 +17,7 @@ use Joomla\CMS\Component\ComponentHelper;
 
 $app                = Factory::getApplication();
 $doc                = $app->getDocument();
-
+$mediapath          = 'media/templates/site/wbc_blanco_j4/';
 $wa                 = $this->getWebAssetManager();
 
 $lang               = $app->getLanguage(); //sprachstring bei mehrsprachigen seiten
@@ -294,6 +294,3 @@ if($styleswitch == 1) {
 if ($fixedheader == 1) {
     $wa->registerAndUseScript('scroller', $mediapath . 'js/vendor/scrollPosStyler.min.js', [], ['defer' => true], []);
 }
-
-
-
