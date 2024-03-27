@@ -92,7 +92,7 @@ elseif ($item->browserNav == 2)
 	$attributes['onclick'] = "window.open(this.href, 'targetWindow', '" . $options . "'); return false;";
 }
 ?>
-<div class="bg-secondary shadow-sm d-inline-block">
+<div class="bg-icon d-inline-block">
 <?php echo HTMLHelper::_('link', OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), $linktype, $attributes);
 ?>
 </div>

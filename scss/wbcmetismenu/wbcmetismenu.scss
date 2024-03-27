@@ -16,6 +16,9 @@
   }
 }
 .wbcmetismenu {
+  >li.level-1 > ul {
+    min-width: 12rem;
+  }
   &.menu-horizontal {
     flex: 1 0 100%;
     padding: 0;
@@ -28,7 +31,7 @@
     }
     > li {
       position: relative;
-    
+
       &.level-1 {
         padding: .5rem 1rem;
         > ul {
@@ -47,6 +50,7 @@
       font-size: 1.1rem;
       font-weight: 400;
       line-height: 1.5;
+      padding: .5rem;
       &.parent {
         position: static;
       }
@@ -61,12 +65,8 @@
         -moz-box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.1);
         -webkit-box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.1);
       }
-      > button {
-        font-size: 1rem;
-      }
-      > button.wbcmetismenue-togger-heading {
+      > button.wbcmetismenue-toggler-heading {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         flex-wrap: nowrap;
         width: 100%;
@@ -74,7 +74,7 @@
       .wbcmetismenue_level2_btn {
         display: none;
       }
-     
+
       .wbcmetismenu-link {
         display: flex;
 
@@ -86,7 +86,7 @@
         &.fab:before,
         > span.fa:before,
         > span.fas:before,
-        > span.far:before,  
+        > span.far:before,
         > span.fal:before,
         > span.fad:before,
         > span.fab:before {
@@ -97,35 +97,30 @@
           height: auto;
           padding-right: 10px;
         }
-        
+
       }
-      > span:not(.fa), 
-      > span:not(.fas), 
+      > span:not(.fa),
+      > span:not(.fas),
       > span:not(.far),
       > span:not(.fal),
       > span:not(.fad),
       > span:not(.fab)
       > button,
-      > a.wbcmetismenu-link
-      {
+      > a.wbcmetismenu-link {
         align-items: flex-end;
-        padding: .5rem .5rem;
         overflow: hidden;
         text-decoration: none;
         text-overflow: ellipsis;
         color: var(--Linkcolornavbar);
         white-space: normal;
-        line-height: 1rem;
       }
       > a.wbcmetismenu-link:focus-visible,
-      > button:focus-visible
-      {
+      > button:focus-visible {
         outline: 1px dotted var(--color1);
         outline-offset: 2px;
-      } 
+      }
       > a.wbcmetismenu-link:focus,
-      > button:focus
-      {
+      > button:focus {
         color: var(--Hovercolornavbar);
       }
       > button:hover,
@@ -199,7 +194,7 @@
         }
       }
     }
-    
+
     .mm-collapse:not(.wbc-col) {
       position: absolute;
       top: 100%;
@@ -233,8 +228,8 @@
       display: flex;
       align-items: center;
       height: 100%;
-      padding: .5rem 0 0;
       margin: 0;
+      padding: 0;
       color: currentColor;
       -webkit-user-select: none;
          -moz-user-select: none;
@@ -256,6 +251,9 @@
       &[aria-expanded="true"]:after {
         transform: rotateX(-180deg);
       }
+      i {
+        padding-left: .3125rem;
+      }
     }
     .parent {
       > ul {
@@ -274,13 +272,15 @@
   }
 }
 
+.mm-toggler:not(.mm-collapsed) i {
+  transform: rotateX(180deg);
+}
 /* Mehrspaltiges Dropdown  */
 
 .wbc-multicolumn-metismenu {
   display: flex;
   gap: 1rem;
   flex: 1 1 0%;
-  flex-direction: row;
   .wbcmulticolumn {
     &.parent {
       .wbcmetismenu-submenu-dropdown {
@@ -292,16 +292,13 @@
       }
     }
   }
-  .wbcmetismenu-submenu-dropdown 
-  {
+  .wbcmetismenu-submenu-dropdown {
       max-width: 100%;
-      background-color: var(--bgnavbar, hsl(0, 0%, 100%));
-      margin-top: var(--bs-navbar-padding-y, .5rem);
+      background-color: var(--bgnavbarcolor);
       overflow-y: auto;
       max-height: 85vh;
   }
-  div > ul.wbc-col
-  {
+  div > ul.wbc-col {
     padding: 1.3rem;
     display: block;
     position: relative !important;
@@ -316,37 +313,33 @@
         display: block;
         position: relative !important;
       }
-  } 
+  }
 
   .mm-collapse.wbc-col {
-    
-    .wbcmetismenu-submenu
-    { 
+    .wbcmetismenu-submenu {
       width: 100%;
       border: none;
       box-shadow: none;
       -moz-box-shadow: none;
       -webkit-box-shadow: none;
     }
-  
-    .wbcmetismenu-submenu.sublevel-2 
-    {
-      padding: 0px; 
-      /* display: block; ul level2 im mehrspaltigen Dropdown immer anzeigen  */ 
+
+    .wbcmetismenu-submenu.sublevel-2 {
+      padding: 0px;
+      /* display: block; ul level2 im mehrspaltigen Dropdown immer anzeigen  */
       position: relative;
-    } 
-    .wbcmetismenu-item  {
+    }
+    .wbcmetismenu-item {
       border-bottom: 1px solid var(--mm-color2);
-    } 
-    .wbcmetismenu-item:last-child  {
+    }
+    .wbcmetismenu-item:last-child {
       border-bottom: none;
     }
     .wbcmetismenu-item > .wbcmetismenu-link {
       padding: 0.3rem 0.5rem;
-    }  
+    }
   }
-  .wbcmulticolumn .mm-collapse h3 
-  {
+  .wbcmulticolumn .mm-collapse h3 {
     text-align: center;
     margin: 1rem 0;
   }
@@ -384,78 +377,4 @@
     }
   }
 }
-
-/* offcanvas  Body */
-.wbc-bs5-offcanvas {
-   --ms-color2: rgba(255, 255, 255,0.3);
-
-  .wbcmetismenu {
-    &.mod-menu {
-      flex-direction: column;
-      
-      .wbcmetismenu-item {
-        justify-content: space-between;
-
-        > a.wbcmetismenu-link:link, 
-        > button, 
-        > span
-        {
-          color: var(--offcanvas-color, rgba(255,255,255,.8));
-        }
-        a.wbcmetismenu-link:hover,
-        a.wbcmetismenu-link:focus,
-        > button:hover,
-        > button:focus
-        {
-          color: var(--offcanvas-hover-color, rgba(255,255,255,1));
-        } 
-        a.wbcmetismenu-link:active,
-        > button:active
-        {
-          color: var(--offcanvas-active-color, rgba(255,255,255,9));
-        } 
-        &.level-2 {
-          .wbcmetismenue_heading {
-            border-left: 3px solid var(--offcanvas-color, rgba(255,255,255,.8));
-          }
-        }  
-        &:not(.level-1) {
-          .wbcmetismenue_heading {
-            .wbcmetis-titel {
-              color: var(--offcanvas-color, rgba(255,255,255,1));
-            }
-          }  
-        }
-          
-        > ul {
-          position: static;
-          padding: 0px;
-          margin: 0px;
-          background-color: transparent;
-          transition: all .5s ease-in-out;
-        }
-        .container-fluid  {
-          padding: 0px; 
-          .row {
-            margin: 0px;
-            h3 {
-              display: none;
-            }
-            .col {
-              padding: 0px;
-              flex: 0 0 100%!important;
-              max-width: 100%!important;
-              .wbc-col {
-                padding: 0px;
-              }
-            }
-          }
-
-        }
-
-      }
-    }
-  }
-}
-
 

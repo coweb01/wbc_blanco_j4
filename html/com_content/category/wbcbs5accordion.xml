@@ -43,7 +43,7 @@
 					type="hidden"
 					default="blog"
 				/>
-               
+
 				<field
 					name="show_category_title"
 					type="list"
@@ -184,17 +184,6 @@
 				useglobal="true"
 				parentclass="stack span-1"
 			/>
-            <field
-                name="collapse_first_item"
-                type="list"
-                label="WBC_ACCORDION_COLLAPSE_FIRST_ITEM"
-                useglobal="true"
-                class="form-select-color-state"
-                validate="options"
-                >
-                <option value="0">JNO</option>
-                <option value="1">JYES</option>
-            </field>
 
 			<field
 				name="blog_class_leading"
@@ -204,6 +193,19 @@
 				useglobal="true"
 				validate="CssIdentifier"
 			/>
+
+			<field
+				name="collapse_first_item"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="WBC_ACCORDION_COLLAPSE_FIRST_ITEM"
+				parentclass="stack span-1"
+				validate="options"
+				default="1"
+				>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
 
 			<field
 				name="num_intro_articles"
@@ -414,7 +416,7 @@
 				value_field="title"
 				showon="show_customfields:2"
 			/>
-			
+
 			<field
 				name="article_layout"
 				type="componentlayout"

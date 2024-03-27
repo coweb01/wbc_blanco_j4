@@ -60,9 +60,8 @@
 
 
 html, body {
-  --fluid-type-max: var(--fontsize);
   font-family: var(--fontfamily);
-  font-size: var(--fluid-type-max, 1.1rem);
+  font-size: var(--fontsize);
   font-weight: 400;
   color: var(--defaultcolor);
 }
@@ -82,27 +81,27 @@ h6, .h6 {
 }
 
 @media (min-width: 1200px) {
-  h1, .h1,
-  h2, .h2,
+  h1, .h1 {
+    font-size: var(--h1_size);
+  }
+  h2, .h2 {
+    font-size: var(--h2_size);
+  }
   h3, .h3 {
-    font-size: var(--fluid-type-max);
+    font-size: var(--h3_size);
   }
 }
 
 h1, .h1 {
-  --fluid-type-max: var(--h1_size);
   font-family: var(--fontfamily2);
   color: var(--h1_color);
 }
 
-
 h2, .h2 {
-  --fluid-type-max: var(--h2_size);
   color: var(--h2_color);
 }
 
 h3, .h3 {
-  --fluid-type-max: var(--h3_size);
   color: var(--h3_color);
 }
 

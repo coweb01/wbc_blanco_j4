@@ -31,34 +31,35 @@ $wa             = $document->getWebAssetManager();
 
 $min_height_l             = intval($offcanvas_navbar_height)+20;
 
-$Doffcanvas_breakpoint = $offcanvas_breakpoint+1;
-$wa->addInlineStyle("
-    @media (max-width: ".$offcanvas_breakpoint."px) {
-        #navigation-main .navbar.collapse  { display: none!important; }
-        .wbc__offcanvas-navbar { min-height: ".$min_height_l."px; display: flex!important; }
-    }
-    @media (max-width: 576px) {
-        .wbc__offcanvas-navbar { min-height: ".$offcanvas_navbar_height."px; }
-    }
-    @media (min-width: ".$Doffcanvas_breakpoint."px) {
-        #navigation-main .navbar.collapse { display: flex!important; }
-        .wbc__offcanvas-navbar { display: none!important; }
-    }");
+$offcanvas_breakpoint_px = "";
+if ($offcanvas_breakpoint == "navbar-expand-sm") {
+    $offcanvas_breakpoint_px = 576;
+} elseif ($offcanvas_breakpoint == "navbar-expand-md") {
+    $offcanvas_breakpoint_px = 768;
+} elseif ($offcanvas_breakpoint == "navbar-expand-lg") {
+    $offcanvas_breakpoint_px = 992;
+} elseif ($offcanvas_breakpoint == "navbar-expand-xl") {
+    $offcanvas_breakpoint_px = 1200;
+} elseif ($offcanvas_breakpoint == "navbar-expand-xxl") {
+    $offcanvas_breakpoint_px = 1400;
+} else {
+    $offcanvas_breakpoint_px = 30000;
+}
 ?>
 <?php
 $inlinejs = "
 function checkScreenSize() {
-    let navMain        = document.querySelector('.main-append'); 
+    let navMain        = document.querySelector('.main-append');
     let offCanvasBody  = document.querySelector('.offcanvas-body');
     let originalParent = document.getElementById('navMain');
 
-    if (window.innerWidth <= $offcanvas_breakpoint) { 
-        if (navMain && offCanvasBody && originalParent && !offCanvasBody.contains(navMain)) { 
+    if (window.innerWidth <= $offcanvas_breakpoint_px) {
+        if (navMain && offCanvasBody && originalParent && !offCanvasBody.contains(navMain)) {
             offCanvasBody.appendChild(navMain);
             navMain.querySelector('ul.mod-menu').classList.add('flex-column');
         }
     } else {
-        if (navMain && offCanvasBody && originalParent && !originalParent.contains(navMain)) { 
+        if (navMain && offCanvasBody && originalParent && !originalParent.contains(navMain)) {
             navMain.querySelector('ul.mod-menu').classList.remove('flex-column');
             originalParent.appendChild(navMain);
         }

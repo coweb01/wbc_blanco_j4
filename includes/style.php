@@ -2,22 +2,6 @@
 
 defined('_JEXEC') or die;
 
-$r = '255';
-$g = '255';
-$b = '255';
-$bgnavbaroptions = $templateparams->get('bgnavbaroptions');
-
-if ( $templateparams->get('bgnavbar') == 0) {
-	$bgnavbarcolor = 'transparent';
-} else {
-	if (!empty($bgnavbaroptions->bgnavbarcolor && $bgnavbaroptions->bgnavbarcolor != 'transparent' )) {
-		$r = hexdec(substr($bgnavbaroptions->bgnavbarcolor,1,2));
-		$g = hexdec(substr($bgnavbaroptions->bgnavbarcolor,3,2));
-		$b = hexdec(substr($bgnavbaroptions->bgnavbarcolor,5,2));
-	}
-	$bgnavbarcolor = 'rgba('.$r.','.$g.','.$b.','.$bgnavbaroptions->transnavbar.')';
-}
-
 $wa->addInlineStyle('
 :root {
 	--color1: ' . $templateparams->get('color1') . ';
@@ -25,14 +9,13 @@ $wa->addInlineStyle('
 	--color3: ' . $templateparams->get('color3') . ';
 	--color4: ' . $templateparams->get('color4') . ';
 	--color5: ' . $templateparams->get('color5') . ';
-	
+
 	--fontsize: ' . $templateparams->get('defaultfontsize') . 'rem;
 	--bgfooter: ' . $templateparams->get('bgfootercolor') . ';
 	--bgfooterfix: ' . $templateparams->get('bgfootercolorfix') . ';
 	--bgfooterB: ' . $templateparams->get('bgfootercolorB') . ';
 
-	--bgnavbar: ' . $templateparams->get('bgnavbarcolor') . ';
-	--bgnavbarcolor: '. $bgnavbarcolor . ';
+	--bgnavbarcolor: '. $templateparams->get('bgnavbarcolor') . ';
 	--bgcolor: ' . $templateparams->get('backgroundcolor') . ';
 	--bgcolormain: ' . $templateparams->get('backgroundcolormain') . ';
 	--defaultcolor: ' . $templateparams->get('defaultcolor') . ';
@@ -80,7 +63,8 @@ $wa->addInlineStyle('
 	--activecolorbtn: ' . $templateparams->get('Activecolorbtn') . ';
 	--activebgcolorbtn: ' . $templateparams->get('Activebgcolorbtn') . ';
 	--activebordercolorbtn: ' . $templateparams->get('Activecolorbtn') . ';
-	
+
 	--transnavbar: ' . $templateparams->get('transnavbar') . ';
+    --bs-offcanvas-width: ' . $templateparams->get('offcanvas_width') . ';
 }'
 );

@@ -14,8 +14,6 @@ use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\Utilities\ArrayHelper;
 use Joomla\CMS\Factory;
 
-$app          = Factory::getApplication();
-$doc          = $app->getDocument();
 $template     = $app->getTemplate(true);
 $mediapath    = 'media/templates/site/wbc_blanco_j4/';
 $class_sfx    = htmlspecialchars($params->get('class_sfx', ''));
@@ -26,7 +24,7 @@ $wa->registerAndUseScript('wbcmetismenu', $mediapath. 'js/menues/wbcmenu-metisme
 $wa->registerAndUseStyle('wbc.metismenu', $mediapath. 'css/menues/wbcmetismenu.min.css');
 
 $attributes             = [];
-$attributes['class']    = 'mod-menu wbc-multicolumn-metismenu wbcmetismenu metismenu mod-list ' . $class_sfx;
+$attributes['class']    = 'navbar-nav mod-menu wbc-multicolumn-metismenu wbcmetismenu metismenu mod-list ' . $class_sfx;
 $attributes['class']    .= ' wbc-position-' . $module->position;
 if ($tagId = $params->get('tag_id', '')) {
     $attributes['id'] = $tagId;
@@ -105,8 +103,8 @@ $dropdowncolums = false; // schalter für mehrspaltiges dropdown
                 if ( $itemParams->get('dropdowncolums') == "1") {
                 $dropdowncolums =  true;
                 $class[] = 'wbcmulticolumn';
-                } 
-            } 
+                }
+            }
         }
 
         if ($item->parent) {
@@ -121,17 +119,17 @@ $dropdowncolums = false; // schalter für mehrspaltiges dropdown
                 echo '</ul>'. "\n";
                 echo '</div>'. "\n";
                 $ColOpen = false;
-            } 
+            }
             if ( !$firstcol ) {
-                echo '<div class="col"'. $stylecolumn .'>'. "\n";  
+                echo '<div class="col"'. $stylecolumn .'>'. "\n";
                 echo '<ul class="wbc-col">'. "\n";
                 $ColOpen = true;
-            } 
+            }
             $firstcol = false;
         }
     }
-    // ende Spalten 
-    
+    // ende Spalten
+
     echo '<li class="' . implode(' ', $class) . '">';
 
     // Render the menu link
@@ -159,13 +157,13 @@ $dropdowncolums = false; // schalter für mehrspaltiges dropdown
                 if ( isset($dropdowncolums) && $dropdowncolums == true ) {
                     $htmlmegamenu[] = '<li class="container-fluid">'. "\n";
                     $htmlmegamenu[] = '<div class="row">'. "\n";
-                    
+
                     if ( !empty( $headlinedropdowntxt ) ){
                         $htmlmegamenu[] = '<h3 class="wbcheadlinedropdown" aria-hidden="true">'. $headlinedropdowntxt .'</h3>'. "\n";
                     }
                     $htmlmegamenu[] = '<div class="col"'. $stylecolumn .'>'. "\n";
                     $htmlmegamenu[] = '<ul class="wbc-col">'. "\n";
-                    $htmlmegamenu   =  implode("\n",$htmlmegamenu); 
+                    $htmlmegamenu   =  implode("\n",$htmlmegamenu);
                     echo $htmlmegamenu;
                     $firstcol = true;
                     $ColOpen = true;
@@ -179,9 +177,9 @@ $dropdowncolums = false; // schalter für mehrspaltiges dropdown
         case $item->shallower:
             echo '</li>';
 
-            
+
             // der nächste Level ist 1 mehrspaltiges Dropdown wieder schliessen
-            if ( isset($dropdowncolums) && $dropdowncolums == true ) { 
+            if ( isset($dropdowncolums) && $dropdowncolums == true ) {
                 if ( $item->level == 2 && $item->level_diff == 1 ) {
                     $dropdowncolums = false;
                     echo '</ul>'. "\n";
@@ -190,7 +188,7 @@ $dropdowncolums = false; // schalter für mehrspaltiges dropdown
                     echo '</li>'. "\n";
                     echo '</ul></li>'. "\n";
                     break;
-                } 
+                }
                 if ( $item->level > 2  && $item->level_diff > 1  ) {
                         $dropdowncolums = false;
                         echo str_repeat('</ul></li>', $item->level_diff-1);  // erst alle offenen unterebenen schliessen
@@ -200,7 +198,7 @@ $dropdowncolums = false; // schalter für mehrspaltiges dropdown
                         echo '</li>'. "\n";
                         echo '</ul></li>'. "\n";
                     break;
-                } 
+                }
             }
 
             echo str_repeat('</ul></li>', $item->level_diff);

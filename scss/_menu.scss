@@ -43,7 +43,7 @@ li.fa a span.chrome-fix {
 li.fa a span {
   font-size: inherit;
 }
-li.nav-item a { 
+li.nav-item a {
   text-decoration: none;
   display: block;
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
@@ -52,7 +52,6 @@ li.nav-item a {
   border: 0;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
-
 
 
 /** menues Footer  ------------------------------------------------*/
@@ -214,16 +213,14 @@ li.nav-item a {
 /********************  menues Sidebar   **********************************/
 
 #sidebar-right ul.nav,
-#sidebar-left ul.nav 
-{
+#sidebar-left ul.nav {
   flex-direction: column;
   width: 100%;
   padding: 0;
   margin: 0;
 }
 #sidebar-right ul.nav li,
-#sidebar-left ul.nav li
-{
+#sidebar-left ul.nav li {
   display: block;
   float: none;
   margin-right: 0;
@@ -232,8 +229,7 @@ li.nav-item a {
 }
 
 #sidebar-right ul.nav li:last-child,
-#sidebar-left ul.nav li:last-child
-{
+#sidebar-left ul.nav li:last-child {
   border-bottom: none;
 }
 #sidebar-right ul.nav li .nav-header,
@@ -246,9 +242,8 @@ li.nav-item a {
 #sidebar-right ul.nav li a:link,
 #sidebar-left ul.nav li a:link,
 #sidebar-right ul.nav li a:visited,
-#sidebar-left ul.nav li a:visited
-{
-  display: block;  
+#sidebar-left ul.nav li a:visited {
+  display: block;
   background-color: transparent;
   color: var(--defaultcolor, #333);
   padding: 0.5rem 0.3rem;
@@ -256,13 +251,11 @@ li.nav-item a {
 #sidebar-right ul.nav li a:hover,
 #sidebar-left ul.nav li a:hover,
 #sidebar-right ul.nav li a:focus,
-#sidebar-left ul.nav li a:focus
-{
+#sidebar-left ul.nav li a:focus {
   background-color: var( --bgcolor-light)
 }
 #sidebar-right ul.nav li a:active,
-#sidebar-left ul.nav li a:active
-{
+#sidebar-left ul.nav li a:active {
   color: var(--defaultcolor, #333);
   background-color: var( --bgcolor-light)
 }
@@ -285,84 +278,153 @@ li.nav-item a {
 #sidebar-left ul.nav > li.deeper ul > li.deeper > ul > li > a {
   padding-left: 2.5rem;
 }
-/**  Menue Zusatzlinks mit symbolen  ****/
-
-.menu-icons li {
-  padding: 15px;
-}
-.menu-icons .icon {
-  display: inline-block;
-  @include iconfont;
-  font-size: 900;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.menu-icons .icon:before {
-  height: 35px;
-  padding: 5px 15px 5px 10px;
-  font-size: 1rem;
-  line-height: 1.7rem;
-  @media (min-width: 1500px) {
-    font-size: 1.8rem;
-  }
-}
-.menu-icons .i-compass:before {
-  content: "\f14e";
-}
-.menu-icons .i-graduation-cap:before {
-  content: "\f19d";
-}
-.menu-icons .i-check-square:before {
-  content: "\f14a";
-}
-.menu-icons .i-bullseye:before {
-  content: "\f140";
-}
-.menu-icons .i-university:before {
-  content: "\f19c";
-}
-.menu-icons .i-star:before {
-  content: "\f005";
-}
-.menu-icons .i-users:before {
-  content: "\f0c0";
-}
-.menu-icons .i-bob:before {
-  content: "\f1b9";
-}
-.menu-icons .i-cutlery:before {
-  content: "\f0f5";
-}
-.menu-icons a {
-  padding-left: 0;
-  font-size: 1rem;
-  line-height: 1.7rem;
-}
-.menu-icons a:link,
-.menu-icons a:link {
-  font-weight: 600;
-}
-
-
-/***  Fixed Sidebar Menue Icons --------------------------*/
-
-.wbc-fixed-sidebar {
-  .menu-icons {
-    flex-direction:  column;
-      li.nav-item { padding: 0px;}
-  }
-} 
 
 /** ------------------------------------------------------- */
 /* Bei Hover Untermenü einblenden */
 
 @media (min-width: 992px) {
   .navigation-main .mod-menu_wbcdropdown-metismenu .wbcmetismenu-item.level-1:hover .wbc-multicolumn-dropdown-1,
-  .navigation-main .mod-menu_wbcdropdown-metismenu .wbcmetismenu-item.level-1 .wbcmetis-link:hover .wbc-multicolumn-dropdown-1
-  {
+  .navigation-main .mod-menu_wbcdropdown-metismenu .wbcmetismenu-item.level-1 .wbcmetis-link:hover .wbc-multicolumn-dropdown-1 {
     display: block;
   }
 }
+/* Offcanvas */
+.offcanvas.show {
+  .mm-collapse:not(.wbc-col),
+  .wbcmetismenu.mod-menu .mm-collapse:not(.wbc-col) {
+    position: relative;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .nav {
+    flex-direction: column;
+  }
+}
+.offcanvas-dark.show {
+  color: #fff;
+  background-color: #212529;
+  --Linkcolornavbar: #fff;
+  --bgnavbarcolor: #343a40;
+  --Hovercolornavbar: #a9a9a9;
+  --Activecolornavbar: #a9a9a9;
+  .navbar-nav {
+    color: #fff;
+  }
+  a {
+    color: #fff;
+    &:link,
+    &:visited {
+      color: #fff;
+    }
+    &:hover {
+      color: #a9a9a9;
+    }
+  }
+  .active a {
+    color: #a9a9a9;
+  }
+}
+@media (min-width: 576px) {
+  .navbar-expand-sm .navbar-button {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-button {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-button {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  .navbar-expand-xl .navbar-button {
+    display: none;
+  }
+}
+@media (min-width: 1400px) {
+  .navbar-expand-xxl .navbar-button {
+    display: none;
+  }
+}
+@media (max-width: 576px) {
+  .wbc__offcanvas-toggler-button-txt {
+    display: none;
+  }
+}
+/* offcanvas  Body */
+/*
+.wbc-bs5-offcanvas {
+   --ms-color2: rgba(255, 255, 255,0.3);
 
+  .wbcmetismenu {
+    &.mod-menu {
+      flex-direction: column;
 
+      .wbcmetismenu-item {
+        justify-content: space-between;
+
+        > a.wbcmetismenu-link:link,
+        > button,
+        > span
+        {
+          color: var(--offcanvas-color, rgba(255,255,255,.8));
+        }
+        a.wbcmetismenu-link:hover,
+        a.wbcmetismenu-link:focus,
+        > button:hover,
+        > button:focus
+        {
+          color: var(--offcanvas-hover-color, rgba(255,255,255,1));
+        }
+        a.wbcmetismenu-link:active,
+        > button:active
+        {
+          color: var(--offcanvas-active-color, rgba(255,255,255,9));
+        }
+        &.level-2 {
+          .wbcmetismenue_heading {
+            border-left: 3px solid var(--offcanvas-color, rgba(255,255,255,.8));
+          }
+        }
+        &:not(.level-1) {
+          .wbcmetismenue_heading {
+            .wbcmetis-titel {
+              color: var(--offcanvas-color, rgba(255,255,255,1));
+            }
+          }
+        }
+
+        > ul {
+          position: static;
+          padding: 0px;
+          margin: 0px;
+          background-color: transparent;
+          transition: all .5s ease-in-out;
+        }
+        .container-fluid  {
+          padding: 0px;
+          .row {
+            margin: 0px;
+            h3 {
+              display: none;
+            }
+            .col {
+              padding: 0px;
+              flex: 0 0 100%!important;
+              max-width: 100%!important;
+              .wbc-col {
+                padding: 0px;
+              }
+            }
+          }
+
+        }
+
+      }
+    }
+  }
+}
+*/

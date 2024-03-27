@@ -1,0 +1,31 @@
+{
+  "name": "wbc_blanco_j4",
+  "version": "1.0.0",
+  "description": "wbc_blanco_j4 Joomla 4 Template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css:build": "sass scss/template.scss css/template.css --no-source-map && sass --style=compressed scss/template.scss css/template.min.css --no-source-map",
+    "metis:build": "sass scss/wbcmetismenu/wbcmetismenu.scss css/menues/wbcmetismenu.css --no-source-map && sass --style=compressed scss/wbcmetismenu/wbcmetismenu.scss css/menues/wbcmetismenu.min.css --no-source-map",
+    "offcanvas:build": "postcss css/menues/wbcoffcanvasmenu.css --use=autoprefixer --output=css/menues/wbcoffcanvasmenu.min.css",
+    "css:prefix": "npm run css:build && postcss css/template.css --use=autoprefixer --output=css/template.css",
+    "media:sync": "syncdir css ../../media/templates/site/wbc_blanco_j4/css && syncdir scss ../../media/templates/site/wbc_blanco_j4/scss && syncdir js ../../media/templates/site/wbc_blanco_j4/js",
+    "lang:sync": "syncdir language ../../language"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coweb01/wbc_blanco_j4.git"
+  },
+  "author": "Claudia Oerter / Viviana Menzel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coweb01/wbc_blanco_j4/issues"
+  },
+  "homepage": "https://github.com/coweb01/wbc_blanco_j4#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "sass": "^1.43.4",
+    "postcss-cli": "latest"
+  }
+}

@@ -25,19 +25,20 @@ $template       = $app->getTemplate(true);
 $mediapath      = 'media/templates/site/wbc_blanco_j4/';
 $tpath          = 'templates/wbc_blanco_j4/';
 ?>
-<nav class="fixed-top navbar navbar-light toggle-pos-<?php echo $toggle_offcanvas_pos; ?> wbc__offcanvas-navbar" >
+<nav class="fixed-top navbar navbar-light <?php echo $offcanvas_breakpoint; ?> toggle-pos-<?php echo $toggle_offcanvas_pos; ?>" >
     <div class="container-fluid">
         <div class="navbar-button">
-            <button class="btn wbc__offcanvas-toggler-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#OffcanvasMenu<?php echo $offcanvas_pos; ?>" aria-controls="OffcanvasMenu<?php echo $offcanvas_pos;?>" aria-label="<?php echo Text::_('TPL_WBC_MENU'); ?>">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#OffcanvasMenu<?php echo $offcanvas_pos; ?>" aria-controls="OffcanvasMenu<?php echo $offcanvas_pos;?>" aria-label="<?php echo Text::_('TPL_WBC_MENU'); ?>">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <span class="wbc__offcanvas-toggler-butto-txt"><?php echo Text::_('TPL_WBC_MENU'); ?></span>        
+            <span class="wbc__offcanvas-toggler-button-txt"><?php echo Text::_('TPL_WBC_MENU'); ?></span>
         </div>
-        <?php if ($logo_mobil != '-1' || $jhtml->countModules('logo-mobil') ) : ?>
+        <?php if (!empty($logo_mobil) || $jhtml->countModules('logo-mobil') ) : ?>
         <div class="navbar-brand wbc__logo">
         <?php if ($jhtml->countModules('logo-mobil')): ?>
             <jdoc:include type="modules" name="logo-mobil" style="none" />
-                <?php else : ?><a href="index.php"><?php  echo LayoutHelper::render('joomla.html.image', ['src' => $logo_mobil, 'loading' => 'eager', 'alt' => htmlspecialchars($templateparams->get('sitetitle'))]);?></a>
+        <?php else : ?>
+            <a href="index.php"><?php  echo LayoutHelper::render('joomla.html.image', ['src' => $logo_mobil, 'loading' => 'eager', 'alt' => htmlspecialchars($template->params->get('sitetitle'), ENT_QUOTES, 'UTF-8')]);?></a>
         <?php endif; ?>
         </div>
         <?php endif; ?>

@@ -8,7 +8,7 @@
 defined( '_JEXEC' ) or die;
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\Filesystem\File;
+use Joomla\Filesystem\File;
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Component\ComponentHelper;
 
@@ -63,6 +63,7 @@ $holder                     = $templateparams->get('holder');
 $fontawesome                = $templateparams->get('fontawesome');
 $logo                       = $templateparams->get('logo');
 $logo_mobil                 = $templateparams->get('logo_mobil');
+$sitetitle                  = $templateparams->get('sitetitle');
 $hidecontentwrapper         = $templateparams->get('hidecontentwrapper', 0);
 $logoposition               = $templateparams->get('logoposition', 1);
 $logowidth_md               = $templateparams->get('logowidthmd', 4);
@@ -81,18 +82,28 @@ $fontsize_pos               = $templateparams->get('fontsize-position', 1);
 $compress_css               = $templateparams->get('compress_css', 1) == 1  ? '.min' : '';
 /* offcanvas Menue*/
 
-$offcanvas                  = $templateparams->get('offcanvas', 1);
 $offcanvas_pos              = $templateparams->get('offcanvas_pos');
 $toggle_offcanvas_pos       = $templateparams->get('toggle_offcanvas_pos');
 $offcanvas_breakpoint       = $templateparams->get('offcanvas_breakpoint');
-$offcanvas_width            = $templateparams->get('offcanvas_width',300);
-$offcanvas_navbar_height    = $templateparams->get('offcanvas_navbar_height',80);
-$offcanvas_pushContent      = $templateparams->get('offcanvas_pushContent');
-$offcanvas_levelOpen        = $templateparams->get('offcanvas_levelOpen','overlap');
-$offcanvas_levelSpacing     = $templateparams->get('offcanvas_levelSpacing',40);
-$offcanvas_bodyInsert       = $templateparams->get('offcanvas_bodyInsert');
-$offcanvas_removeOriginalNav = $templateparams->get('offcanvas_removeOriginalnav');
-
+$dClass    = '';
+if ($offcanvas_breakpoint == 'navbar-expand-sm') {
+    $dClass = 'd-sm-none';
+}
+if ($offcanvas_breakpoint == 'navbar-expand-md') {
+    $dClass = 'd-md-none';
+}
+if ($offcanvas_breakpoint == 'navbar-expand-lg') {
+    $dClass = 'd-lg-none';
+}
+if ($offcanvas_breakpoint == 'navbar-expand-xl') {
+    $dClass = 'd-xl-none';
+}
+if ($offcanvas_breakpoint == 'navbar-expand-xxl') {
+    $dClass = 'd-xxl-none';
+}
+$offcanvas_width            = $templateparams->get('offcanvas_width');
+$offcanvas_navbar_height    = $templateparams->get('offcanvas_navbar_height');
+$offcanvas_color            = $templateparams->get('offcanvas_color');
 /* end offcanvas */
 $iconright                  = $templateparams->get('iconfixedright','fa fa-bars');
 $iconleft                   = $templateparams->get('iconfixedleft','fa fa-bars');
@@ -134,7 +145,6 @@ if ($menu->getActive() == $menu->getDefault($lang->getTag())) {
     $classbody  .= ' nofront';
 }
 
-$classbody .= ( $offcanvas == 1 ) ? ' wbc-offcanvas' : '';
 $classbody .= $pageclass;
 if ($bgimage == 1 && $templateparams->get('image-body')) {
     $classbody .= ' bgimage-01';
@@ -197,7 +207,7 @@ $wa->usePreset('template.wbc')
     ->useScript('template.user');
 $i = 1;
 foreach ($customcss as $value) {
-    if ((File::exists($mediapath . 'css/'.$value ) ) ) {
+    if ((file_exists($mediapath . 'css/'.$value ) ) ) {
         $rname = 'custom'.$i;
         $wa->registerAndUseStyle($rname, $mediapath . 'css/'. $value);
     } // else { echo "CSS Datei" . $customcss.  "nicht vorhanden"; }
@@ -205,14 +215,14 @@ foreach ($customcss as $value) {
 }
 
 /* Default CSS Alternativ */
-if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/default.css') ) ) {
+if ((file_exists( JPATH_ROOT. '/templates/'.$this->template . '/css/default.css') ) ) {
     $wa->registerAndUseStyle('default', $mediapath . 'css/default.css');
 }
 
 /* Hochkontrast CSS Alternativ */
 
 if ($styleswitch) {
-    if ((File::exists( JPATH_ROOT. '/templates/'.$this->template . '/css/hk.css') ) ) {
+    if ((file_exists( JPATH_ROOT. '/templates/'.$this->template . '/css/hk.css') ) ) {
         $wa->registerAndUseStyle('hk', $mediapath . 'css/hk.css');
     }
 }
@@ -252,20 +262,17 @@ $displayData = array(
             'sitename'                      => $sitename,
             'sidebar'                       => array( 0=>'left', 1=>'right'),
             'templateparams'                => $templateparams,
-            'offcanvas'                     => $offcanvas,
             'offcanvas_pos'                 => $offcanvas_pos,
             'offcanvas_breakpoint'          => $offcanvas_breakpoint,
             'offcanvas_width'               => $offcanvas_width,
             'toggle_offcanvas_pos'          => $toggle_offcanvas_pos,
+            'offcanvas_color'               => $offcanvas_color,
             'offcanvas_navbar_height'       => $offcanvas_navbar_height,
-            'offcanvas_pushContent'         => $offcanvas_pushContent,
-            'offcanvas_levelOpen'           => $offcanvas_levelOpen,
-            'offcanvas_levelSpacing'        => $offcanvas_levelSpacing,
-            'offcanvas_bodyInsert'          => $offcanvas_bodyInsert,
-            'offcanvas_removeOriginalNav'   => $offcanvas_removeOriginalNav,
+            'dClass'                        => $dClass,
             'logoposition'                  => $logoposition,
             'logo_mobil'                    => $logo_mobil,
             'logo'                          => $logo,
+            'sitetitle'                     => $sitetitle,
             'toggleleft'                    => $toggleleft,
             'toggleright'                   => $toggleright,
             'fontsize'                      => $fontsize,
@@ -276,7 +283,7 @@ $displayData = array(
             'fontawesome'                   => $fontawesome,
             'iconleft'                      => $iconleft,
             'iconright'                     => $iconright,
-            'bgnavbar'                      => $bgnavbar,
+            'bgnavbarcolor'                 => $bgnavbar,
             'headerimg'                     => $headerimg,
             'footercols'                    => $footercols,
             'headerimgSizeClass'            => $headerimgSizeClass,

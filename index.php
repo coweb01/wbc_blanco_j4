@@ -48,23 +48,22 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
     $nocontent = 'wbc-nocontent';
 }
 
-/* ************************************************************* ***********************************   
-******     Headerbild aus Custom field Beitrag oder Kategorie                                   ****
-******     Custom Field muss den Namen headerimg / cat-headerimg haben                          **** 
-****************************************************************************************************/
+/* ********************************************** */
+/******     Headerbild aus Custom field Beitrag oder Kategorie                                   ****/
+/******     Custom Field muss den Namen headerimg / cat-headerimg haben                          ****/
+/****************************************************************************************************/
 
 // die ID der Beitrags oder der Kategorie aus dem Link holen
 if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=article') !== false ||
     strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=category') !== false)
 {
-   
+
     $urlParams = parse_url($activeMenu->link);
     parse_str($urlParams['query'], $params);
     $id     = $params['id'];  // ID aus dem Link
-    
-    if (strpos($activeMenu->link, 'view=category') !== false) { // Custom Fields Kategorie 
-        $categories = Categories::getInstance('content');
-        $item       = $categories->get($id);
+
+    if (strpos($activeMenu->link, 'view=category') !== false) { // Custom Fields Kategorie
+        $item    = $app->bootComponent('com_categories')->getMVCFactory()->createModel('Category', 'Administrator', ['ignore_request' => true])->getItem($id);
         $context    = 'com_content.categories';
         $arrayKey   = 'cat-headerimg';
     } else { // Custom Fields Beitrag
@@ -78,10 +77,10 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
         {
             $fields[$field->name] = $field;
         }
-    }  
+    }
     if (array_key_exists($arrayKey,$fields ) && !empty($fields[$arrayKey]->value))  {
         $displayData['imgHeader'] =  $fields[$arrayKey]->value;
-    }  
+    }
 }
 
 ?>
@@ -101,21 +100,6 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
 <body id="top" class="body-01 <?php echo $classbody; ?>">
 
     <div class="prevent-scrolling">
-
-        <?php
-        if ($offcanvas == 1) : ?>
-            <!-- Offcanvas Navbar -->
-            <?php $LayoutOffcanvas = new FileLayout('wbc_blanco_template.bts5offcanvasnavbar', $tpath.'html/layouts'); ?>
-            <?php echo $LayoutOffcanvas ->render($displayData); ?>
-            <!-- end Offcanvas Navbar -->
-        <?php endif; ?>
-
-        <?php  if ($offcanvas == 1) :?>
-            <!-- Offcanvas Body -->
-            <?php $LayoutOffcanvas = new FileLayout('wbc_blanco_template.bts5offcanvasbody', $tpath.'html/layouts'); ?>
-            <?php echo $LayoutOffcanvas ->render($displayData); ?>
-            <!-- end Offcanvas Body -->
-        <?php endif; ?>
 
         <?php
         if( $this->countModules('sidebar-left-fix') ||
@@ -184,7 +168,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                         <?php endif; ?>
 
                         <?php if ($this->countModules('navMain') && $NavMainPos == 1): ?>
-                        <nav id="navigation-main" class="navbar navbar-expand-lg navbar-light <?php echo ($bgnavbar == 1 ) ? 'wbc-bg-navbar' : '';?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="Main Navigation">
+                        <nav id="navigation-main" class="navbar <?php echo $offcanvas_breakpoint; ?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="Main Navigation">
                             <?php
                                 $LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'html/layouts');
                                 echo $LayoutMain ->render($displayData);
@@ -194,42 +178,42 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                     </div>
                 </div><!-- End header-top -->
 
+                <?php if ($NavMainPos == 2 || $this->countModules('header-top-02') || $logoposition == 3 || $NavMainPos == 3 || (($this->params->get('headerimg-select') == 1) && ($himg == true)) || ($this->countModules('headerimg'))): ?>
                 <div class="header-middle">
 
                     <?php if ($this->countModules('navMain') && $NavMainPos == 2): ?>
-                    <nav id="navigation-main" class="navbar navbar-expand-lg navbar-light <?php echo ($bgnavbar == 1 ) ? 'wbc-bg-navbar' : '';?> <?php echo ($fixedheader == 1) ? 'sps"' :'';?>" aria-label="Main Navigation">
-                        <?php
-                            $LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'html/layouts');
-                            echo $LayoutMain ->render($displayData);
-                        ?>
-                    </nav>
+                        <nav id="navigation-main" class="navbar <?php echo $offcanvas_breakpoint; ?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="Main Navigation">
+                            <?php
+                                $LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'html/layouts');
+                                echo $LayoutMain ->render($displayData);
+                            ?>
+                        </nav>
                     <?php endif; ?>
 
                     <?php if ($this->countModules('header-top-02')): ?>
-                    <div <?php echo ($pos_search == 'header-top-02') ? $anker_search : ''; ?> class="header-02 container<?php echo ( $navbarHeaderWidth == 1) ? '-fluid' : '';?>">
-                        <div id="header-top-02" class="base-row <?php echo $bootstrap_rowclass; ?>">
-                            <?php if ($this->countModules('header-top-02')) : ?>
-                            <div class="base-col col">
-                                <jdoc:include type="modules" name="header-top-02" style="none" />
+                        <div <?php echo ($pos_search == 'header-top-02') ? $anker_search : ''; ?> class="header-02 container<?php echo ( $navbarHeaderWidth == 1) ? '-fluid' : '';?>">
+                            <div id="header-top-02" class="base-row <?php echo $bootstrap_rowclass; ?>">
+                                <?php if ($this->countModules('header-top-02')) : ?>
+                                <div class="base-col col">
+                                    <jdoc:include type="modules" name="header-top-02" style="none" />
+                                </div>
+                                <?php endif; ?>
                             </div>
-                            <?php endif; ?>
                         </div>
-                    </div>
                     <?php endif; ?>
 
                     <?php if ($logoposition == 3) : ?>
-                    <div class="header-02" role="heading">
-                        <div class="base-row <?php echo $bootstrap_rowclass; ?>">
-                            <?php
-                                $LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $tpath.'html/layouts');
-                                echo $LayoutLogo ->render($displayData);
-                            ?>
-                        </div>
-                    </div><!-- End header-02 -->
+                        <div class="header-02" role="heading">
+                            <div class="base-row <?php echo $bootstrap_rowclass; ?>">
+                                <?php
+                                    $LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $tpath.'html/layouts');
+                                    echo $LayoutLogo ->render($displayData);
+                                ?>
+                            </div>
+                        </div><!-- End header-02 -->
                     <?php endif; ?>
 
-                    <?php
-                    if (($this->params->get('headerimg-select') == 1) && (($himg == true) || ($this->countModules('headerimg')))) :
+                    <?php if (($this->params->get('headerimg-select') == 1) && (($himg == true) || ($this->countModules('headerimg')))) :
                     /* wenn headerbild */
                     ?>
                         <?php
@@ -239,7 +223,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                     <?php endif; ?>
 
                     <?php if ($this->countModules('navMain') && $NavMainPos == 3): ?>
-                        <nav id="navigation-main" class="navbar navbar-expand-lg navbar-light <?php echo ($bgnavbar == 1 ) ? 'wbc-bg-navbar' : '';?> <?php echo ($fixedheader == 1) ? 'sps"' :'';?>" aria-label="Main Navigation">
+                        <nav id="navigation-main" class="navbar <?php echo $offcanvas_breakpoint; ?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="Main Navigation">
 
                         <?php if ($fixedheader && $this->countModules('logo-mobil')): ?>
                         <div id="logo-mobil" class="navbar-brand hidden">
@@ -255,6 +239,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                     </nav>
                     <?php endif; ?>
                 </div>
+                <?php endif; ?>
             </header>
             <!-- ********************  End Header ******************************************************************** -->
 

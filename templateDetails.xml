@@ -140,33 +140,6 @@
 					<option value="1">JYES</option>
 				</field>
 
-				<!-- Hochkontrast Style umschalter -->
-				<field
-					name="styleswitch"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="TPL_WBC_BLANCO_J4_FIELD_STYLESWITCH_LABEL"
-					description=""
-					>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-
-				<field
-					name="styleswitch-position"
-					type="list"
-					default="1"
-					label="TPL_WBC_BLANCO_J4_PARAMETER_POSITION_STYLESWITCH_LABEL"
-					description="TPL_WBC_BLANCO_J4_PARAMETER_POSITION_STYLESWITCH_DESC"
-					>
-					<option value="1">TPL_WBC_BLANCO_J4_POS_ONE</option>
-					<option value="2">TPL_WBC_BLANCO_J4_POS_TWO</option>
-					<option value="3">TPL_WBC_BLANCO_J4_POS_TREE</option>
-					<option value="4">TPL_WBC_BLANCO_J4_POS_FOUR</option>
-				</field>
-
 				<field
 					name="iconfixedleft"
 					type="text"
@@ -464,23 +437,59 @@
 				/>
 
 				<field
+					name="notenavbar"
+					type="note"
+					label="TPL_WBC_BLANCO_J4_NAVBAR_COLORS"
+					description="TPL_WBC_BLANCO_J4_NAVBAR_COLORS_DESCRIPTION"
+				/>
+
+				<field
+					name="bgnavbarcolor"
+					type="color"
+					format="rgba"
+					default="rgba(255, 255, 255, 1)"
+					label="TPL_WBC_BLANCO_J4_NAVBAR_BGCOLOR_LABEL"
+					description="TPL_WBC_BLANCO_J4_NAVBAR_BGCOLOR_DESC"
+				/>
+
+
+				<field
+					name="colornavbar"
+					type="color"
+					default="#333333"
+					label="TPL_WBC_BLANCO_J4_NAVBAR_COLOR_LABEL"
+					description="TPL_WBC_BLANCO_J4_NAVBAR_COLOR_DESC"
+				/>
+
+				<field
+					name="Linkcolornavbar"
+					type="color"
+					default="#333333"
+					label="TPL_WBC_BLANCO_J4_LINK_NAVBAR_COLOR_LABEL"
+					description="TPL_WBC_BLANCO_J4_LINK_NAVBAR_COLOR_DESC"
+				/>
+
+				<field
+					name="Hovercolornavbar"
+					type="color"
+					default="#333333"
+					label="TPL_WBC_BLANCO_J4_HOVER_NAVBAR_COLOR_LABEL"
+					description="TPL_WBC_BLANCO_J4_HOVER_NAVBAR_COLOR_DESC"
+				/>
+
+				<field
+					name="Activecolornavbar"
+					type="color"
+					default="#333333"
+					label="TPL_WBC_BLANCO_J4_ACTIVE_NAVBAR_COLOR_LABEL"
+					description="TPL_WBC_BLANCO_J4_ACTIVE_NAVBAR_COLOR_DESC"
+				/>
+
+				<field
 					name="notefooter"
 					type="note"
 					label="TPL_WBC_BLANCO_J4_FOOTER_COLORS"
 				/>
-
-				<field
-					name="bgfooter"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group btn-group-yesno"
-					default="1"
-					label="TPL_WBC_BLANCO_J4_FIELD_BGFOOTER_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_BGFOOTER_DESC"
-					>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
 
 				<field
 					name="bgfootercolor"
@@ -539,7 +548,7 @@
 				<field
 					name="ColorfooterB"
 					type="color"
-					default=" #ffffff"
+					default="#ffffff"
 					label="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_COLOR_DESC"
 				/>
@@ -547,7 +556,7 @@
 				<field
 					name="LinkcolorfooterB"
 					type="color"
-					default=" #ffffff"
+					default="#ffffff"
 					label="TPL_WBC_BLANCO_J4_LINK_FOOTERBOTTOM_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_LINK_FOOTERBOTTOM_COLOR_DESC"
 				/>
@@ -606,76 +615,6 @@
 					description="TPL_WBC_BLANCO_J4_FOOTERBOTTOM_ACTIVE_COLOR_DESC"
 				/>
 
-				<field
-					name="notenavbar"
-					type="note"
-					label="TPL_WBC_BLANCO_J4_NAVBAR_COLORS"
-					description="TPL_WBC_BLANCO_J4_NAVBAR_COLORS_DESCRIPTION"
-				/>
-
-				<field
-					name="bgnavbar"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="TPL_WBC_BLANCO_J4_FIELD_BGNAVBAR_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_BGNAVBAR_DESC"
-					>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-
-				<field name="bgnavbaroptions" type="subform" label="TPL_WBC_BLANCO_J4_NAVBAR_BG_LABEL" description="TPL_WBC_BLANCO_J4_NAVBAR_BG_LABEL" multiple="false"  showon="bgnavbar:1">
-					<form>
-						<field name="bgnavbarcolor" type="color" default="transparent" label="TPL_WBC_BLANCO_J4_NAVBAR_BGCOLOR_LABEL" description="TPL_WBC_BLANCO_J4_NAVBAR_BGCOLOR_DESC"/>
-
-						<field name="transnavbar" type="list" default="1" label="TPL_WBC_BLANCO_J4_FIELD_TRANSNAVBAR_LABEL" description="TPL_WBC_BLANCO_J4_FIELD_TRANSNAVBAR_DESC">
-						<option value="0.1">10%</option>
-						<option value="0.2">20%</option>
-						<option value="0.3">30%</option>
-						<option value="0.4">40%</option>
-						<option value="0.5">50%</option>
-						<option value="0.6">60%</option>
-						<option value="0.7">70%</option>
-						<option value="0.8">80%</option>
-						<option value="0.9">90%</option>
-						<option value="1">100%</option>
-						</field>
-					</form>
-				</field>
-
-				<field
-					name="colornavbar"
-					type="color"
-					default="#333333"
-					label="TPL_WBC_BLANCO_J4_NAVBAR_COLOR_LABEL"
-					description="TPL_WBC_BLANCO_J4_NAVBAR_COLOR_DESC"
-				/>
-
-				<field
-					name="Linkcolornavbar"
-					type="color"
-					default="#333333"
-					label="TPL_WBC_BLANCO_J4_LINK_NAVBAR_COLOR_LABEL"
-					description="TPL_WBC_BLANCO_J4_LINK_NAVBAR_COLOR_DESC"
-				/>
-
-				<field
-					name="Hovercolornavbar"
-					type="color"
-					default="#333333"
-					label="TPL_WBC_BLANCO_J4_HOVER_NAVBAR_COLOR_LABEL"
-					description="TPL_WBC_BLANCO_J4_HOVER_NAVBAR_COLOR_DESC"
-				/>
-
-				<field
-					name="Activecolornavbar"
-					type="color"
-					default="#333333"
-					label="TPL_WBC_BLANCO_J4_ACTIVE_NAVBAR_COLOR_LABEL"
-					description="TPL_WBC_BLANCO_J4_ACTIVE_NAVBAR_COLOR_DESC"
-				/>
 			</fieldset>
 
 			<fieldset name="layout">
@@ -747,54 +686,6 @@
 					<option value="1">TPL_WBC_BLANCO_J4_FIELD_LOGOPOS_DEFAULT</option>
 					<option value="2">TPL_WBC_BLANCO_J4_FIELD_LOGOPOS_TOP</option>
 					<option value="3">TPL_WBC_BLANCO_J4_FIELD_LOGOPOS_AFTER</option>
-				</field>
-
-				<field
-					name="logowidthmd"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group"
-					default="12"
-					label="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_DESC"
-					>
-					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
-					<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
-					<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
-					<option value="8">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL8</option>
-				</field>
-
-				<field
-					name="logowidthsm"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group"
-					default="10"
-					label="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_TABLET_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_DESC"
-					>
-					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
-					<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
-					<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
-					<option value="8">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL8</option>
-				</field>
-
-				<field
-					name="logowidthxs"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group"
-					default="10"
-					label="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_PHONE_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_LOGOWIDTH_DESC"
-					>
-					<option value="4">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL4</option>
-					<option value="5">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL5</option>
-					<option value="6">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL6</option>
-					<option value="8">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL8</option>
-					<option value="9">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL9</option>
-					<option value="10">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL10</option>
-					<option value="12">TPL_WBC_BLANCO_J4_FIELD_BOOTSTRAPCOL12</option>
 				</field>
 
 				<!-- Headerbild austauschbar -->
@@ -1029,29 +920,16 @@
 				<field name="note_offcanvas" type="note" label="TPL_WBC_BLANCO_J4_INFO_OFFCANVAS_LABEL" description="TPL_WBC_BLANCO_J4_INFO_OFFCANVAS_DESC" class="alert alert-info" />
 
 				<field
-					name="offcanvas"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group btn-group-yesno"
-					default="1"
-					label="TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_LABEL"
-					description="TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_DESC"
-					>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-
-				<field
 					name="offcanvas_pos"
 					type="radio"
 					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
-					default="left"
+					default="start"
 					label="TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_POS_LABEL"
 					description="TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_POS_DESC"
 					>
-					<option value="left">TPL_WBC_BLANCO_J4_LEFT</option>
-					<option value="right">TPL_WBC_BLANCO_J4_RIGHT</option>
+					<option value="start">TPL_WBC_BLANCO_J4_LEFT</option>
+					<option value="end">TPL_WBC_BLANCO_J4_RIGHT</option>
 				</field>
 
 				<field
@@ -1059,66 +937,34 @@
 					type="radio"
 					layout="joomla.form.field.radio.buttons"
 					class="btn-group"
-					default="left"
+					default="start"
 					label="TPL_WBC_BLANCO_J4_BOOTSTRAP_TOGGLE_OFFCANVAS_POS_LABEL"
 					description="TPL_WBC_BLANCO_J4_TOGGLE_BOOTSTRAP_OFFCANVAS_POS_DESC"
 					>
-					<option value="left">TPL_WBC_BLANCO_J4_LEFT</option>
-					<option value="right">TPL_WBC_BLANCO_J4_RIGHT</option>
+					<option value="start">TPL_WBC_BLANCO_J4_LEFT</option>
+					<option value="end">TPL_WBC_BLANCO_J4_RIGHT</option>
+				</field>
+
+				<field
+					name="offcanvas_color"
+					type="radio"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
+					default="offcanvas-dark"
+					label="TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_COLOR_LABEL"
+					>
+					<option value="offcanvas-dark">TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_COLOR_DARK</option>
+					<option value="offcanvas-light">TPL_WBC_BLANCO_J4_BOOTSTRAP_OFFCANVAS_COLOR_LIGHT</option>
 				</field>
 
 				<field
 					name="offcanvas_width"
 					type="text"
-					default="300"
+					default="400"
 					label="TPL_WBC_BLANCO_J4_OFFCANVASWIDTH_LABEL"
 					description="TPL_WBC_BLANCO_J4_OFFCANVASWIDTH_DESC"
 					filter="string"
 				/>
-
-				<field
-					name="offcanvas_pushContent"
-					type="text"
-					default=""
-					label="TPL_WBC_BLANCO_J4_OFFCANVASPUSHCONTENT_LABEL"
-					description="TPL_WBC_BLANCO_J4_OFFCANVASPUSHCONTENT_DESC"
-					filter="string"
-				/>
-
-				<field
-					name="offcanvas_levelOpen"
-					type="radio"
-					default="overlap"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group btn-group-yesno"
-					label="TPL_WBC_BLANCO_J4_OFFCANVASLEVELOPEN_LABEL"
-					description="TPL_WBC_BLANCO_J4_OFFCANVASLEVELOPEN_DESC" >
-						<option value="overlap">Overlap</option>
-						<option value="expand">Expand</option>
-						<option value="none">none</option>
-						<option value="false">false</option>
-				</field>
-
-				<field
-					name="offcanvas_levelSpacing"
-					type="text"
-					default="40"
-					label="TPL_WBC_BLANCO_J4_OFFCANVASLEVELSPACING_LABEL"
-					description="TPL_WBC_BLANCO_J4_OFFCANVASLEVELSPACING_DESC"
-					filter="string"
-				/>
-
-				<field
-					name="offcanvas_bodyInsert"
-					type="radio"
-					default="prepend"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group btn-group-yesno"
-					label="TPL_WBC_BLANCO_J4_OFFCANVASBODYINSERT_LABEL"
-					description="TPL_WBC_BLANCO_J4_OFFCANVASBODYINSERT_DESC" >
-						<option value="prepend">prepend</option>
-						<option value="append">append</option>
-				</field>
 
 				<field
 					name="offcanvas_navbar_height"
@@ -1130,13 +976,19 @@
 				/>
 				<field
 					name="offcanvas_breakpoint"
-					type="text"
-					default="1200"
+					type="list"
+					default="navbar-expand-lg"
 					label="TPL_WBC_BLANCO_J4_OFFCANVASBREAKPOINT_LABEL"
 					description="TPL_WBC_BLANCO_J4_OFFCANVASBREAKPOINT_DESC"
-					filter="string"
-				/>
-
+					>
+					<option value="">TPL_WBC_BLANCO_J4_SELECT</option>
+					<option value="navbar-expand-sm">576</option>
+					<option value="navbar-expand-md">768</option>
+					<option value="navbar-expand-lg">992</option>
+					<option value="navbar-expand-xl">1200</option>
+					<option value="navbar-expand-xxl">1400</option>
+					<option value="noexpand">Immer</option>
+				</field>
 
 			</fieldset>
 

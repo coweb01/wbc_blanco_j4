@@ -163,12 +163,12 @@
 
 			<field
 				name="collapse_first_item"
-				type="list"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
 				label="WBC_ACCORDION_COLLAPSE_FIRST_ITEM"
-				class="form-select-color-state"
-				default="1"
-				validate="options"
 				parentclass="stack span-2-inline"
+				validate="options"
+				default="1"
 				>
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>

@@ -6,8 +6,8 @@
  *
  * @copyright   (C) 2016 Open Source Matters, Inc. <https://www.joomla.org>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
- * 
- * Override fuer Feld Subform. 
+ *
+ * Override fuer Feld Subform.
  * Ausgabe der Felder Typ:
  * uri, text, textarea, editor, acfurl
  */
@@ -32,33 +32,20 @@ $context = $field->context;
 foreach ($field->subform_rows as $subform_row) {
     // Placeholder array to generate this rows output
     $row_output = [];
-    $content    = [];
+
     // Iterate over each sub field inside of that row
     foreach ($subform_row as $subfield) {
         $class       = trim($subfield->params->get('render_class', ''));
         $layout      = trim($subfield->params->get('layout', 'render'));
         $fieldtyp    = trim($subfield->type);
         $fieldid     = trim($subfield->id);
-       
-        switch ($fieldtyp) {
-            case 'text':
-                $content['titel'] = $subfield->rawvalue;
-                break;
-            case 'textarea':
-                $content['desc'] = $subfield->rawvalue;
-                break;
-            case 'mediajce':
-                $content['url'] = $subfield->rawvalue;
-                break;
-        }
-        
-        /*trim(
+        $content = trim(
             FieldsHelper::render(
                 $context,
                 'field.' . $layout, // normally just 'field.render'
                 ['field' => $subfield]
             )
-        );*/
+        );
 
         // Skip empty output
         if ($content === '') {
@@ -66,7 +53,7 @@ foreach ($field->subform_rows as $subform_row) {
         }
 
         // Generate the output for this sub field and row
-        //$row_output[] = '<div class="wbc__field-entry-'.  $fieldtyp . ' ' . ($class ? (' ' . $class) : '') . '">' . $content . '</div>';
+        $row_output[] = '<div class="wbc__field-entry-'.  $fieldtyp . ' ' . ($class ? (' ' . $class) : '') . '">' . $content . '</div>';
     }
 
     // Skip empty rows
@@ -74,12 +61,12 @@ foreach ($field->subform_rows as $subform_row) {
         continue;
     }
 
-    //$result .= '<div class="wbc__subform-row">' . implode(' ', $row_output) . '</div>';
+    $result .= '<div class="wbc__subform-row">' . implode(' ', $row_output) . '</div>';
 }
 ?>
 
 <?php if (trim($result) != '') : ?>
     <div class="wbc__subform-fields mb-3">
-        <?php //echo $result; ?>
+        <?php echo $result; ?>
 </div>
 <?php endif; ?>

@@ -4,35 +4,48 @@
 /* Icon Menue                       */
 /* website: www.das-webconcept.de   */
 
+.menu-icons {
+  --bg-icon: #ccc;
+}
+.bg-icon {
+  background-color: var(--bg-icon);
+  box-shadow: var(--bs-box-shadow-sm);
+}
 .menu-icons li.nav-item {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .menu-icons a.nav-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-  }
-  .menu-icons .image-title {
-    margin-top: auto;
-    margin-bottom: 0px;
-  }
-  .menu-icons a.nav-link .icon,
-  .menu-icons a.nav-link .icon::before {
-    font-size: 3rem;
-    line-height: 1.5;
-  }
-  .menu-icons a.nav-link img {
-    max-width: 80px;
-    max-height: 80px;
-    margin:0.8rem auto 0.8rem auto;
-  }
-
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.menu-icons a.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.menu-icons .image-title {
+  margin-top: auto;
+  margin-bottom: 0px;
+}
+.menu-icons a.nav-link .icon,
+.menu-icons a.nav-link .icon::before {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+.menu-icons .icon:before {
+  padding: .5rem 1rem;
+}
+.menu-icons a.nav-link img {
+  max-width: 80px;
+  max-height: 80px;
+  margin:0.8rem auto 0.8rem auto;
+}
 .menu-icons.spalten1,
 .menu-icons.spalten2,
 .menu-icons.spalten3,
@@ -41,64 +54,93 @@
 .menu-icons.spalten6,
 .menu-icons.spalten7,
 .menu-icons.spalten8  {
-    display: grid;
-    justify-content: center;
-    margin-top: 3rem;
-    grid-template-columns: repeat(1, 1fr);
+  display: grid;
+  justify-content: center;
+  margin-top: 3rem;
+  grid-template-columns: repeat(1, 1fr);
 }
-
-
-
 @media ( min-width: 576px ) {
-   
-    .menu-icons.spalten2,
-    .menu-icons.spalten3,
-    .menu-icons.spalten4,
-    .menu-icons.spalten5,
-    .menu-icons.spalten6,
-    .menu-icons.spalten7,
-    .menu-icons.spalten8  {
-        display: grid;
-        justify-content: center;
-        margin-top: 3rem;
-        grid-template-columns: repeat(2, 1fr);
-    }   
+  .menu-icons.spalten2,
+  .menu-icons.spalten3,
+  .menu-icons.spalten4,
+  .menu-icons.spalten5,
+  .menu-icons.spalten6,
+  .menu-icons.spalten7,
+  .menu-icons.spalten8  {
+      display: grid;
+      justify-content: center;
+      margin-top: 3rem;
+      grid-template-columns: repeat(2, 1fr);
+  }
 }
-
 @media ( min-width: 768px )  {
-    .menu-icons.spalten8 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .menu-icons.spalten6 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .menu-icons.spalten5 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .menu-icons.spalten4 {
-        grid-template-columns: repeat(4, 1fr);
-    }
-    .menu-icons.spalten3 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .menu-icons.spalten2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .menu-icons.spalten1 {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    
+  .menu-icons.spalten8 {
+      grid-template-columns: repeat(3, 1fr);
+  }
+  .menu-icons.spalten6 {
+      grid-template-columns: repeat(3, 1fr);
+  }
+  .menu-icons.spalten5 {
+      grid-template-columns: repeat(3, 1fr);
+  }
+  .menu-icons.spalten4 {
+      grid-template-columns: repeat(4, 1fr);
+  }
+  .menu-icons.spalten3 {
+      grid-template-columns: repeat(3, 1fr);
+  }
+  .menu-icons.spalten2 {
+      grid-template-columns: repeat(2, 1fr);
+  }
+  .menu-icons.spalten1 {
+      grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media ( min-width: 876px )  {
+  .menu-icons.spalten8 {
+      grid-template-columns: repeat(8, 1fr);
+  }
+  .menu-icons.spalten6 {
+      grid-template-columns: repeat(6, 1fr);
+  }
+  .menu-icons.spalten5 {
+      grid-template-columns: repeat(5, 1fr);
+  }
 }
 
-@media ( min-width: 876px )  {
-    .menu-icons.spalten8 {
-        grid-template-columns: repeat(8, 1fr);
-    }
-    .menu-icons.spalten6 {
-        grid-template-columns: repeat(6, 1fr);
-    }
-    .menu-icons.spalten5 {
-        grid-template-columns: repeat(5, 1fr);
-    }
+.menu-icons .i-compass:before {
+  content: "\f14e";
+}
+.menu-icons .i-graduation-cap:before {
+  content: "\f19d";
+}
+.menu-icons .i-check-square:before {
+  content: "\f14a";
+}
+.menu-icons .i-bullseye:before {
+  content: "\f140";
+}
+.menu-icons .i-university:before {
+  content: "\f19c";
+}
+.menu-icons .i-star:before {
+  content: "\f005";
+}
+.menu-icons .i-users:before {
+  content: "\f0c0";
+}
+.menu-icons .i-bob:before {
+  content: "\f1b9";
+}
+.menu-icons .i-cutlery:before {
+  content: "\f0f5";
+}
 
+/***  Fixed Sidebar Menue Icons --------------------------*/
+
+.wbc-fixed-sidebar .menu-icons {
+  flex-direction:  column;
+}
+.wbc-fixed-sidebar .menu-icons li.nav-item {
+  padding: 0;
 }
