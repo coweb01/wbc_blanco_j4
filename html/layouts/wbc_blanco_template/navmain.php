@@ -30,6 +30,11 @@
         echo $LayoutLogo ->render($displayData);
         ?>
     </div>
+    <?php if ($jhtml->countModules('offcanvas-navbar')) :?>
+        <div class="offcanvas-navbar">
+            <jdoc:include type="modules" name="offcanvas-navbar" style="none" />
+        </div>
+    <?php endif; ?>
 <?php endif;  ?>
 <div class="navbar-button">
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#OffcanvasMenu<?php echo $offcanvas_pos; ?>" aria-controls="OffcanvasMenu<?php echo $offcanvas_pos;?>" aria-label="<?php echo Text::_('TPL_WBC_MENU'); ?>">
@@ -38,6 +43,11 @@
     <span class="wbc__offcanvas-toggler-button-txt" aria-hidden="true"><?php echo Text::_('TPL_WBC_MENU'); ?></span>
 </div>
 <?php if (($toggle_offcanvas_pos == "start") && ($logoposition == 1)) : ?>
+    <?php if ($jhtml->countModules('offcanvas-navbar')) :?>
+        <div class="offcanvas-navbar">
+            <jdoc:include type="modules" name="offcanvas-navbar" style="none" />
+        </div>
+    <?php endif; ?>
     <div class="navbar-brand logo-mo">
         <?php
             $LayoutLogo = new FileLayout('wbc_blanco_template.logopos', $tpath.'html/layouts');
@@ -61,10 +71,5 @@
 
         <jdoc:include type="modules" name="navMain"/>
 
-        <?php if ($jhtml->countModules('offcanvas-navbar')) :?>
-            <div class="mt-3 <?php echo $dClass; ?>">
-                <jdoc:include type="modules" name="offcanvas-navbar" style="none" />
-            </div>
-        <?php endif; ?>
     </div>
 </div>
