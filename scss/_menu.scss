@@ -356,6 +356,9 @@ li.nav-item a {
 }
 
 /* Offvanvas Menü ----------------*/
+.offcanvas-navbar {
+  margin: 0 1rem;
+}
 .navbar-toggler {
   --bs-navbar-toggler-border-radius: 0;
   --bs-navbar-color: var(--color1);
