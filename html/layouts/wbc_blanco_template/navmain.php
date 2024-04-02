@@ -33,7 +33,12 @@
 <?php endif;  ?>
 <div class="navbar-button">
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#OffcanvasMenu<?php echo $offcanvas_pos; ?>" aria-controls="OffcanvasMenu<?php echo $offcanvas_pos;?>" aria-label="<?php echo Text::_('TPL_WBC_MENU'); ?>">
-        <span class="navbar-toggler-icon"></span>
+        <svg class="svg-toggler-icon" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <rect class="toggler-line1" y="9" width="20" height="2"></rect>
+            <rect class="toggler-line2" y="3" width="20" height="2"></rect>
+            <rect class="toggler-line3" y="9" width="20" height="2"></rect>
+            <rect class="toggler-line4" y="15" width="20" height="2"></rect>
+        </svg>
     </button>
     <span class="wbc__offcanvas-toggler-button-txt" aria-hidden="true"><?php echo Text::_('TPL_WBC_MENU'); ?></span>
 </div>
