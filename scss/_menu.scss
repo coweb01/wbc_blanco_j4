@@ -354,6 +354,46 @@ li.nav-item a {
     display: none;
   }
 }
+
+/* Offvanvas Menü ----------------*/
+.navbar-toggler {
+  --bs-navbar-toggler-border-radius: 0;
+  --bs-navbar-color: var(--color1);
+  background-color: transparent;
+  border: none;
+}
+.navbar-toggler .svg-toggler-icon {
+  fill: currentColor;
+}
+
+@media (min-width: 992px) {
+  button.navbar-toggler:hover,
+  button.navbar-toggler:focus {
+    background-color: transparent;
+    color: var(--color1);
+    border-color: transparent;
+  }
+  .navbar-toggler .svg-toggler-icon {
+    transform: translate(-10px,0);
+    width: 70px;
+  }
+  .navbar-toggler .svg-toggler-icon rect {
+    width: 70px;
+    transition: all 0.5s ease-in-out;
+    transform-origin: center;
+    opacity: 1;
+  }
+  .navbar-toggler .svg-toggler-icon .toggler-line3 {
+    opacity: 0;
+  }
+  .navbar-toggler:hover .svg-toggler-icon .toggler-line1,
+  .navbar-toggler:focus .svg-toggler-icon .toggler-line1,
+  .navbar-toggler .svg-toggler-icon:hover .toggler-line1,
+  .navbar-toggler .svg-toggler-icon:focus .toggler-line1 {
+    width: 35px;
+  }
+
+}
 /* offcanvas  Body */
 /*
 .wbc-bs5-offcanvas {

@@ -1,0 +1,26 @@
+.accordion-button {
+  --bs-accordion-active-bg: #ddd;
+}
+.accordion-body figure {
+  width: 300px;
+}
+.accordion-body figure.float-md-start {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.nav-tabs .nav-link {
+  --bs-nav-link-color: var(--linkcolor);
+  --bs-nav-link-hover-color: var(--linkHovercolor);
+}
+.nav-tabs .nav-link {
+  background-color: transparent;
+}
+.nav-tabs button.nav-link.active {
+  background-color: transparent;
+}
+.tab-content {
+  margin-bottom: 3rem;
+}
+.tab-pane {
+  padding: .5rem;
+}

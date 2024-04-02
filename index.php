@@ -445,12 +445,9 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
         <!--End Footer-->
         <jdoc:include type="modules" name="debug" style="none" />
 
-        <div id="gototop">
-            <a class="mb-2 gototop shadow-sm d-inline-flex justify-content-center align-items-center" href="#top" >
-                <i class="fa fa-chevron-up"></i>
-                <span class="visually-hidden"><?php echo Text::_('TPL_WBC_BLANCO_J4_TOP'); ?></span>
-            </a>
-        </div>
+        <a href="#top" id="back-top" class="back-to-top-link" aria-label="<?php echo Text::_('TPL_WBC_BLANCO_J4_TOP'); ?>">
+            <span class="fa fa-chevron-up" aria-hidden="true"></span>
+        </a>
 
         <div id="gototop-mobil" class="d-flex d-sm-none shadow-sm p-1 fixed-bottom">
             <a class="gototop" href="#top">

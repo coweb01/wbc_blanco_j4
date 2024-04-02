@@ -164,7 +164,6 @@ a:not([class]) {
 
 /* Buttons */
 
-
 .btn-success {
   color: #fff;
   background-color: rgba(var(--bs-success-rgb));
@@ -181,20 +180,16 @@ a:not([class]) {
   }
 }
 .btn-primary,
-.btn-secondary,
-.btn-success,
-.btn-danger,
-.btn-warning,
-.btn-info,
-.btn-light,
-.btn-outline-primary,
-.btn-outline-secondary,
-.btn-outline-success,
-.btn-outline-danger,
-.btn-outline-warning,
-.btn-outline-info,
-.btn-outline-light {
-  border-radius: var(--borderradius);
+.btn-secondary {
+  --bs-btn-color: var(--linkcolorbtn);
+  --bs-btn-bg: var(--linkbgcolorbtn);
+  --bs-btn-border-color: var(--linkbordercolorbtn);
+  --bs-btn-hover-color: var(--hovercolorbtn);
+  --bs-btn-hover-bg: var(--hoverbgcolorbtn);
+  --bs-btn-hover-border-color: var(--hoverbordercolorbtn);
+  --bs-btn-active-color: var(--activecolorbtn);
+  --bs-btn-active-bg: var(--activebgcolorbtn);
+  --bs-btn-active-border-color: var(--activebordercolorbtn);
 }
 .input-append .btn-primary,
 .input-append .btn-secondary,
@@ -212,6 +207,7 @@ a:not([class]) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+/*
 button,
 .btn {
   color: var(--linkcolorbtn);
@@ -232,6 +228,7 @@ button,
     border-color: var(--activebordercolorbtn);
   }
 }
+*/
 .btn-outline-primary {
   color: var(--linkcolorbtn);
   background-color: transparent;
