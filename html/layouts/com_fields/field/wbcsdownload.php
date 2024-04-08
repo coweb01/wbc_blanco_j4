@@ -56,7 +56,7 @@ foreach ($field->subform_rows as $subform_row) {
         switch ($fieldtyp) {
           
             case 'text':
-                $content['media_text'] = trim($subfield->rawvalue);
+                $content['media_titel'] = trim($subfield->rawvalue);
                 break;
             case 'textarea':
                 $content['media_beschreibung'] = trim($subfield->rawvalue);
@@ -87,11 +87,22 @@ foreach ($field->subform_rows as $subform_row) {
     if (!isset($content['media_src'])) {
         continue;
     }
+   
+    if (isset($content['media_titel']) && !empty($content['media_titel'])) {
+        $titel = Text::_('TPL_WBC_BLANCO_DOWNLOAD').$content['media_titel'];
+        if (isset($content['media_text']) && empty($content['media_text'])) {
+            $content['media_text'] = $content['media_titel'];
+        } 
+    } 
+    if (!isset($titel) && isset($content['media_text'])) {
+        $titel = Text::_('TPL_WBC_BLANCO_DOWNLOAD').$content['media_text'];
+    }   
+    
 
     if (isset($content['media_text']) && $content['targetyp'] == 'download') {
-            $row_output[0] = '<span class="wbc__file_link d-block pe-3"><i class="'. $iconClass . ' pe-3" aria-hidden="true"></i><a href="'. $content['media_src'] .'" title="'.Text::_('TPL_WBC_BLANCO_DOWNLOAD').' ' . $content['media_text'].'" class="wbc_file" '.$content['targetyp'].' rel="nofollow">'. $content['media_text'] .'</a></span>';
+            $row_output[0] = '<span class="wbc__file_link d-block pe-3"><i class="'. $iconClass . ' pe-3" aria-hidden="true"></i><a href="'. $content['media_src'] .'" title="'.$titel.'" class="wbc_file" '.$content['targetyp'].' rel="nofollow">'. $content['media_text'] .'</a></span>';
     } else {
-        $row_output[0] = '<span class="wbc__file_link d-block pe-3"><i class="'. $iconClass . ' pe-3" aria-hidden="true"></i><a href="'. $content['media_src'] .'" title="'.Text::_('TPL_WBC_BLANCO_DOWNLOAD').' ' . $content['media_text'].'" class="wbc_file" '.$content['targetyp'].' rel="nofollow">'. $content['media_text'] .'</a></span>';
+        $row_output[0] = '<span class="wbc__file_link d-block pe-3"><i class="'. $iconClass . ' pe-3" aria-hidden="true"></i><a href="'. $content['media_src'] .'" title="'.$titel.'" class="wbc_file" '.$content['targetyp'].' rel="nofollow">'. $content['media_text'] .'</a></span>';
     }
 
     if (isset($content['media_beschreibung'])) {
