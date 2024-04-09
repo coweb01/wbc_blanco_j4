@@ -50,6 +50,10 @@ $this->useCoreUI = true;
 // Create shortcut to parameters.
 $params = $this->state->get('params');
 
+// LayoutData
+$LayoutData['item'] = $this->item;
+$LayoutData['form'] = $this->form;
+
 // This checks if the editor config options have ever been saved. If they haven't they will fall back to the original settings
 if (!$params->exists('show_publishing_options')) {
     $params->set('show_urls_images_frontend', '0');
@@ -67,19 +71,8 @@ if (!$params->exists('show_publishing_options')) {
     <form action="<?php echo Route::_('index.php?option=com_content&a_id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-vertical">
         <fieldset>
 
-                <?php echo $this->form->renderField('title'); ?>
-                <?php echo $this->form->renderField('catid'); ?>
-                <?php if (is_null($this->item->id)) : ?>
-                    <?php echo $this->form->renderField('alias'); ?>
-                <?php endif; ?>
-
-                <?php echo $this->form->renderField('articletext'); ?>
-
-                <?php if ($this->captchaEnabled) : ?>
-                    <?php echo $this->form->renderField('captcha'); ?>
-                <?php endif; ?>
-        
-            <?php echo LayoutHelper::render('joomla.edit.buergerparams', $this); ?>
+            <?php echo LayoutHelper::render('wbc_blanco_template.edit.buergercontent', $LayoutData); ?>           
+            <?php echo LayoutHelper::render('wbc_blanco_template.edit.buergerparams', $this); ?>
             
             <input type="hidden" name="task" value="">
             <input type="hidden" name="return" value="<?php echo $this->return_page; ?>">
