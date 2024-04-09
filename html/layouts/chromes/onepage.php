@@ -19,6 +19,7 @@ $moduleTag              = $params->get('module_tag', 'div');
 $headerTag              = ($params->get('header_tag', 'h3')) ? htmlspecialchars($params->get('header_tag'), ENT_QUOTES, 'UTF-8') : 'h3';
 $headerClass            = ($params->get('header_class', '')) ? htmlspecialchars($params->get('header_class'), ENT_QUOTES, 'UTF-8') : '';
 $headerAttribs          = [];
+
 $moduleClassSfx         = ($params->get('moduleclass_sfx')) ? htmlspecialchars($params->get('moduleclass_sfx'), ENT_QUOTES, 'UTF-8') : '';
 $bgimage                = $params->get('backgroundimage');
 $ankerid                = $headerClass;
@@ -39,7 +40,7 @@ $bootstrapColclass      = "col-" . $bootstrapSize;
     <div class="onepage-inner" data-speed="8" data-type="background" style="background-image:url('<?php echo $bgimage; ?>')">
     <?php
     else : ?>
-    <div class="onepage-inner <?php echo htmlspecialchars($params->get('moduleclass_sfx')); ?>">
+    <div class="onepage-inner <?php echo $moduleClassSfx; ?>">
     <?php
     endif;
     ?>

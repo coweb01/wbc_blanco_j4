@@ -10,6 +10,7 @@
 .bg-icon {
   background-color: var(--bg-icon);
   box-shadow: var(--bs-box-shadow-sm);
+  height: 100%;
 }
 .menu-icons li.nav-item {
   display: flex !important;
@@ -28,8 +29,11 @@
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.1;
+  height: 100%;
 }
-
+.menu-icons .image-title {
+  margin-top: auto;
+}
 .menu-icons a.nav-link .icon,
 .menu-icons a.nav-link .icon::before {
   font-size: 3rem;
