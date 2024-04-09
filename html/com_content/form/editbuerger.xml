@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-	<layout title="COM_CONTENT_FORM_VIEW_BUERGER_TITLE" option="COM_CONTENT_FORM_VIEW_BUERGER_OPTION">
+	<layout title="WBC_COM_CONTENT_FORM_VIEW_BUERGER_TITLE" option="WBC_COM_CONTENT_FORM_VIEW_BUERGER_OPTION">
 		<help
 			key = "Menu_Item:_Create_Article"
 		/>
 		<message>
-			<![CDATA[COM_CONTENT_FORM_VIEW_BUERGER_DESC]]>
+			<![CDATA[WBC_COM_CONTENT_FORM_VIEW_BUERGER_DESC]]>
 		</message>
 	</layout>
 	<fields name="params">
