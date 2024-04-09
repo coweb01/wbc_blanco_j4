@@ -191,7 +191,7 @@
 				type="sql"
 				default="10"
 				label="WBC_FIELD_SELECT_CUSTOMFIELD_LABEL"
-				query="SELECT title, id, context, only_use_in_subform, state, type  FROM #__fields WHERE context LIKE 'com_content.article' AND type NOT LIKE 'subform' AND only_use_in_subform = 0 AND state = 1"
+				query="SELECT title, id, context, only_use_in_subform, state, type  FROM #__fields WHERE context LIKE 'com_content.article' AND note LIKE 'tabs' AND state = 1"
 				key_field="id"
 				value_field="title"
 				layout="joomla.form.field.list-fancy-select"
