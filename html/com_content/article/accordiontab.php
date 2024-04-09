@@ -20,6 +20,8 @@ use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
 use Joomla\Component\Content\Administrator\Extension\ContentComponent;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
+use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
+
 
 // Create shortcuts to some parameters.
 $params  = $this->item->params;
@@ -33,6 +35,96 @@ $assocParam        = (Associations::isEnabled() && $params->get('show_associatio
 $currentDate       = Factory::getDate()->format('Y-m-d H:i:s');
 $isNotPublishedYet = $this->item->publish_up > $currentDate;
 $isExpired         = !is_null($this->item->publish_down) && $this->item->publish_down < $currentDate;
+
+// Vorbereitung der Custumfields für die Ausgabe als Tab / Accordion
+$fields             = $this->item->jcfields; // Felder des Artikels holen formatierte Ausgabe 
+$selectedFields     = $params->get('select_customfield');
+$noTabs             = true;
+$htmlausgabe        = array();
+$i                  = 0;
+
+if ($selectedFields) {
+    $fields_tabs_pos = array();
+    if (isset($selectedFields)) {
+        foreach ($fields as $key => $field) {
+            //  alle Felder aus der dem Array entfernen die nicht ausgewählt sind.
+            if (in_array($field->id, $selectedFields)) { // wenn nicht in der Liste der ausgewählten Felder
+                $field_tabs_pos[$field->id] = $fields[$key];
+                unset($fields[$key]);
+            } 
+        }
+    }
+    // die Werte für Tabs/ Accordion in ein Array für die Ausgabe übergeben
+
+    foreach ($field_tabs_pos as $field) {
+        $contactfield = preg_match('/kontakt/', $field->name);
+        
+        switch ($field->type == 'subform') {
+            case 'subform':
+                if ($field->subform_rows){  // wenn Subform 
+                    
+                    foreach ($field->subform_rows as $subform_row) {
+                        // alle Subfields, wenn repeatable fields
+                        if ($contactfield) { // alle Felder aus dem Subfeld kontaktdaten ausgeben.
+                            $index = 'a'. '-' . $field->name;
+                            $htmlausgabe[$index]['content'] = FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field)); 
+                        }
+
+                        foreach ($subform_row as $fieldrow) {
+                            // alle Felder aus dem Subfeld.
+                            if ($contactfield) {
+                                // Beim Konatktfeld nur die Überschrift aus den Einzelfeldern ausgeben
+                                if (strpos($fieldrow->fieldname, 'headline') ) {
+                                    $htmlausgabe[$index]['headline'] = !empty($fieldrow->value) ? $fieldrow->value : $field->label;
+                                } 
+                                break;
+
+                            } else {
+                                $index = 'x'. '-' .$field->name. '-' . $i;
+
+                                if (strpos($fieldrow->fieldname, 'content') && $fieldrow->value != '') { // nur wenn Inhalt vorhanden
+                                    $htmlausgabe[$index]['content'] = $fieldrow->value;
+                                } 
+                            }
+
+                            if (strpos($fieldrow->fieldname, 'headline') && $fieldrow->value != '') {
+                                $htmlausgabe[$index]['headline'] = $fieldrow->value;
+                            } 
+                            
+                        }
+
+                        if ( !empty($htmlausgabe[$index]['content']) ) {
+                            if ( empty($htmlausgabe[$index]['headline']) ) {
+                                $htmlausgabe[$index]['headline'] = $field->label . '-' . $i;
+                            }
+                            $htmlausgabe[$index]['id'] = $field->id . '-' . $i;
+                            $i++;
+                        }
+                    }
+                } 
+                break;
+            default:
+                if ( !empty($field->value) ) {
+                    $index = 'z'. '-' . $field->name;
+                    $htmlausgabe[$index]['content'] =  $field->value;
+                    $htmlausgabe[$index]['headline'] = $field->label;
+                    $htmlausgabe[$index]['id'] = $field->id;
+                }
+        }    
+
+    }
+
+    // Daten für die Ausgabe der Tabs
+    $tabsdata = (object) [ 'item' => $this->item, 
+                            'params' => $params, 
+                            'htmlausgabe' => $htmlausgabe
+                        ];
+
+    // wenn nur ein Feld ausgegeben wird, dann keine Tabs ausgeben!
+    if (is_array($htmlausgabe)) {
+        $noTabs = (count($htmlausgabe) == 1 && $params->get('layout_customfields') == 1) ? true : false;
+    }
+}
 
 ?>
 <div class="com-content-article item-page<?php echo $this->pageclass_sfx; ?>">
@@ -69,9 +161,18 @@ $isExpired         = !is_null($this->item->publish_down) && $this->item->publish
     <?php if ($canEdit) : ?>
         <?php echo LayoutHelper::render('joomla.content.icons', ['params' => $params, 'item' => $this->item]); ?>
     <?php endif; ?>
-
+  
     <?php // Content is generated by content plugin event "onContentAfterTitle" ?>
-    <?php // echo $this->item->event->afterDisplayTitle; ?>
+        <?php if ($noTabs) { 
+            echo $this->item->event->afterDisplayTitle;
+        }  else { ?>
+        <?php foreach ( $fields as $field) : ?>
+            <?php if ( $field->params->get('display') == 1 ) : ?>
+                <?php echo FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field)); ?>
+            <?php endif; ?>    
+        <?php endforeach; ?> 
+        <?php } ?>
+
 
     <?php if ($useDefList && ($info == 0 || $info == 2)) : ?>
         <?php echo LayoutHelper::render('joomla.content.info_block', ['item' => $this->item, 'params' => $params, 'position' => 'above']); ?>
@@ -84,7 +185,15 @@ $isExpired         = !is_null($this->item->publish_down) && $this->item->publish
     <?php endif; ?>
 
     <?php // Content is generated by content plugin event "onContentBeforeDisplay" ?>
-    <?php // echo $this->item->event->beforeDisplayContent; ?>
+    <?php if ($noTabs) {
+        echo $this->item->event->beforeDisplayContent;
+    }  else { ?>
+    <?php foreach ( $fields as $field) : ?>
+        <?php if ( $field->params->get('display') == 2 ) : ?>
+            <?php echo FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field)); ?>
+        <?php endif; ?>    
+    <?php endforeach; ?> 
+    <?php } ?>
 
     <?php if ((int) $params->get('urls_position', 0) === 0) : ?>
         <?php echo $this->loadTemplate('links'); ?>
@@ -103,30 +212,39 @@ $isExpired         = !is_null($this->item->publish_down) && $this->item->publish
         <?php echo $this->item->text; ?>
     </div>
 
-    <?php // echo $this->item->event->afterDisplayContent; ?>
-    <?php // nur ausgewählte Felder werden gerendert ?>
-    <?php echo LayoutHelper::render('wbc_blanco_template.accordiontab', $this->item); ?>
+    <?php if ($noTabs) {
+        echo $this->item->event->afterDisplayContent;
+    }  else { ?>
+    <?php foreach ( $fields as $field) : ?>
+        <?php if ( $field->params->get('display') == 3 ) : ?>
+            <?php echo FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field)); ?>
+        <?php endif; ?>    
+    <?php endforeach; ?> 
+    <?php } ?>
 
+    <?php // nur ausgewählte Felder werden als Accordion / Tab gerendert ?>
+    <?php echo LayoutHelper::render('wbc_blanco_template.accordiontabsub', $tabsdata); ?>
+    
 
-        <?php if ($info == 1 || $info == 2) : ?>
-            <?php if ($useDefList) : ?>
-                <?php echo LayoutHelper::render('joomla.content.info_block', ['item' => $this->item, 'params' => $params, 'position' => 'below']); ?>
-            <?php endif; ?>
-            <?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
-                <?php $this->item->tagLayout = new FileLayout('joomla.content.tags'); ?>
-                <?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
-            <?php endif; ?>
+    <?php if ($info == 1 || $info == 2) : ?>
+        <?php if ($useDefList) : ?>
+            <?php echo LayoutHelper::render('joomla.content.info_block', ['item' => $this->item, 'params' => $params, 'position' => 'below']); ?>
         <?php endif; ?>
+        <?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
+            <?php $this->item->tagLayout = new FileLayout('joomla.content.tags'); ?>
+            <?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
+        <?php endif; ?>
+    <?php endif; ?>
 
-        <?php
-        if (!empty($this->item->pagination) && $this->item->paginationposition && !$this->item->paginationrelative) :
-            echo $this->item->pagination;
-            ?>
-        <?php endif; ?>
-        <?php if ((int) $params->get('urls_position', 0) === 1) : ?>
-            <?php echo $this->loadTemplate('links'); ?>
-        <?php endif; ?>
-        <?php // Optional teaser intro text for guests ?>
+    <?php
+    if (!empty($this->item->pagination) && $this->item->paginationposition && !$this->item->paginationrelative) :
+        echo $this->item->pagination;
+        ?>
+    <?php endif; ?>
+    <?php if ((int) $params->get('urls_position', 0) === 1) : ?>
+        <?php echo $this->loadTemplate('links'); ?>
+    <?php endif; ?>
+    <?php // Optional teaser intro text for guests ?>
     <?php elseif ($params->get('show_noauth') == true && $user->get('guest')) : ?>
         <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
         <?php echo HTMLHelper::_('content.prepare', $this->item->introtext); ?>
