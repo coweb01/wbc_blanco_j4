@@ -16,6 +16,7 @@ $black:    #000;
   --fluid: clamp(var(--fluid-type-min, 1rem), calc(1rem + var(--fluid-type-target, 5vw)), var(--fluid-type-max, 1.1rem));
   --bordercolor: #{$gray-300};
   --borderradius: 0;
+  --bs-border-radius: 0;
   --schatten: 0 0px 20px 0 rgba(38,36,38,.2);
   --fontfamily: "Open Sans", Arial, sans-serif;
   --fontfamily2: "Open Sans", Arial, sans-serif;
