@@ -368,14 +368,29 @@ body {
 }
 
 .image-alternate {
-  .blog-item:nth-of-type(2n+1) {
+  .blog-item:nth-of-type(2n+1),
+  .wbc-blog-item:nth-of-type(2n+1) {
     .item-image {
       order: 0;
+    }
+    .item-content {
+      padding-right: 0;
+      padding-left: 25px;
+    }
+  }
+
+  &.boxed {
+    .blog-item:nth-of-type(2n+1),
+    .wbc-blog-item:nth-of-type(2n+1) {
+      .item-image {
+        padding-left: .5rem;
+      }
     }
   }
 
   &.image-left {
-    .blog-item:nth-of-type(2n+1) {
+    .blog-item:nth-of-type(2n+1),
+    .wbc-blog-item:nth-of-type(2n+1) {
       .item-image {
         margin-right: 0;
         margin-left: 25px;
@@ -385,11 +400,102 @@ body {
   }
 
   &.image-top {
-    .blog-item:nth-of-type(2n+1) {
+    .blog-item:nth-of-type(2n+1),
+    .wbc-blog-item:nth-of-type(2n+1) {
       .item-image {
         order: 1;
       }
     }
+  }
+}
+
+.blog-items {
+
+  &[class^="masonry-"],
+  &[class*=" masonry-"],
+  &[class^="columns-"],
+  &[class*="columns-"] {
+    .item-image img {
+      width: 100%;
+    }
+    .flex-inhalt {
+      padding-top: 0;
+    }
+  }
+}
+
+/* Felder Akkordeon / Tabs */
+
+.wbc-blog-item {
+  .boxed & {
+    padding: 0;
+    background-color: white;
+    @include boxshadow;
+
+    .item-content {
+      padding: 25px;
+    }
+  }
+  .flex-inhalt {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    overflow: hidden;
+
+    .image-left &,
+    .image-right & {
+      flex-direction: row;
+      .item-image {
+        flex: 1 0 40%;
+      }
+      .item-content {
+        flex: 1 0 60%;
+      }
+    }
+  }
+
+  .item-image {
+    margin-top: 3px;
+    margin-bottom: 15px;
+    overflow: hidden;
+
+    .boxed & {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    .image-right & {
+      order: 1;
+    }
+
+    .image-bottom & {
+      margin-top: -15px;
+      order: 1;
+    }
+  }
+
+  .item-content {
+    .image-left & {
+      padding-left: 25px;
+    }
+
+    .image-right & {
+      padding-right: 25px;
+    }
+  }
+
+  .image-left &,
+  .image-right & {
+    flex-direction: column;
+
+    @include media-breakpoint-up(lg) {
+      flex-direction: row;
+    }
+  }
+
+  .fields {
+    padding: 25px;
   }
 }
 
