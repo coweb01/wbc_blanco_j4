@@ -31,9 +31,11 @@
   line-height: 1.1;
   height: 100%;
 }
+/*
 .menu-icons .image-title {
   margin-top: auto;
 }
+*/
 .menu-icons a.nav-link .icon,
 .menu-icons a.nav-link .icon::before {
   font-size: 3rem;
@@ -43,7 +45,6 @@
   padding: .5rem 1rem;
 }
 .menu-icons a.nav-link img {
-  max-width: 80px;
   max-height: 80px;
   margin:0.8rem auto 0.8rem auto;
   padding: .5rem 1rem;
