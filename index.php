@@ -167,7 +167,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                             ?>
                         <?php endif; ?>
 
-                        <?php if ($this->countModules('navMain') || $this->countModules('offcanvas') && $NavMainPos == 1): ?>
+                        <?php if ($this->countModules('navMain') && $NavMainPos == 1 || $this->countModules('offcanvas') && $NavMainPos == 1): ?>
                         <nav id="navigation-main" class="navbar <?php echo $offcanvas_breakpoint; ?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="Main Navigation">
                             <?php
                                 $LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'html/layouts');
@@ -181,7 +181,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                 <?php if ($NavMainPos == 2 || $this->countModules('header-top-02') || $logoposition == 3 || $NavMainPos == 3 || (($this->params->get('headerimg-select') == 1) && ($himg == true)) || ($this->countModules('headerimg'))): ?>
                 <div class="header-middle">
 
-                <?php if ($this->countModules('navMain') || $this->countModules('offcanvas') && $NavMainPos == 2): ?>
+                <?php if ($this->countModules('navMain') && $NavMainPos == 2 || $this->countModules('offcanvas') && $NavMainPos == 2): ?>
                         <nav id="navigation-main" class="navbar <?php echo $offcanvas_breakpoint; ?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="Main Navigation">
                             <?php
                                 $LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'html/layouts');
@@ -222,7 +222,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                         ?>
                     <?php endif; ?>
 
-                    <?php if ($this->countModules('navMain') || $this->countModules('offcanvas') && $NavMainPos == 3): ?>
+                    <?php if ($this->countModules('navMain')  && $NavMainPos == 3 || $this->countModules('offcanvas')  && $NavMainPos == 3): ?>
                         <nav id="navigation-main" class="navbar <?php echo $offcanvas_breakpoint; ?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="Main Navigation">
 
                         <?php if ($fixedheader && $this->countModules('logo-mobil')): ?>
