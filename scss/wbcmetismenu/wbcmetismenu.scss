@@ -358,6 +358,7 @@
     > .mm-toggler > .wbcmetis-titel {
       font-weight: 600;
       font-size: 1.1rem;
+      padding-left: .5rem
     }
     > .mm-toggler i {
       display: none;
@@ -368,7 +369,7 @@
 #OffcanvasMenustart.offcanvas.show .wbcmulticolumn {
   .col {
     flex: 100% !important;
-    max-width: 100%;
+    max-width: 100% !important;
   }
 }
 
