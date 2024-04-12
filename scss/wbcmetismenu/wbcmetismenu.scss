@@ -54,6 +54,9 @@
       &.parent {
         position: static;
       }
+      &.level-3 {
+        padding: 0;
+      }
       > ul {
         position: absolute;
         top: 100%;
@@ -64,6 +67,9 @@
         box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.1);
         -webkit-box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.1);
+        &.sublevel-3 {
+          padding: 0;
+        }
       }
       > button.wbcmetismenue-toggler-heading {
         display: flex;
@@ -107,7 +113,7 @@
       > span:not(.fab)
       > button,
       > a.wbcmetismenu-link {
-        align-items: flex-end;
+        align-items: center;
         overflow: hidden;
         text-decoration: none;
         text-overflow: ellipsis;
@@ -139,6 +145,7 @@
       &::after {
         content: none;
       }
+      /*
       &:not(.level-1) > ul,
       &:not(.level-2) > ul {
         margin-right: -1em;
@@ -146,7 +153,7 @@
           margin-right: 0;
           margin-left: -1em;
         }
-      }
+      }*/
       &.divider:not(.parent) {
         width: 1px;
         padding: 0;
@@ -299,7 +306,6 @@
       max-height: 85vh;
   }
   div > ul.wbc-col {
-    padding: 1.3rem;
     display: block;
     position: relative !important;
     width: 100%;
@@ -309,13 +315,13 @@
     -webkit-box-shadow: none;
 
       &.mm-collapse:not(.mm-show) {
-        padding: 1.3rem;
         display: block;
         position: relative !important;
       }
   }
 
   .mm-collapse.wbc-col {
+
     .wbcmetismenu-submenu {
       width: 100%;
       border: none;
@@ -326,7 +332,6 @@
 
     .wbcmetismenu-submenu.sublevel-2 {
       padding: 0px;
-      /* display: block; ul level2 im mehrspaltigen Dropdown immer anzeigen  */
       position: relative;
     }
     .wbcmetismenu-item {
@@ -344,6 +349,30 @@
     margin: 1rem 0;
   }
 }
+#OffcanvasMenuend:not(.offcanvas.show) .wbcmulticolumn,
+#OffcanvasMenustart:not(.offcanvas.show) .wbcmulticolumn {
+  .wbcmetismenu-submenu.sublevel-2 {
+    display: block; // ul level2 im mehrspaltigen Dropdown immer anzeigen
+  }
+  li.parent.level-2 {
+    > .mm-toggler > .wbcmetis-titel {
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding-left: .5rem
+    }
+    > .mm-toggler i {
+      display: none;
+    }
+  }
+}
+#OffcanvasMenuend.offcanvas.show .wbcmulticolumn,
+#OffcanvasMenustart.offcanvas.show .wbcmulticolumn {
+  .col {
+    flex: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
 /* Ende Mehrspaltig */
 
 /* Sidebar */
