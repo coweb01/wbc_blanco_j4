@@ -36,7 +36,6 @@ extract($displayData);
                     <?php elseif ($jhtml->countModules('headerimg')) : ?>
                             <jdoc:include type="modules" name="headerimg" style="headerimg" />
                     <?php endif; ?>
-                    <?php echo 'hier'; ?>
             <?php else : ?>
                 <div class="wbc-background-image-stretch" style="background-image: url(<?php echo Uri::root(true) . '/' . HTMLHelper::_('cleanImageURL', $jhtml->params->get('headerimg'))->url;?>)"></div>
             <?php endif; ?>
