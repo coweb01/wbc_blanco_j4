@@ -79,14 +79,17 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                 </div>
                 <?php endif; ?>
                 <?php echo $afterDisplayTitle; ?>
-
-                <div class="wbc__category-desc">
+                
                     <?php echo $beforeDisplayContent; ?>
+
                     <?php if ($this->params->get('show_description') && $this->category->description) : ?>
-                        <?php echo HTMLHelper::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
+                        <div class="wbc__category-desc">
+                            <?php echo HTMLHelper::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
+                        </div>
                     <?php endif; ?>
+                    
                     <?php echo $afterDisplayContent; ?>
-                </div>
+                
             </div>
             <?php endif;?>    
 
