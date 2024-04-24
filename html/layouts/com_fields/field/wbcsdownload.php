@@ -65,7 +65,13 @@ foreach ($field->subform_rows as $subform_row) {
                 $content['media_beschreibung'] = trim($subfield->rawvalue);
                 break;
             case 'mediajce':
-                $content['targetyp'] = trim($subfield->fieldparams->get('media_target'));
+                if ($subfield->fieldparams->get('media_target') !== '') {
+                    $media_target = $subfield->fieldparams->get('media_target');
+                    $content['targetyp'] = 'target="'.trim($media_target).'"';                   
+                } else {
+                    $content['targetyp'] = '';
+                }
+
                 if ( is_array($subfield->rawvalue) )
                 {
                     foreach ($subfield->rawvalue as $key => $value) {
@@ -102,8 +108,8 @@ foreach ($field->subform_rows as $subform_row) {
     }   
     
 
-    if (isset($content['media_text']) && $content['targetyp'] == 'download') {
-            $row_output[0] = '<span class="wbc__file_link d-block pe-3"><i class="'. $iconClass . ' pe-3" aria-hidden="true"></i><a href="'. $content['media_src'] .'" title="'.$titel.'" class="wbc_file" '.$content['targetyp'].' rel="nofollow">'. $content['media_text'] .'</a></span>';
+    if (isset($content['media_text']) && $media_target == 'download') {
+            $row_output[0] = '<span class="wbc__file_link d-block pe-3"><i class="'. $iconClass . ' pe-3" aria-hidden="true"></i><a download="'.$content['media_src'].'" href="'. $content['media_src'] .'" title="'.$titel.'" class="wbc_file" '.$content['targetyp'].' rel="nofollow">'. $content['media_text'] .'</a></span>';
     } else {
         $row_output[0] = '<span class="wbc__file_link d-block pe-3"><i class="'. $iconClass . ' pe-3" aria-hidden="true"></i><a href="'. $content['media_src'] .'" title="'.$titel.'" class="wbc_file" '.$content['targetyp'].' rel="nofollow">'. $content['media_text'] .'</a></span>';
     }
