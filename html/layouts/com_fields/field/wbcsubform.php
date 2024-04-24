@@ -28,6 +28,9 @@ $field = $displayData['field'];
 $result = '';
 $context = $field->context;
 
+if (!isset($field->subform_rows)) {
+    return;
+}
 // Iterate over each row that we have
 foreach ($field->subform_rows as $subform_row) {
     // Placeholder array to generate this rows output
