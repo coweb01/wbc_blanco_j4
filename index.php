@@ -14,6 +14,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\FileLayout;
 use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 use Joomla\CMS\Categories\Categories;
+use Joomla\CMS\HTML\HTMLHelper;
 
 // Template path
 $template    = $this->template;
@@ -26,13 +27,13 @@ if (!isset($bootstrap_colclass_mobil_sm)) { $bootstrap_colclass_mobil_sm = ''; }
 if (!isset($bootstrap_colclass_mobil_xs)) { $bootstrap_colclass_mobil_xs = ''; };
 
 // Favicons https://realfavicongenerator.net/
-$this->addHeadLink($mediapath . 'images/favicons/apple-touch-icon.png', 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
-$this->addHeadLink($mediapath . 'images/favicons/favicon-32x32.png', 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
-$this->addHeadLink($mediapath . 'images/favicons/favicon-16x16.png', 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
-$this->addHeadLink($mediapath . 'images/favicons/safari-pinned-tab.svg', 'mask-icon', 'rel', ['color' => '#41599a']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicons/apple-touch-icon.png', '', [], true, 1), 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicons/favicon-32x32.png', '', [], true, 1), 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicons/favicon-16x16.png', '', [], true, 1), 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicons/safari-pinned-tab.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#41599a']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicons/favicon.ico', '', [], true, 1), 'shortcut icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
 $this->addHeadLink($mediapath . 'images/favicons/site.webmanifest', 'manifest', 'rel', []);
-$this->addHeadLink($mediapath . 'images/favicons/favicon.ico', 'shortcut icon', 'rel', []);
-$this->setMetaData('msapplication-config', $mediapath . '/images/favicons/browserconfig.xml');
+$this->setMetaData('msapplication-config', $mediapath . 'images/favicons/browserconfig.xml');
 $this->setMetaData('theme-color', '#ffffff');
 
 $himg = false;

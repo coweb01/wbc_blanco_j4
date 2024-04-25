@@ -76,5 +76,11 @@
 
         <jdoc:include type="modules" name="navMain"/>
 
+        <?php if ($jhtml->countModules('offcanvas-after')) :?>
+            <div class="my-3 <?php echo $dClass; ?>">
+                <jdoc:include type="modules" name="offcanvas-after" style="none" />
+            </div>
+        <?php endif; ?>
+
     </div>
 </div>

@@ -637,6 +637,29 @@
 			</field>
 
 			<field
+				name="trunc_introtext"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="WBC_FIELD_TRUNCINTROTEXT_LABEL"
+				default="0"
+				filter="integer"
+				>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="chars_number"
+				type="number"
+				default="100"
+				filter="integer"
+				min="1"
+				validate="number"
+				showon="trunc_introtext:1"
+				label="WBC_FIELD_TRUNCINTROTEXT_CHARS_LABEL">
+			</field>
+
+			<field
 				name="show_readmore"
 				type="list"
 				label="JGLOBAL_SHOW_READMORE_LABEL"

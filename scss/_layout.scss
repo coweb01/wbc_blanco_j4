@@ -440,7 +440,6 @@ body {
     display: flex;
     flex-direction: column;
     padding-bottom: 1rem;
-    padding-top: 1rem;
     overflow: hidden;
 
     .image-left &,
@@ -606,6 +605,7 @@ figcaption {
 }
 #sidebar-left,
 #sidebar-right {
+  padding-top: 3rem;
   margin-bottom: 20px;
  > *{
    margin-bottom: 3rem;

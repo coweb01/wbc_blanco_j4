@@ -43,6 +43,7 @@
 		<li>vorInhalt-01-col     -- Module mehrspaltig vor Contentbereich</li>
 		<li>nachInhalt-01-col    -- Module mehrspaltig nach Contentbereich</li>
 		<li>offcanvas            -- Offcanvas Mobil Menü</li>
+		<li>offcanvas-after      -- Offcanvas nach Menü</li>
 		<li>offcanvas-navbar     -- Offcanvas Navbar</li>
 		<li>sidebar-left-fix     -- Menü Module / Icons links fixiert, Menü Layout icon </li>
 		<li>sidebar-right-fix    -- Menü Module / Icons rechts fixiert, Menü Layout icon </li>
@@ -117,6 +118,7 @@
 		<position>sidebar-left-toggle</position>
 		<position>sidebar-right-toggle</position>
 		<position>offcanvas</position>
+		<position>offcanvas-after</position>
 		<position>offcanvas-navbar</position>
 		<position>suche</position>
 		<position>debug</position>

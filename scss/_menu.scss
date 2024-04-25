@@ -305,8 +305,8 @@ li.nav-item a {
   background-color: #212529;
   --Linkcolornavbar: #fff;
   --bgnavbarcolor: #343a40;
-  --Hovercolornavbar: #a9a9a9;
-  --Activecolornavbar: #a9a9a9;
+  --Hovercolornavbar: #c2c2c2;
+  --Activecolornavbar: #c2c2c2;
   --grey-200: #dbdbdb;
   .navbar-nav {
     color: #fff;
@@ -318,11 +318,11 @@ li.nav-item a {
       color: #fff;
     }
     &:hover {
-      color: #a9a9a9;
+      color: #c2c2c2;
     }
   }
   .active a {
-    color: #a9a9a9;
+    color: #c2c2c2;
   }
 }
 @media (min-width: 576px) {

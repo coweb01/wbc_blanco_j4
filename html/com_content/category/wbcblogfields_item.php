@@ -11,6 +11,7 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Associations;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
@@ -32,7 +33,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
     || ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
 
-$fields             = $this->item->jcfields; // Felder des Artikels holen formatierte Ausgabe 
+$fields             = $this->item->jcfields; // Felder des Artikels holen formatierte Ausgabe
 $selectedFields     = $params->get('select_customfield');
 $noTabs             = true;
 $htmlausgabe        = array();
@@ -45,23 +46,23 @@ if ($selectedFields) {
             if (in_array($field->id, $selectedFields)) { // wenn nicht in der Liste der ausgewählten Felder
                 $field_tabs_pos[$field->id] = $fields[$key];
                 unset($fields[$key]);
-            } 
+            }
         }
     }
     // die Werte für Tabs/ Accordion in ein Array für die Ausgabe übergeben
 
     foreach ($field_tabs_pos as $field) {
         $contactfield = preg_match('/kontakt/', $field->name);
-        
+
         switch ($field->type == 'subform') {
             case 'subform':
-                if ($field->subform_rows){  // wenn Subform 
-                    
+                if ($field->subform_rows){  // wenn Subform
+
                     foreach ($field->subform_rows as $subform_row) {
                         // alle Subfields, wenn repeatable fields
                         if ($contactfield) { // alle Felder aus dem Subfeld kontaktdaten ausgeben.
                             $index = 'a'. '-' . $field->name;
-                            $htmlausgabe[$index]['content'] = FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field)); 
+                            $htmlausgabe[$index]['content'] = FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field));
                         }
 
                         foreach ($subform_row as $fieldrow) {
@@ -70,7 +71,7 @@ if ($selectedFields) {
                                 // Beim Konatktfeld nur die Überschrift aus den Einzelfeldern ausgeben
                                 if (strpos($fieldrow->fieldname, 'headline') ) {
                                     $htmlausgabe[$index]['headline'] = !empty($fieldrow->value) ? $fieldrow->value : $field->label;
-                                } 
+                                }
                                 break;
 
                             } else {
@@ -78,13 +79,13 @@ if ($selectedFields) {
 
                                 if (strpos($fieldrow->fieldname, 'content') && $fieldrow->value != '') { // nur wenn Inhalt vorhanden
                                     $htmlausgabe[$index]['content'] = $fieldrow->value;
-                                } 
+                                }
                             }
 
                             if (strpos($fieldrow->fieldname, 'headline') && $fieldrow->value != '') {
                                 $htmlausgabe[$index]['headline'] = $fieldrow->value;
-                            } 
-                            
+                            }
+
                         }
 
                         if ( !empty($htmlausgabe[$index]['content']) ) {
@@ -95,7 +96,7 @@ if ($selectedFields) {
                             $i++;
                         }
                     }
-                } 
+                }
                 break;
             default:
                 if ( !empty($field->value) ) {
@@ -104,13 +105,13 @@ if ($selectedFields) {
                     $htmlausgabe[$index]['headline'] = $field->label;
                     $htmlausgabe[$index]['id'] = $field->id;
                 }
-        }    
+        }
 
     }
 
     // Daten für die Ausgabe der Tabs
-    $tabsdata = (object) [ 'item' => $this->item, 
-                            'params' => $params, 
+    $tabsdata = (object) [ 'item' => $this->item,
+                            'params' => $params,
                             'htmlausgabe' => $htmlausgabe
                         ];
 
@@ -128,7 +129,7 @@ if ($selectedFields) {
     <?php endif; ?>
 
     <div class="item-content">
-    
+
 
         <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
 
@@ -156,12 +157,12 @@ if ($selectedFields) {
             <?php foreach ( $fields as $field) : ?>
                 <?php if ( $field->params->get('display') == 1 ) : ?>
                     <?php echo FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field)); ?>
-                <?php endif; ?>    
-            <?php endforeach; ?> 
+                <?php endif; ?>
+            <?php endforeach; ?>
             <?php } ?>
 
         <?php endif; ?>
-    
+
         <?php // Content is generated by content plugin event "onContentBeforeDisplay" ?>
         <?php if ($noTabs) {
             echo $this->item->event->beforeDisplayContent;
@@ -169,11 +170,20 @@ if ($selectedFields) {
         <?php foreach ( $fields as $field) : ?>
             <?php if ( $field->params->get('display') == 2 ) : ?>
                 <?php echo FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field)); ?>
-            <?php endif; ?>    
-        <?php endforeach; ?> 
+            <?php endif; ?>
+        <?php endforeach; ?>
         <?php } ?>
-                    
-        <?php echo $this->item->introtext; ?>
+
+
+        <?php if ($params->get('trunc_introtext', 1)) {
+            $truncated_text = HTMLHelper::_('string.truncate', strip_tags($this->item->introtext), $params->get('chars_number'));
+            $last_space = strrpos($truncated_text, " ");
+            $truncated_text = substr($truncated_text, 0, $last_space);
+            echo '<p>' . $truncated_text . '</p>';
+            } else {
+                echo $this->item->introtext;
+            }
+        ?>
 
         <?php if ($info == 1 || $info == 2) : ?>
             <?php if ($useDefList) : ?>
@@ -206,11 +216,11 @@ if ($selectedFields) {
         <?php foreach ( $fields as $field) : ?>
             <?php if ( $field->params->get('display') == 3 ) : ?>
                 <?php echo FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field)); ?>
-            <?php endif; ?>    
-        <?php endforeach; ?> 
+            <?php endif; ?>
+        <?php endforeach; ?>
         <?php } ?>
 
-        </div>  
+        </div>
     <?php if ($isUnpublished) : ?>
         </div>
     <?php endif; ?>
@@ -218,5 +228,5 @@ if ($selectedFields) {
 <?php if ( $noTabs == false ) : ?>
     <div class="fields">
         <?php echo LayoutHelper::render('wbc_blanco_template.accordiontabsub', $tabsdata); ?>
-    </div>    
-<?php endif; ?>    
+    </div>
+<?php endif; ?>
