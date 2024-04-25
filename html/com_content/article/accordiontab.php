@@ -55,42 +55,41 @@ if ($selectedFields) {
         }
     }
     // die Werte für Tabs/ Accordion in ein Array für die Ausgabe übergeben
-
+    $i2 = 1;
     foreach ($field_tabs_pos as $field) {
         $contactfield = preg_match('/kontakt/', $field->name);
-        
+        $tabfields =  preg_match('/tab/', $field->name);
+       
         switch ($field->type == 'subform') {
             case 'subform':
-                if ($field->subform_rows){  // wenn Subform 
+                if (!isset($field->subform_rows)) {
+                    break;
+                }
+                if ($field->subform_rows) {  // wenn Subform 
                     
                     foreach ($field->subform_rows as $subform_row) {
-                        // alle Subfields, wenn repeatable fields
-                        if ($contactfield) { // alle Felder aus dem Subfeld kontaktdaten ausgeben.
-                            $index = 'a'. '-' . $field->name;
-                            $htmlausgabe[$index]['content'] = FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field)); 
-                        }
-
-                        foreach ($subform_row as $fieldrow) {
-                            // alle Felder aus dem Subfeld.
+                        // alle Subfields, wenn es repeatable fields sind
+                        $i2 = 1;
+                        if (!$tabfields) { 
+                            // alle Felder aus dem Subfeld ausser (additional-infos-tab) mit dem dort hinterlegtem layout ausgeben.
                             if ($contactfield) {
-                                // Beim Konatktfeld nur die Überschrift aus den Einzelfeldern ausgeben
-                                if (strpos($fieldrow->fieldname, 'headline') ) {
-                                    $htmlausgabe[$index]['headline'] = !empty($fieldrow->value) ? $fieldrow->value : $field->label;
-                                } 
-                                break;
-
-                            } else {
-                                $index = 'x'. '-' .$field->name. '-' . $i;
-
+                                $index = '0'. '-' . $field->name;
+                            } else { $index = $i2. '-' . $field->name; $i2++;}
+                           
+                            $htmlausgabe[$index]['content'] = FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field)); 
+                            $htmlausgabe[$index]['headline'] = $field->label;
+                            
+                        } else {
+                            // alle Felder aus dem Subfeld tabs zusatzinfos
+                            foreach ($subform_row as $fieldrow) {
+                                $index = '9999'. '-' .$field->name. '-' . $i;
                                 if (strpos($fieldrow->fieldname, 'content') && $fieldrow->value != '') { // nur wenn Inhalt vorhanden
                                     $htmlausgabe[$index]['content'] = $fieldrow->value;
                                 } 
+                                if (strpos($fieldrow->fieldname, 'headline') && $fieldrow->value != '') {
+                                    $htmlausgabe[$index]['headline'] = $fieldrow->value;
+                                } 
                             }
-
-                            if (strpos($fieldrow->fieldname, 'headline') && $fieldrow->value != '') {
-                                $htmlausgabe[$index]['headline'] = $fieldrow->value;
-                            } 
-                            
                         }
 
                         if ( !empty($htmlausgabe[$index]['content']) ) {
@@ -105,10 +104,11 @@ if ($selectedFields) {
                 break;
             default:
                 if ( !empty($field->value) ) {
-                    $index = 'z'. '-' . $field->name;
+                    $index = $i2. '-' . $field->name;
                     $htmlausgabe[$index]['content'] =  $field->value;
                     $htmlausgabe[$index]['headline'] = $field->label;
                     $htmlausgabe[$index]['id'] = $field->id;
+                    $i2++;
                 }
         }    
 
