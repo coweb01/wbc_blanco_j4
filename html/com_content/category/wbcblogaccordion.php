@@ -19,6 +19,7 @@ use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
 use Joomla\Component\Content\Administrator\Extension\ContentComponent;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
+use \Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 
 HTMLHelper::_('bootstrap.collapse');
 
@@ -112,8 +113,14 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                 $is_collapsed = ($count_items == 1 && $collapse_first_item == 1) ? '' : 'collapsed';
                 $currentDate   = Factory::getDate()->format('Y-m-d H:i:s');
                 $isUnpublished = ($item->state == ContentComponent::CONDITION_UNPUBLISHED || $item->publish_up > $currentDate) || ($item->publish_down < $currentDate && $item->publish_down !== null);
+                $jcfieldId = $item->params->get('select_customfield');
+                $jcfields = FieldsHelper::getFields('com_content.article', $item, true);
+                foreach($jcfields as $jcfield) {
+                  $jcfields[$jcfield->id] = $jcfield;
+                }
 
             ?>
+
             <div class="accordion-item clearfix"
                 itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
                 <?php if ($isUnpublished) : ?>
@@ -124,7 +131,11 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
                     <button class="accordion-button <?php echo ($count_items == 1 && $collapse_first_item == 1) ? '' : 'collapsed'; ?>" type="button"
                     data-bs-toggle="collapse" data-bs-target="#collapse-<?php echo $item->id; ?>" aria-expanded="<?php echo ($count_items == 1 && $collapse_first_item == 1) ? 'true' : 'false'; ?>" aria-controls="collapse-<?php echo $item->id; ?>">
-                        <?php echo $this->escape($item->title); ?>
+                        <?php if (!empty($jcfieldId) && (!empty($jcfields[$jcfieldId]->value))) : ?>
+                            <?php echo $jcfields[$jcfieldId]->value; ?>
+                        <?php else : ?>
+                            <?php echo $this->escape($item->title); ?>
+                        <?php endif; ?>
                     </button>
                 </h2>
 

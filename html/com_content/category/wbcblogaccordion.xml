@@ -267,6 +267,18 @@
 		>
 
 			<field
+				name="select_customfield"
+				type="sql"
+				label="WBC_FIELD_SELECT_TITLE_CUSTOMFIELD_LABEL"
+				query="SELECT title, id, context, only_use_in_subform, state, type  FROM #__fields WHERE context LIKE 'com_content.article' AND note LIKE 'tabs' AND state = 1"
+				key_field="id"
+				value_field="title"
+				layout="joomla.form.field.list-fancy-select"
+				>
+				<option value="">WBC_FIELD_SELECT_TITLE_CUSTOMFIELD_OPTION</option>
+			</field>
+
+			<field
 				name="article_layout"
 				type="componentlayout"
 				label="JGLOBAL_FIELD_LAYOUT_LABEL"

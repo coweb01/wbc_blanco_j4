@@ -195,7 +195,7 @@ if ($selectedFields) {
             <?php endif; ?>
         <?php endif; ?>
 
-        <?php if ($params->get('show_readmore') && $this->item->readmore) :
+        <?php if (($params->get('show_readmore') && $this->item->readmore) || ($params->get('trunc_introtext') == 1 && $params->get('show_readmore'))) :
             if ($params->get('access-view')) :
                 $link = Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language));
             else :

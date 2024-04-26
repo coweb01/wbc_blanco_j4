@@ -56,7 +56,6 @@
 				parentclass="stack span-2-inline"
 				validate="options"
 				default="0"
-				parentclass="stack span-2-inline"
 				showon="layout_customfields:0"
 				>
 				<option value="0">JNO</option>
