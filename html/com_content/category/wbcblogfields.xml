@@ -180,11 +180,24 @@
 				default="1"
 				filter="integer"
 				description="WBC_FIELD_LAYOUT_CUSTOMFIELDS_DESC"
+				parentclass="stack span-2"
 				>
 				<option value="0">WBC_FIELD_LAYOUT_CUSTOMFIELDS_ACCORDION</option>
 				<option value="1">WBC_FIELD_LAYOUT_CUSTOMFIELDS_TABS</option>
 			</field>
-
+			<field
+				name="collapse_first_item"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="WBC_ACCORDION_COLLAPSE_FIRST_ITEM"
+				parentclass="stack span-2-inline"
+				validate="options"
+				default="0"
+				showon="layout_customfields:0"
+				>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
 			<field
 				name="select_customfield"
 				multiple="multiple"
