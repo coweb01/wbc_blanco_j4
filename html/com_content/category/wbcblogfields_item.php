@@ -232,7 +232,7 @@ if ($selectedFields) {
         </div>
     <?php endif; ?>
 </div>
-<?php if ( $noTabs == false ) : ?>
+<?php if ( $noTabs == false && count($htmlausgabe) > 0 ) : ?>
     <div class="fields">
         <?php echo LayoutHelper::render('wbc_blanco_template.accordiontabsub', $tabsdata); ?>
     </div>
