@@ -116,9 +116,16 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                 $jcfieldId = $item->params->get('select_customfield');
                 $jcfields = FieldsHelper::getFields('com_content.article', $item, true);
                 foreach($jcfields as $jcfield) {
-                  $jcfields[$jcfield->id] = $jcfield;
+                    if (isset($jcfield->subform_rows)) {
+                        foreach($jcfield->subform_rows as $row) {
+                            foreach($row as $subfield) {
+                                $jcfields[$subfield->id] = $subfield;
+                            }
+                        }
+                    } else {
+                        $jcfields[$jcfield->id] = $jcfield;
+                    }
                 }
-
             ?>
 
             <div class="accordion-item clearfix"
