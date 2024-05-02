@@ -270,7 +270,7 @@
 				name="select_customfield"
 				type="sql"
 				label="WBC_FIELD_SELECT_TITLE_CUSTOMFIELD_LABEL"
-				query="SELECT title, id, context, only_use_in_subform, state, type  FROM #__fields WHERE context LIKE 'com_content.article' AND IN ('text','textarea','list') AND state = 1"
+				query="SELECT title, id, context, only_use_in_subform, state, type  FROM #__fields WHERE context LIKE 'com_content.article' AND type IN ('text','textarea','list') AND state = 1"
 				key_field="id"
 				value_field="title"
 				layout="joomla.form.field.list-fancy-select"
