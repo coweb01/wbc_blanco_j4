@@ -37,8 +37,8 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 if ($this->params->get('show_customfields') == 2) {
     $this->selectedFields = $this->params->get('select_customfield');
 }
+$this->readmore_leading_item = true;  // leadingbeiträge mit weiterlesen ?> 
 
-?>
 <div class="com-content-category-blog blog" itemscope itemtype="https://schema.org/Blog">
     <?php if ($this->params->get('show_page_heading')) : ?>
         <div class="page-header">
@@ -92,7 +92,9 @@ if ($this->params->get('show_customfields') == 2) {
                 <?php $this->item = &$item; ?>
                 <?php $images     = json_decode($this->item->images); ?>
                 <?php $imgclass   = empty($images->float_intro) ? 'image-'.$this->params->get('float_intro') : 'image-'.$images->float_intro; ?>
-
+                <?php if ($this->params->get('readmore_leading_item') == 0 ) { // kein weiterlesen für Leading Beiträge gesetzt?>
+                <?php    $this->readmore_leading_item = false; ?>  
+                <?php } ?>
                 <div class="com-content-category-blog__item blog-item <?php echo $this->escape($imgclass); ?>" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
                     <?php
                     echo $this->loadTemplate('item');
@@ -108,6 +110,7 @@ if ($this->params->get('show_customfields') == 2) {
             <?php $blogClass .= (int) $this->params->get('multi_column_order', 0) === 0 ? ' masonry-' : ' columns-'; ?>
             <?php $blogClass .= (int) $this->params->get('num_columns'); ?>
         <?php endif; ?>
+        <?php $this->readmore_leading_item = true; ?>  
         <div class="com-content-category-blog__items blog-items <?php echo $blogClass; ?>">
         <?php foreach ($this->intro_items as $key => &$item) : ?>
             <?php $this->item = &$item; ?>
