@@ -104,6 +104,7 @@ $this->readmore_leading_item = true;  // leadingbeiträge mit weiterlesen ?>
             <?php $blogClass .= (int) $this->params->get('multi_column_order', 0) === 0 ? ' masonry-' : ' columns-'; ?>
             <?php $blogClass .= (int) $this->params->get('num_columns'); ?>
         <?php endif; ?>
+        <?php $this->readmore_leading_item = true; ?>  
         <div class="com-content-category-blog__items blog-items <?php echo $blogClass; ?>">
         <?php foreach ($this->intro_items as $key => &$item) : ?>
             <div class="com-content-category-blog__item wbc-blog-item">
