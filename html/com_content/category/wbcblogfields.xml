@@ -697,6 +697,19 @@
 				<option value="0">JHIDE</option>
 				<option value="1">JSHOW</option>
 			</field>
+			
+			<field
+				name="readmore_leading_item"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="WBC_BLOG_READMORE_LEADING_ITEM_LABEL"
+				description="WBC_BLOG_READMORE_LEADING_ITEM_DESC"
+				validate="options"
+				default="1"
+				>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
 
 			<field
 				name="show_hits"

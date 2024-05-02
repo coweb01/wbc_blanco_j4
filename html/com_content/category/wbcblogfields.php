@@ -33,7 +33,8 @@ $afterDisplayContent = trim(implode("\n", $results));
 
 $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
-?>
+$this->readmore_leading_item = true;  // leadingbeiträge mit weiterlesen ?> 
+
 <div class="com-content-category-blog blog">
     <?php if ($this->params->get('show_page_heading')) : ?>
         <div class="page-header">
@@ -85,6 +86,9 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
         <div class="com-content-category-blog__items blog-items items-leading <?php echo $this->params->get('blog_class_leading'); ?>">
             <?php foreach ($this->lead_items as &$item) : ?>
                 <div class="com-content-category-blog__item blog-item">
+                    <?php if ($this->params->get('readmore_leading_item') == 0 ) { // kein weiterlesen für Leading Beiträge gesetzt?>
+                    <?php    $this->readmore_leading_item = false; ?>  
+                    <?php } ?>
                     <?php
                     $this->item = &$item;
                     echo $this->loadTemplate('item');
