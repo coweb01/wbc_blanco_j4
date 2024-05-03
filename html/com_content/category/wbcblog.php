@@ -58,24 +58,52 @@ $this->readmore_leading_item = true;  // leadingbeiträge mit weiterlesen ?>
         <?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
     <?php endif; ?>
 
-    <?php if ($beforeDisplayContent || $afterDisplayContent || $this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
-        <div class="category-desc mb-3">
+    <?php if ($beforeDisplayContent || $afterDisplayContent || $this->params->get('show_description', 1) || $this->params->def('show_description_image', 1) || $this->params->get('show_category_title', 1)) : ?>
+        <div class="category-desc d-flex align-items-center mb-4">
+          
             <?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
+                <picture class="p-3">
                 <?php echo LayoutHelper::render(
                     'joomla.html.image',
                     [
                         'src' => $this->category->getParams()->get('image'),
                         'alt' => empty($this->category->getParams()->get('image_alt')) && empty($this->category->getParams()->get('image_alt_empty')) ? false : $this->category->getParams()->get('image_alt'),
+                        'class' => 'wbc-categoryimg',
                     ]
                 ); ?>
+                </picture>
             <?php endif; ?>
-            <?php echo $beforeDisplayContent; ?>
-            <?php if ($this->params->get('show_description') && $this->category->description) : ?>
-                <?php echo HTMLHelper::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
+
+            <?php if ($this->params->get('show_category_title', 1) || ($this->params->get('show_description') && $this->category->description)) : ?>
+            <div class="flex-grow-1 ms-3">
+                <?php if ($this->params->get('show_category_title', 1)) : ?>
+                    <<?php echo $htag; ?> class="wbc__category-title">
+                            <?php echo $this->category->title; ?> 
+                    <<?php echo $htag; ?>>
+                <?php endif; ?>
+                <?php echo $afterDisplayTitle; ?>
+                
+                    <?php echo $beforeDisplayContent; ?>
+
+                    <?php if ($this->params->get('show_description') && $this->category->description) : ?>
+                        <div class="wbc-category-desc">
+                            <?php echo HTMLHelper::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <?php echo $afterDisplayContent; ?>
+                
+            </div>
+            <?php endif;?>    
+
+            <?php if ($this->params->get('show_cat_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
+                <?php $this->category->tagLayout = new FileLayout('joomla.content.tags'); ?>
+                <?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
             <?php endif; ?>
-            <?php echo $afterDisplayContent; ?>
+
         </div>
     <?php endif; ?>
+
 
     <?php if (empty($this->lead_items) && empty($this->link_items) && empty($this->intro_items)) : ?>
         <?php if ($this->params->get('show_no_articles', 1)) : ?>

@@ -54,7 +54,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
     <?php endif; ?>
   
     <?php if ($beforeDisplayContent || $afterDisplayContent || $this->params->get('show_description', 1) || $this->params->def('show_description_image', 1) || $this->params->get('show_category_title', 1)) : ?>
-        <div class="wbc__category-desc-container d-flex align-items-center mb-4">
+        <div class="category-desc d-flex align-items-center mb-4">
           
             <?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
                 <picture class="p-3">
@@ -63,7 +63,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                     [
                         'src' => $this->category->getParams()->get('image'),
                         'alt' => empty($this->category->getParams()->get('image_alt')) && empty($this->category->getParams()->get('image_alt_empty')) ? false : $this->category->getParams()->get('image_alt'),
-                        'class' => 'wbc__categoryimg',
+                        'class' => 'wbc-categoryimg',
                     ]
                 ); ?>
                 </picture>
@@ -72,18 +72,16 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
             <?php if ($this->params->get('show_category_title', 1) || ($this->params->get('show_description') && $this->category->description)) : ?>
             <div class="flex-grow-1 ms-3">
                 <?php if ($this->params->get('show_category_title', 1)) : ?>
-                    <div class="wbc__category-title">
-                    <<?php echo $htag; ?>>
+                    <<?php echo $htag; ?> class="wbc__category-title">
                             <?php echo $this->category->title; ?> 
-                    <<?php echo $htag; ?>>
-                </div>
+                    </<?php echo $htag; ?>>
                 <?php endif; ?>
                 <?php echo $afterDisplayTitle; ?>
                 
                     <?php echo $beforeDisplayContent; ?>
 
                     <?php if ($this->params->get('show_description') && $this->category->description) : ?>
-                        <div class="wbc__category-desc">
+                        <div class="wbc-category-desc">
                             <?php echo HTMLHelper::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
                         </div>
                     <?php endif; ?>

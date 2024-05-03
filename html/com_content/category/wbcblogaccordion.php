@@ -48,34 +48,49 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
         </div>
     <?php endif; ?>
 
-    <?php if ($this->params->get('show_category_title', 1)) : ?>
-    <<?php echo $htag; ?>>
-        <?php echo $this->category->title; ?>
-    </<?php echo $htag; ?>>
-    <?php endif; ?>
-    <?php echo $afterDisplayTitle; ?>
-
-    <?php if ($this->params->get('show_cat_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
-        <?php $this->category->tagLayout = new FileLayout('joomla.content.tags'); ?>
-        <?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
-    <?php endif; ?>
-
-    <?php if ($beforeDisplayContent || $afterDisplayContent || $this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
-        <div class="category-desc clearfix">
+    <?php if ($beforeDisplayContent || $afterDisplayContent || $this->params->get('show_description', 1) || $this->params->def('show_description_image', 1) || $this->params->get('show_category_title', 1)) : ?>
+        <div class="category-desc d-flex align-items-center mb-4">
+          
             <?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
+                <picture class="p-3">
                 <?php echo LayoutHelper::render(
                     'joomla.html.image',
                     [
                         'src' => $this->category->getParams()->get('image'),
                         'alt' => empty($this->category->getParams()->get('image_alt')) && empty($this->category->getParams()->get('image_alt_empty')) ? false : $this->category->getParams()->get('image_alt'),
+                        'class' => 'wbc-categoryimg',
                     ]
                 ); ?>
+                </picture>
             <?php endif; ?>
-            <?php echo $beforeDisplayContent; ?>
-            <?php if ($this->params->get('show_description') && $this->category->description) : ?>
-                <?php echo HTMLHelper::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
+
+            <?php if ($this->params->get('show_category_title', 1) || ($this->params->get('show_description') && $this->category->description)) : ?>
+            <div class="flex-grow-1 ms-3">
+                <?php if ($this->params->get('show_category_title', 1)) : ?>
+                    <<?php echo $htag; ?> class="wbc__category-title">
+                        <?php echo $this->category->title; ?> 
+                    </<?php echo $htag; ?>>  
+                <?php endif; ?>
+                <?php echo $afterDisplayTitle; ?>
+                
+                    <?php echo $beforeDisplayContent; ?>
+
+                    <?php if ($this->params->get('show_description') && $this->category->description) : ?>
+                        <div class="wbc-category-desc">
+                            <?php echo HTMLHelper::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <?php echo $afterDisplayContent; ?>
+                
+            </div>
+            <?php endif;?>    
+
+            <?php if ($this->params->get('show_cat_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
+                <?php $this->category->tagLayout = new FileLayout('joomla.content.tags'); ?>
+                <?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
             <?php endif; ?>
-            <?php echo $afterDisplayContent; ?>
+
         </div>
     <?php endif; ?>
 
@@ -115,16 +130,16 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                 $isUnpublished = ($item->state == ContentComponent::CONDITION_UNPUBLISHED || $item->publish_up > $currentDate) || ($item->publish_down < $currentDate && $item->publish_down !== null);
                 $jcfieldId = $item->params->get('select_customfield');
                 $jcfields = FieldsHelper::getFields('com_content.article', $item, true);
+                $titlefields = array();
                 foreach($jcfields as $jcfield) {
                     if (isset($jcfield->subform_rows)) {
                         foreach($jcfield->subform_rows as $row) {
                             foreach($row as $subfield) {
-                                $jcfields[$subfield->id] = $subfield;
+                                $titlefields[$subfield->id] = $subfield;
                             }
                         }
-                    } else {
-                        $jcfields[$jcfield->id] = $jcfield;
                     }
+                    $titlefields[$jcfield->id] = $jcfield;
                 }
             ?>
 
@@ -138,8 +153,10 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
                     <button class="accordion-button <?php echo ($count_items == 1 && $collapse_first_item == 1) ? '' : 'collapsed'; ?>" type="button"
                     data-bs-toggle="collapse" data-bs-target="#collapse-<?php echo $item->id; ?>" aria-expanded="<?php echo ($count_items == 1 && $collapse_first_item == 1) ? 'true' : 'false'; ?>" aria-controls="collapse-<?php echo $item->id; ?>">
-                        <?php if (!empty($jcfieldId) && (!empty($jcfields[$jcfieldId]->value))) : ?>
-                            <?php echo $jcfields[$jcfieldId]->value; ?>
+                    <?php if (!empty($jcfieldId) && (!empty($titlefields[$jcfieldId]->value))) : ?>
+                            <?php foreach ($titlefields[$jcfieldId]->value as $value) : ?>
+                                <?php echo $value . ' '; ?>
+                            <?php endforeach; ?>
                         <?php else : ?>
                             <?php echo $this->escape($item->title); ?>
                         <?php endif; ?>
