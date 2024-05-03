@@ -45,19 +45,7 @@ $this->readmore_leading_item = true;  // leadingbeiträge mit weiterlesen ?>
             <h1> <?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
         </div>
     <?php endif; ?>
-
-    <?php if ($this->params->get('show_category_title', 1)) : ?>
-    <<?php echo $htag; ?>>
-        <?php echo $this->category->title; ?>
-    </<?php echo $htag; ?>>
-    <?php endif; ?>
-    <?php echo $afterDisplayTitle; ?>
-
-    <?php if ($this->params->get('show_cat_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
-        <?php $this->category->tagLayout = new FileLayout('joomla.content.tags'); ?>
-        <?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
-    <?php endif; ?>
-
+   
     <?php if ($beforeDisplayContent || $afterDisplayContent || $this->params->get('show_description', 1) || $this->params->def('show_description_image', 1) || $this->params->get('show_category_title', 1)) : ?>
         <div class="category-desc d-flex align-items-center mb-4">
           
@@ -79,7 +67,7 @@ $this->readmore_leading_item = true;  // leadingbeiträge mit weiterlesen ?>
                 <?php if ($this->params->get('show_category_title', 1)) : ?>
                     <<?php echo $htag; ?> class="wbc__category-title">
                             <?php echo $this->category->title; ?> 
-                    <<?php echo $htag; ?>>
+                    </<?php echo $htag; ?>>
                 <?php endif; ?>
                 <?php echo $afterDisplayTitle; ?>
                 
