@@ -289,7 +289,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                                 <div id="toggle-menu-left"><jdoc:include type="modules" name="nav-sidebar-left" style="default" /></div>
                                 <?php endif; ?>
                                 <?php echo ($pos_search == 'left-01') ? '<div '. $anker_search .'></div>' : ''; ?>
-                                <jdoc:include type="modules" name="left-01" style="default" /><!--End left-01-->
+                                <jdoc:include type="modules" name="left-01" style="card" /><!--End left-01-->
                                 <?php echo ( $pos_search == 'left-02') ? '<div'. $anker_search .'></div>' : ''; ?>
                                 <jdoc:include type="modules" name="left-02" style="none" /><!--End left-02-->
                             </div>
@@ -371,7 +371,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                                 <?php endif; ?>
 
                                 <?php echo ($pos_search == 'right-01') ? '<div '. $anker_search .'></div>' : ''; ?>
-                                <jdoc:include type="modules" name="right-01" style="icon" /><!--End right-01-->
+                                <jdoc:include type="modules" name="right-01" style="card" /><!--End right-01-->
                                 <?php echo ($pos_search == 'right-02') ? '<div '. $anker_search .'></div>' : ''; ?>
                                 <jdoc:include type="modules" name="right-02" style="none" /><!--End right-02-->
                             </div>
