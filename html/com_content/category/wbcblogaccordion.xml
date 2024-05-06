@@ -276,7 +276,6 @@
 				value_field="title"
 				layout="joomla.form.field.list-fancy-select"
 				>
-				<option value="">WBC_FIELD_SELECT_TITLE_CUSTOMFIELD_OPTION</option>
 			</field>
 
 			<field
