@@ -128,18 +128,21 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                 $is_collapsed = ($count_items == 1 && $collapse_first_item == 1) ? '' : 'collapsed';
                 $currentDate   = Factory::getDate()->format('Y-m-d H:i:s');
                 $isUnpublished = ($item->state == ContentComponent::CONDITION_UNPUBLISHED || $item->publish_up > $currentDate) || ($item->publish_down < $currentDate && $item->publish_down !== null);
-                $jcfieldId = $item->params->get('select_customfield');
-                $jcfields = FieldsHelper::getFields('com_content.article', $item, true);
-                $titlefields = array();
-                foreach($jcfields as $jcfield) {
-                    if (isset($jcfield->subform_rows)) {
-                        foreach($jcfield->subform_rows as $row) {
-                            foreach($row as $subfield) {
-                                $titlefields[$subfield->id] = $subfield;
+
+                if (!empty($item->params->get('select_customfield'))){  
+                    $jcfieldId = $item->params->get('select_customfield');
+                    $jcfields = FieldsHelper::getFields('com_content.article', $item, true);
+                    $titlefields = array();
+                    foreach($jcfields as $jcfield) {
+                        if (isset($jcfield->subform_rows)) {
+                            foreach($jcfield->subform_rows as $row) {
+                                foreach($row as $subfield) {
+                                    $titlefields[$subfield->id] = $subfield;
+                                }
                             }
                         }
-                    }
-                    $titlefields[$jcfield->id] = $jcfield;
+                        $titlefields[$jcfield->id] = $jcfield;
+                    } 
                 }
             ?>
 
