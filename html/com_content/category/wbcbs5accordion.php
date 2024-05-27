@@ -70,7 +70,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
             <?php endif; ?>
 
             <?php if ($this->params->get('show_category_title', 1) || ($this->params->get('show_description') && $this->category->description)) : ?>
-            <div class="flex-grow-1 ms-3">
+            <div class="flex-grow-1">
                 <?php if ($this->params->get('show_category_title', 1)) : ?>
                     <<?php echo $htag; ?> class="wbc__category-title">
                             <?php echo $this->category->title; ?> 
