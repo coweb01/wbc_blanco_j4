@@ -164,9 +164,11 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                     <button class="accordion-button <?php echo ($count_items == 1 && $collapse_first_item == 1) ? '' : 'collapsed'; ?>" type="button"
                     data-bs-toggle="collapse" data-bs-target="#collapse-<?php echo $item->id; ?>" aria-expanded="<?php echo ($count_items == 1 && $collapse_first_item == 1) ? 'true' : 'false'; ?>" aria-controls="collapse-<?php echo $item->id; ?>">
                     <?php if (!empty($selectfield)) : ?>
-                            <?php foreach ($selectfield as $key => $sf) : ?>
+                            <?php foreach ($selectfield as $key => $sf) : ?> 
+                                <?php $render_class = 'wbc-field '; ?>
                                 <?php if ( is_array($sf) ) : ?>
-                                    <span class="wbc-field field-<?php echo $sf['field']->name;?>"><?php echo $sf['field']->value; ?></span>
+                                    <?php $render_class .= ' field-'.$sf['field']->fieldname; ?>
+                                    <span class="<?php echo $render_class;?>"><?php echo $sf['field']->value; ?></span>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         <?php else : ?>
