@@ -166,7 +166,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                     <?php if (!empty($selectfield)) : ?>
                             <?php foreach ($selectfield as $key => $sf) : ?>
                                 <?php if ( is_array($sf) ) : ?>
-                                    <?php echo $sf['field']->value . ' '; ?>
+                                    <span class="wbc-field field-<?php echo $sf['field']->name;?>"><?php echo $sf['field']->value; ?><span>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         <?php else : ?>
