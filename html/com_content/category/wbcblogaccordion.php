@@ -65,7 +65,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
             <?php endif; ?>
 
             <?php if ($this->params->get('show_category_title', 1) || ($this->params->get('show_description') && $this->category->description)) : ?>
-            <div class="flex-grow-1 ms-3">
+            <div class="flex-grow-1">
                 <?php if ($this->params->get('show_category_title', 1)) : ?>
                     <<?php echo $htag; ?> class="wbc__category-title">
                         <?php echo $this->category->title; ?> 
@@ -128,20 +128,28 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                 $is_collapsed = ($count_items == 1 && $collapse_first_item == 1) ? '' : 'collapsed';
                 $currentDate   = Factory::getDate()->format('Y-m-d H:i:s');
                 $isUnpublished = ($item->state == ContentComponent::CONDITION_UNPUBLISHED || $item->publish_up > $currentDate) || ($item->publish_down < $currentDate && $item->publish_down !== null);
-
+                
+                // Selected custom fields for Accordion Title
                 if (!empty($item->params->get('select_customfield'))){  
-                    $jcfieldId = $item->params->get('select_customfield');
+                    $selectfield = array();
+                    $selectfield = $item->params->get('select_customfield');
+                    foreach ($selectfield as $key => $value) {
+                        $selectfield[$value]['fieldid'] = $value;
+                    }
                     $jcfields = FieldsHelper::getFields('com_content.article', $item, true);
-                    $titlefields = array();
                     foreach($jcfields as $jcfield) {
                         if (isset($jcfield->subform_rows)) {
                             foreach($jcfield->subform_rows as $row) {
                                 foreach($row as $subfield) {
-                                    $titlefields[$subfield->id] = $subfield;
+                                    if (in_array($subfield->id, $selectfield)) {
+                                        $selectfield[$subfield->id]['field'] = $subfield;
+                                    }
                                 }
                             }
                         }
-                        $titlefields[$jcfield->id] = $jcfield;
+                        if (in_array($jcfield->id, $selectfield)) {
+                            $selectfield[$subfield->id]['field'] = $jcfield;
+                        }
                     } 
                 }
             ?>
@@ -153,16 +161,17 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                 <?php endif; ?>
 
                 <h2 class="accordion-header" itemprop="name">
-
                     <button class="accordion-button <?php echo ($count_items == 1 && $collapse_first_item == 1) ? '' : 'collapsed'; ?>" type="button"
                     data-bs-toggle="collapse" data-bs-target="#collapse-<?php echo $item->id; ?>" aria-expanded="<?php echo ($count_items == 1 && $collapse_first_item == 1) ? 'true' : 'false'; ?>" aria-controls="collapse-<?php echo $item->id; ?>">
-                    <?php if (!empty($jcfieldId) && (!empty($titlefields[$jcfieldId]->value))) : ?>
-                            <?php foreach ($titlefields[$jcfieldId]->value as $value) : ?>
-                                <?php echo $value . ' '; ?>
+                    <?php if (!empty($selectfield)) : ?>
+                            <?php foreach ($selectfield as $key => $sf) : ?>
+                                <?php if ( is_array($sf) ) : ?>
+                                    <?php echo $sf['field']->value . ' '; ?>
+                                <?php endif; ?>
                             <?php endforeach; ?>
                         <?php else : ?>
                             <?php echo $this->escape($item->title); ?>
-                        <?php endif; ?>
+                    <?php endif; ?>
                     </button>
                 </h2>
 
