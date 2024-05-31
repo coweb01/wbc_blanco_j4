@@ -79,11 +79,7 @@ foreach ($field->subform_rows as $subform_row) {
                     }
                 } else {
                    $content['media_src']     = trim($subfield->rawvalue);
-                   $lastSlashPos             = strrpos(trim($subfield->rawvalue), '/');
-                   $content['media_text']    = substr(trim($subfield->rawvalue), $lastSlashPos + 1);
-                }
-                
-                
+                }                
                 break;
         }
         
@@ -97,16 +93,21 @@ foreach ($field->subform_rows as $subform_row) {
         continue;
     }
    
+    // das Feld media_title hat Vorrang vor media_text
     if (isset($content['media_titel']) && !empty($content['media_titel'])) {
         $titel = Text::_('TPL_WBC_BLANCO_DOWNLOAD').$content['media_titel'];
-        if (isset($content['media_text']) && empty($content['media_text'])) {
-            $content['media_text'] = $content['media_titel'];
-        } 
+        $content['media_text'] = $content['media_titel'];
     } 
-    if (!isset($titel) && isset($content['media_text'])) {
+
+    if (!isset($titel) && isset($content['media_text']) && !empty($content['media_text'])) {
         $titel = Text::_('TPL_WBC_BLANCO_DOWNLOAD').$content['media_text'];
-    }   
+    }
     
+    if (!isset($titel)) {
+        $titel                    = Text::_('TPL_WBC_BLANCO_DOWNLOAD') .$content['media_text'];
+        $lastSlashPos             = strrpos(trim($content['media_src']), '/');
+        $content['media_text']    = substr(trim($content['media_src']), $lastSlashPos + 1);
+    }
 
     if (isset($content['media_text']) && $media_target == 'download') {
             $row_output[0] = '<span class="wbc__file_link d-block pe-3"><i class="'. $iconClass . ' pe-3" aria-hidden="true"></i><a download="'.$content['media_src'].'" href="'. $content['media_src'] .'" title="'.$titel.'" class="wbc_file" '.$content['targetyp'].' rel="nofollow">'. $content['media_text'] .'</a></span>';
