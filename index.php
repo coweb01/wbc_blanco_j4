@@ -83,7 +83,6 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
         $displayData['imgHeader'] =  $fields[$arrayKey]->value;
     }
 }
-
 ?>
 
 <!DOCTYPE html>

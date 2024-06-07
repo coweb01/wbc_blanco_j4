@@ -150,6 +150,16 @@ if ($bgimage == 1 && $templateparams->get('image-body')) {
     $classbody .= ' bgimage-01';
 }
 
+$input = $app->getInput();
+$view     = $input->getCmd('view', '');
+$layout   = $input->getCmd('layout', '');
+$task     = $input->getCmd('task', '');
+$itemid   = $input->getCmd('Itemid', '');
+$classbody .=  ' view-' . $view
+. ($layout ? ' layout-' . $layout : ' no-layout')
+. ($task ? ' task-' . $task : ' no-task')
+. ($itemid ? ' itemid-' . $itemid : '');
+
 /* ------------------------------------------------------------------------------*/
 
 // Bootstrap Klassen
