@@ -721,6 +721,19 @@
 			</field>
 
 			<field
+				name="linked_tags"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="WBC_BLANCO_FIELD_SHOW_LINKED_TAGS_LABEL"
+				description="WBC_BLANCO_FIELD_SHOW_LINKED_TAGS_DESC"
+				validate="options"
+				default="1"
+				>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
 				name="show_noauth"
 				type="list"
 				label="JGLOBAL_SHOW_UNAUTH_LINKS_LABEL"
