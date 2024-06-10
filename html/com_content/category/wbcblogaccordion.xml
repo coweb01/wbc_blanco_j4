@@ -258,7 +258,7 @@
 				<option value="published">JPUBLISHED</option>
 				<option value="unpublished">JUNPUBLISHED</option>
 			</field>
-			
+
 			<field
 				name="show_pagination"
 				type="list"
@@ -292,18 +292,6 @@
 			label="COM_CONTENT_ATTRIBS_FIELDSET_LABEL"
 			addfieldprefix="Joomla\Component\Content\Administrator\Field"
 		>
-			<field
-				name="show_item_navigation"
-				type="list"
-				label="JGLOBAL_SHOW_NAVIGATION_LABEL"
-				useglobal="true"
-				class="form-select-color-state"
-				validate="options"
-				>
-				<option value="use_article">COM_CONTENT_FIELD_VALUE_USE_ARTICLE_SETTINGS</option>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
 
 			<field
 				name="select_customfield"
