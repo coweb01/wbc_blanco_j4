@@ -93,6 +93,19 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
         <?php echo LayoutHelper::render('joomla.content.readmore', ['item' => $this->item, 'params' => $params, 'link' => $link]); ?>
 
     <?php endif; ?>
+    
+    <?php if ($info == 1 || $info == 2) : ?>
+        <?php if ($useDefList) : ?>
+            <?php echo LayoutHelper::render('joomla.content.info_block', ['item' => $this->item, 'params' => $params, 'position' => 'below']); ?>
+        <?php endif; ?>
+        <?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
+            <?php if($params->get('tags_linked')) : ?>
+                <?php echo LayoutHelper::render('joomla.content.tags', ['item' => $this->item, 'params' => $params, 'tags' => $this->item->tags->itemTags]); ?>
+            <?php else : ?>
+                <?php echo LayoutHelper::render('joomla.content.wbctags', $this->item->tags->itemTags); ?>
+            <?php endif; ?>
+        <?php endif; ?>    
+    <?php endif; ?>
 
     <?php if ($isUnpublished) : ?>
         </div>

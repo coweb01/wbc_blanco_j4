@@ -98,15 +98,6 @@ if ($params->get('show_customfields') == 2) {
         echo FieldsHelper::render('com_content.article', 'fields.render', ['item' => $this->item, 'context' => 'com_content.article', 'fields' => $fields]);
         break; ?>
     <?php endswitch; ?>   
-                       
-    <?php if ($info == 1 || $info == 2) : ?>
-        <?php if ($useDefList) : ?>
-            <?php echo LayoutHelper::render('joomla.content.info_block', ['item' => $this->item, 'params' => $params, 'position' => 'below']); ?>
-        <?php endif; ?>
-        <?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
-            <?php echo LayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
-        <?php endif; ?>
-    <?php endif; ?>
 
     <?php if ($params->get('show_readmore') && $this->item->readmore) :
         if ($params->get('access-view')) :
@@ -121,6 +112,19 @@ if ($params->get('show_customfields') == 2) {
 
         <?php echo LayoutHelper::render('joomla.content.readmore', ['item' => $this->item, 'params' => $params, 'link' => $link]); ?>
 
+    <?php endif; ?>
+
+    <?php if ($info == 1 || $info == 2) : ?>
+        <?php if ($useDefList) : ?>
+            <?php echo LayoutHelper::render('joomla.content.info_block', ['item' => $this->item, 'params' => $params, 'position' => 'below']); ?>
+        <?php endif; ?>
+        <?php if ($info == 0 && $params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
+            <?php if($params->get('tags_linked')) : ?>
+                    <?php echo LayoutHelper::render('joomla.content.tags', ['item' => $this->item, 'params' => $params, 'tags' => $this->item->tags->itemTags]); ?>
+            <?php else : ?>
+                    <?php echo LayoutHelper::render('joomla.content.wbctags', $this->item->tags->itemTags); ?>
+            <?php endif; ?>  
+        <?php endif; ?>
     <?php endif; ?>
 
     <?php if ($isUnpublished) : ?>
