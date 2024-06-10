@@ -19,7 +19,7 @@ $authorised = Factory::getUser()->getAuthorisedViewLevels();
 
 ?>
 <?php if (!empty($displayData)) : ?>
-    <ul class="tags list-inline">
+    <ul class="tags list-inline mt-3">
         <?php foreach ($displayData as $i => $tag) : ?>
             <?php if (in_array($tag->access, $authorised)) : ?>
                 <li class="list-inline-item tag-<?php echo $tag->tag_id; ?> tag-list<?php echo $i; ?>">
