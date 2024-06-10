@@ -130,8 +130,6 @@ if ($selectedFields) {
     <?php endif; ?>
 
     <div class="item-content">
-
-
         <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
 
         <?php if ($canEdit) : ?>
@@ -146,7 +144,7 @@ if ($selectedFields) {
             <?php echo LayoutHelper::render('joomla.content.info_block', ['item' => $this->item, 'params' => $params, 'position' => 'above']); ?>
         <?php endif; ?>
         <?php if ($info == 0 && $params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
-            <?php if($params->get('tags_linked')) : ?>
+            <?php if($params->get('linked_tags',1)) : ?>
                 <?php echo LayoutHelper::render('joomla.content.tags', ['item' => $this->item, 'params' => $params, 'tags' => $this->item->tags->itemTags]); ?>
             <?php else : ?>
                 <?php echo LayoutHelper::render('joomla.content.wbctags', $this->item->tags->itemTags); ?>
@@ -226,7 +224,7 @@ if ($selectedFields) {
             <?php if ($useDefList) : ?>
                 <?php echo LayoutHelper::render('joomla.content.info_block', ['item' => $this->item, 'params' => $params, 'position' => 'below']); ?>
             <?php endif; ?>
-            <?php if($params->get('tags_linked')) : ?>
+            <?php if($params->get('linked_tags',1)) : ?>
                 <?php echo LayoutHelper::render('joomla.content.tags', ['item' => $this->item, 'params' => $params, 'tags' => $this->item->tags->itemTags]); ?>
             <?php else : ?>
                 <?php echo LayoutHelper::render('joomla.content.wbctags', $this->item->tags->itemTags); ?>
@@ -234,12 +232,12 @@ if ($selectedFields) {
         <?php endif; ?>
 
         </div>
+        <?php if ( $noTabs == false && count($htmlausgabe) > 0 ) : ?>
+            <div class="fields">
+                <?php echo LayoutHelper::render('wbc_blanco_template.accordiontabsub', $tabsdata); ?>
+            </div>
+        <?php endif; ?>
     <?php if ($isUnpublished) : ?>
         </div>
     <?php endif; ?>
 </div>
-<?php if ( $noTabs == false && count($htmlausgabe) > 0 ) : ?>
-    <div class="fields">
-        <?php echo LayoutHelper::render('wbc_blanco_template.accordiontabsub', $tabsdata); ?>
-    </div>
-<?php endif; ?>

@@ -70,7 +70,7 @@ if ($params->get('show_customfields') == 2) {
         <?php echo LayoutHelper::render('joomla.content.info_block', ['item' => $this->item, 'params' => $params, 'position' => 'above']); ?>
     <?php endif; ?>
     <?php if ($info == 0 && $params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
-        <?php if($params->get('tags_linked')) : ?>
+        <?php if($params->get('linked_tags',1)) : ?>
                 <?php echo LayoutHelper::render('joomla.content.tags', ['item' => $this->item, 'params' => $params, 'tags' => $this->item->tags->itemTags]); ?>
         <?php else : ?>
                 <?php echo LayoutHelper::render('joomla.content.wbctags', $this->item->tags->itemTags); ?>
@@ -119,7 +119,7 @@ if ($params->get('show_customfields') == 2) {
             <?php echo LayoutHelper::render('joomla.content.info_block', ['item' => $this->item, 'params' => $params, 'position' => 'below']); ?>
         <?php endif; ?>
         <?php if ($info == 0 && $params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
-            <?php if($params->get('tags_linked')) : ?>
+            <?php if($params->get('linked_tags',1)) : ?>
                     <?php echo LayoutHelper::render('joomla.content.tags', ['item' => $this->item, 'params' => $params, 'tags' => $this->item->tags->itemTags]); ?>
             <?php else : ?>
                     <?php echo LayoutHelper::render('joomla.content.wbctags', $this->item->tags->itemTags); ?>
