@@ -331,8 +331,8 @@
 				name="linked_tags"
 				type="radio"
 				layout="joomla.form.field.radio.switcher"
-				label="WBC_BLANCO_FIELD_SHOW_LINKED_TAGS_LABEL"
-				description="WBC_BLANCO_FIELD_SHOW_LINKED_TAGS_DESC"
+				label="TPL_WBC_BLANCO_FIELD_SHOW_LINKED_TAGS_LABEL"
+				description="TPL_WBC_BLANCO_FIELD_SHOW_LINKED_TAGS_DESC"
 				validate="options"
 				default="1"
 				>
