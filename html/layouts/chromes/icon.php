@@ -51,7 +51,7 @@ $header = '<' . $headerTag . ' ' . $module->title . '>' . $module->title . '</' 
             <span class="ext-icon-block ">
                 <i class="<?php echo $headerClass;?>"></i>
             </span>
-            <?php echo '<' .$headerTag . '>' . $module->title . '<' . $headerTag . '>' ;?></div>
+            <?php echo '<' .$headerTag . '>' . $module->title . '</' . $headerTag . '>' ;?></div>
         <?php endif; ?>
 
         <?php echo $module->content; ?>
