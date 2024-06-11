@@ -122,7 +122,7 @@ $this->readmore_leading_item = true;  // leadingbeiträge mit weiterlesen ?>
         <?php $this->readmore_leading_item = true; ?>  
         <div class="com-content-category-blog__items blog-items <?php echo $blogClass; ?>">
         <?php foreach ($this->intro_items as $key => &$item) : ?>
-            <div class="com-content-category-blog__item wbc-blog-item">
+            <div class="com-content-category-blog__item blog-item wbc-blog-item">
                     <?php
                     $this->item = & $item;
                     echo $this->loadTemplate('item');
