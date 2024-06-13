@@ -682,7 +682,7 @@
 			</field>
 			
 			<field
-				name="readmore_leading_item"
+				name="show_readmore_leading_item"
 				type="radio"
 				layout="joomla.form.field.radio.switcher"
 				label="WBC_BLOG_READMORE_LEADING_ITEM_LABEL"
@@ -690,8 +690,32 @@
 				validate="options"
 				default="1"
 				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="trunc_leadingtext"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="WBC_FIELD_TRUNCEADINGTEXT_LABEL"
+				default="0"
+				filter="integer"
+				showon="readmore_leading_item:1"
+				>
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="chars_number_leading"
+				type="number"
+				default="100"
+				filter="integer"
+				min="1"
+				validate="number"
+				showon="trunc_leadingtext:1"
+				label="WBC_FIELD_TRUNCLEADINGTEXT_CHARS_LABEL">
 			</field>
 
 			<field

@@ -6,6 +6,15 @@
  *
  * @copyright   (C) 2006 Open Source Matters, Inc. <https://www.joomla.org>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * * 
+ * zusätzliche Parameter:
+ * $params->get('select_customfield'); // ausgewählte Felder
+ * $params->get(trunc_introtext); // gekürzter Intro Text
+ * $params->get('chars_number'); // Anzahl zeichen
+ * $params->get('show_readmore_leading_item'); // Weiterlesen für Leadingartikel
+ * $params->get('trunc_leadingtext'); // Leadingtext kürzen
+ * $params->get('chars_number_leading'); // Anzahl zeichen
+ * $params->get('linked_tags'); // Tags verlinken oder nicht
  */
 
 defined('_JEXEC') or die;
@@ -111,8 +120,7 @@ if ($params->get('show_customfields') == 2) {
             break; ?>
     <?php endswitch; ?>
     
-    <?php if ( $this->readmore_leading_item  === true) { // KZ Leadbeitrag und weiterlesen  ?>
-        <?php if (($params->get('show_readmore') && $this->item->readmore) || ($params->get('trunc_introtext') == 1 && $params->get('show_readmore'))) :
+    <?php if ( ($this->readmore_leading_item  === true ) || ( $this->readmore_intro_item  === true ) ) : // KZ Leadbeitrag und weiterlesen  
             if ($params->get('access-view')) :
                 $link = Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language));
             else :
@@ -123,13 +131,13 @@ if ($params->get('show_customfields') == 2) {
                 $link->setVar('return', base64_encode(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)));
             endif; ?>
             <?php echo LayoutHelper::render('joomla.content.readmore', ['item' => $this->item, 'params' => $params, 'link' => $link]); ?>
-        <?php endif; ?>
-    <?php } ?>
+    <?php endif; ?>
 
     <?php if ($info == 1 || $info == 2) : ?>
         <?php if ($useDefList) : ?>
             <?php echo LayoutHelper::render('joomla.content.info_block', ['item' => $this->item, 'params' => $params, 'position' => 'below']); ?>
         <?php endif; ?>
+
         <?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
             <?php if($params->get('tags_linked')) : ?>
                 <?php echo LayoutHelper::render('joomla.content.tags',  $this->item->tags->itemTags); ?>
@@ -137,6 +145,7 @@ if ($params->get('show_customfields') == 2) {
                 <?php echo LayoutHelper::render('joomla.content.wbctags', $this->item->tags->itemTags); ?>
             <?php endif; ?>      
         <?php endif; ?>
+        
     <?php endif; ?>
     <?php if ($isUnpublished) : ?>
         </div>

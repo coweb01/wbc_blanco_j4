@@ -6,6 +6,16 @@
  *
  * @copyright   (C) 2006 Open Source Matters, Inc. <https://www.joomla.org>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * 
+ * * 
+ * zusätzliche Parameter:
+ * $params->get('select_customfield'); // ausgewählte Felder
+ * $params->get(trunc_introtext); // gekürzter Intro Text
+ * $params->get('chars_number'); // Anzahl zeichen
+ * $params->get('show_readmore_leading_item'); // Weiterlesen für Leadingartikel
+ * $params->get('trunc_leadingtext'); // Leadingtext kürzen
+ * $params->get('chars_number_leading'); // Anzahl zeichen
+ * $params->get('linked_tags'); // Tags verlinken oder nicht 
  */
 
 defined('_JEXEC') or die;
@@ -33,7 +43,8 @@ $afterDisplayContent = trim(implode("\n", $results));
 
 $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
-$this->readmore_leading_item = true;  // leadingbeiträge mit weiterlesen ?> 
+$this->readmore_leading_item = false;  // leadingbeiträge mit weiterlesen 
+$this->readmore_intro_item = false;  // Intro mit weiterlesen ?> 
 
 <div class="com-content-category-blog blog">
     <?php if ($this->params->get('show_page_heading')) : ?>
@@ -43,7 +54,7 @@ $this->readmore_leading_item = true;  // leadingbeiträge mit weiterlesen ?>
     <?php endif; ?>
 
     <?php if ($beforeDisplayContent || $afterDisplayContent || $this->params->get('show_description', 1) || $this->params->def('show_description_image', 1) || $this->params->get('show_category_title', 1)) : ?>
-        <div class="category-desc d-flex align-items-center mb-4">
+        <div class="category-desc d-flex align-items-center">
           
             <?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
                 <picture class="p-3">
@@ -101,11 +112,23 @@ $this->readmore_leading_item = true;  // leadingbeiträge mit weiterlesen ?>
         <div class="com-content-category-blog__items blog-items items-leading <?php echo $this->params->get('blog_class_leading'); ?>">
             <?php foreach ($this->lead_items as &$item) : ?>
                 <div class="com-content-category-blog__item blog-item">
-                    <?php if ($this->params->get('readmore_leading_item') == 0 ) { // kein weiterlesen für Leading Beiträge gesetzt?>
-                    <?php    $this->readmore_leading_item = false; ?>  
-                    <?php } ?>
                     <?php
                     $this->item = &$item;
+                    if (!$this->params->get('show_readmore_leading_item')) { // kein weiterlesen für Leading Beiträge gesetzt
+                        
+                        $this->itemtext  = $this->item->introtext;
+                        $this->itemtext .= $this->item->fulltext;
+                    } else {
+                        $this->readmore_leading_item = true;
+                        if ($this->params->get('trunc_leadingtext', 1)) {
+                                $truncated_text = HTMLHelper::_('string.truncate', strip_tags($this->item->introtext), $this->params->get('chars_number_leading'));
+                                $last_space = strrpos($truncated_text, " ");
+                                $truncated_text = substr($truncated_text, 0, $last_space);
+                                $this->itemtext =  '<p>' . $truncated_text . '</p>';
+                            } else {
+                                $this->itemtext = $this->item->introtext;
+                            }
+                    }
                     echo $this->loadTemplate('item');
                     ?>
                 </div>
@@ -119,12 +142,27 @@ $this->readmore_leading_item = true;  // leadingbeiträge mit weiterlesen ?>
             <?php $blogClass .= (int) $this->params->get('multi_column_order', 0) === 0 ? ' masonry-' : ' columns-'; ?>
             <?php $blogClass .= (int) $this->params->get('num_columns'); ?>
         <?php endif; ?>
-        <?php $this->readmore_leading_item = true; ?>  
+        <?php $this->readmore_leading_item = false; ?>
+       
         <div class="com-content-category-blog__items blog-items <?php echo $blogClass; ?>">
         <?php foreach ($this->intro_items as $key => &$item) : ?>
             <div class="com-content-category-blog__item blog-item wbc-blog-item">
                     <?php
                     $this->item = & $item;
+                    if (($this->params->get('show_readmore') && $this->item->readmore) || $this->params->get('trunc_introtext', 1)) :
+                        $this->readmore_intro_item = true;
+                    else: 
+                        $this->readmore_intro_item = false;    
+                    endif;
+                    
+                    if ($this->params->get('trunc_introtext', 1)) {
+                        $truncated_text = HTMLHelper::_('string.truncate', strip_tags($this->item->introtext), $this->params->get('chars_number'));
+                        $last_space = strrpos($truncated_text, " ");
+                        $truncated_text = substr($truncated_text, 0, $last_space);
+                        $this->itemtext =  '<p>' . $truncated_text . '</p>';
+                    } else {
+                        $this->itemtext = $this->item->introtext;
+                    }
                     echo $this->loadTemplate('item');
                     ?>
             </div>
