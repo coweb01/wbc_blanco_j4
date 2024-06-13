@@ -27,21 +27,18 @@
 		<li>right-01             -- rechte Spalte 2.Position</li>
 		<li>left-01              -- linke Spalte 1.Position </li>
 		<li>right-02             -- rechte Spalte 2.Position</li>
-		<li>footer-top           -- Fusszeile 1.Zeile 100% breite</li>
-		<li>footer-01            -- Fusszeile 1.Spalte</li>
-		<li>footer-02            -- Fusszeile 2. Spalte</li>
-		<li>footer-03            -- Fusszeile 3. Spalte</li>
-		<li>footer-bottom        -- Fusszeile unterer Rand 100% breite</li>
+		<li>footer-top           -- Fusszeile 1. Zeile 100% Breite</li>
+		<li>footer               -- Fusszeile 2. Zeile 100% Breite oder mit Wrapper</li>
+		<li>footer-bottom        -- Fusszeile unterer Rand 100% Breite</li>
 		<li>navMain              -- Hauptnavigation</li>
 		<li>headerimg            -- Headerbild</li>
 		<li>headerimg-overlay    -- Box absolut positioniert über dem Headerbild</li>
-		<li>vorInhalt-01-col     -- Vor Joomla Content</li>
-		<li>nachInhalt-01        -- nach Joomla Content</li>
-		<li>nachInhalt-02        -- nach Joomla Content ubterhalb Sidebars</li>
-		<li>onepagetop           -- Onepage Position vor Joomla Content</li>
-		<li>onepagebottom        -- Onepage Position nach Joomla Content</li>
+		<li>vorInhalt-01         -- Vor Joomla Content</li>
 		<li>vorInhalt-01-col     -- Module mehrspaltig vor Contentbereich</li>
 		<li>nachInhalt-01-col    -- Module mehrspaltig nach Contentbereich</li>
+		<li>nachInhalt-02        -- nach Joomla Content unterhalb Sidebars</li>
+		<li>onepagetop           -- Onepage Position vor Joomla Content</li>
+		<li>onepagebottom        -- Onepage Position nach Joomla Content</li>
 		<li>offcanvas            -- Offcanvas Mobil Menü</li>
 		<li>offcanvas-after      -- Offcanvas nach Menü</li>
 		<li>offcanvas-navbar     -- Offcanvas Navbar</li>
@@ -758,36 +755,6 @@
 					>
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
-				</field>
-
-				<!-- Module vor inhalt  -->
-				<field
-					name="vorcontent-cols"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group"
-					default="1"
-					label="TPL_WBC_BLANCO_J4_FIELD_VORCONTENT_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_VORCONTENT_DESC"
-					>
-					<option value="1">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL1</option>
-					<option value="2">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL2</option>
-					<option value="3">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL3</option>
-				</field>
-
-				<!-- Module nach inhalt  -->
-				<field
-					name="aftercontent-cols"
-					type="radio"
-					layout="joomla.form.field.radio.buttons"
-					class="btn-group"
-					default="1"
-					label="TPL_WBC_BLANCO_J4_FIELD_AFTERCONTENT_LABEL"
-					description="TPL_WBC_BLANCO_J4_FIELD_AFTERCONTENT_DESC"
-					>
-					<option value="1">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL1</option>
-					<option value="2">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL2</option>
-					<option value="3">TPL_WBC_BLANCO_J4_FIELD_FRONTPAGE_COL3</option>
 				</field>
 
 				<field

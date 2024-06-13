@@ -12,14 +12,13 @@ use Joomla\CMS\Helper\ModuleHelper;
 
 extract($displayData);
 
-$cardcolumns = "cardcols_" . $Modules_cols;
 $modules = ModuleHelper::getModules($Modules);
 $style = 'card';
 $position = $Modules;
 
 ?>
 
-<div id="wbc-<?php echo $Modules;?>" class="wbc-flexible-cards card-columns <?php echo $cardcolumns; ?>">
+<div id="wbc-<?php echo $Modules;?>" class="wbc-flexible-cards card-columns">
     <?php foreach($modules as $mod) : ?>
         <?php echo ModuleHelper::renderModule($mod, array('style' => $style, 'position' => $position )); ?>
     <?php endforeach; ?>
