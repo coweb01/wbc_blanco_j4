@@ -26,6 +26,30 @@ include $includepath.'magic.php'; // load magic.php
 if (!isset($bootstrap_colclass_mobil_sm)) { $bootstrap_colclass_mobil_sm = ''; };
 if (!isset($bootstrap_colclass_mobil_xs)) { $bootstrap_colclass_mobil_xs = ''; };
 
+$modNoBC = $this->countModules('vorInhalt-01-col');
+$modNoAC = $this->countModules('nachInhalt-01-col');
+$repeatAC = '';
+if ($modNoBC > 3) {
+    $repeatBC = 3;
+} else {
+    $repeatBC = $modNoBC;
+}
+if ($modNoAC > 3) {
+    $repeatAC = 3;
+} else {
+    $repeatAC = $modNoAC;
+}
+$wa->addInlineStyle('
+@media (min-width: 992px) {
+  #wbc-vorInhalt-01-col {
+    --repeatBC: ' . $repeatBC . ';
+  }
+  #wbc-nachInhalt-01-col {
+    --repeatAC: ' . $repeatAC . ';
+  }
+}
+');
+
 // Favicons https://realfavicongenerator.net/
 $this->addHeadLink(HTMLHelper::_('image', 'favicons/apple-touch-icon.png', '', [], true, 1), 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
 $this->addHeadLink(HTMLHelper::_('image', 'favicons/favicon-32x32.png', '', [], true, 1), 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
@@ -316,9 +340,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                                         /* wenn Modul mehrspaltig */
                                         $LayoutModules = new FileLayout('wbc_blanco_template.cardmodules', $tpath.'html/layouts');
 
-                                        $ReplacedisplayData = array('Modules' => 'vorInhalt-01-col',
-                                                                'Modules_cols' => $vorcontent_cols
-                                                                );
+                                        $ReplacedisplayData = array('Modules' => 'vorInhalt-01-col');
 
                                         $displayData = array_replace($displayData, $ReplacedisplayData);
                                         echo $LayoutModules->render($displayData);
@@ -334,9 +356,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                                         /* wenn Module mehrspaltig */
                                         $LayoutModules = new FileLayout('wbc_blanco_template.cardmodules', $tpath.'html/layouts');
 
-                                        $ReplacedisplayData = array('Modules' => 'nachInhalt-01-col',
-                                                                'Modules_cols' => $aftercontent_cols
-                                                                );
+                                        $ReplacedisplayData = array('Modules' => 'nachInhalt-01-col');
 
                                         $displayData = array_replace($displayData, $ReplacedisplayData);
                                         echo $LayoutModules->render($displayData);
