@@ -254,3 +254,27 @@ fieldset.options-form {
   font-size: .9rem;
   color: var(--color1);
 }
+
+/* -------------------------------------------------------------------------- */
+.edit #adminForm {
+  background-color: rgba(255,255,255,1);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow-sm);
+}
+.edit #adminForm > fieldset >  .control-group {
+  margin-bottom: 2rem;
+  background-color: rgba(255,255,255,1);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow-sm);
+  border: solid 1px rgba(1,1,1,.04);
+}
+.edit #adminForm > fieldset > .control-group > .control-label {
+  font-weight: 500;
+  font-size: .9rem;
+  background-color: rgba(1,1,1,.6);
+  color: var(--bs-light);
+  padding: .5rem 1rem;
+}
+.edit #adminForm > fieldset > .control-group > .controls {
+  padding: 1rem;
+}
