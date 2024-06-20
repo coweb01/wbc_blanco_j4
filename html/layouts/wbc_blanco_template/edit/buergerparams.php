@@ -24,12 +24,12 @@ if (empty($fieldSets)) {
     return;
 }
 
-$ignoreFieldsets = $displayData->get('ignore_fieldsets') ?: [];
-$outputFieldsets = $displayData->get('output_fieldsets') ?: [];
-$ignoreFieldsetFields = $displayData->get('ignore_fieldset_fields') ?: [];
-$ignoreFields    = $displayData->get('ignore_fields') ?: [];
-$extraFields     = $displayData->get('extra_fields') ?: [];
-$tabName         = $displayData->get('tab_name') ?: 'myTab';
+$ignoreFieldsets        = $displayData->get('ignore_fieldsets') ?: [];
+$outputFieldsets        = $displayData->get('output_fieldsets') ?: [];
+$ignoreFieldsetFields   = $displayData->get('ignore_fieldset_fields') ?: [];
+$ignoreFields           = $displayData->get('ignore_fields') ?: [];
+$extraFields            = $displayData->get('extra_fields') ?: [];
+$tabName                = $displayData->get('tab_name') ?: 'myTab';
 
 // These are required to preserve data on save when fields are not displayed.
 $hiddenFieldsets = $displayData->get('hiddenFieldsets') ?: [];
@@ -71,7 +71,6 @@ if (!$displayData->get('show_options', 1)) {
     // Echo the hidden fieldsets
     echo implode('', $html);
 }
-
 $opentab = false;
 
 $xml = $form->getXml();
@@ -117,21 +116,6 @@ foreach ($fieldSets as $name => $fieldSet) {
 
         echo '<div class="form-grid">';
     } elseif (!$hasParent) {
-        // Tabs
-        if ($opentab) {
-            if ($opentab > 1) {
-                echo '</div>';
-                echo '</fieldset>';
-            }
-
-            // End previous tab
-            echo HTMLHelper::_($helper . '.endTab');
-        }
-
-        // Start the tab
-        echo HTMLHelper::_($helper . '.addTab', $tabName, 'attrib-' . $name, $label);
-
-        $opentab = 1;
 
         // Directly add a fieldset if we have no children
         if (!$hasChildren) {
@@ -148,7 +132,6 @@ foreach ($fieldSets as $name => $fieldSet) {
 
             echo '<div class="form-grid">';
 
-            $opentab = 2;
         } elseif (!empty($fieldSet->description)) {
             // Include the description when available
             echo '<div class="alert alert-info alert-parent">';
@@ -174,15 +157,9 @@ foreach ($fieldSets as $name => $fieldSet) {
     if (!$isGrandchild && $hasParent) {
         echo '</div>';
         echo '</fieldset>';
-    }
+    } 
+    echo '</div>';
+    echo '</fieldset>';
 }
 
-if ($opentab) {
-    if ($opentab > 1) {
-        echo '</div>';
-        echo '</fieldset>';
-    }
-
-    // End previous tab
-    echo HTMLHelper::_($helper . '.endTab');
-}
+?>

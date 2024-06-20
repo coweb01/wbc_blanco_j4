@@ -14,10 +14,10 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 
-$app       = Factory::getApplication();
-$form      = $displayData['form'];
-$fieldSets = $form->getFieldsets();
-$item    = $displayData['item'];
+$app        = Factory::getApplication();
+$form       = $displayData['data']->getForm();
+$fieldSets  = $form->getFieldsets();
+$item       = $displayData['item'];
 if (empty($fieldSets)) {
     return;
 }
@@ -30,6 +30,3 @@ endif;
 
 echo $form->renderField('articletext'); 
 
-if ($displayData->captchaEnabled) : 
-   echo $form->renderField('captcha'); 
-endif; 

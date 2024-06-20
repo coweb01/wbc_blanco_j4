@@ -183,7 +183,7 @@ if (!$params->exists('show_publishing_options')) {
             <input type="hidden" name="return" value="<?php echo $this->return_page; ?>">
             <?php echo HTMLHelper::_('form.token'); ?>
         </fieldset>
-        <div class="mx-2">
+        <div class="my-3">
             <button type="button" class="btn btn-primary" data-submit-task="article.apply">
                 <span class="icon-check" aria-hidden="true"></span>
                 <?php echo Text::_('JSAVE'); ?>
@@ -222,7 +222,7 @@ if (!$params->exists('show_publishing_options')) {
             <input type="hidden" name="return" value="<?php echo $this->return_page; ?>">
             <?php echo HTMLHelper::_('form.token'); ?>
         </fieldset>
-        <div class="mx-2">
+        <div class="my-3">
             <button type="button" class="btn btn-primary" data-submit-task="article.apply">
                 <span class="icon-check" aria-hidden="true"></span>
                 <?php echo Text::_('JSAVE'); ?>

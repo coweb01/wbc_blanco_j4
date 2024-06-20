@@ -237,36 +237,37 @@ div.subform-repeatable-group > .btn-toolbar .btn.group-move span {
   background-color: #20c997;
 }
 
-fieldset.options-form {
-  padding: 15px;
-  margin-bottom: 3rem;
-  border:   var(--border-width) var(--border-style) var(--border-color);
-  background-color: #FEFEFE;
+/* -------------------------------------------------------------------------- */
+
+.edit #adminForm legend {
+  position: absolute;
+  left: -999999px;
 }
-.edit .options-form .control-group {
+
+.edit #adminForm .options-form .control-group {
   margin-bottom: 2rem;
 }
-.edit small.form-text {
+.edit #adminForm small.form-text {
   font-size: .8rem;
 }
-.edit .control-group .control-group .control-label {
+.edit #adminForm .control-group .control-group .control-label {
   font-weight: 500;
   font-size: .9rem;
   color: var(--color1);
 }
-
-/* -------------------------------------------------------------------------- */
 .edit #adminForm {
   background-color: rgba(255,255,255,1);
   padding: 1.5rem;
   box-shadow: var(--box-shadow-sm);
 }
-.edit #adminForm > fieldset >  .control-group {
+.edit #adminForm > fieldset > .control-group,
+.edit #adminForm > fieldset .form-grid > .control-group
+{
   margin-bottom: 2rem;
   background-color: rgba(255,255,255,1);
   padding: 1.5rem;
   box-shadow: var(--box-shadow-sm);
-  border: solid 1px rgba(1,1,1,.04);
+  border:   var(--border-width) var(--border-style) var(--border-color);
 }
 .edit #adminForm > fieldset > .control-group > .control-label {
   font-weight: 500;
