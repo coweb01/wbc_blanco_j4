@@ -269,13 +269,16 @@ div.subform-repeatable-group > .btn-toolbar .btn.group-move span {
   box-shadow: var(--box-shadow-sm);
   border:   var(--border-width) var(--border-style) var(--border-color);
 }
-.edit #adminForm > fieldset > .control-group > .control-label {
+.edit #adminForm > fieldset > .control-group > .control-label,
+.edit #adminForm > fieldset .form-grid > .control-group > .control-label {
   font-weight: 500;
   font-size: .9rem;
   background-color: rgba(1,1,1,.6);
   color: var(--bs-light);
   padding: .5rem 1rem;
 }
-.edit #adminForm > fieldset > .control-group > .controls {
+.edit #adminForm > fieldset > .control-group > .controls,
+.edit #adminForm > fieldset .form-grid > .control-group > .controls 
+{
   padding: 1rem;
 }
