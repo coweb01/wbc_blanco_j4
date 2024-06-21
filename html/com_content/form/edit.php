@@ -57,7 +57,17 @@ foreach ($groupIds as $groupId) {
         continue;
     }
 }
-
+// Dateibrowser für Bürger deaktivieren
+if ($isBuerger) {
+    $wa->addInlineScript("
+        document.addEventListener('DOMContentLoaded', function() {
+        var buttons = document.querySelectorAll('.tf-gallery-actions .btn-group.add-button .add.dropdown-toggle');
+        buttons.forEach(function(button) {
+        button.disabled = true;
+        });
+    });
+    ");
+}
 // This checks if the editor config options have ever been saved. If they haven't they will fall back to the original settings
 if (!$params->exists('show_publishing_options')) {
     $params->set('show_urls_images_frontend', '0');
