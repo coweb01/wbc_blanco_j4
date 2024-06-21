@@ -282,3 +282,5 @@ div.subform-repeatable-group > .btn-toolbar .btn.group-move span {
 {
   padding: 1rem;
 }
+.edit #adminForm .field-media-preview { max-width: 100%; width: 100%; }
+iframe { min-height: 500px;}
