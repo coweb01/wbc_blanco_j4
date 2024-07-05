@@ -73,29 +73,30 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
     $nocontent = 'wbc-nocontent';
 }
 
-/* ********************************************** */
+/****************************************************************************************************/
 /******     Headerbild aus Custom field Beitrag oder Kategorie                                   ****/
 /******     Custom Field muss den Namen headerimg / cat-headerimg haben                          ****/
 /****************************************************************************************************/
 
-// die ID der Beitrags oder der Kategorie aus dem Link holen
 if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=article') !== false ||
     strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=category') !== false)
 {
+    $input = JFactory::getApplication()->input;
+    $id = $input->get('id', 0, 'UINT');
 
-    $urlParams = parse_url($activeMenu->link);
-    parse_str($urlParams['query'], $params);
-    $id     = $params['id'];  // ID aus dem Link
-
-    if (strpos($activeMenu->link, 'view=category') !== false) { // Custom Fields Kategorie
-        $item    = $app->bootComponent('com_categories')->getMVCFactory()->createModel('Category', 'Administrator', ['ignore_request' => true])->getItem($id);
-        $context    = 'com_content.categories';
-        $arrayKey   = 'cat-headerimg';
-    } else { // Custom Fields Beitrag
-        $item    = $app->bootComponent('com_content')->getMVCFactory()->createModel('Article', 'Administrator')->getItem($id);
-        $context = 'com_content.article';
-        $arrayKey   = 'headerimg';
+    switch ($view) {
+        case 'article':
+            $item    = $app->bootComponent('com_content')->getMVCFactory()->createModel('Article', 'Administrator')->getItem($id);
+            $context = 'com_content.article';
+            $arrayKey = 'headerimg';
+            break;
+        case 'category':
+            $item    = $app->bootComponent('com_categories')->getMVCFactory()->createModel('Category', 'Administrator', ['ignore_request' => true])->getItem($id);
+            $context = 'com_content.categories';
+            $arrayKey = 'cat-headerimg';
+            break;
     }
+    // alle Custom Fields des Beitrags oder der Kategorie
     $fields = FieldsHelper::getFields($context, $item, true);
     if ($fields){
         foreach($fields as $field)
@@ -103,10 +104,12 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
             $fields[$field->name] = $field;
         }
     }
+    // wenn $arrayKey (headerimg / cat-headerimg) im Array vorhanden 
     if (array_key_exists($arrayKey,$fields ) && !empty($fields[$arrayKey]->value))  {
         $displayData['imgHeader'] =  $fields[$arrayKey]->value;
     }
 }
+
 ?>
 
 <!DOCTYPE html>
