@@ -29,12 +29,4 @@ if (is_null($item->id)) :
 endif; 
 
 echo $form->renderField('articletext'); 
-echo $this->form->renderField('image_intro', 'images'); 
-echo $this->form->renderField('image_intro_alt', 'images'); 
-echo $this->form->renderField('image_intro_alt_empty', 'images'); 
-echo $this->form->renderField('image_intro_caption', 'images'); 
-echo $this->form->renderField('image_fulltext', 'images'); 
-echo $this->form->renderField('image_fulltext_alt', 'images'); 
-echo $this->form->renderField('image_fulltext_alt_empty', 'images'); 
-echo $this->form->renderField('image_fulltext_caption', 'images'); 
 ?>
