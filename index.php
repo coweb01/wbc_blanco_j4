@@ -83,9 +83,11 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
 {
     $input = JFactory::getApplication()->input;
     $id = $input->get('id', 0, 'UINT');
+    $context = 'com_content.article';
 
     switch ($view) {
         case 'article':
+        case 'form':
             $item    = $app->bootComponent('com_content')->getMVCFactory()->createModel('Article', 'Administrator')->getItem($id);
             $context = 'com_content.article';
             $arrayKey = 'headerimg';
