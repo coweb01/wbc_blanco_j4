@@ -86,19 +86,16 @@ input[type="radio"] {
 
 
 // set up hidden tooltip
+
 [role="tooltip"]:not(.show) {
-  right: 5em;
-  z-index: $zindex-tooltip;
-  display: none;
-  max-width: 100%;
-  padding: .5em;
-  margin: .5em;
-  color: $black;
+  z-index: 1070;
+  color: #fff;
   text-align: start;
-  background: $white;
-  border: 1px solid $gray-600;
-  border-radius: $border-radius;
-  box-shadow: 0 0 .5rem rgba(0, 0, 0, .8);
+  background: #000;
+  margin: .25em;
+  padding: .5em;
+  display: none;
+  border-radius: .2rem !important;
 
   &[id^=editarticle-] {
     right: auto;
