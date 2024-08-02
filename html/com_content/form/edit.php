@@ -43,7 +43,7 @@ $app          = Factory::getApplication();
 // Frontend editing Buerger
 $template     = $app->getTemplate();
 $mediapath    = 'media/templates/site/'. $template .'/';
-$wa->registerAndUseStyle('frontendedit', $mediapath . 'css/frontend_edit.css',[], [], ['core','template.wbc']);
+$wa->registerAndUseStyle('frontendedit', $mediapath . 'css/frontend_edit.css',[], [], ['template.wbc']);
 
 $usergroups     = $this->user->groups; 
 $groupIds       = $this->user->getAuthorisedGroups();
