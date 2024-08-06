@@ -79,6 +79,7 @@ function ausgabe ($field, $form) { ?>
                             </div>    
                         
                             <?php ausgabe($this->form->getField('phone','profile'), $form); ?>
+                            
                             <div class="small">
                                 <?php echo $this->form->getField('institution','com_fields', $form)->description; ?>
                             </div> 
