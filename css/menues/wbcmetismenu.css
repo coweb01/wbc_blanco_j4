@@ -203,7 +203,7 @@
   flex-basis: calc(100% + 1.5rem);
   margin-top: 1rem;
   margin-bottom: 1rem;
-  background-color: hsla(0, 0%, 0%, 0.03);
+  background-color: rgba(0, 0, 0, 0.03);
   box-shadow: none;
 }
 .wbcmetismenu.mod-menu .mm-toggler {
@@ -321,8 +321,7 @@
 #OffcanvasMenustart:not(.offcanvas.show) .wbcmulticolumn li.parent.level-2 > .mm-toggler > .wbcmetis-titel {
   font-weight: 600;
   font-size: var(--h3_size);
-  padding-left: 0.5rem;
-  font-family: var(--fontfamily2);
+  padding-left: 0 0 0.5rem 0.5rem;
 }
 #OffcanvasMenuend:not(.offcanvas.show) .wbcmulticolumn li.parent.level-2 > .mm-toggler i,
 #OffcanvasMenustart:not(.offcanvas.show) .wbcmulticolumn li.parent.level-2 > .mm-toggler i {
@@ -340,7 +339,7 @@
 .sidebar-right .wbcmetismenu .mm-collapse,
 .sidebar-left .wbcmetismenu .mm-collapse {
   position: relative;
-  background-color: hsla(0, 0%, 0%, 0.03);
+  background-color: rgba(0, 0, 0, 0.03);
 }
 .sidebar-right .wbcmetismenu li.parent > ul,
 .sidebar-left .wbcmetismenu li.parent > ul {
@@ -350,7 +349,7 @@
 }
 @media (max-width: 1200px) {
   .sidebar-right .wbcmetismenu li.parent > ul,
-  .sidebar-left .wbcmetismenu li.parent > ul {
+.sidebar-left .wbcmetismenu li.parent > ul {
     width: 100%;
   }
 }
