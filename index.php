@@ -108,7 +108,8 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
     }
     // wenn $arrayKey (headerimg / cat-headerimg) im Array vorhanden 
     if (array_key_exists($arrayKey,$fields ) && !empty($fields[$arrayKey]->value))  {
-        $displayData['imgHeader'] =  $fields[$arrayKey]->value;
+        $displayData['imgHeader']       =  $fields[$arrayKey]->value;
+        $displayData['imgHeaderraw']    =  $fields[$arrayKey]->rawvalue;
     }
 }
 

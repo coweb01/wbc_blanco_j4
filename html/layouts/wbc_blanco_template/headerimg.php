@@ -21,6 +21,21 @@ use Joomla\CMS\Uri\Uri;
 
 extract($displayData);
 
+$imagearray = array();
+$backgroundimage = '';
+
+if (isset($imgHeaderraw) && !empty($imgHeaderraw)) {
+    $imagearray = json_decode($imgHeaderraw, false);
+    $backgroundimage = $imagearray->imagefile;
+} elseif (!empty($jhtml->params->get('headerimg'))) {
+    $backgroundimage = $jhtml->params->get('headerimg');
+}
+
+if ( !empty($backgroundimage )) {
+    $htmlbackground  =  '<div class="wbc-background-image-stretch" style="background-image: url(';
+    $htmlbackground .=  Uri::root(true) . '/' . HTMLHelper::_('cleanImageURL', $backgroundimage)->url;
+    $htmlbackground .=  ')"></div>';
+}   
 ?>
 
 <!-- start headerimg -->
@@ -31,13 +46,13 @@ extract($displayData);
 
             <?php
                 if ($jhtml->countModules('headerimg') || (isset($imgHeader) && !empty($imgHeader))):?>
-                    <?php if (isset($imgHeader) && !empty($imgHeader)) : ?>
-                        <?php echo $imgHeader; ?>
+                    <?php if (isset($imgHeaderraw) && !empty($imgHeaderraw)) : ?>
+                        <?php echo  $htmlbackground; ?>
                     <?php elseif ($jhtml->countModules('headerimg')) : ?>
                             <jdoc:include type="modules" name="headerimg" style="headerimg" />
                     <?php endif; ?>
             <?php else : ?>
-                <div class="wbc-background-image-stretch" style="background-image: url(<?php echo Uri::root(true) . '/' . HTMLHelper::_('cleanImageURL', $jhtml->params->get('headerimg'))->url;?>)"></div>
+            <?php    echo $htmlbackground; ?>           
             <?php endif; ?>
 
             <?php if($jhtml->countModules('headerimg-overlay')) : ?>
