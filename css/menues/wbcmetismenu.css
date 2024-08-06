@@ -51,15 +51,6 @@
   font-weight: 400;
   line-height: 1.5;
   padding: 0.5rem;
-  /*
-  &:not(.level-1) > ul,
-  &:not(.level-2) > ul {
-    margin-right: -1em;
-    [dir="rtl"] & {
-      margin-right: 0;
-      margin-left: -1em;
-    }
-  }*/
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item.parent {
   position: static;
@@ -329,8 +320,9 @@
 #OffcanvasMenuend:not(.offcanvas.show) .wbcmulticolumn li.parent.level-2 > .mm-toggler > .wbcmetis-titel,
 #OffcanvasMenustart:not(.offcanvas.show) .wbcmulticolumn li.parent.level-2 > .mm-toggler > .wbcmetis-titel {
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: var(--h3_size);
   padding-left: 0.5rem;
+  font-family: var(--fontfamily2);
 }
 #OffcanvasMenuend:not(.offcanvas.show) .wbcmulticolumn li.parent.level-2 > .mm-toggler i,
 #OffcanvasMenustart:not(.offcanvas.show) .wbcmulticolumn li.parent.level-2 > .mm-toggler i {
