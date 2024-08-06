@@ -23,16 +23,20 @@ extract($displayData);
 
 $imagearray = array();
 $backgroundimage = '';
+$backgroundimageClass = "wbc-background-image-stretch";
 
 if (isset($imgHeaderraw) && !empty($imgHeaderraw)) {
     $imagearray = json_decode($imgHeaderraw, false);
     $backgroundimage = $imagearray->imagefile;
 } elseif (!empty($jhtml->params->get('headerimg'))) {
     $backgroundimage = $jhtml->params->get('headerimg');
+    $backgroundimageClass .= " wbc-default_headerimg";
 }
 
 if ( !empty($backgroundimage )) {
-    $htmlbackground  =  '<div class="wbc-background-image-stretch" style="background-image: url(';
+    $htmlbackground  =  '<div class="';
+    $htmlbackground .=  $backgroundimageClass;
+    $htmlbackground .=  '" style="background-image: url(';
     $htmlbackground .=  Uri::root(true) . '/' . HTMLHelper::_('cleanImageURL', $backgroundimage)->url;
     $htmlbackground .=  ')"></div>';
 }   
