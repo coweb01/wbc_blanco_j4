@@ -425,8 +425,7 @@ body {
 }
 
 /* Felder Akkordeon / Tabs */
-
-.wbc-blog-item {
+.wbc-blog-item:not(.accordion-item) {
   .boxed & {
     padding: 0;
     background-color: white;
@@ -436,6 +435,9 @@ body {
       padding: 25px;
     }
   }
+}
+.wbc-blog-item {
+  
   .flex-inhalt {
     display: flex;
     flex-direction: column;

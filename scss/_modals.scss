@@ -20,8 +20,8 @@
 }
 
 .modal-title {
-  font-weight: var(--cassiopeia-font-weight-normal, $font-weight-normal);
-  line-height: $modal-header-height;
+  font-weight: 500;
+  line-height: var(--bs-body-line-height, 1.7);
 }
 
 .contentpane {
@@ -40,7 +40,7 @@ joomla-dialog {
     max-width: 1700px;
     height: 96vh;
     padding: 0;
-    border: 1px solid var(--border-color-translucent);
+    border: 1px solid var(--bs-border-color);
     border-radius: .3rem;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
 
