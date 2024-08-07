@@ -111,7 +111,7 @@ $this->readmore_intro_item = false;  // Intro mit weiterlesen ?>
     <?php if (!empty($this->lead_items)) : ?>
         <div class="com-content-category-blog__items blog-items items-leading <?php echo $this->params->get('blog_class_leading'); ?>">
             <?php foreach ($this->lead_items as &$item) : ?>
-                <div class="com-content-category-blog__item blog-item">
+                <div class="com-content-category-blog__item blog-item wbc-blog-item">
                     <?php
                     $this->item = &$item;
                     if (!$this->params->get('show_readmore_leading_item')) { // kein weiterlesen für Leading Beiträge gesetzt

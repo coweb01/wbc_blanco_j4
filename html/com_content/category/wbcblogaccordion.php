@@ -106,7 +106,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
     <?php if (!empty($this->lead_items)) : ?>
         <div class="com-content-category-blog__items blog-items items-leading <?php echo $this->params->get('blog_class_leading'); ?>">
             <?php foreach ($this->lead_items as &$item) : ?>
-                <div class="com-content-category-blog__item blog-item">
+                <div class="com-content-category-blog__item blog-item wbc-blog-item">
                     <?php
                     $this->item = &$item;
                     echo $this->loadTemplate('item');
