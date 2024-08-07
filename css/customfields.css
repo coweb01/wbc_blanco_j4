@@ -1,0 +1,79 @@
+﻿/* CSS für Custom Fields */
+
+.wbc__fields-container .wbc__subform-row,
+.wbc__subform-fields .wbc__subform-row
+{
+    margin-bottom: .8rem;
+}
+
+.wbc__fields-container .wbc-name .field-value,
+.wbc__subform-fields .wbc-name .field-value
+{
+    font-weight: inherit;
+}
+.wbc__fields-container .wbc-symbol::before,
+.wbc__subform-fields .wbc-symbol::before
+ {
+    font-family: var(--symbolfont);
+    display: inline-block;
+    font-size: 1rem;
+    line-height: normal;
+    font-weight: 900;
+    margin-right: .5rem;
+}
+.wbc__fields-container .wbc-mail::before,
+.wbc__subform-fields .wbc-mail::before,
+.i-email::before
+ {
+    content: '\f0e0';
+}
+.wbc__fields-container .wbc-phone::before,
+.wbc__subform-fields .wbc-phone::before,
+.i-phone::before
+{
+    content: '\f879';
+}
+.wbc__fields-container .wbc-mobil::before,
+.wbc__subform-fields .wbc-mobil::before,
+.i-mobil::before
+{
+    content: '\f3cd';
+}
+.wbc__fields-container .wbc-fax::before,
+.wbc__subform-fields .wbc-fax::before,
+.i-fax::before
+{
+    content: '\f1ac';
+}
+.wbc__fields-container .wbc-web::before,
+.wbc__subform-fields .wbc-web::before,
+.i-webseite
+{
+    content: '\f0c1';
+}
+.wbc__fields-container a[href^="tel:"],
+.wbc__subform-fields a[href^="tel:"]
+{
+    text-decoration: none;
+    font-weight: 400;
+}
+.wbc-titel{
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+span.wbc-field { padding-right: 5px;}
+.wbc__subform-download-row {
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+.wbc__file_desc {
+    font-size: .8rem;
+    border: solid 1px var(--bs-gray-300);
+    background-color: var(--bs-gray-200);
+    padding: 10px;
+}
+.wbc__social-media a { font-size: 0; }
+.wbc__social-media a::before {
+    font-size: 2rem;
+    margin-right: 5px;
+}
