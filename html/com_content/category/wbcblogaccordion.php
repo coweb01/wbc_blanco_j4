@@ -156,7 +156,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                 }
             ?>
 
-            <div class="accordion-item clearfix"
+            <div class="accordion-item wbc-blog-item clearfix"
                 itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
                 <?php if ($isUnpublished) : ?>
                     <div class="system-unpublished">

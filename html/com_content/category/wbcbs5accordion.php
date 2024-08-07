@@ -111,7 +111,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
     <?php if (!empty($this->lead_items)) : ?>
         <div class="wbc__com-content-category-accordion__items mb-5 wbc__accordion-blog--items accblog-items <?php echo $this->params->get('blog_class_leading'); ?>">
             <?php foreach ($this->lead_items as &$item) : ?>
-                <div class="wbc__com-content-category-accordion__item accblog-item" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="wbc__com-content-category-accordion__item wbc-blog-item accblog-item" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
                     <?php
                     $this->item = &$item; ?>
                     <?php echo $this->loadTemplate('item');?>
@@ -164,7 +164,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
             <?php foreach ($categorys as $category ) : ?>
                 <?php $count_items++; ?>
                         
-                <div class="wbc__com-content-category-accordion__item wbc__accordion-items accordion-item"
+                <div class="wbc__com-content-category-accordion__item wbc__accordion-items wbc-blog-item accordion-item"
                     itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
                         <?php /* Accordion Button */ ?>
                         <?php if ( $category['catid'] != $cid ) { ?>
