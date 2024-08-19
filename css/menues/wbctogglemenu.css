@@ -56,8 +56,12 @@
     padding: 2rem;
     display: none;
     justify-content: center;
-    align-items: center;
 } 
+@media (min-width: 1200px) {
+    .wbc-toggle-container {
+        align-items: center;
+    }
+}
 .wbc-toggle-container.wbcshow {
     display: flex !important;
 }
