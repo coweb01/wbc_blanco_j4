@@ -83,6 +83,8 @@
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link {
   display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fa:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fas:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.far:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fal:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fad:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fab:before,
 .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link > span.fa:before,
@@ -321,7 +323,8 @@
 #OffcanvasMenustart:not(.offcanvas.show) .wbcmulticolumn li.parent.level-2 > .mm-toggler > .wbcmetis-titel {
   font-weight: 600;
   font-size: var(--h3_size);
-  padding-left: 0 0 0.5rem 0.5rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 #OffcanvasMenuend:not(.offcanvas.show) .wbcmulticolumn li.parent.level-2 > .mm-toggler i,
 #OffcanvasMenustart:not(.offcanvas.show) .wbcmulticolumn li.parent.level-2 > .mm-toggler i {
