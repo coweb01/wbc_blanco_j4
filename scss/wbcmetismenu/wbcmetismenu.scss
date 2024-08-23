@@ -165,6 +165,7 @@
       }
       .wbcmetis-subtitel {
         display: block;
+        flex: 0 0 100%;
         font-size: calc(var(--fontsize) - 0.2rem);
       }
     }
