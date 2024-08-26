@@ -32,7 +32,7 @@ $wa->registerAndUseStyle('iconmenu', $mediapath . 'css/menues/iconmenu.css');
     $itemParams = $item->getParams();
     $accesskey  = $itemParams->get('accesskey');
     $subtitle   = $itemParams->get('description','');
-    $class      = ' nav-item d-inline-block mb-3 item-' . $item->id . ' nav-item-' . $item->type;
+    $class      = ' nav-item d-inline-block item-' . $item->id . ' nav-item-' . $item->type;
 
     if ($item->id == $default_id) {
         $class .= ' default';
