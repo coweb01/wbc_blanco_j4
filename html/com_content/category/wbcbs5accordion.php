@@ -98,6 +98,11 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
         </div>
     <?php endif; ?>
+      
+    <?php // Code to add a link to submit an article. ?>
+    <?php if ($this->category->getParams()->get('access-create')) : ?>
+        <?php echo HTMLHelper::_('contenticon.create', $this->category, $this->category->params); ?>
+    <?php endif; ?>
 
     <?php if (empty($this->lead_items) && empty($this->link_items) && empty($this->intro_items)) : ?>
         <?php if ($this->params->get('show_no_articles', 1)) : ?>
