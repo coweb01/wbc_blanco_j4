@@ -17,7 +17,7 @@ $style = 'card';
 $position = $Modules;
 
 ?>
-
+<div class="clearfix"></div>
 <div id="wbc-<?php echo $Modules;?>" class="wbc-flexible-cards card-columns">
     <?php foreach($modules as $mod) : ?>
         <?php echo ModuleHelper::renderModule($mod, array('style' => $style, 'position' => $position )); ?>
