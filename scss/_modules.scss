@@ -34,13 +34,6 @@
   display: flex;
   margin-bottom: 1rem;
 }
-.ext-header h2,
-.ext-header h3,
-.ext-header h4 {
-  font-size: 22px;
-  line-height: 35px;
-  text-transform: uppercase;
-}
 .ext-header .ext-icon-block {
   display: inline-flex;
   align-items: center;
@@ -140,12 +133,6 @@
       padding: 2.3rem 0.5rem 1rem 1rem;
       background-color: var(--color-bg);
       border: solid 1px var(--color1);
-      h2,
-      h3,
-      h4 {
-        font-size: calc(var(--h3_size) - .3);
-        line-height: var(--h3_size);
-      }
       .ext-icon-block {
         position: absolute;
         top: -2rem;
