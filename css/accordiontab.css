@@ -2,7 +2,7 @@
   --bs-accordion-active-bg: #ddd;
 }
 .accordion-body figure {
-  width: 300px;
+  max-width: 300px;
 }
 .accordion-body figure.float-md-start {
   margin-right: 1rem;
