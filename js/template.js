@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
    * Back to top
    */
   var backToTop = document.getElementById('back-top');
-  var backToTopMobil = document.getElementById('gototop-mobil');
+  var backToTopMobil = document.querySelector('#gototop-mobil .gototop');
 
   if (backToTop) {
 
