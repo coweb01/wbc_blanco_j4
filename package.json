@@ -9,7 +9,7 @@
     "metis:build": "sass scss/wbcmetismenu/wbcmetismenu.scss css/menues/wbcmetismenu.css --no-source-map && sass --style=compressed scss/wbcmetismenu/wbcmetismenu.scss css/menues/wbcmetismenu.min.css --no-source-map",
     "offcanvas:build": "postcss css/menues/wbcoffcanvasmenu.css --use=autoprefixer --output=css/menues/wbcoffcanvasmenu.min.css",
     "css:prefix": "npm run css:build && postcss css/template.css --use=autoprefixer --output=css/template.css",
-    "media:sync": "syncdir css ../../media/templates/site/wbc_blanco_j4/css && syncdir scss ../../media/templates/site/wbc_blanco_j4/scss && syncdir js ../../media/templates/site/wbc_blanco_j4/js",
+    "media:sync": "syncdir css ../../media/templates/site/wbc_blanco_j4/css && syncdir scss ../../media/templates/site/wbc_blanco_j4/scss && syncdir js ../../media/templates/site/wbc_blanco_j4/js && syncdir fonts ../../media/templates/site/wbc_blanco_j4/fonts",
     "lang:sync": "syncdir language ../../language"
 
   },

@@ -16,9 +16,6 @@ $app          = Factory::getApplication();
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
-$wa->registerAndUseScript('mod_menu', 'mod_menu/menu.min.js', [], ['type' => 'module']);
-$wa->registerAndUseScript('mod_menu', 'mod_menu/menu-es5.min.js', [], ['nomodule' => true, 'defer' => true]);
-
 
 $template     = $app->getTemplate(true);
 $mediapath    = 'media/templates/site/wbc_blanco_j4/';
@@ -32,7 +29,7 @@ if ($tagId = $params->get('tag_id', ''))
 }
 ?>
 
-<ul <?php echo $id; ?> class="nav nav-overlay menu<?php echo $class_sfx;?>">
+<ul <?php echo $id; ?> class="nav-overlay menu<?php echo $class_sfx;?>">
 <?php foreach ($list as $i => &$item)
 {
 
