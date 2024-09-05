@@ -63,7 +63,7 @@ $dropdowncolums = false; // schalter für mehrspaltiges dropdown
             $linkcss             = $itemParams->get('linkcss');
             $content_plg         = $itemParams->get('content_plg');
             $htmlmegamenu        = [];
-	    }
+        }
 
     /* end --------------------------------------------------------------*/
 

@@ -17,38 +17,35 @@ $linktype = '<span class="icon icon-default" aria-hidden="true"></span><span cla
 
 if ($item->menu_icon)
 {
-	// The link is an icon
-	if ($itemParams->get('menu_text', 1))
-	{
-		// If the link text is to be displayed, the icon is added with aria-hidden
-		$linktype = '<span class="icon ' . $item->menu_icon . '" aria-hidden="true"></span><span class="wbc-ink-title">' . $item->title . '</span><span class="wbc-ink-title">' . $item->title . '</span>';
-	}
-	else
-	{
-		// If the icon itself is the link, it needs a visually hidden text
-		$linktype = '<span class="icon ' . $item->menu_icon . '" aria-hidden="true"></span><span class="wbc-ink-title visually-hidden">' . $item->title . '</span>';
-	}
+    // The link is an icon
+    if ($itemParams->get('menu_text', 1))
+    {
+        // If the link text is to be displayed, the icon is added with aria-hidden
+        $linktype = '<span class="icon ' . $item->menu_icon . '" aria-hidden="true"></span><span class="wbc-ink-title">' . $item->title . '</span><span class="wbc-ink-title">' . $item->title . '</span>';
+    }
+    else
+    {
+        // If the icon itself is the link, it needs a visually hidden text
+        $linktype = '<span class="icon ' . $item->menu_icon . '" aria-hidden="true"></span><span class="wbc-ink-title visually-hidden">' . $item->title . '</span>';
+    }
 }
 elseif ($item->menu_image)
 {
-	// The link is an image, maybe with its own class
-	$image_attributes = [];
+    // The link is an image, maybe with its own class
+    $image_attributes = [];
 
-	if ($item->menu_image_css)
-	{
-		$image_attributes['class'] = $item->menu_image_css;
-	}
+    if ($item->menu_image_css)
+    {
+        $image_attributes['class'] = $item->menu_image_css;
+    }
 
-	$linktype = HTMLHelper::_('image', $item->menu_image, $item->title, $image_attributes);
+    $linktype = HTMLHelper::_('image', $item->menu_image, '', $image_attributes);
 
-	if ($itemParams->get('menu_text', 1))
-	{
-		$linktype .= '<span class="image-title">' . $item->title . '</span>';
-	}
+    $linktype .= '<span class="image-title' . ($itemParams->get('menu_text', 1) ? '' : ' visually-hidden') . '">' . $item->title . '</span>';
 }
 
 ?>
 
 <span class="separator"<?php echo $title; ?>>
-	<?php echo $linktype; ?>
+    <?php echo $linktype; ?>
 </span>

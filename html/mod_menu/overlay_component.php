@@ -62,10 +62,9 @@ if ($item->menu_icon)
 }
 elseif ($item->menu_image)
 {
-    $linktype = HTMLHelper::_('image', $item->menu_image, $item->title);
-    if ($itemParams->get('menu_text', 1)){
-        $linktype .= '<div class="overlay"><span class="image-title">' . $item->title . '</span></div>';
-    }
+    $linktype = HTMLHelper::_('image', $item->menu_image, '');
+
+    $linktype .= '<div class="overlay"><span class="image-title' . ($itemParams->get('menu_text', 1) ? '' : ' visually-hidden') . '">' . $item->title . '</span></div>';
 }
 else
 {
