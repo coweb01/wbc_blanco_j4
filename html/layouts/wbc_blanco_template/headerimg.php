@@ -20,19 +20,18 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
 
 extract($displayData);
-
+$htmlbackground = '';
 $imagearray = array();
 $backgroundimage = '';
 $backgroundimageClass = "wbc-background-image-stretch";
 
-if (isset($imgHeaderraw) && !empty($imgHeaderraw)) {
-    $imagearray = json_decode($imgHeaderraw, false);
+if (isset($CustomModules['header']['rawvalue']) && !empty($CustomModules['header']['rawvalue'])) {
+    $imagearray = json_decode( $CustomModules['header']['rawvalue'], false);
     $backgroundimage = $imagearray->imagefile;
 } elseif (!empty($jhtml->params->get('headerimg'))) {
     $backgroundimage = $jhtml->params->get('headerimg');
     $backgroundimageClass .= " wbc-default_headerimg";
 }
-
 if ( !empty($backgroundimage )) {
     $htmlbackground  =  '<div class="';
     $htmlbackground .=  $backgroundimageClass;
@@ -49,8 +48,8 @@ if ( !empty($backgroundimage )) {
             <div class="base-col wrap-headerimg <?php $headerimgSizeClass; ?> <?php echo $bootstrap_colclass; ?>12" >
 
             <?php
-                if ($jhtml->countModules('headerimg') || (isset($imgHeader) && !empty($imgHeader))):?>
-                    <?php if (isset($imgHeaderraw) && !empty($imgHeaderraw)) : ?>
+                if ($jhtml->countModules('headerimg') || (isset( $imagearray) && !empty( $imagearray))):?>
+                    <?php if (isset( $imagearray) && !empty( $imagearray)) : ?>
                         <?php echo  $htmlbackground; ?>
                     <?php elseif ($jhtml->countModules('headerimg')) : ?>
                             <jdoc:include type="modules" name="headerimg" style="headerimg" />

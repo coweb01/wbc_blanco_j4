@@ -110,6 +110,7 @@
 		<position>nav-sidebar-right</position>
 		<position>right-01</position>
 		<position>right-02</position>
+		<position>content-right</position>
 		<position>sidebar-left-fix</position>
 		<position>sidebar-right-fix</position>
 		<position>sidebar-left-toggle</position>

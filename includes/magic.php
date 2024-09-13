@@ -11,7 +11,7 @@ use Joomla\CMS\Factory;
 use Joomla\Filesystem\File;
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Component\ComponentHelper;
-
+use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 
 /** @var Joomla\CMS\Document\HtmlDocument $this */
 
@@ -265,6 +265,57 @@ if ( ComponentHelper::getComponent('com_flexicontent', true)->enabled === 1 ) {
     $searchsite = '';
 }
 
+
+
+/****************************************************************************************************/
+/******     Headerbild aus Custom field Beitrag oder Kategorie                                   ****/   
+/******     Modul rechts im Bereich content                                                      ****/
+/******     Custom Field muss den Namen headerimg / cat-headerimg haben                          ****/
+/****************************************************************************************************/
+
+if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=article') !== false ||
+    strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=category') !== false)
+{
+    $input = JFactory::getApplication()->input;
+    $id = $input->get('id', 0, 'UINT');
+    $context = 'com_content.article';
+    $arrayKey = array('header' => '', 'content' => '');
+
+    switch ($view) {
+        case 'article':
+        case 'form':
+            $item    = $app->bootComponent('com_content')->getMVCFactory()->createModel('Article', 'Administrator')->getItem($id);
+            $context = 'com_content.article';
+            $arrayKey['header'] = 'headerimg';
+            $arrayKey['content'] = 'content-pos-right';
+            break;
+        case 'category':
+            $item    = $app->bootComponent('com_categories')->getMVCFactory()->createModel('Category', 'Administrator', ['ignore_request' => true])->getItem($id);
+            $context = 'com_content.categories';
+            $arrayKey['header'] = 'cat-headerimg';
+            break;
+    }
+    // alle Custom Fields des Beitrags oder der Kategorie
+    $fields = FieldsHelper::getFields($context, $item, true);
+    if ($fields){
+        foreach($fields as $field)
+        {
+            $fields[$field->name] = $field;
+        }
+    }
+    // wenn $arrayKey ( headerimg / cat-headerimg / content-pos-right ) im Array vorhanden 
+    $CustomModules = array();
+    foreach ($arrayKey as $key => $keycontent) {
+        if (array_key_exists($keycontent,$fields ) && !empty($fields[$keycontent]->value))  {
+            $CustomModules[$key]['value']       =  $fields[$keycontent]->value;
+            $CustomModules[$key]['rawvalue']    =  $fields[$keycontent]->rawvalue;
+            if ( $key == "header") {
+                $himg = true;
+            }
+        }
+    } 
+}
+
 $displayData = array(
             'jhtml'                         => $this,
             'sitename'                      => $sitename,
@@ -296,7 +347,8 @@ $displayData = array(
             'footercols'                    => $footercols,
             'headerimgSizeClass'            => $headerimgSizeClass,
             'bootstrap_colclass'            => $bootstrap_colclass,
-            'bootstrap_colclass_mobil_sm'   => $bootstrap_colclass_mobil_sm
+            'bootstrap_colclass_mobil_sm'   => $bootstrap_colclass_mobil_sm,
+            'CustomModules'                 => $CustomModules
 );
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 

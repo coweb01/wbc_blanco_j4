@@ -73,47 +73,6 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
     $nocontent = 'wbc-nocontent';
 }
 
-/****************************************************************************************************/
-/******     Headerbild aus Custom field Beitrag oder Kategorie                                   ****/
-/******     Custom Field muss den Namen headerimg / cat-headerimg haben                          ****/
-/****************************************************************************************************/
-
-if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=article') !== false ||
-    strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=category') !== false)
-{
-    $input = JFactory::getApplication()->input;
-    $id = $input->get('id', 0, 'UINT');
-    $context = 'com_content.article';
-
-    switch ($view) {
-        case 'article':
-        case 'form':
-            $item    = $app->bootComponent('com_content')->getMVCFactory()->createModel('Article', 'Administrator')->getItem($id);
-            $context = 'com_content.article';
-            $arrayKey = 'headerimg';
-            break;
-        case 'category':
-            $item    = $app->bootComponent('com_categories')->getMVCFactory()->createModel('Category', 'Administrator', ['ignore_request' => true])->getItem($id);
-            $context = 'com_content.categories';
-            $arrayKey = 'cat-headerimg';
-            break;
-    }
-    // alle Custom Fields des Beitrags oder der Kategorie
-    $fields = FieldsHelper::getFields($context, $item, true);
-    if ($fields){
-        foreach($fields as $field)
-        {
-            $fields[$field->name] = $field;
-        }
-    }
-    // wenn $arrayKey (headerimg / cat-headerimg) im Array vorhanden 
-    if (array_key_exists($arrayKey,$fields ) && !empty($fields[$arrayKey]->value))  {
-        $displayData['imgHeader']       =  $fields[$arrayKey]->value;
-        $displayData['imgHeaderraw']    =  $fields[$arrayKey]->rawvalue;
-        $himg = true;
-    }
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -356,7 +315,21 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
 
                                     <?php /* contentbereich + module anzeigen */?>
                                     <?php if (!$hidecontentwrapper) : ?>
-                                        <jdoc:include type="component" />
+                                    <div class="base-row row">
+                                        <div class="base-col col ">
+                                            <jdoc:include type="component" />
+                                        </div>
+                                        <?php if ( $this->countModules('content-right') || 
+                                                    (isset($CustomModules['content']) && !empty($CustomModules['content'])) ) : ?>
+                                                <div class="base-col col-lg-4 my-5 my-lg-0">
+                                                    <?php if (isset($CustomModules['content']) && !empty($CustomModules['content'])) : ?>
+                                                        <?php echo $CustomModules['content']['value']; ?> 
+                                                    <?php else : ?>   
+                                                        <jdoc:include type="modules" name="content-right" style="default" />
+                                                    <?php endif; ?>
+                                                </div>   
+                                        <?php endif; ?>    
+                                    </div>
                                     <?php endif; ?>
 
                                     <?php if ($this->countModules('nachInhalt-01-col') > 0) {

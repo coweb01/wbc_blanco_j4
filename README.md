@@ -9,3 +9,6 @@ Welche Custom Fields als Accordion / Tab ausgegeben werden sollen, kann man in d
 Die Custom Fields müssen mit dem Wert tabs in note gekennzeichnet werden.
 
 Die Accordions / Tabs mit den Feldern werden unterhalb des Beitrag ausgegeben.
+
+Template Positionen --- neu 13.9.2024 c.Oerter ---
+"content-right" Damit kann ein Modul innerhal der Beitragszeile recht ausgerichtet angezeigt werden.
