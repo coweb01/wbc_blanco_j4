@@ -13,6 +13,7 @@
 }
 .wbc__fields-container .wbc-symbol::before,
 .wbc__subform-fields .wbc-symbol::before
+.field-value .wbc-symbol::before
  {
     font-family: var(--symbolfont);
     display: inline-block;
@@ -23,30 +24,35 @@
 }
 .wbc__fields-container .wbc-mail::before,
 .wbc__subform-fields .wbc-mail::before,
+.field-value.wbc-mail::before,
 .i-email::before
  {
     content: '\f0e0';
 }
 .wbc__fields-container .wbc-phone::before,
 .wbc__subform-fields .wbc-phone::before,
+.field-value.wbc-phone::before,
 .i-phone::before
 {
     content: '\f879';
 }
 .wbc__fields-container .wbc-mobil::before,
 .wbc__subform-fields .wbc-mobil::before,
+.field-value.wbc-mobil::before,
 .i-mobil::before
 {
     content: '\f3cd';
 }
 .wbc__fields-container .wbc-fax::before,
 .wbc__subform-fields .wbc-fax::before,
+.field-value.wbc-fax::before,
 .i-fax::before
 {
     content: '\f1ac';
 }
 .wbc__fields-container .wbc-web::before,
 .wbc__subform-fields .wbc-web::before,
+.field-value.wbc-web::before,
 .i-webseite
 {
     content: '\f0c1';
