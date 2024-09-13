@@ -110,6 +110,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
     if (array_key_exists($arrayKey,$fields ) && !empty($fields[$arrayKey]->value))  {
         $displayData['imgHeader']       =  $fields[$arrayKey]->value;
         $displayData['imgHeaderraw']    =  $fields[$arrayKey]->rawvalue;
+        $himg = true;
     }
 }
 
@@ -208,7 +209,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                     </div>
                 </div><!-- End header-top -->
 
-                <?php if ($NavMainPos == 2 || $this->countModules('header-top-02') || $logoposition == 3 || $NavMainPos == 3 || (($this->params->get('headerimg-select') == 1) && ($himg == true)) || ($this->countModules('headerimg'))): ?>
+                <?php if ($NavMainPos == 2 || $this->countModules('header-top-02') || $logoposition == 3 || $NavMainPos == 3 || ($himg == true) || ($this->countModules('headerimg'))): ?>
                 <div class="header-middle">
 
                 <?php if ($this->countModules('navMain') && $NavMainPos == 2 || $this->countModules('offcanvas') && $NavMainPos == 2): ?>
@@ -243,7 +244,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
                         </div><!-- End header-02 -->
                     <?php endif; ?>
 
-                    <?php if (($this->params->get('headerimg-select') == 1) && (($himg == true) || ($this->countModules('headerimg')))) :
+                    <?php if ( ($himg == true) || ($this->countModules('headerimg')) ) :
                     /* wenn headerbild */
                     ?>
                         <?php
