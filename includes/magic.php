@@ -280,6 +280,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
     $id = $input->get('id', 0, 'UINT');
     $context = 'com_content.article';
     $arrayKey = array('header' => '', 'content' => '');
+    $CustomModules = array();
 
     switch ($view) {
         case 'article':
@@ -304,7 +305,6 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
         }
     }
     // wenn $arrayKey ( headerimg / cat-headerimg / content-pos-right ) im Array vorhanden 
-    $CustomModules = array();
     foreach ($arrayKey as $key => $keycontent) {
         if (array_key_exists($keycontent,$fields ) && !empty($fields[$keycontent]->value))  {
             $CustomModules[$key]['value']       =  $fields[$keycontent]->value;
