@@ -12,7 +12,7 @@
     font-weight: inherit;
 }
 .wbc__fields-container .wbc-symbol::before,
-.wbc__subform-fields .wbc-symbol::before
+.wbc__subform-fields .wbc-symbol::before,
 .field-value.wbc-symbol::before
  {
     font-family: var(--symbolfont);
