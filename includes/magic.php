@@ -280,7 +280,6 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
     $id = $input->get('id', 0, 'UINT');
     $context = 'com_content.article';
     $arrayKey = array('header' => '', 'content' => '');
-    $CustomModules = array();
 
     switch ($view) {
         case 'article':
@@ -348,7 +347,7 @@ $displayData = array(
             'headerimgSizeClass'            => $headerimgSizeClass,
             'bootstrap_colclass'            => $bootstrap_colclass,
             'bootstrap_colclass_mobil_sm'   => $bootstrap_colclass_mobil_sm,
-            'CustomModules'                 => $CustomModules
+            'CustomModules'                 => isset($CustomModules) ? $CustomModules : '',
 );
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 
