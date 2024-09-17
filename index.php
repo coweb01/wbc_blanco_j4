@@ -60,7 +60,6 @@ $this->addHeadLink($mediapath . 'images/favicons/site.webmanifest', 'manifest', 
 $this->setMetaData('msapplication-config', $mediapath . 'images/favicons/browserconfig.xml');
 $this->setMetaData('theme-color', '#ffffff');
 
-$himg = false;
 if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg') != "-1")) {
     $himg = true;
 }

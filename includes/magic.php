@@ -29,6 +29,7 @@ $NavMainPos         = $templateparams->get('navmain',1);
 $showrightColumn    = 0;
 $showleftColumn     = 0;
 $counter            = 0;
+$himg               = false;
 
 // custom css styles in Tabelle speichern
 $customcss          = array();
