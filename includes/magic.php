@@ -239,7 +239,7 @@ if ($styleswitch) {
 
 if ($bgimage == 1 ) {
     $Tmplstyle  = '.bgimage-01 { background-image: url(" ';
-    $Tmplstyle  .= $this->baseurl. '/images/headers/' . $sourcebgimage.'"); ';
+    $Tmplstyle  .= $this->baseurl.'/'.$sourcebgimage.'"); ';
     $Tmplstyle  .= 'background-size: cover;';
     $Tmplstyle  .= 'background-repeat: no-repeat;';
     $Tmplstyle  .= 'background-position: center center;';
