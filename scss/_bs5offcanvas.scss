@@ -29,9 +29,7 @@
             border: unset;
         }
       
-    }
-    
-   
+    }   
 
     &.toggle-pos-right .btn {
         order: 9;
@@ -112,7 +110,6 @@
         background-color: transparent;
     }
 }
-
 @media (min-width: 992px) {
     .wbc__offcanvas-navbar {
         &.toggle-pos-left .btn, 
