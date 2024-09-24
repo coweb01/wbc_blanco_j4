@@ -86,7 +86,6 @@
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link {
   display: flex;
-  flex: 1 1 auto;
   flex-wrap: wrap;
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fa:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fas:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.far:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fal:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fad:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fab:before,
@@ -160,8 +159,10 @@
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetis-subtitel {
   display: block;
+  margin: .5rem 0;
   flex: 0 0 100%;
   font-size: calc(var(--fontsize) - 0.2rem);
+  color: rgba(36, 36, 36,.6);
 }
 .wbcmetismenu.mod-menu .mm-collapsing {
   height: 0;
@@ -193,7 +194,7 @@
   top: 100%;
 }
 .wbcmetismenu.mod-menu .mm-collapse:not(.wbc-col) > li a.wbcmetismenu-link {
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem;
 }
 .wbcmetismenu.mod-menu .mm-collapse:not(.wbc-col) > li.divider:not(.parent) {
   width: auto;
