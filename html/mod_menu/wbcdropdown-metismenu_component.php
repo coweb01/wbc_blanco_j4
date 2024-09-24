@@ -69,12 +69,12 @@ if ($item->menu_icon)
     if ($itemParams->get('menu_text', 1))
     {
         // If the link text is to be displayed, the icon is added with aria-hidden
-        $linktype = '<span class="px-2 ' . $item->menu_icon . '" aria-hidden="true"></span><span class="wbcmetis-titel">' . $item->title .'</span>'.$description;
+        $linktype = '<span class="pe-2 ' . $item->menu_icon . '" aria-hidden="true"></span><span class="wbcmetis-titel">' . $item->title .'</span>'.$description;
     }
     else
     {
         // If the icon itself is the link, it needs a visually hidden text
-        $linktype = '<span class="px-2 ' . $item->menu_icon . '" aria-hidden="true"></span><span class="visually-hidden">' . $item->title . '</span>';
+        $linktype = '<span class="pe-2 ' . $item->menu_icon . '" aria-hidden="true"></span><span class="visually-hidden">' . $item->title . '</span>';
     }
 }
 elseif ($item->menu_image)
