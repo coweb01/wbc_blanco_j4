@@ -356,13 +356,16 @@
 #OffcanvasMenustart.offcanvas.show ul.wbcmetismenu-submenu-dropdown {
   padding-left: 0;
   padding-right: 0;
+  margin-bottom: 1rem;
   box-shadow: none;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
 }
 
 /* 2. level  */
-#OffcanvasMenuend.offcanvas.show .wbcmetismenu-item.level-1.mm-active {
+#OffcanvasMenustart.offcanvas.show .wbcmetismenu-item.level-1.mm-active,
+#OffcanvasMenuend.offcanvas.show .wbcmetismenu-item.level-1.mm-active
+{
   background-color: var(--wbc-offcanvas-dropdown-bg);
 }
 
