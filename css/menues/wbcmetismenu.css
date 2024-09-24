@@ -373,6 +373,7 @@
 #OffcanvasMenustart.offcanvas.show .wbcmetismenu-submenu-dropdown.sublevel-1
 {
   margin-top: 0;
+  margin-bottom: 1rem;
   background-color: transparent;
 }
 
@@ -384,6 +385,11 @@
   background-color: transparent;
   padding-left: .5rem;
   padding-right: .5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
 }
 
 #OffcanvasMenuend.offcanvas.show .wbcmulticolumn .col,
