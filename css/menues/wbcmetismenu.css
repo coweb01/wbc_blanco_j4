@@ -344,6 +344,10 @@
 
 /* Offcanvas Menü -------------------*/
 
+.offcanvas-dark.show img {
+  filter: grayscale(100%) brightness(2); /* Graustufen und Helligkeit */
+}
+
 .offcanvas.show .wbcmetismenu-item {
   padding: 0;
 }
@@ -401,7 +405,6 @@
   flex: 100% !important;
   max-width: 100% !important;
 }
-
 
 
 /* Sidebar */

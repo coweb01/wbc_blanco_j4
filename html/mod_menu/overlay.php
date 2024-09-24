@@ -19,7 +19,7 @@ $wa = $app->getDocument()->getWebAssetManager();
 
 $template     = $app->getTemplate(true);
 $mediapath    = 'media/templates/site/wbc_blanco_j4/';
-$wa->registerAndUseStyle('overlaymenu', $mediapath . 'css/menues/overlay.css');
+$wa->registerAndUseStyle('wbc.overlaymenu', $mediapath . 'css/menues/overlay.css');
 
 $id = '';
 

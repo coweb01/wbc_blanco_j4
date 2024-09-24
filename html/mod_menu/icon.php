@@ -23,7 +23,7 @@ $mediapath    = 'media/templates/site/wbc_blanco_j4/';
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
-$wa->registerAndUseStyle('iconmenu', $mediapath . 'css/menues/iconmenu.css');
+$wa->registerAndUseStyle('wbc.iconmenu', $mediapath . 'css/menues/iconmenu.css');
 
 // The menu class is deprecated. Use mod-menu instead
 ?>
