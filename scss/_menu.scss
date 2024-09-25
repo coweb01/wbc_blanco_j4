@@ -385,7 +385,6 @@ li.nav-item a {
     button.mm-toggler,
     .wbcmetismenu-item > .nav-header {
       padding: 0.5rem;
-      width: 100%;
     }
     .wbcmetismenu-item > .nav-header {
       display: block;
@@ -402,6 +401,8 @@ li.nav-item a {
     
     .wbcmetismenu-item {
       padding: 0;
+      justify-content: flex-start;
+      align-items: flex-start;
       
       &.level-1.mm-active,
       &.level-1.active {
