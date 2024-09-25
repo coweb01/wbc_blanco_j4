@@ -401,8 +401,7 @@ li.nav-item a {
     
     .wbcmetismenu-item {
       padding: 0;
-      justify-content: flex-start;
-      align-items: flex-start;
+      justify-content: space-between;
       
       &.level-1.mm-active,
       &.level-1.active {
