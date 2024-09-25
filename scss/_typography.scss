@@ -312,27 +312,16 @@ button,
 
 blockquote {
   position: relative;
-  max-width: 500;
-  padding: .25em 40;
-  margin: .5em 0;
-  font-family: Georgia, serif;
-  font-size: 18px;
-  font-style: italic;
-  line-height: 1.45;
-  color: #383838;
+  padding: 0 0 0 2.8rem;
 }
 blockquote:before {
   position: absolute;
-  top: -20;
+  top: -2rem;
   left: 0;
   display: block;
-  font-size: 90;
+  font-size: 5rem;
   color: #ccc;
   content: "\201C";
+  font-family: Georgia, serif;
 }
-blockquote cite {
-  display: block;
-  margin-top: 5px;
-  font-size: 14px;
-  color: #fff;
-}
+
