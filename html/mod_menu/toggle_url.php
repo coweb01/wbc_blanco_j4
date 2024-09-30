@@ -21,6 +21,7 @@ $attributes['role'] = 'button';
 $string_pos = strpos($item->flink,'#');
 
 $attributes['class'] = 'nav-link';
+$toggle_container_id = '';
 
 if ( $string_pos !== false ) {
 	$toggle_container_id  	= substr($item->flink, 1);
