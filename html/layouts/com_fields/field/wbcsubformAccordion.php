@@ -8,8 +8,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  *
  * Override fuer Feld Subform.
- * Ausgabe der Felder Typ:
- * uri, text, textarea, editor, acfurl
+ * Ausgabe der Felder als Accordion nur txt und textarea
  */
 
 defined('_JEXEC') or die;
@@ -54,9 +53,17 @@ foreach ($field->subform_rows as $subform_row) {
         if ($content === '') {
             continue;
         }
+        // Nur Text und Textarea anzeigen
+        if ($fieldtyp != 'text' && $fieldtyp != 'textarea' && $fieldtyp != 'editor') {
+            continue;
+        }
 
         // Generate the output for this sub field and row
-        $row_output[] = '<div class="wbc__field-entry-'.  $fieldtyp . ' ' . ($class ? (' ' . $class) : '') . '">' . $content . '</div>';
+        $row_output[] = '<div class="wbc__accordion-items accordion-item">';
+        $row_output[] = '<h4 class="accordion-header" id="heading-' . $subfield->id . '">';
+        $row_output[] = '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-' . $subfield->id . '" aria-expanded="true" aria-controls="collapse-' . $subfield->id . '">' . $subfield->label . '</button></h4>';
+        $row_output[] = '<div id="collapse-' . $subfield->id . '" class="accordion-collapse collapse" aria-labelledby="heading-' . $subfield->id . '">';
+        $row_output[] = '<div class="accordion-body">' . $subfield->value . '</div></div></div>';
     }
 
     // Skip empty rows
@@ -64,12 +71,12 @@ foreach ($field->subform_rows as $subform_row) {
         continue;
     }
 
-    $result .= '<div class="wbc__subform-row">' . implode(' ', $row_output) . '</div>';
+    $result .=  implode(' ', $row_output) ;
 }
 ?>
 
 <?php if (trim($result) != '') : ?>
-    <div class="wbc__subform-fields mb-3 <?php echo trim($field->params->get('render_class', ''));?>">
+    <div id="fieldId-<?php echo $field->id;?>" class="wbc__subform-accordion accordion accordion-flush <?php echo trim($field->params->get('render_class', ''));?>">
         <?php echo $result; ?>
-</div>
+    </div>
 <?php endif; ?>
