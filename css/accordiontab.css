@@ -4,6 +4,10 @@
 .accordion-body div:not(.gallery-items) figure {
   max-width: 300px;
 }
+.accordion-body div.gallery-items figure.item,
+.accordion-body div.masonry figure {
+  max-width: 100%;
+}
 .accordion-body figure.float-md-start {
   margin-right: 1rem;
   margin-bottom: 1rem;
