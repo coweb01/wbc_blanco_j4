@@ -264,7 +264,6 @@
 .wbcmetismenu.mod-menu .wbc-col .wbcmetismenue_heading .wbcmetis-titel,
 .wbcmetismenu.mod-menu .wbc-col .wbcmetismenue-toggler-heading .wbcmetis-titel
 {
-  color: var(--color1, #585858);
   padding: .5rem;
 }
 .mm-toggler:not(.mm-collapsed) i {
