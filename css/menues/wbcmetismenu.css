@@ -42,7 +42,7 @@
 .wbcmetismenu.mod-menu {
   margin: 0;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item {
+.wbcmetismenu.mod-menu lili.wbcmetismenu-item {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -51,13 +51,13 @@
   line-height: 1.5;
   padding: 0.5rem;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item.parent {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item.parent {
   position: static;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item.level-3 {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item.level-3 {
   padding: 0;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item > ul {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > ul {
   position: absolute;
   top: 100%;
   z-index: 1001;
@@ -68,43 +68,48 @@
   -moz-box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, 0.1);
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item > ul.sublevel-3 {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > ul.sublevel-3 {
   padding: 0;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item > button.wbcmetismenue-toggler-heading {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > button.wbcmetismenue-toggler-heading {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   width: 100%;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenue_level2_btn {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenue_level2_btn {
   display: none;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link {
   display: flex;
   flex-wrap: wrap;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fa:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fas:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.far:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fal:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fad:before, .wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link.fab:before,
-.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link > span.fa:before,
-.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link > span.fas:before,
-.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link > span.far:before,
-.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link > span.fal:before,
-.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link > span.fad:before,
-.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link > span.fab:before {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link.fa:before, 
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link.fas:before, 
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link.far:before, 
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link.fal:before, 
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link.fad:before, 
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link.fab:before,
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link > span.fa:before,
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link > span.fas:before,
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link > span.far:before,
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link > span.fal:before,
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link > span.fad:before,
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link > span.fab:before {
   margin-right: 0.3rem;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetismenu-link img {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetismenu-link img {
   max-width: 80px;
   height: auto;
   padding-right: 10px;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item > span:not(.fa),
-.wbcmetismenu.mod-menu .wbcmetismenu-item > span:not(.fas),
-.wbcmetismenu.mod-menu .wbcmetismenu-item > span:not(.far),
-.wbcmetismenu.mod-menu .wbcmetismenu-item > span:not(.fal),
-.wbcmetismenu.mod-menu .wbcmetismenu-item > span:not(.fad),
-.wbcmetismenu.mod-menu .wbcmetismenu-item > span:not(.fab) > button,
-.wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetismenu-link {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > span:not(.fa),
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > span:not(.fas),
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > span:not(.far),
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > span:not(.fal),
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > span:not(.fad),
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > span:not(.fab) > button,
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > a.wbcmetismenu-link {
   align-items: center;
   overflow: hidden;
   text-decoration: none;
@@ -112,32 +117,32 @@
   color: var(--Linkcolornavbar);
   white-space: normal;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetismenu-link:focus-visible,
-.wbcmetismenu.mod-menu .wbcmetismenu-item > button:focus-visible {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > a.wbcmetismenu-link:focus-visible,
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > button:focus-visible {
   outline: 1px dotted var(--color1);
   outline-offset: 2px;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetismenu-link:focus,
-.wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetismenu-link:hover {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > a.wbcmetismenu-link:focus,
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > a.wbcmetismenu-link:hover {
   color: var(--Hovercolornavbar);
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item > button:hover,
-.wbcmetismenu.mod-menu .wbcmetismenu-item > button:focus {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > button:hover,
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > button:focus {
   border: none;
   background-color: transparent;
   color: var(--Hovercolornavbar);
   text-decoration: none;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item.active > a, 
-.wbcmetismenu.mod-menu .wbcmetismenu-item.active > button,
-.wbcmetismenu.mod-menu .wbcmetismenu-item > a:hover {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item.active > a, 
+.wbcmetismenu.mod-menu li.wbcmetismenu-item.active > button,
+.wbcmetismenu.mod-menu li.wbcmetismenu-item > a:hover {
   text-decoration: none;
   color: var(--Activecolornavbar);
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item::after {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item::after {
   content: none;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item.divider:not(.parent) {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item.divider:not(.parent) {
   width: 1px;
   padding: 0;
   margin: 0.25em;
@@ -145,16 +150,16 @@
   border-right: 1px solid var(--mm-color2);
 }
 @media (max-width: 992px) {
-  .wbcmetismenu.mod-menu .wbcmetismenu-item.divider:not(.parent) {
+  .wbcmetismenu.mod-menu li.wbcmetismenu-item.divider:not(.parent) {
     width: auto;
     height: 1px;
     border-bottom: 1px solid var(--mm-color2);
   }
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetis-titel {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetis-titel {
   display: inline-block;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item .wbcmetis-subtitel {
+.wbcmetismenu.mod-menu li.wbcmetismenu-item .wbcmetis-subtitel {
   display: block;
   margin: .5rem 0;
   flex: 0 0 100%;
@@ -171,17 +176,17 @@
 .wbcmetismenu.mod-menu .mm-collapse:not(.mm-show) {
   display: none;
 }
-.wbcmetismenu.mod-menu .mm-collapse .wbcmetismenu-item {
+.wbcmetismenu.mod-menu .mm-collapse li.wbcmetismenu-item {
   border-bottom: 1px solid var(--mm-color2);
 }
-.wbcmetismenu.mod-menu .mm-collapse .wbcmetismenu-item:last-child {
+.wbcmetismenu.mod-menu .mm-collapse li.wbcmetismenu-item:last-child {
   border-bottom: none;
 }
-.wbcmetismenu.mod-menu .mm-collapse .wbcmetismenu-item > .wbcmetismenu-link {
-  padding: 0.5rem 0.8rem;
+.wbcmetismenu.mod-menu .mm-collapse li.wbcmetismenu-item > .wbcmetismenu-link {
+  padding: 0.5rem;
   font-size: 1rem;
 }
-.wbcmetismenu.mod-menu .mm-collapse .wbcmetismenu-item .nav-header {
+.wbcmetismenu.mod-menu .mm-collapse li.wbcmetismenu-item .nav-header {
   padding: 0.8rem 0.3rem;
   margin: 1rem 0;
   display: block;
@@ -244,24 +249,24 @@
 .mm-active > i {
   transform: rotateX(-180deg);
 }
-
 .wbcmetismenu.mod-menu .mm-toggler[aria-expanded=true]:after {
   transform: rotateX(-180deg);
 }
 .wbcmetismenu.mod-menu .mm-toggler i {
   padding-left: 0.3125rem;
 }
-
 .wbcmetismenu.mod-menu [class^=wbc-wrap-nav-col] > a:not(:last-child) {
   border-bottom: none;
 }
 .wbcmetismenu.mod-menu .wbc-dropdown-titel {
   text-align: center;
 }
-.wbcmetismenu.mod-menu .wbc-col .wbcmetismenue_heading .wbcmetis-titel {
-  color: var(--color1);
+.wbcmetismenu.mod-menu .wbc-col .wbcmetismenue_heading .wbcmetis-titel,
+.wbcmetismenu.mod-menu .wbc-col .wbcmetismenue-toggler-heading .wbcmetis-titel
+{
+  color: var(--color1, #585858);
+  padding: .5rem;
 }
-
 .mm-toggler:not(.mm-collapsed) i {
   transform: rotateX(180deg);
 }
@@ -310,13 +315,13 @@
   padding: 0px;
   position: relative;
 }
-.wbc-multicolumn-metismenu .mm-collapse.wbc-col .wbcmetismenu-item {
+.wbc-multicolumn-metismenu .mm-collapse.wbc-col li.wbcmetismenu-item {
   border-bottom: 1px solid var(--mm-color2);
 }
-.wbc-multicolumn-metismenu .mm-collapse.wbc-col .wbcmetismenu-item:last-child {
+.wbc-multicolumn-metismenu .mm-collapse.wbc-col li.wbcmetismenu-item:last-child {
   border-bottom: none;
 }
-.wbc-multicolumn-metismenu .mm-collapse.wbc-col .wbcmetismenu-item > .wbcmetismenu-link {
+.wbc-multicolumn-metismenu .mm-collapse.wbc-col li.wbcmetismenu-item > .wbcmetismenu-link {
   padding: 0.3rem 0.5rem;
 }
 .wbc-multicolumn-metismenu .wbcmulticolumn .mm-collapse h3 {
@@ -357,14 +362,14 @@
     width: 100%;
   }
 }
-.sidebar-right .wbcmetismenu .wbcmetismenu-item > span,
-.sidebar-right .wbcmetismenu .wbcmetismenu-item > a,
-.sidebar-left .wbcmetismenu .wbcmetismenu-item > span,
-.sidebar-left .wbcmetismenu .wbcmetismenu-item > a {
+.sidebar-right .wbcmetismenu li.wbcmetismenu-item > span,
+.sidebar-right .wbcmetismenu li.wbcmetismenu-item > a,
+.sidebar-left .wbcmetismenu li.wbcmetismenu-item > span,
+.sidebar-left .wbcmetismenu li.wbcmetismenu-item > a {
   white-space: inherit;
 }
-.sidebar-right .wbcmetismenu .wbcmetismenu-item.divider:not(.parent),
-.sidebar-left .wbcmetismenu .wbcmetismenu-item.divider:not(.parent) {
+.sidebar-right .wbcmetismenu li.wbcmetismenu-item.divider:not(.parent),
+.sidebar-left .wbcmetismenu li.wbcmetismenu-item.divider:not(.parent) {
   width: auto;
   height: 1px;
   border-bottom: 1px solid var(--mm-color2);
