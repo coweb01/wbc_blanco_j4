@@ -1,7 +1,9 @@
 :root {
-  --mm-color1: #f3f1f1;
-  --mm-color2: #d8d6d7;
-  --mm-color1-dark: #242424;
+  --mm-color1: rgba(243, 241, 241,1);
+  --mm-color2: rgba(216, 214, 215,1);
+  --mm-color1-dark: rgba(36, 36, 36,1);
+  --mm-color2-dark:  rgba(36, 36, 36,);
+  --mm-outline: rgb(245,6,6);
   --grey-200: #585858;
 }
 .navigation-main {
@@ -124,7 +126,7 @@
       }
       > a.wbcmetismenu-link:focus-visible,
       > button:focus-visible {
-        outline: 1px dotted var(--color1);
+        outline: 1px dotted var(--mm-outline);
         outline-offset: 2px;
       }
       > a.wbcmetismenu-link:focus,
@@ -268,8 +270,11 @@
     .wbc-dropdown-titel {
       text-align: center;
     }
-    .wbc-col .wbcmetismenue_heading  .wbcmetis-titel {
-      color: var(--color1);
+    .wbc-col .wbcmetismenue_heading  .wbcmetis-titel,
+    .wbc-col .wbcmetismenue-toggler-heading .wbcmetis-titel
+     {
+      color: currentColor;
+      padding: .5rem;
     }
   }
 }

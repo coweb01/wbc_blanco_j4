@@ -3,6 +3,7 @@
   --mm-btn-color: rgba(0,0,0,0.3);
   --mm-btn-hover-color: rgba(0,0,0,0.2);
 }
+
 .wbcoffcanvasmenu {
   display: flex;
   flex-direction: column;

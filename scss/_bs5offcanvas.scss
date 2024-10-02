@@ -2,6 +2,18 @@
 /* Author das-webconcept c.oerter */
 /* Layout html/layouts/wbc_blanco_template/bts5offcanvas.php */
 
+.offcanvas-dark.show {
+    color:rgba(255, 255, 255, 1);
+    background-color: rgba(33, 37, 41, 1);
+    --Linkcolornavbar: rgba(255, 255, 255, 1);
+    --bgnavbarcolor: rgba(52, 58, 64,1);
+    --Hovercolornavbar: rgba(255, 255, 255, .6);
+    --Activecolornavbar: rgba(255, 255, 255, .9);
+    --grey-200: #dbdbdb;
+    --wbc-offcanvas-dropdown-bg: 255, 255, 255;
+    --mm-color2: rgba(216, 214, 215, 0.15);
+    --mm-outline: rgb(255,255,255);
+}  
 .wbc__offcanvas-navbar {
     background-color: var(--bgnavbarcolor, rgba(0,0,0,.95));
     color: var(--colornavbar, rgba(255,255,255,.1));
