@@ -21,7 +21,7 @@ $class_sfx    = htmlspecialchars($params->get('class_sfx', ''));
 /** @var \Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseScript('wbcmetismenu', $mediapath. 'js/menues/wbcmenu-metismenu.js', [], ['defer' => true], ['metismenujs']);
-$wa->registerAndUseStyle('wbc.metismenu', $mediapath. 'css/menues/wbcmetismenu.min.css', [], [], []);
+$wa->registerAndUseStyle('wbc.metismenu', $mediapath. 'css/menues/wbcmetismenu.css', [], [], []);
 
 $attributes             = [];
 $attributes['class']    = 'navbar-nav mod-menu wbc-multicolumn-metismenu wbcmetismenu metismenu mod-list ' . $class_sfx;
