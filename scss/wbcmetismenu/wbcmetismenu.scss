@@ -59,6 +59,11 @@
       &.level-3 {
         padding: 0;
       }
+      :focus-visible,
+      :focus-visible {
+        outline: 1px dotted var(--mm-outline)!important;
+        outline-offset: 2px;
+      }
       > ul {
         position: absolute;
         top: 100%;
@@ -124,11 +129,7 @@
         color: var(--Linkcolornavbar);
         white-space: normal;
       }
-      > a.wbcmetismenu-link:focus-visible,
-      > button:focus-visible {
-        outline: 1px dotted var(--mm-outline);
-        outline-offset: 2px;
-      }
+     
       > a.wbcmetismenu-link:focus,
       > button:focus {
         color: var(--Hovercolornavbar);

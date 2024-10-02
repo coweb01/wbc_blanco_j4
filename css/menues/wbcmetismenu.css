@@ -60,6 +60,11 @@
 .wbcmetismenu.mod-menu .wbcmetismenu-item.level-3 {
   padding: 0;
 }
+.wbcmetismenu.mod-menu .wbcmetismenu-item :focus-visible,
+.wbcmetismenu.mod-menu .wbcmetismenu-item :focus-visible {
+  outline: 1px dotted var(--mm-outline) !important;
+  outline-offset: 2px;
+}
 .wbcmetismenu.mod-menu .wbcmetismenu-item > ul {
   position: absolute;
   top: 100%;
@@ -115,11 +120,6 @@
   text-overflow: ellipsis;
   color: var(--Linkcolornavbar);
   white-space: normal;
-}
-.wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetismenu-link:focus-visible,
-.wbcmetismenu.mod-menu .wbcmetismenu-item > button:focus-visible {
-  outline: 1px dotted var(--mm-outline);
-  outline-offset: 2px;
 }
 .wbcmetismenu.mod-menu .wbcmetismenu-item > a.wbcmetismenu-link:focus,
 .wbcmetismenu.mod-menu .wbcmetismenu-item > button:focus {
