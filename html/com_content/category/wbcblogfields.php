@@ -101,7 +101,7 @@ $this->readmore_intro_item = false;  // Intro mit weiterlesen ?>
       
     <?php // Code to add a link to submit an article. ?>
     <?php if ($this->category->getParams()->get('access-create')) : ?>
-        <?php echo HTMLHelper::_('contenticon.create', $this->category, $this->category->params); ?>
+        <?php echo HTMLHelper::_('contenticon.create', $this->category, $this->category->params, ['class' => 'wbc__create-btn mb-3']); ?>
     <?php endif; ?>
 
     <?php if (empty($this->lead_items) && empty($this->link_items) && empty($this->intro_items)) : ?>
