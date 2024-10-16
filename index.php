@@ -157,7 +157,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                         <?php endif; ?>
 
                         <?php if ($this->countModules('navMain') && $NavMainPos == 1 || $this->countModules('offcanvas') && $NavMainPos == 1): ?>
-                        <nav id="navigation-main" class="navbar <?php echo $offcanvas_breakpoint; ?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="Main Navigation">
+                        <nav id="navigation-main" class="navbar <?php echo $offcanvas_breakpoint; ?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="<?php echo Text::_('TPL_WBC_BLANCO_MENU_MAIN'); ?>">
                             <?php
                                 $LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'html/layouts');
                                 echo $LayoutMain ->render($displayData);
@@ -171,7 +171,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                 <div class="header-middle">
 
                 <?php if ($this->countModules('navMain') && $NavMainPos == 2 || $this->countModules('offcanvas') && $NavMainPos == 2): ?>
-                        <nav id="navigation-main" class="navbar <?php echo $offcanvas_breakpoint; ?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="Main Navigation">
+                        <nav id="navigation-main" class="navbar <?php echo $offcanvas_breakpoint; ?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="<?php echo Text::_('TPL_WBC_BLANCO_MENU_MAIN'); ?>">
                             <?php
                                 $LayoutMain = new FileLayout('wbc_blanco_template.navmain', $tpath.'html/layouts');
                                 echo $LayoutMain ->render($displayData);
@@ -212,7 +212,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                     <?php endif; ?>
 
                     <?php if ($this->countModules('navMain')  && $NavMainPos == 3 || $this->countModules('offcanvas')  && $NavMainPos == 3): ?>
-                        <nav id="navigation-main" class="navbar <?php echo $offcanvas_breakpoint; ?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="Main Navigation">
+                        <nav id="navigation-main" class="navbar <?php echo $offcanvas_breakpoint; ?> <?php echo ($fixedheader == 1) ? 'sps' :'';?>" aria-label="<?php echo Text::_('TPL_WBC_BLANCO_MENU_MAIN'); ?>">
 
                         <?php if ($fixedheader && $this->countModules('logo-mobil')): ?>
                         <div id="logo-mobil" class="navbar-brand hidden">
