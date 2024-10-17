@@ -254,7 +254,7 @@ body {
     flex-direction: row;
     .item-image {
       flex: 0 0 auto;
-    
+
       @include media-breakpoint-up(lg) {
         flex: 1 0 40%;
       }
@@ -443,7 +443,7 @@ body {
   }
 }
 .wbc-blog-item {
-  
+
   .flex-inhalt {
     display: flex;
     flex-direction: column;
@@ -532,6 +532,10 @@ figcaption {
 }
 
 /* Pagination */
+.pagination__wrapper {
+  display: flex;
+  justify-content: center;
+}
 .pagenavigation {
   clear: both;
 }
