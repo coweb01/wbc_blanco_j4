@@ -26,7 +26,7 @@ use Joomla\CMS\Table\Table;
 use Joomla\CMS\Factory;
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
-$wa = $this->document->getWebAssetManager();
+$wa = $this->getDocument()->getWebAssetManager();
 $wa->useScript('keepalive')
     ->useScript('form.validate')
     ->useScript('com_content.form-edit');
