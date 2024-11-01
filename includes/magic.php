@@ -12,6 +12,7 @@ use Joomla\Filesystem\File;
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
+use Joomla\CMS\Router\Route;
 
 /** @var Joomla\CMS\Document\HtmlDocument $this */
 
@@ -261,7 +262,7 @@ if ( ComponentHelper::getComponent('com_flexicontent', true)->enabled === 1 ) {
     /* link zur Flexicontent Suchen Seite generieren */
     require_once (JPATH_ADMINISTRATOR.'/components/com_flexicontent/defineconstants.php');
     require_once (JPATH_SITE.'/components/com_flexicontent/helpers/route.php');
-    $searchsite = JRoute::_(FlexicontentHelperRoute::getSearchRoute($this->params->get($searchsiteId)));
+    $searchsite = Route::_(FlexicontentHelperRoute::getSearchRoute($this->params->get($searchsiteId)));
 } else {
     $searchsite = '';
 }
@@ -277,7 +278,7 @@ if ( ComponentHelper::getComponent('com_flexicontent', true)->enabled === 1 ) {
 if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=article') !== false ||
     strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=category') !== false)
 {
-    $input = JFactory::getApplication()->input;
+    $input = Factory::getApplication()->input;
     $id = $input->get('id', 0, 'UINT');
     $context = 'com_content.article';
     $arrayKey = array('header' => '', 'content' => '');

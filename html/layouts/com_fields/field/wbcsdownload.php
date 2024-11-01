@@ -20,12 +20,13 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Layout\FileLayout;
 use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
+use Joomla\CMS\Version;
 
 
 if (!array_key_exists('field', $displayData)) {
     return;
 }
-$jversion = new JVersion();
+$jversion = new Version();
 $version = $jversion->getShortVersion();
 if (version_compare($version, '5.0', '<')) {
     $iconClass = 'fa-solid fa-file-arrow-down';

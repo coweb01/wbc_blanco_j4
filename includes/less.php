@@ -1,15 +1,18 @@
 <?php
 
 defined( '_JEXEC' ) or die; 
+use Joomla\CMS\Document\LessCompiler;
+use Joomla\CMS\Filesystem\File;
 
 /* Template Farben  Less Datein compilieren / CSS  *************************************/
 
-$less = new JLess;
-$less->setFormatter(new JLessFormatterJoomla);
+$less = new LessCompiler();
+$less->setFormatter('classic'); // oder 'compressed' für komprimiertes CSS
+
 //$source = JPATH_ROOT.'/templates/wbc_blanco_bts4/less/template.less';
 //$output = JPATH_ROOT.'/templates/wbc_blanco_bts4/css/template.css';
 
-if ( JFile::exists( JPATH_ROOT. '/templates/'.$this->template . '/less/custom.less' ) ) {   
+if ( File::exists( JPATH_ROOT. '/templates/'.$this->template . '/less/custom.less' ) ) {   
 
 		$templates = array(JPATH_ROOT.'/templates/'.$this->template . '/less/template.less' =>
 					JPATH_ROOT.'/templates/'.$this->template . '/css/template.css',
