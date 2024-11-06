@@ -3,6 +3,14 @@
 /* Date: 2024-11-6                */
 /* Joomla Core FontAwesome 6 free */
 
+$wbc-fa-var-envelope: \f674;
+$wbc-fa-var-phone-flip: \f879;
+$wbc-fa-var-mobile-screen-button: \f3cd;
+$wbc-fa-var-fax: \f1ac;
+$wbc-fa-var-link: \f0c1;
+$wbc-fa-style-family: 'Font Awesome 6 Free';
+$wbc-fa-style: 900;
+
 .wbc__fields-container,
 .wbc__subform-fields .wbc__subform-row
 {
@@ -18,11 +26,11 @@
 .wbc__subform-fields .wbc-symbol::before,
 .field-value.wbc-symbol::before
  {
-    font-family: $fa-style-family ;
-    display: $fa-display ;
+    font-family: $wbc-fa-style-family;
+    display: inline-block;
     font-size: 1rem;
     line-height: normal;
-    font-weight: $fa-style  ;
+    font-weight: $wbc-fa-style;
     margin-right: .5rem;
 }
 
@@ -31,8 +39,8 @@
 .wbc__subform-fields .wbc-mail::before,
 .field-value.wbc-mail::before,
 .i-email::before
- {
-    content: $fa-var-envelope;
+{
+    content: $wbc-fa-var-envelope;
 }
 /* phone Icon */
 .wbc__fields-container .wbc-phone::before,
@@ -40,7 +48,7 @@
 .field-value.wbc-phone::before,
 .i-phone::before
 {
-    content: $fa-var-phone-flip;
+    content: $wbc-fa-var-phone-flip;
 }
 /* mobile Icon */
 .wbc__fields-container .wbc-mobil::before,
@@ -48,7 +56,7 @@
 .field-value.wbc-mobil::before,
 .i-mobil::before
 {
-    content: $fa-var-mobile-screen-button;
+    content: $wbc-fa-var-mobile-screen-button;
 }
 /* fax Icon */
 .wbc__fields-container .wbc-fax::before,
@@ -56,7 +64,7 @@
 .field-value.wbc-fax::before,
 .i-fax::before
 {
-    content: $fa-var-fax;
+    content: $wbc-fa-var-fax;
 }
 /* web Icon */
 .wbc__fields-container .wbc-web::before,
@@ -64,7 +72,7 @@
 .field-value.wbc-web::before,
 .i-webseite
 {
-    content: $fa-var-link;
+    content: $wbc-fa-var-link;
 }
 .wbc__fields-container a[href^="tel:"],
 .wbc__subform-fields a[href^="tel:"]
