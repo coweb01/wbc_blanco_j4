@@ -16430,7 +16430,7 @@ joomla-dialog.loaded .joomla-dialog-body {
 .wbc__subform-fields .wbc-mail::before,
 .field-value.wbc-mail::before,
 .i-email::before {
-  content: \f674;
+  content: "\f674";
 }
 
 /* phone Icon */
@@ -16438,7 +16438,7 @@ joomla-dialog.loaded .joomla-dialog-body {
 .wbc__subform-fields .wbc-phone::before,
 .field-value.wbc-phone::before,
 .i-phone::before {
-  content: \f879;
+  content: "\f879";
 }
 
 /* mobile Icon */
@@ -16446,7 +16446,7 @@ joomla-dialog.loaded .joomla-dialog-body {
 .wbc__subform-fields .wbc-mobil::before,
 .field-value.wbc-mobil::before,
 .i-mobil::before {
-  content: \f3cd;
+  content: "\f3cd";
 }
 
 /* fax Icon */
@@ -16454,7 +16454,7 @@ joomla-dialog.loaded .joomla-dialog-body {
 .wbc__subform-fields .wbc-fax::before,
 .field-value.wbc-fax::before,
 .i-fax::before {
-  content: \f1ac;
+  content: "\f1ac";
 }
 
 /* web Icon */
@@ -16462,7 +16462,7 @@ joomla-dialog.loaded .joomla-dialog-body {
 .wbc__subform-fields .wbc-web::before,
 .field-value.wbc-web::before,
 .i-webseite {
-  content: \f0c1;
+  content: "\f0c1";
 }
 
 .wbc__fields-container a[href^="tel:"],
