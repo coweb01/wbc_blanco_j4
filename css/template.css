@@ -16430,7 +16430,7 @@ joomla-dialog.loaded .joomla-dialog-body {
 .wbc__subform-fields .wbc-mail::before,
 .field-value.wbc-mail::before,
 .i-email::before {
-  content: "\f674";
+  content: "\f0e0";
 }
 
 /* phone Icon */
