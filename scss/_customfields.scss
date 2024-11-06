@@ -1,6 +1,9 @@
-﻿/* CSS für Custom Fields */
+﻿/* CSS für Custom Fields          */
+/* Author: C.Oerter               */
+/* Date: 2024-11-6                */
+/* Joomla Core FontAwesome 6 free */
 
-.wbc__fields-container .wbc__subform-row,
+.wbc__fields-container,
 .wbc__subform-fields .wbc__subform-row
 {
     margin-bottom: .8rem;
@@ -15,47 +18,53 @@
 .wbc__subform-fields .wbc-symbol::before,
 .field-value.wbc-symbol::before
  {
-    font-family: var(--symbolfont);
-    display: inline-block;
+    font-family: $fa-style-family ;
+    display: $fa-display ;
     font-size: 1rem;
     line-height: normal;
-    font-weight: 900;
+    font-weight: $fa-style  ;
     margin-right: .5rem;
 }
+
+/* Mail Icon */
 .wbc__fields-container .wbc-mail::before,
 .wbc__subform-fields .wbc-mail::before,
 .field-value.wbc-mail::before,
 .i-email::before
  {
-    content: '\f0e0';
+    content: $fa-var-envelope;
 }
+/* phone Icon */
 .wbc__fields-container .wbc-phone::before,
 .wbc__subform-fields .wbc-phone::before,
 .field-value.wbc-phone::before,
 .i-phone::before
 {
-    content: '\f879';
+    content: $fa-var-phone-flip;
 }
+/* mobile Icon */
 .wbc__fields-container .wbc-mobil::before,
 .wbc__subform-fields .wbc-mobil::before,
 .field-value.wbc-mobil::before,
 .i-mobil::before
 {
-    content: '\f3cd';
+    content: $fa-var-mobile-screen-button;
 }
+/* fax Icon */
 .wbc__fields-container .wbc-fax::before,
 .wbc__subform-fields .wbc-fax::before,
 .field-value.wbc-fax::before,
 .i-fax::before
 {
-    content: '\f1ac';
+    content: $fa-var-fax;
 }
+/* web Icon */
 .wbc__fields-container .wbc-web::before,
 .wbc__subform-fields .wbc-web::before,
 .field-value.wbc-web::before,
 .i-webseite
 {
-    content: '\f0c1';
+    content: $fa-var-link;
 }
 .wbc__fields-container a[href^="tel:"],
 .wbc__subform-fields a[href^="tel:"]
@@ -74,8 +83,8 @@ span.wbc-field { padding-right: 5px;}
 }
 .wbc__file_desc {
     font-size: .8rem;
-    border: solid 1px var(--bs-gray-300);
-    background-color: var(--bs-gray-200);
+    border: solid 1px $gray-300;
+    background-color: $gray-200;
     padding: 10px;
 }
 .wbc__social-media a { font-size: 0; }

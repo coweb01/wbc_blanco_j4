@@ -7,6 +7,9 @@
 // Variables, Functions and Mixins
 @import "variables";
 
+// Font Awesome
+@import "../../../media/vendor/fontawesome-free/scss/variables";
+
 @import "../../../media/vendor/bootstrap/scss/bootstrap";
 
 // Template
@@ -20,3 +23,4 @@
 @import "forms";
 @import "print";
 @import "modals";
+@import "customfields";
