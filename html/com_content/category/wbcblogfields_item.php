@@ -42,11 +42,28 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
     || ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
 
-$fields             = $this->item->jcfields; // Felder des Artikels holen formatierte Ausgabe
-$selectedFields     = $params->get('select_customfield');
-$noTabs             = true;
-$htmlausgabe        = array();
-$i                  = 0;
+$fields              = $this->item->jcfields; // Felder des Artikels holen formatierte Ausgabe
+$selectedFields      = $params->get('select_customfield');
+$selectedFieldgroups = $params->get('select_customfield_group');
+$noTabs              = true;
+$htmlausgabe         = array();
+$i                   = 0;
+
+// Felder einer Ganzen Gruppe ausgeben
+if ($selectedFieldgroups){
+    $fieldsGroups = array();
+    $i = 0;
+    foreach ($fields as $key => $field) {
+        if (in_array($field->group_id, $selectedFieldgroups) && !empty($field->value))  {
+            $fieldsGroups[$field->group_id]['title'] = $field->group_title;
+            $fieldsGroups[$field->group_id]['id'] = $field->group_id;
+            $fieldsGroups[$field->group_id]['fields'][$field->id] = $field;
+            $i++;
+        }
+    }
+}
+
+// Einzelne Felder als Tab ausgeben
 if ($selectedFields) {
     $fields_tabs_pos = array();
     if (isset($selectedFields)) {
@@ -117,7 +134,18 @@ if ($selectedFields) {
         }
 
     }
-
+    // HTML für Gruppen 
+    foreach ($fieldsGroups as $group) {
+        $index                           = $i2. '-' . $group['title']; 
+        $htmlausgabe[$index]['headline'] = $group['title'];
+        $htmlausgabe[$index]['id']       = $group['id'];
+        $htmlausgabe[$index]['content']  = '';  
+        $gfields = $group['fields'];
+        foreach ($gfields as $field) {             
+            $htmlausgabe[$index]['content'] .= FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field));
+        $i2++;
+        }
+    }
 
     // Daten für die Ausgabe der Tabs
     $tabsdata = (object) [ 'item' => $this->item,
