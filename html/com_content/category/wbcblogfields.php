@@ -49,7 +49,7 @@ $this->readmore_intro_item = false;  // Intro mit weiterlesen ?>
 <div class="com-content-category-blog blog">
     <?php if ($this->params->get('show_page_heading')) : ?>
         <div class="page-header">
-            <h1> <?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
+            <h1><?php echo $this->escape($this->params->get('page_heading')); ?></h1>
         </div>
     <?php endif; ?>
 
@@ -95,7 +95,6 @@ $this->readmore_intro_item = false;  // Intro mit weiterlesen ?>
                 <?php $this->category->tagLayout = new FileLayout('joomla.content.tags'); ?>
                 <?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
             <?php endif; ?>
-
         </div>
     <?php endif; ?>
       

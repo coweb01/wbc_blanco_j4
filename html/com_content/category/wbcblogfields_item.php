@@ -158,7 +158,6 @@ if ($selectedFields) {
         $noTabs = (count($htmlausgabe) == 1 && $params->get('layout_customfields') == 1) ? true : false;
     }
 }
-
 ?>
 <div class="flex-inhalt">
     <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>

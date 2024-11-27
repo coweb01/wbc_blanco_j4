@@ -120,7 +120,7 @@ foreach ($field->subform_rows as $subform_row) {
          $row_output[1] = '<span class="wbc__file_desc d-block">'. $content['media_beschreibung'] .'</span>';
     }
 
-    $result .= '<div class="wbc__subform-download-row d-md-flex'; 
+    $result .= '<div class="wbc__subform-download-row d-md-flex '; 
     $result .= trim($field->params->get('render_class', '')) . '">';
     $result .= implode(' ', $row_output);
     $result .= '</div>';

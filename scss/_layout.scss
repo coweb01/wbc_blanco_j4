@@ -248,7 +248,9 @@ body {
       padding: 25px;
     }
   }
-
+  .item-image {
+    flex: 0 0 auto;
+  }
   .image-left &,
   .image-right & {
     flex-direction: row;

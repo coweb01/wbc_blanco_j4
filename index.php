@@ -52,13 +52,9 @@ $wa->addInlineStyle('
 
 // Favicons https://realfavicongenerator.net/
 $this->addHeadLink(HTMLHelper::_('image', 'favicons/apple-touch-icon.png', '', [], true, 1), 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicons/favicon-32x32.png', '', [], true, 1), 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicons/favicon-16x16.png', '', [], true, 1), 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicons/safari-pinned-tab.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#41599a']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicons/favicon.ico', '', [], true, 1), 'shortcut icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
-$this->addHeadLink($mediapath . 'images/favicons/site.webmanifest', 'manifest', 'rel', []);
-$this->setMetaData('msapplication-config', $mediapath . 'images/favicons/browserconfig.xml');
-$this->setMetaData('theme-color', '#ffffff');
+$this->addHeadLink(HTMLHelper::_('image', 'favicons/favicon-96x96.png', '', [], true, 1), 'icon', 'rel', ['sizes' => '96x96', 'type' => 'image/png']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicons/favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicons/favicon.ico', '', [], true, 1), 'shortcut icon', 'rel', []);
 
 if (($this->params->get('headerimg') != NULL) && ($this->params->get('headerimg') != "-1")) {
     $himg = true;
