@@ -13935,6 +13935,9 @@ body {
 .boxed .blog-item .item-content {
   padding: 25px;
 }
+.blog-item .item-image {
+  flex: 0 0 auto;
+}
 .image-left .blog-item, .image-right .blog-item {
   flex-direction: row;
 }
