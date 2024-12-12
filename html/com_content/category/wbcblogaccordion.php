@@ -174,7 +174,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                             <?php foreach ($selectfield as $key => $sf) : ?> 
                                 <?php $render_class = 'wbc-field '; ?>
                                 <?php if ( is_array($sf) ) : ?>
-                                    <?php $render_class .= ' field-'.$sf['field']->fieldname; ?>
+                                    <?php $render_class .= ' field-'.$sf['field']->name; ?>
                                     <span class="<?php echo $render_class;?>"><?php echo $sf['field']->value; ?></span>
                                 <?php endif; ?>
                             <?php endforeach; ?>
