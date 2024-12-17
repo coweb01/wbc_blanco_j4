@@ -155,7 +155,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                             }
                         }
                         if (in_array($jcfield->id, $selectfield)) {
-                            $selectfield[$subfield->id]['field'] = $jcfield;
+                            $selectfield[$jcfield->id]['field'] = $jcfield;
                         }
                     } 
                 }
