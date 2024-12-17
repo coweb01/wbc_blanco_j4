@@ -39,7 +39,12 @@ $results = $app->triggerEvent('onContentAfterDisplay', [$this->category->extensi
 $afterDisplayContent = trim(implode("\n", $results));
 
 $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
-
+// Custom Parameter for alternate category title
+if (!empty($this->params->get('wbc_alternate_category_title') )) {
+    $category_title = $this->params->get('wbc_alternate_category_title');
+} else {
+    $category_title = $this->category->title;
+}
 ?>
 <div class="com-content-category-blog blog">
     <?php if ($this->params->get('show_page_heading')) : ?>
@@ -68,7 +73,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
             <div class="flex-grow-1">
                 <?php if ($this->params->get('show_category_title', 1)) : ?>
                     <<?php echo $htag; ?> class="wbc__category-title">
-                        <?php echo $this->category->title; ?> 
+                        <?php echo $category_title; ?> 
                     </<?php echo $htag; ?>>  
                 <?php endif; ?>
                 <?php echo $afterDisplayTitle; ?>

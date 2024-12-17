@@ -49,7 +49,14 @@ if ($this->params->get('show_customfields') == 2) {
 }
 
 $this->readmore_leading_item = false;  // leadingbeiträge mit weiterlesen 
-$this->readmore_intro_item = false;  // Intro mit weiterlesen ?> 
+$this->readmore_intro_item = false;  // Intro mit weiterlesen 
+// Custom Parameter for alternate category title
+if (!empty($this->params->get('wbc_alternate_category_title') )) {
+    $category_title = $this->params->get('wbc_alternate_category_title');
+} else {
+    $category_title = $this->category->title;
+}
+?> 
 
 <div class="com-content-category-blog blog" itemscope itemtype="https://schema.org/Blog">
     <?php if ($this->params->get('show_page_heading')) : ?>
@@ -78,7 +85,7 @@ $this->readmore_intro_item = false;  // Intro mit weiterlesen ?>
             <div class="flex-grow-1">
                 <?php if ($this->params->get('show_category_title', 1)) : ?>
                     <<?php echo $htag; ?> class="wbc__category-title">
-                            <?php echo $this->category->title; ?> 
+                            <?php echo $category_title; ?> 
                     </<?php echo $htag; ?>>
                 <?php endif; ?>
                 <?php echo $afterDisplayTitle; ?>

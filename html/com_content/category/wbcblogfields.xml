@@ -55,7 +55,12 @@
 					<option value="0">JHIDE</option>
 					<option value="1">JSHOW</option>
 				</field>
-
+				<field
+					name="wbc_alternate_category_title"
+					type="text"
+					label="TPL_WBC_BLANCO_J4_ALTERNATE_CATEGORY_TITLE_LABEL"
+					description="TPL_WBC_BLANCO_J4_ALTERNATE_CATEGORY_TITLE_DESC"
+				/>
 				<field
 					name="show_description"
 					type="list"

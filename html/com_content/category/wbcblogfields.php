@@ -44,7 +44,14 @@ $afterDisplayContent = trim(implode("\n", $results));
 $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
 $this->readmore_leading_item = false;  // leadingbeiträge mit weiterlesen 
-$this->readmore_intro_item = false;  // Intro mit weiterlesen ?> 
+$this->readmore_intro_item = false;  // Intro mit weiterlesen 
+// Custom Parameter for alternate category title
+if (!empty($this->params->get('wbc_alternate_category_title') )) {
+    $category_title = $this->params->get('wbc_alternate_category_title');
+} else {
+    $category_title = $this->category->title;
+}
+?> 
 
 <div class="com-content-category-blog blog">
     <?php if ($this->params->get('show_page_heading')) : ?>
