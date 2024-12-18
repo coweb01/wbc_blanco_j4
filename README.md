@@ -1,4 +1,6 @@
 # wbc_blanco_j4
+
+Favicons:  https://realfavicongenerator.net
  
 ##Template Overrides Kategorie:
 
