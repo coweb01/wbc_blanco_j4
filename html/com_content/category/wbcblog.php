@@ -81,7 +81,7 @@ if (!empty($this->params->get('wbc_alternate_category_title') )) {
                 </picture>
             <?php endif; ?>
 
-            <?php if ($this->params->get('show_category_title', 1) || ($this->params->get('show_description') && $this->category->description)) : ?>
+            <?php if ($afterDisplayTitle || $beforeDisplayContent || $this->params->get('show_category_title', 1) || ($this->params->get('show_description') && $this->category->description)) : ?>
             <div class="flex-grow-1">
                 <?php if ($this->params->get('show_category_title', 1)) : ?>
                     <<?php echo $htag; ?> class="wbc__category-title">
@@ -97,11 +97,10 @@ if (!empty($this->params->get('wbc_alternate_category_title') )) {
                             <?php echo HTMLHelper::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
                         </div>
                     <?php endif; ?>
-                    
-                    <?php echo $afterDisplayContent; ?>
-                
             </div>
-            <?php endif;?>    
+            <?php endif;?> 
+
+            <?php echo $afterDisplayContent; ?>
 
             <?php if ($this->params->get('show_cat_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
                 <?php $this->category->tagLayout = new FileLayout('joomla.content.tags'); ?>

@@ -315,10 +315,10 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                                             <jdoc:include type="component" />
                                         </div>
                                         <?php if ( $this->countModules('content-right') || 
-                                                    (isset($CustomModules['content']) && !empty($CustomModules['content'])) ) : ?>
+                                                    (isset($CustomModules['content-pos-rechts']) && !empty($CustomModules['content-pos-rechts'])) ) : ?>
                                                 <div class="base-col col-lg-4 my-5 my-lg-0">
-                                                    <?php if (isset($CustomModules['content']) && !empty($CustomModules['content'])) : ?>
-                                                        <?php echo $CustomModules['content']['value']; ?> 
+                                                    <?php if (isset($CustomModules['content-pos-rechts']) && !empty($CustomModules['content-pos-rechts'])) : ?>
+                                                        <?php echo $CustomModules['content-pos-rechts']['value']; ?> 
                                                     <?php else : ?>   
                                                         <jdoc:include type="modules" name="content-right" style="default" />
                                                     <?php endif; ?>

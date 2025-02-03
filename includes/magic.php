@@ -305,7 +305,7 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
             $fields[$field->name] = $field;
         }
     }
-    // wenn $arrayKey ( headerimg / cat-headerimg / content-pos-right ) im Array vorhanden 
+    // wenn $arrayKey ( headerimg / cat-headerimg / content-pos-right / cat-modul-pos-bottom ) im Array vorhanden 
     foreach ($arrayKey as $key => $keycontent) {
         if (array_key_exists($keycontent,$fields ) && !empty($fields[$keycontent]->value))  {
             $CustomModules[$key]['value']       =  $fields[$keycontent]->value;
