@@ -327,16 +327,20 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
                                     </div>
                                     <?php endif; ?>
 
-                                    <?php if ($this->countModules('nachInhalt-01-col') > 0) {
-                                        /* wenn Module mehrspaltig */
-                                        $LayoutModules = new FileLayout('wbc_blanco_template.cardmodules', $tpath.'html/layouts');
-
-                                        $ReplacedisplayData = array('Modules' => 'nachInhalt-01-col');
-
-                                        $displayData = array_replace($displayData, $ReplacedisplayData);
-                                        echo $LayoutModules->render($displayData);
-                                    }
-                                    ?>
+                                    <?php if ($this->countModules('nachInhalt-01-col') || (isset($CustomModules['bottom']) && !empty($CustomModules['bottom']))) : ?>
+                                        <?php if (isset($CustomModules['bottom']) && !empty($CustomModules['bottom'])) : ?>
+                                            <div class="wrap-nach-inhalt my-2">
+                                            <?php echo $CustomModules['bottom']['value']; ?> 
+                                            </div>
+                                        <?php else : ?>   
+                                            <?php /* wenn Module mehrspaltig */
+                                                $LayoutModules = new FileLayout('wbc_blanco_template.cardmodules', $tpath.'html/layouts');
+                                                $ReplacedisplayData = array('Modules' => 'nachInhalt-01-col');
+                                                $displayData = array_replace($displayData, $ReplacedisplayData);
+                                                echo $LayoutModules->render($displayData);
+                                            endif; ?>
+                                    <?php endif; ?>    
+                                    
                                 </div> <!-- Contenarea -->
                             </div><!--Content -->
 

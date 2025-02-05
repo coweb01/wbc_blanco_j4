@@ -275,9 +275,7 @@ if ( ComponentHelper::getComponent('com_flexicontent', true)->enabled === 1 ) {
 /******     Custom Field muss den Namen headerimg / cat-headerimg haben                          ****/
 /****************************************************************************************************/
 
-if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=article') !== false ||
-    strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->link, 'view=category') !== false)
-{
+if ($view == 'article' || $view == 'category' || $view == 'form') {
     $input = Factory::getApplication()->input;
     $id = $input->get('id', 0, 'UINT');
     $context = 'com_content.article';
@@ -285,17 +283,20 @@ if (strpos($activeMenu->link, 'com_content') !== false &&  strpos($activeMenu->l
 
     switch ($view) {
         case 'article':
-        case 'form':
-            $item    = $app->bootComponent('com_content')->getMVCFactory()->createModel('Article', 'Administrator')->getItem($id);
-            $context = 'com_content.article';
-            $arrayKey['header'] = 'headerimg';
-            $arrayKey['content'] = 'content-pos-right';
-            break;
-        case 'category':
-            $item    = $app->bootComponent('com_categories')->getMVCFactory()->createModel('Category', 'Administrator', ['ignore_request' => true])->getItem($id);
-            $context = 'com_content.categories';
-            $arrayKey['header'] = 'cat-headerimg';
-            break;
+            case 'form':
+                $item    = $app->bootComponent('com_content')->getMVCFactory()->createModel('Article', 'Administrator')->getItem($id);
+                $context = 'com_content.article';
+                $arrayKey['header']  = 'headerimg';
+                $arrayKey['content'] = 'content-pos-right';
+                $arrayKey['bottom']  = 'content-pos-bottom';
+                break;
+            case 'category':
+                $item    = $app->bootComponent('com_categories')->getMVCFactory()->createModel('Category', 'Administrator', ['ignore_request' => true])->getItem($id);
+                $context = 'com_content.categories';
+                $arrayKey['header']  = 'cat-headerimg';
+                $arrayKey['content'] = 'cat-content-pos-right';
+                $arrayKey['bottom']  = 'cat-content-pos-bottom';
+                break;
     }
     // alle Custom Fields des Beitrags oder der Kategorie
     $fields = FieldsHelper::getFields($context, $item, true);

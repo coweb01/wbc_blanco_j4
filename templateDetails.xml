@@ -233,42 +233,48 @@
 				<field
 					name="color1"
 					type="color"
-					default="#ffffff"
+					format="rgba"
+					default="rgb(20, 73, 98)"
 					label="TPL_WBC_BLANCO_J4_COLOR1_LABEL"
 					description="TPL_WBC_BLANCO_J4_COLOR1_DESC"
 				/>
 				<field
 					name="color2"
 					type="color"
-					default="#ffffff"
+					format="rgba"
+					default="rgba(255, 255, 255, 1)"
 					label="TPL_WBC_BLANCO_J4_COLOR2_LABEL"
 					description="TPL_WBC_BLANCO_J4_COLOR2_DESC"
 				/>
 				<field
 					name="color3"
 					type="color"
-					default="#ffffff"
+					format="rgba"
+					default="rgba(255, 255, 255, 1)"
 					label="TPL_WBC_BLANCO_J4_COLOR3_LABEL"
 					description="TPL_WBC_BLANCO_J4_COLOR3_DESC"
 				/>
 				<field
 					name="color4"
 					type="color"
-					default="#ffffff"
+					format="rgba"
+					default="rgba(255, 255, 255, 1)"
 					label="TPL_WBC_BLANCO_J4_COLOR4_LABEL"
 					description="TPL_WBC_BLANCO_J4_COLOR3_DESC"
 				/>
 				<field
 					name="color5"
 					type="color"
-					default="#ffffff"
+					format="rgba"
+					default="rgba(255, 255, 255, 1)"
 					label="TPL_WBC_BLANCO_J4_COLOR5_LABEL"
 					description="TPL_WBC_BLANCO_J4_COLOR3_DESC"
 				/>
 				<field
 					name="backgroundcolor"
 					type="color"
-					default="#ffffff"
+					format="rgba"
+					default="rgba(255, 255, 255, 1)"
 					label="TPL_WBC_BLANCO_J4_BACKGROUND_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_BACKGROUND_COLOR_DESC"
 				/>
@@ -276,7 +282,8 @@
 				<field
 					name="backgroundcolormain"
 					type="color"
-					default="#ffffff"
+					format="rgba"
+					default="rgba(255, 255, 255, 1)"
 					label="TPL_WBC_BLANCO_J4_BACKGROUND_MAIN_COLOR_LABEL"
 					description="TPL_WBC_BLANCO_J4_BACKGROUND_MAIN_COLOR_DESC"
 				/>
