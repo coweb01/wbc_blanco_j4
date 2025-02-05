@@ -41,6 +41,7 @@ $fields             = $this->item->jcfields; // Felder des Artikels holen format
 $selectedFields     = $params->get('select_customfield');
 $noTabs             = true;
 $htmlausgabe        = array();
+$tabsdata           = array();
 $i                  = 0;
 
 if ($selectedFields) {
@@ -225,8 +226,9 @@ if ($selectedFields) {
     <?php } ?>
 
     <?php // nur ausgewählte Felder werden als Accordion / Tab gerendert ?>
-    <?php echo LayoutHelper::render('wbc_blanco_template.accordiontabsub', $tabsdata); ?>
-
+    <?php if(!empty($tabsdata)) : ?>
+        <?php echo LayoutHelper::render('wbc_blanco_template.accordiontabsub', $tabsdata); ?>
+    <?php endif; ?>
     <?php if ($info == 1 || $info == 2) : ?>
         <?php if ($useDefList) : ?>
             <?php echo LayoutHelper::render('joomla.content.info_block', ['item' => $this->item, 'params' => $params, 'position' => 'below']); ?>
