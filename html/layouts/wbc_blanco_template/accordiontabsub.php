@@ -11,20 +11,21 @@ use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 
 HTMLHelper::_('bootstrap.tab');
 
-$params            = $displayData->params;
-$collapse_first_item = $params->get('collapse_first_item');
-$mediapath         = 'media/templates/site/wbc_blanco_j4/';
-$item              = $displayData->item;
-$htmlausgabe       = $displayData->htmlausgabe;
-$i                 = 0;
+$params                 = $displayData->params;
+$mediapath              = 'media/templates/site/wbc_blanco_j4/';
+$item                   = $displayData->item;
+$htmlausgabe            = $displayData->htmlausgabe;
+$i                      = 0;
 
-$wa                = Factory::getApplication()->getDocument()->getWebAssetManager();
+$wa                     = Factory::getApplication()->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('accordiontab', $mediapath . 'css/accordiontab.css');
 
 ?>
 <?php ksort($htmlausgabe); // Array sortieren Feld kontaktdaten immer als erstes ausgeben ! ?>
 
 <?php if ($params->get('layout_customfields') == 0) :   // Accordion ?>
+<?php $collapse_first_item    = $params->get('collapse_first_item'); ?>
+
 <div class="accordion" id="FieldsAccordion-<?php echo $item->id; ?>">
     <?php foreach ($htmlausgabe as $field) : ?>
         <div class="accordion-item">
