@@ -38,6 +38,12 @@ foreach ($field->subform_rows as $subform_row) {
 
     // Iterate over each sub field inside of that row
     foreach ($subform_row as $subfield) {
+
+        // Skip empty fields
+        if(empty($subfield->value) || trim($subfield->value) === '') {
+            continue;
+        }
+
         $class       = trim($subfield->params->get('render_class', ''));
         $layout      = trim($subfield->params->get('layout', 'render'));
         $fieldtyp    = trim($subfield->type);

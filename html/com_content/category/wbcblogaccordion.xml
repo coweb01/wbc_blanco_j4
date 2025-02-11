@@ -163,7 +163,7 @@
 				description="JGLOBAL_BLOG_CLASS_NOTE_DESC"
 				parentclass="stack span-2-inline"
 				validate="CssIdentifier"
-				default=""
+				default=" "
 			/>
 
 			<field
