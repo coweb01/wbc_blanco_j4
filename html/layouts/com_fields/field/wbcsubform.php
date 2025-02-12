@@ -25,6 +25,10 @@ if (!array_key_exists('field', $displayData)) {
 }
 $field = $displayData['field'];
 
+$label = '';
+if ( $field->params->get('showlabel') == 1) {
+    $label = '<span class="wbc__field-label pe-3' . $field->params->get('label_render_class').'">' . $field->label . '</span>';
+}
 $result = '';
 $context = $field->context;
 
@@ -38,7 +42,7 @@ foreach ($field->subform_rows as $subform_row) {
 
     // Iterate over each sub field inside of that row
     foreach ($subform_row as $subfield) {
-
+        
         // Skip empty fields
         if(empty($subfield->value) || trim($subfield->value) === '') {
             continue;
@@ -76,6 +80,7 @@ foreach ($field->subform_rows as $subform_row) {
 
 <?php if (trim($result) != '') : ?>
     <div class="wbc__subform-fields mb-3 <?php echo trim($field->params->get('render_class', ''));?>">
+        <?php echo $label; ?>
         <?php echo $result; ?>
 </div>
 <?php endif; ?>
