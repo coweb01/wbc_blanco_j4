@@ -39,7 +39,7 @@
 				name="layout_customfields"
 				type="radio"
 				label="WBC_FIELD_LAYOUT_CUSTOMFIELDS_LABEL"
-				default="1"
+				default="0"
 				filter="integer"
 				description="WBC_FIELD_LAYOUT_CUSTOMFIELDS_DESC"
 				parentclass="stack span-2"
@@ -308,7 +308,7 @@
 				label="TPL_WBC_BLANCO_FIELD_SHOW_LINKED_TAGS_LABEL"
 				description="TPL_WBC_BLANCO_FIELD_SHOW_LINKED_TAGS_DESC"
 				validate="options"
-				default="1"
+				default="0"
 				>
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
