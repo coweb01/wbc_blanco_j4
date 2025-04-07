@@ -46,12 +46,12 @@ $bootstrapColclass      = "col-" . $bootstrapSize;
     ?>
         <?php
         if ($module->showtitle) : ?>
-        <<?php echo $headerTag; ?> class="page-header">
-            <div class="container">
+        <div class="container">
+            <<?php echo $headerTag; ?> class="page-header">
                 <span class="mod-icon"></span>
                 <span class="mod-title"><?php echo $module->title; ?></span>
-            </div>
-        </<?php echo $headerTag; ?>>
+            </<?php echo $headerTag; ?>> 
+        </div>
         <?php
         endif;
         ?>
