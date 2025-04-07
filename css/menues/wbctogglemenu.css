@@ -89,7 +89,6 @@
     border-color: white;
 }
 
-
 .wbc-toggle-container.wbc-bg-hell {
     background-color: rgba(255, 255, 255, 0.95);
     color: var(--bs-dark,black);

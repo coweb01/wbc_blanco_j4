@@ -135,15 +135,17 @@ if ($selectedFields) {
 
     }
     // HTML für Gruppen 
-    foreach ($fieldsGroups as $group) {
-        $index                           = $i2. '-' . $group['title']; 
-        $htmlausgabe[$index]['headline'] = $group['title'];
-        $htmlausgabe[$index]['id']       = $group['id'];
-        $htmlausgabe[$index]['content']  = '';  
-        $gfields = $group['fields'];
-        foreach ($gfields as $field) {             
-            $htmlausgabe[$index]['content'] .= FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field));
-        $i2++;
+    if (!empty($fieldsGroups)) {
+        foreach ($fieldsGroups as $group) {
+            $index                           = $i2. '-' . $group['title']; 
+            $htmlausgabe[$index]['headline'] = $group['title'];
+            $htmlausgabe[$index]['id']       = $group['id'];
+            $htmlausgabe[$index]['content']  = '';  
+            $gfields = $group['fields'];
+            foreach ($gfields as $field) {             
+                $htmlausgabe[$index]['content'] .= FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field));
+            $i2++;
+            }
         }
     }
 
