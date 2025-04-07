@@ -33,7 +33,7 @@ $attributes   = [];
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseScript('wbc.togglemenu', $mediapath. 'js/menues/wbctogglemenu.js',[],[]);
-$wa->registerAndUseStyle('wbc.togglemenu', $mediapath. 'css/menues/wbctogglemenu.css',[],['template.user']);
+$wa->registerAndUseStyle('wbc.togglemenu', $mediapath. 'css/menues/wbctogglemenu.css',[],[]);
 
 $attributes['class']  = 'wbc-nav-toggle nav ' .$class_sfx;
 
