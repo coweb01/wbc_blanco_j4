@@ -83,6 +83,29 @@ if (!$params->exists('show_publishing_options')) {
     <?php endif; ?>
     <?php if (!$isBuerger) : // normales Formular wird angezeigt ?>
     <form action="<?php echo Route::_('index.php?option=com_content&a_id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-vertical">
+        <div class="my-3">
+            <button type="button" class="btn btn-primary" data-submit-task="article.apply">
+                <span class="icon-check" aria-hidden="true"></span>
+                <?php echo Text::_('JSAVE'); ?>
+            </button>
+            <button type="button" class="btn btn-primary" data-submit-task="article.save">
+                <span class="icon-check" aria-hidden="true"></span>
+                <?php echo Text::_('JSAVEANDCLOSE'); ?>
+            </button>
+            <?php if ($this->showSaveAsCopy) : ?>
+                <button type="button" class="btn btn-primary" data-submit-task="article.save2copy">
+                    <span class="icon-copy" aria-hidden="true"></span>
+                    <?php echo Text::_('JSAVEASCOPY'); ?>
+                </button>
+            <?php endif; ?>
+            <button type="button" class="btn btn-danger" data-submit-task="article.cancel">
+                <span class="icon-times" aria-hidden="true"></span>
+                <?php echo Text::_('JCANCEL'); ?>
+            </button>
+            <?php if ($params->get('save_history', 0) && $this->item->id) : ?>
+                <?php echo $this->form->getInput('contenthistory'); ?>
+            <?php endif; ?>
+        </div>
         <fieldset>
             <?php echo HTMLHelper::_('uitab.startTabSet', $this->tab_name, ['active' => 'editor', 'recall' => true, 'breakpoint' => 768]); ?>
 
@@ -222,6 +245,29 @@ if (!$params->exists('show_publishing_options')) {
     <?php $layoutData['item'] = $this->item; ?>
     <?php $layoutData['data'] = $this; ?>
     <form action="<?php echo Route::_('index.php?option=com_content&a_id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-vertical">
+        <div class="my-3">
+            <button type="button" class="btn btn-primary" data-submit-task="article.apply">
+                <span class="icon-check" aria-hidden="true"></span>
+                <?php echo Text::_('JSAVE'); ?>
+            </button>
+            <button type="button" class="btn btn-primary" data-submit-task="article.save">
+                <span class="icon-check" aria-hidden="true"></span>
+                <?php echo Text::_('JSAVEANDCLOSE'); ?>
+            </button>
+            <?php if ($this->showSaveAsCopy) : ?>
+                <button type="button" class="btn btn-primary" data-submit-task="article.save2copy">
+                    <span class="icon-copy" aria-hidden="true"></span>
+                    <?php echo Text::_('JSAVEASCOPY'); ?>
+                </button>
+            <?php endif; ?>
+            <button type="button" class="btn btn-danger" data-submit-task="article.cancel">
+                <span class="icon-times" aria-hidden="true"></span>
+                <?php echo Text::_('JCANCEL'); ?>
+            </button>
+            <?php if ($params->get('save_history', 0) && $this->item->id) : ?>
+                <?php echo $this->form->getInput('contenthistory'); ?>
+            <?php endif; ?>
+        </div>
         <fieldset>
             <?php echo LayoutHelper::render('wbc_blanco_template.edit.buergercontent', $layoutData); ?>           
             <?php echo LayoutHelper::render('wbc_blanco_template.edit.buergerparams', $this); ?>
