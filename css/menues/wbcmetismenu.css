@@ -207,6 +207,7 @@
 }
 .wbcmetismenu.mod-menu .mm-collapse:not(.wbc-col) > li.parent .mm-toggler {
   display: inline-flex;
+  font-size: 1rem;
 }
 .wbcmetismenu.mod-menu .mm-collapse:not(.wbc-col) > li.parent > ul {
   position: relative;
@@ -324,6 +325,10 @@
 .wbc-multicolumn-metismenu .wbcmulticolumn .mm-collapse h3 {
   text-align: center;
   margin: 1rem 0;
+}
+
+#OffcanvasMenuend.offcanvas.show .wbcmetismenu-item.level-1 {
+  flex-wrap: wrap;
 }
 
 #OffcanvasMenuend:not(.offcanvas.show) .wbcmulticolumn .wbcmetismenu-submenu.sublevel-2,
