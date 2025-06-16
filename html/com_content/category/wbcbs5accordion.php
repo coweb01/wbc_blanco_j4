@@ -169,12 +169,11 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
             <?php foreach ($categorys as $category ) : ?>
                 <?php $count_items++; ?>
                         
-                <div class="wbc__com-content-category-accordion__item wbc__accordion-items wbc-blog-item accordion-item"
-                    itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="wbc__com-content-category-accordion__item wbc__accordion-items wbc-blog-item accordion-item">
                         <?php /* Accordion Button */ ?>
                         <?php if ( $category['catid'] != $cid ) { ?>
                             <div id="heading_<?php echo $category['catid'];?>" class="accordion-header" >
-                                <h3 class="wbc_item_title mb-0" itemprop="name">
+                                <h3 class="wbc_item_title mb-0">
                                     <button class="accordion-button text-left <?php echo ($count_items == 1 && $collapse_first_item) ? '' :'collapsed';?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<?php echo $category['catid'];?>" aria-expanded="true" aria-controls="collapse-<?php echo $category['catid'];?>">
                                         <?php echo $this->escape($category['category_title']); ?>
                                     </button> 

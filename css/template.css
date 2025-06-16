@@ -16416,6 +16416,7 @@ joomla-dialog.loaded .joomla-dialog-body {
 .wbc__subform-fields .wbc-name .field-value {
   font-weight: inherit;
 }
+.field-value, .field-label { display: inline-block}
 
 .wbc__fields-container .wbc-symbol::before,
 .wbc__subform-fields .wbc-symbol::before,

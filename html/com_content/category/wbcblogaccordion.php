@@ -166,13 +166,12 @@ if (!empty($this->params->get('wbc_alternate_category_title') )) {
                 }
             ?>
 
-            <div class="accordion-item wbc-blog-item clearfix"
-                itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+            <div class="accordion-item wbc-blog-item clearfix">
                 <?php if ($isUnpublished) : ?>
                     <div class="system-unpublished">
                 <?php endif; ?>
 
-                <h2 class="accordion-header" itemprop="name">
+                <h2 class="accordion-header">
                     <button class="accordion-button <?php echo ($count_items == 1 && $collapse_first_item == 1) ? '' : 'collapsed'; ?>" type="button"
                     data-bs-toggle="collapse" data-bs-target="#collapse-<?php echo $item->id; ?>" aria-expanded="<?php echo ($count_items == 1 && $collapse_first_item == 1) ? 'true' : 'false'; ?>" aria-controls="collapse-<?php echo $item->id; ?>">
                     <?php if (!empty($selectfield)) : ?>

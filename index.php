@@ -79,7 +79,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
     <jdoc:include type="scripts" />
 
 <!-- ***************************************************************************************************** -->
-<!-- *****     copyright Template www.das-webconcept.de       2023                                    **** -->
+<!-- *****     copyright Template www.das-webconcept.de       2025                                    **** -->
 <!-- ***************************************************************************************************** -->
 </head>
 <body id="top" class="body-01 <?php echo $classbody; ?>">
@@ -130,7 +130,7 @@ if (($this->params->get('hidecontentwrapper') == 1)) {
             <!-- ****************************************************************************************************** -->
             <!-- *     Header                                                                                         * -->
             <!-- ****************************************************************************************************** -->
-            <header class="header <?php echo ($navbarHeaderWidth == 1) ? 'header-fluid' : '';?>" aria-label="<?php echo Text::_('TPL_WBC_BLANCO_J4_HEADER'); ?>">
+            <header class="header <?php echo ($navbarHeaderWidth == 1) ? 'header-fluid' : '';?> ">
                 <div class="header-top <?php echo ($fixedheader == 1) ? 'sps' :'';?>" >
 
                     <?php if ($this->countModules('header-top-01') ) : ?>
