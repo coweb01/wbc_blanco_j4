@@ -51,7 +51,7 @@ if ($params->get('show_customfields') == 2) {
 
 <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
 
-<div class="wbc__accitem-content">
+<div class="wbc__accitem-lead-content item-content">
     <?php if ($isUnpublished) : ?>
         <div class="system-unpublished">
     <?php endif; ?>
