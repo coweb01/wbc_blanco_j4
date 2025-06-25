@@ -1,12 +1,10 @@
 <?php
 /**********************************************************
  * Template Blanco
- * Template Joomla 4
- * Kunde:
+ * Template Joomla 4/5
  * Author: Claudia Oerter / Viviana Menzel
- * Stand: 10 / 2023
- * Version: 1.1.1
- * copyright Template das webconcept
+ * Stand: 06 / 2025
+ * Copyright Template das-webconcept
  **********************************************************/
 defined('_JEXEC') or die;
 
