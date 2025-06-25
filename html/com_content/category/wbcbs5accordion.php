@@ -183,10 +183,12 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                         <?php /* Ende Accordion Button */ ?>
 
                         <div id="collapse-<?php echo $category['catid'];?>" class="accordion-collapse collapse <?php echo ($count_items == 1 && $collapse_first_item) ? 'show' :'';?>" data-bs-parent="<?php echo $accId;?>">
-                            <?php foreach ( $category['items'] as $wbcitem ) : ?>  
-                                <?php $this->item = $wbcitem; ?>
-                                <?php echo $this->loadTemplate('accitem'); /* Unterkategorien */ ?>
-                            <?php endforeach ?>
+                            <div class="accordion-item-content">
+                                <?php foreach ( $category['items'] as $wbcitem ) : ?>  
+                                    <?php $this->item = $wbcitem; ?>
+                                    <?php echo $this->loadTemplate('accitem'); /* Unterkategorien */ ?>
+                                <?php endforeach ?>
+                            </div>
                         </div>
                         <?php $cid = $category['catid']; ?>    
                 </div>
