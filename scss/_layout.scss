@@ -247,6 +247,9 @@ body {
     .item-content {
       padding: 25px;
     }
+    .fields {
+      padding: 25px;
+    }
   }
   .item-image {
     flex: 0 0 auto;
@@ -507,9 +510,10 @@ body {
   }
 
   .fields {
-    padding: 25px;
+    padding: 25px 0;
   }
 }
+
 
 /* Images */
 .float-start.item-image {
