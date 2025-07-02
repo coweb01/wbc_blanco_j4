@@ -54,7 +54,6 @@
   line-height: 1.5;
   padding: 0.5rem;
 }
-.wbcmetismenu.mod-menu .wbcmetismenu-item.level-1 { flex-wrap: nowrap;}
 .wbcmetismenu.mod-menu .wbcmetismenu-item.parent {
   position: static;
 }
