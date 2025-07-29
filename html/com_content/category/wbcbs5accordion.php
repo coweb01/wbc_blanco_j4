@@ -28,8 +28,6 @@ $mediapath    = 'media/templates/site/'. $template->template .'/';
 /** @var \Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $doc->getWebAssetManager();
 $wa->registerAndUseScript('wbc.convertsvg', $mediapath. 'js/wbcconvertsvg.js', [], [], []);
-//$wa->addInlineScript($inlineScript, [ 'name' => 'init.svg' ]);
-
 
 $this->category->text = $this->category->description;
 $app->triggerEvent('onContentPrepare', [$this->category->extension . '.categories', &$this->category, &$this->params, 0]);
