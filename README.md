@@ -50,3 +50,13 @@ Gibt Customfields eines Beitrags als Accordion oder Tab aus.
 --- neu 13.9.2024 C.Oerter ---
 ###content-right 
 Damit kann ein Modul innerhalb der Beitragszeile rechts ausgerichtet angezeigt werden. Das Modul kann über ein Customfield im Beitrag ausgewählt werden. (Customfield muss manuuell angelegt werden.)
+
+##Klassen für Categoryinformationen
+-- 5.8.2025 C.Oerter --
+Zu besseren Formatierung folgede Klassen geändert hinzugefügt:
+
+category-desc-row: äussere Container flex (neu)
+wbc__category-title: wbc-category-title (geändert)
+category-text: wbc-category-text (geändert)
+picture Tag: wbc-categoryimg (geändert)
+img Tag: p-3 
