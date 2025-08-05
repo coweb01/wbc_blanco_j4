@@ -61,25 +61,25 @@ if (!empty($this->params->get('wbc_alternate_category_title') )) {
     <?php endif; ?>
 
     <?php if ($beforeDisplayContent || $afterDisplayContent || $this->params->get('show_description', 1) || $this->params->def('show_description_image', 1) || $this->params->get('show_category_title', 1)) : ?>
-        <div class="category-desc d-flex align-items-center">
+        <div class="category-desc category-desc-row d-flex align-items-center mb-4">
           
             <?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
-                <picture class="p-3">
+                <picture class="wbc-categoryimg">
                 <?php echo LayoutHelper::render(
                     'joomla.html.image',
                     [
                         'src' => $this->category->getParams()->get('image'),
                         'alt' => empty($this->category->getParams()->get('image_alt')) && empty($this->category->getParams()->get('image_alt_empty')) ? false : $this->category->getParams()->get('image_alt'),
-                        'class' => 'wbc-categoryimg',
+                        'class' => 'p-3',
                     ]
                 ); ?>
                 </picture>
             <?php endif; ?>
 
             <?php if ($this->params->get('show_category_title', 1) || ($this->params->get('show_description') && $this->category->description)) : ?>
-            <div class="flex-grow-1">
+            <div class="wbc-category-content">
                 <?php if ($this->params->get('show_category_title', 1)) : ?>
-                    <<?php echo $htag; ?> class="wbc__category-title">
+                    <<?php echo $htag; ?> class="wbc-category-title">
                             <?php echo $this->category->title; ?> 
                     </<?php echo $htag; ?>>
                 <?php endif; ?>
@@ -88,7 +88,7 @@ if (!empty($this->params->get('wbc_alternate_category_title') )) {
                     <?php echo $beforeDisplayContent; ?>
 
                     <?php if ($this->params->get('show_description') && $this->category->description) : ?>
-                        <div class="wbc-category-desc">
+                        <div class="wbc-category-text">
                             <?php echo HTMLHelper::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
                         </div>
                     <?php endif; ?>
@@ -102,6 +102,7 @@ if (!empty($this->params->get('wbc_alternate_category_title') )) {
                 <?php $this->category->tagLayout = new FileLayout('joomla.content.tags'); ?>
                 <?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
             <?php endif; ?>
+
         </div>
     <?php endif; ?>
       
