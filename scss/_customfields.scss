@@ -17,11 +17,14 @@ $wbc-fa-style: 900;
     margin-bottom: .8rem;
 }
 
+.field-value, .field-label { display: inline-block; }
+
 .wbc__fields-container .wbc-name .field-value,
 .wbc__subform-fields .wbc-name .field-value
 {
     font-weight: inherit;
 }
+
 .wbc__fields-container .wbc-symbol::before,
 .wbc__subform-fields .wbc-symbol::before,
 .field-value.wbc-symbol::before
