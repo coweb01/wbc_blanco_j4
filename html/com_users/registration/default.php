@@ -78,19 +78,21 @@ function ausgabe ($field, $form) { ?>
                         </div>
                     </fieldset>
                 </div>
-                <div class="col-12 col-md-6 mb-3 card">
-                    <div class="card-header">
-                        <h3><?php echo Text::_('WBC_HEADLINE_REGISTRATION_USERDATA');?></h3>
-                    </div>
-                    <div class="card-body">
-                        <fieldset class="wbc__userdata" name="userdata">
-                            <?php ausgabe( $this->form->getField('username'), $form); ?>
-                            <?php ausgabe( $this->form->getField('email1'), $form); ?>
-                            <div class="mt-5">
-                            <?php ausgabe( $this->form->getField('password1'), $form); ?>
-                            <?php ausgabe( $this->form->getField('password2'), $form); ?>
-                            </div>
-                        </fieldset>
+                <div class="col-12 col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><?php echo Text::_('WBC_HEADLINE_REGISTRATION_USERDATA');?></h3>
+                        </div>
+                        <div class="card-body">
+                            <fieldset class="wbc__userdata" name="userdata">
+                                <?php ausgabe( $this->form->getField('username'), $form); ?>
+                                <?php ausgabe( $this->form->getField('email1'), $form); ?>
+                                <div class="mt-5">
+                                <?php ausgabe( $this->form->getField('password1'), $form); ?>
+                                <?php ausgabe( $this->form->getField('password2'), $form); ?>
+                                </div>
+                            </fieldset>
+                        </div>
                     </div>   
                 </div>
         </div>
