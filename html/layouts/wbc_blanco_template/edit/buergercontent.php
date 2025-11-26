@@ -15,7 +15,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 
 $app        = Factory::getApplication();
-$form       = $displayData['data']->getForm();
+$form       = $displayData['form'] ?? null;
 $fieldSets  = $form->getFieldsets();
 $item       = $displayData['item'];
 if (empty($fieldSets)) {
