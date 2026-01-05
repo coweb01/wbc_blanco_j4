@@ -52,9 +52,9 @@ function ausgabe ($field, $form) { ?>
         <div class="row my-5">
                 <div class="col-12 col-md-6 mb-3">
                     <fieldset class="wbc__profildata card" name="profildata">
-                        <div class="card-header">
-                            <h3><?php echo Text::_('WBC_HEADLINE_REGISTRATION_PROFILDATA');?></h3>
-                        </div>
+                        <label class="card-header h3">
+                           <?php echo Text::_('WBC_HEADLINE_REGISTRATION_PROFILDATA');?>
+                        </label>
                         <div class="card-body">
                             <?php 
                                 ausgabe($this->form->getField('name'), $form); 
@@ -80,8 +80,8 @@ function ausgabe ($field, $form) { ?>
                 </div>
                 <div class="col-12 col-md-6 mb-3">
                     <div class="card">
-                        <div class="card-header">
-                            <h3><?php echo Text::_('WBC_HEADLINE_REGISTRATION_USERDATA');?></h3>
+                        <div class="card-header h3">
+                            <?php echo Text::_('WBC_HEADLINE_REGISTRATION_USERDATA');?>
                         </div>
                         <div class="card-body">
                             <fieldset class="wbc__userdata" name="userdata">
@@ -99,7 +99,7 @@ function ausgabe ($field, $form) { ?>
         <div class="row mb-5">
             <?php echo $this->form->renderFieldset('privacyconsent'); ?>
             <?php if ($this->captchaEnabled) : ?>
-            <?php echo $this->form->renderFieldset('captcha'); ?>
+                <?php echo $this->form->renderFieldset('captcha'); ?>
             <?php endif; ?>
             <div class="com-users-registration__submit control-group mt-3">
                 <div class="controls">
