@@ -136,7 +136,7 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
         <?php /* Kategorien gruppieren */ ?>
         <?php foreach ($this->intro_items as $key => &$item) : ?>
             <?php // print_r($item); ?>
-           <?php if ( $item->catid == $catid ) {
+            <?php if ( $item->catid == $catid ) {
                     $i2++;
                     $categorys[$i]['items'][$i2] = $item;                     
                       
@@ -172,27 +172,27 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                 <?php $count_items++; ?>
                         
                 <div class="wbc__com-content-category-accordion__item wbc__accordion-items wbc-blog-item accordion-item">
-                        <?php /* Accordion Button */ ?>
-                        <?php if ( $category['catid'] != $cid ) { ?>
-                            <div id="heading_<?php echo $category['catid'];?>" class="accordion-header" >
-                                <h3 class="wbc_item_title mb-0">
-                                    <button class="accordion-button text-left <?php echo ($count_items == 1 && $collapse_first_item) ? '' :'collapsed';?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<?php echo $category['catid'];?>" aria-expanded="true" aria-controls="collapse-<?php echo $category['catid'];?>">
-                                        <?php echo $this->escape($category['category_title']); ?>
-                                    </button> 
-                                </h3>
-                            </div>              
-                        <?php  } ?>
-                        <?php /* Ende Accordion Button */ ?>
+                    <?php /* Accordion Button */ ?>
+                    <?php if ( $category['catid'] != $cid ) { ?>
+                        <div id="heading_<?php echo $category['catid'];?>" class="accordion-header" >
+                            <h3 class="wbc_item_title mb-0">
+                                <button class="accordion-button text-left <?php echo ($count_items == 1 && $collapse_first_item) ? '' :'collapsed';?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<?php echo $category['catid'];?>" aria-expanded="true" aria-controls="collapse-<?php echo $category['catid'];?>">
+                                    <?php echo $this->escape($category['category_title']); ?>
+                                </button> 
+                            </h3>
+                        </div>              
+                    <?php  } ?>
+                    <?php /* Ende Accordion Button */ ?>
 
-                        <div id="collapse-<?php echo $category['catid'];?>" class="<?php echo $accordionCollapseClass;?> <?php echo ($count_items == 1 && $collapse_first_item) ? 'show' :'';?>" data-bs-parent="<?php echo $accId;?>">
-                            <div class="accordion-item-content">
-                                <?php foreach ( $category['items'] as $wbcitem ) : ?>  
-                                    <?php $this->item = $wbcitem; ?>
-                                    <?php echo $this->loadTemplate('accitem'); /* Unterkategorien */ ?>
-                                <?php endforeach ?>
-                            </div>
+                    <div id="collapse-<?php echo $category['catid'];?>" class="<?php echo $accordionCollapseClass;?> <?php echo ($count_items == 1 && $collapse_first_item) ? 'show' :'';?>" data-bs-parent="<?php echo $accId;?>">
+                        <div class="accordion-item-content">
+                            <?php foreach ( $category['items'] as $wbcitem ) : ?>  
+                                <?php $this->item = $wbcitem; ?>
+                                <?php echo $this->loadTemplate('accitem'); /* Unterkategorien */ ?>
+                            <?php endforeach ?>
                         </div>
-                        <?php $cid = $category['catid']; ?>    
+                    </div>
+                    <?php $cid = $category['catid']; ?>    
                 </div>
             <?php endforeach; ?>
         </div>

@@ -58,65 +58,91 @@ function ausgabe ($field, $form) { ?>
     <?php endif; ?>
 
     <form id="member-profile" action="<?php echo Route::_('index.php?option=com_users'); ?>" method="post" class="com-users-profile__edit-form form-validate form-horizontal well" enctype="multipart/form-data">
-            <div class="row my-5">
+        <div class="row my-5">
                 <div class="col-12 col-md-6 mb-3">
-                    <fieldset class="wbc__profildata card" name="profildata">
-                        <div class="card-header">
-                            <h3><?php echo Text::_('WBC_BLANCO_HEADLINE_REGISTRATION_PROFILDATA');?></h3>
-                        </div>
-                        <div class="card-body">
-                            <?php 
-                                ausgabe($this->form->getField('name'), $form); 
-                            ?>  
-                            <?php ausgabe($this->form->getField('address1','profile'), $form); ?>	
-                            <div class="row plzcity">
-                                <div class="col-12 col-sm-4">
-                                    <?php ausgabe($this->form->getField('postal_code','profile'), $form); ?> 
-                                </div>
-                                <div class="col">
-                                    <?php ausgabe($this->form->getField('city','profile'), $form); ?> 
-                                </div>
-                            </div>    
-                        
-                            <?php ausgabe($this->form->getField('phone','profile'), $form); ?>
+                    <div class="card">
+                        <fieldset class="wbc__profildata" name="profildata">
+                            <legend class="card-header">
+                                <?php echo Text::_('WBC_BLANCO_HEADLINE_REGISTRATION_PROFILDATA');?>
+                            </legend>
+                            <div class="card-body">
+                                <?php 
+                                    ausgabe($this->form->getField('name'), $form); 
+                                ?>  
+                                <?php ausgabe($this->form->getField('address1','profile'), $form); ?>	
+                                <div class="row plzcity">
+                                    <div class="col-12 col-sm-4">
+                                        <?php ausgabe($this->form->getField('postal_code','profile'), $form); ?> 
+                                    </div>
+                                    <div class="col">
+                                        <?php ausgabe($this->form->getField('city','profile'), $form); ?> 
+                                    </div>
+                                </div>    
                             
-                            <div class="small">
-                                <?php echo $this->form->getField('institution','com_fields', $form)->description; ?>
-                            </div> 
-                        
-                            <?php ausgabe($this->form->getField('institution','com_fields'), $form); ?>
-                        </div>
-                    </fieldset>
+                                <?php ausgabe($this->form->getField('phone','profile'), $form); ?>
+                                
+                                <div class="small">
+                                    <?php echo $this->form->getField('institution','com_fields', $form)->description; ?>
+                                </div> 
+                            
+                                <?php ausgabe($this->form->getField('institution','com_fields'), $form); ?>
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6 mb-3">
                     <div class="card">
-                        <div class="card-header">
-                            <h3><?php echo Text::_('WBC_HEADLINE_REGISTRATION_USERDATA');?></h3>
-                        </div>
-                        <div class="card-body">
-                            <fieldset class="wbc__userdata" name="userdata">
+                        <fieldset class="wbc__userdata" name="userdata">
+                            <legend class="card-header">
+                                <?php echo Text::_('WBC_HEADLINE_REGISTRATION_USERDATA');?>
+                            </legend>
+                            <div class="card-body">
                                 <?php ausgabe( $this->form->getField('username'), $form); ?>
                                 <?php ausgabe( $this->form->getField('email1'), $form); ?>
                                 <div class="mt-5">
                                 <?php ausgabe( $this->form->getField('password1'), $form); ?>
                                 <?php ausgabe( $this->form->getField('password2'), $form); ?>
-                                </div>
-                            </fieldset>
-                        </div> 
+                            </div> 
+                        </fieldset>
                     </div>  
                 </div>
         </div>
+        <?php // Ausgabe der Passkey Plugins ?>
+       
+        <?php if ($this->form->getFieldset('webauthn')) : ?>
+        <?php $fieldsets = $this->form->getFieldsets(); ?>
+        <div class="row mb-5 wbc-webauthn">
+            <div class="col mb-3">
+                <div class="card">
+                    <fieldset id="fieldset-webauthn">
+                        <legend class="card-header"><?php echo Text::_($fieldsets['webauthn']->label); ?></legend>
+                        <div class="card-body">
+                            <?php if ($fieldsets['webauthn']->description) { ?>
+                                <div class="description"><?php echo Text::_($fieldsets['webauthn']->description);?></div>
+                            <?php } ?>
+                            <?php echo $this->form->renderFieldset('webauthn'); ?>
+                        </div>
+                    </fieldset>
+                </div>   
+            </div>
+        </div>
+        <?php endif; ?>
         <div class="row mb-5">
             <div class="col mb-3">
-                 <?php if ($this->mfaConfigurationUI) : ?>
-                    <fieldset class="com-users-profile__multifactor">
-                        <legend><?php echo Text::_('COM_USERS_PROFILE_MULTIFACTOR_AUTH'); ?></legend>
-                        <?php echo $this->mfaConfigurationUI ?>
-                    </fieldset>
-                <?php endif; ?>
+                    <?php if ($this->mfaConfigurationUI) : ?> 
+                        <div class="card">
+                            <fieldset class="com-users-profile__multifactor">
+                                <legend class="card-header"><?php echo Text::_('COM_USERS_PROFILE_MULTIFACTOR_AUTH'); ?></legend>
+                                <div class="card-body">
+                                    <?php echo $this->mfaConfigurationUI ?>
+                                </div>
+                            </fieldset>
+                        </div>
+                    <?php endif; ?>
+                
                 <?php echo $this->form->renderFieldset('privacyconsent'); ?>
                
-                <div class="com-users-profile__edit-submit control-group">
+                <div class="com-users-profile__edit-submit control-group mt-3">
                     <div class="controls">
                         <button type="submit" class="btn btn-primary validate" name="task" value="profile.save">
                             <span class="icon-check" aria-hidden="true"></span>
