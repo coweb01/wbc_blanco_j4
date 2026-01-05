@@ -207,28 +207,7 @@ a:not([class]) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-/*
-button,
-.btn {
-  color: var(--linkcolorbtn);
-  background-color: var(--linkbgcolorbtn);
-  border-color: var(--linkbordercolorbtn);
-  border-radius: var(--borderradius);
-  &:hover {
-    color: var(--hovercolorbtn);
-    background-color: var(--hoverbgcolorbtn);
-    border-color: var(--hoverbordercolorbtn);
-  }
-  &:active,
-  &:not(:disabled):not(.disabled).active,
-  &:not(:disabled):not(.disabled):active,
-  .show > .btn.dropdown-toggle {
-    color: var(--activecolorbtn);
-    background-color: var(--activebgcolorbtn);
-    border-color: var(--activebordercolorbtn);
-  }
-}
-*/
+ 
 .btn-outline-primary {
   color: var(--linkcolorbtn);
   background-color: transparent;
@@ -325,3 +304,23 @@ blockquote:before {
   font-family: Georgia, serif;
 }
 
+/*---------------------  Definition Lists Horizontal ---------------------------*/
+
+@include media-breakpoint-up(xl) {
+  dl.dl-horizontal {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    dt {
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
+
+    dd {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      padding: 0 0 0 $cassiopeia-grid-gutter;
+      margin-bottom: 0;
+    }
+  }
+}
