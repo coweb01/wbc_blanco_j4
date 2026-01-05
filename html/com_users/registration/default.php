@@ -26,15 +26,14 @@ function ausgabe ($field, $form) { ?>
     <?php if (!$field) { return; } ?>
     <?php $label        = $field->getAttribute('label'); ?>
     <?php $field->hint  = $label; ?>
-    <?php $form->setFieldAttribute($field->fieldname, 'hint', $label); ?>
 
     <?php if ($field->type == 'Password') { ?>
-        <div class="mb-3"> 
-            <?php echo $field->input;  ?>
+        <div class="wbc-password mb-3"> 
+            <?php echo $field->input; ?>  
         </div>  
     <?php } else { ?>
         <div class="form-floating mb-3"> 
-            <?php echo $field->input;  ?>  
+            <?php echo $field->input; ?>  
             <?php echo $field->label; ?>
         </div>
     <?php } ?>    
