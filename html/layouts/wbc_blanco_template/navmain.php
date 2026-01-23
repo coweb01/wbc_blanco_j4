@@ -61,7 +61,7 @@
     <?php endif; ?>
 <?php endif;  ?>
 
-<div id="OffcanvasMenu<?php echo $offcanvas_pos; ?>" class="offcanvas-<?php echo $toggle_offcanvas_pos; ?> offcanvas <?php echo $offcanvas_color; ?>" tabindex="-1" aria-labelledby="wbc-bs5-offcanvasLabel">
+<div id="OffcanvasMenu<?php echo $offcanvas_pos; ?>" class="offcanvas-<?php echo $toggle_offcanvas_pos; ?> offcanvas <?php echo $offcanvas_color; ?>" tabindex="-1" role="dialog" aria-labelledby="wbc-bs5-offcanvasLabel">
     <div class="offcanvas-header">
         <p class="h5 offcanvas-title" id="wbc-bs5-offcanvasLabel"><?php echo Text::_('TPL_WBC_MENU'); ?></p>
         <button type="button" class="btn-close btn-close<?php echo $btn_color; ?>" data-bs-dismiss="offcanvas" aria-label="<?php echo Text::_('TPL_WBC_MENU_CLOSE_TXT'); ?>"></button>
