@@ -17,6 +17,10 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 $app       = Factory::getApplication();
 $form      = $displayData->getForm();
+
+if (empty($form)) {
+    return;
+}
 $fieldSets = $form->getFieldsets();
 $helper    = $displayData->get('useCoreUI', false) ? 'uitab' : 'bootstrap';
 

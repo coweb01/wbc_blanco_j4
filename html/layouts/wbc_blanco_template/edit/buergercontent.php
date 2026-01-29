@@ -15,15 +15,16 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 
 $app        = Factory::getApplication();
-$form       = $displayData['form'] ?? null;
-$fieldSets  = $form->getFieldsets();
+$form       = $displayData['data']->getForm();
 $item       = $displayData['item'];
-if (empty($fieldSets)) {
+
+if (empty($form)) {
     return;
 }
-
+// Render the basic fields com_content article edit form
 echo $form->renderField('title'); 
 echo $form->renderField('catid'); 
+
 if (is_null($item->id)) : 
     echo $form->renderField('alias'); 
 endif; 

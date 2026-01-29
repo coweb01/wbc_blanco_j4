@@ -12,7 +12,7 @@
  * Author: c.oerter
  * Version: 1.0
  * 
- * Für die Bürgebereiche wird ein angepasstes Formular angezeigt.
+ * Für die Bürgebereiche  Benutzergruppe (Bürger) wird ein angepasstes Formular angezeigt.
  */
 
 defined('_JEXEC') or die;
