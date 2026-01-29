@@ -12,7 +12,7 @@
  * Author: c.oerter
  * Version: 1.0
  * 
- * Für die Bürgebereiche  Benutzergruppe (Bürger) wird ein angepasstes Formular angezeigt.
+ * Für die Bürgebereiche wird ein angepasstes Formular angezeigt.
  */
 
 defined('_JEXEC') or die;
@@ -63,6 +63,10 @@ if ($isBuerger) {
         document.addEventListener('DOMContentLoaded', function() {
         var buttons = document.querySelectorAll('.tf-gallery-actions .btn-group.add-button .add.dropdown-toggle');
         buttons.forEach(function(button) {
+        button.disabled = true;
+        });
+        var selectButtons = document.querySelectorAll('.field-media-wrapper .button-select');
+        selectButtons.forEach(function(button) {
         button.disabled = true;
         });
     });
@@ -242,8 +246,8 @@ if (!$params->exists('show_publishing_options')) {
     </form>
     <?php else : ?>
     <?php // Bürgerbereiche Formular wird angezeigt ?>
-    <?php $layoutData['item'] = $this->item; ?>
-    <?php $layoutData['data'] = $this; ?>
+    <?php $layoutData['item'] = $this->item;?>
+    <?php $layoutData['data'] = $this;?>
     <form action="<?php echo Route::_('index.php?option=com_content&a_id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-vertical">
         <div class="my-3">
             <button type="button" class="btn btn-primary" data-submit-task="article.apply">
