@@ -1,6 +1,11 @@
 /* ===========================
 FORMULAR STYLES
 ========================== */
+.btn {
+  --bs-btn-disabled-bg: #d6e7da;
+  --bs-btn-disabled-border-color: #d6e7da;
+  --bs-btn-disabled-color:#202120;
+}
 
 .form-control {
   padding: .6rem 3rem .6rem 1rem;
