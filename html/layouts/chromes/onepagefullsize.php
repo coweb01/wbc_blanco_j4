@@ -23,16 +23,28 @@ $ankerid        = ($params->get('header_class', '')) ? htmlspecialchars($params-
 
 <!-- ***************  start   section **********************  -->
 <div id="<?php echo $ankerid; ?>" class="onepage-fullsize <?php echo $moduleClassSfx; ?>">
-	<div class="container-fluid">
-		<div class="row">
-			<?php
-			if ($module->showtitle) : ?>
-			<div class="container">
-				<h3 class="page-header"><?php echo $module->title; ?></h3>
-			</div>
-			<?php endif; ?>
-			<div class="module-content"><?php echo $module->content; ?></div>
+<?php if ($bgimage != '') : ?>
+	<div class="onepage-inner" data-speed="8" data-type="background" style="background-image:url('<?php echo $bgimage; ?>')">
+<?php
+else : ?>
+	<div class="onepage-inner <?php echo $moduleClassSfx; ?>">
+<?php endif; ?>
+
+	<?php if ($module->showtitle) : ?>
+		<div class="container">
+		<<?php echo $headerTag; ?> class="page-header">
+			<span class="mod-icon"></span>
+			<span class="mod-title"><?php echo $module->title; ?></span>
+		</<?php echo $headerTag; ?>> 
 		</div>
+	<?php endif; ?>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="module-content"><?php echo $module->content; ?></div>
+			</div>
+		</div>
+		
 	</div>
 </div>
 <!-- ***************  end   section **********************  -->
