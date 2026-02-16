@@ -254,7 +254,7 @@ if ($selectedFields) {
 
         </div>
         <?php if ( $noTabs == false && count($htmlausgabe) > 0 ) : ?>
-            <div class="wbcblogfields-fields">
+            <div class="wbcblogfields-fields fields">
                 <?php echo LayoutHelper::render('wbc_blanco_template.accordiontabsub', $tabsdata); ?>
             </div>
         <?php endif; ?>
