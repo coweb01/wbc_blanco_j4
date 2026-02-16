@@ -6,13 +6,13 @@
 		<element>wbc_blanco_j4</element>
 		<type>template</type>
 		<client>site</client>
-		<version>2.0.18</version>
+		<version>2.0.19</version>
 		<infourl title="wbc_blaco_j4 Template">https://github.com/coweb01/wbc_blanco_j4</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/coweb01/wbc_blanco_j4/releases/download/2.0.18/wbc_blanco_j4-2.0.18.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/coweb01/wbc_blanco_j4/releases/download/2.0.19/wbc_blanco_j4-2.0.19.zip</downloadurl>
 		</downloads>
 		<tags>stable</tags>
-		<sha512>a5f45dda52821a945e762a4c56dbb94992f66e4d0b9fed4eae29b005a053ef49329454e1e105e1ce2620cb5a6034ca412b068ebc9451be129fe7370164770f9e</sha512>
+		<sha512>3de6d7914dbce29895d3fea1d33bf13f758f132c80762b4400c7839b1a1ead2fdab205d0d478e99ee47efebd748a9154eb868e55a354f4871d31c0fdafdde94c</sha512>
 		<maintainer>Claudia Oerter</maintainer>
 		<maintainerurl>https://www.das-webconcept.de</maintainerurl>
 		<php_minimum>7.2.5</php_minimum>
