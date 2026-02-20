@@ -9,6 +9,7 @@
  * 
  * * * 
  * zusätzliche Parameter:
+ * 
  * $params->get('select_customfield'); // ausgewählte Felder
  * $params->get(trunc_introtext); // gekürzter Intro Text
  * $params->get('chars_number'); // Anzahl zeichen
@@ -16,6 +17,7 @@
  * $params->get('trunc_leadingtext'); // Leadingtext kürzen
  * $params->get('chars_number_leading'); // Anzahl zeichen
  * $params->get('linked_tags'); // Tags verlinken oder nicht 
+ * $params->get('wbc_alternate_category_title'); // alternativer Kategorie Titel
  */
 
 defined('_JEXEC') or die;
@@ -85,7 +87,7 @@ if (!empty($this->params->get('wbc_alternate_category_title') )) {
             <div class="wbc-category-content">
                 <?php if ($this->params->get('show_category_title', 1)) : ?>
                     <<?php echo $htag; ?> class="wbc-category-title">
-                            <?php echo $this->category->title; ?> 
+                            <?php echo $category->title; ?> 
                     </<?php echo $htag; ?>>
                 <?php endif; ?>
                 <?php echo $afterDisplayTitle; ?>
