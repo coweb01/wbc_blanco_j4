@@ -80,7 +80,7 @@ if (!empty($this->params->get('wbc_alternate_category_title') )) {
             <div class="wbc-category-content">
                 <?php if ($this->params->get('show_category_title', 1)) : ?>
                     <<?php echo $htag; ?> class="wbc-category-title">
-                            <?php echo $this->category->title; ?> 
+                            <?php echo $category_title; ?> 
                     </<?php echo $htag; ?>>
                 <?php endif; ?>
                 <?php echo $afterDisplayTitle; ?>
