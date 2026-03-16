@@ -45,7 +45,7 @@ $tabsdata           = array();
 $i                  = 0;
 
 if ($selectedFields) {
-    $fields_tabs_pos = array();
+    $field_tabs_pos = array();
     if (isset($selectedFields)) {
         foreach ($fields as $key => $field) {
             //  alle Felder aus der dem Array entfernen die nicht ausgewählt sind.
@@ -60,7 +60,7 @@ if ($selectedFields) {
     foreach ($field_tabs_pos as $field) {
         $contactfield = preg_match('/kontakt/', $field->name);
         $tabfields =  preg_match('/tab/', $field->name);
-       
+    
         switch ($field->type == 'subform') {
             case 'subform':
                 if (!isset($field->subform_rows)) {
@@ -76,7 +76,7 @@ if ($selectedFields) {
                             if ($contactfield) {
                                 $index = '0'. '-' . $field->name;
                             } else { $index = $i2. '-' . $field->name; $i2++;}
-                           
+                        
                             $htmlausgabe[$index]['content'] = FieldsHelper::render($field->context, 'field.'.$field->params->get('layout','render'), array('field' => $field)); 
                             $htmlausgabe[$index]['headline'] = $field->label;
                             
